@@ -25,8 +25,8 @@ public class CameraManager : MonoBehaviour
     }
 
     void Update()
-    {
-        // もしSpaceキーが押されたならば、
+    { 
+        //番号１
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // 各カメラオブジェクトの有効フラグを逆転(true→false,false→true)させる
@@ -35,6 +35,7 @@ public class CameraManager : MonoBehaviour
             Camera3.SetActive(false);
             Camera4.SetActive(false);
         }
+        //番号２
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             Camera2.SetActive(true);
@@ -42,6 +43,7 @@ public class CameraManager : MonoBehaviour
             Camera3.SetActive(false);
             Camera4.SetActive(false);
         }
+        //番号３
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Camera3.SetActive(true);
@@ -49,6 +51,7 @@ public class CameraManager : MonoBehaviour
             Camera2.SetActive(false);
             Camera4.SetActive(false);
         }
+        //番号４
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             Camera4.SetActive(true);
