@@ -556,10 +556,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
-    width: 1
-    height: 1
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -736,10 +736,10 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.5
+    y: 0.5
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -884,7 +884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &585202449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -989,14 +989,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c6af6a66406d54a81b09616cf3f378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera1: {fileID: 1303375392}
   Camera1: {fileID: 1303375390}
   Camera2: {fileID: 530427371}
   Camera3: {fileID: 1259364739}
   Camera4: {fileID: 499570763}
-  CameraNumber1: {fileID: 1296520492}
-  CameraNumber2: {fileID: 717580622}
-  CameraNumber3: {fileID: 585202450}
-  CameraNumber4: {fileID: 1569392370}
+  newviewport:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &717580620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1017,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &717580621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1318,8 +1321,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 0.5
+    height: 0.5
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1371,7 +1374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1296520491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1479,8 +1482,8 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
+    y: 0.5
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1636,7 +1639,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1569392369
 RectTransform:
   m_ObjectHideFlags: 0
