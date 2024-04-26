@@ -15,8 +15,6 @@ public class CameraManager : MonoBehaviour
     public Text CameraNumber3;
     public Text CameraNumber4;
 
-    //カメラの切り替え
-
     void Start()
     {
         Camera1 = GameObject.Find("Camera1");
