@@ -10,12 +10,13 @@ public class CameraManager : MonoBehaviour
     [SerializeField] GameObject Camera3;
     [SerializeField] GameObject Camera4;
 
+    Transform tf;
+    Camera cam;
+
     public Text CameraNumber1;
     public Text CameraNumber2;
     public Text CameraNumber3;
     public Text CameraNumber4;
-
-    //カメラの切り替え
 
     void Start()
     {
@@ -32,6 +33,9 @@ public class CameraManager : MonoBehaviour
         CameraNumber2.enabled = false;
         CameraNumber3.enabled = false;
         CameraNumber4.enabled = false;
+
+        tf = this.gameObject.GetComponent<Transform>();
+        cam = this.gameObject.GetComponent<Camera>();
     }
 
     void Update()
