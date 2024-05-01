@@ -511,6 +511,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &476533667
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.6992254
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.8800106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.016752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412928, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4106678240147412929, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: m_Name
+      value: CameraManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
 --- !u!1 &499570763
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,57 +1003,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585202448}
   m_CullTransparentMesh: 1
---- !u!1 &713119764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 713119765}
-  - component: {fileID: 713119766}
-  m_Layer: 0
-  m_Name: CameraManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &713119765
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713119764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.6992254, y: 4.8800106, z: -12.016752}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &713119766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 713119764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52c6af6a66406d54a81b09616cf3f378, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Camera1: {fileID: 1303375390}
-  Camera2: {fileID: 530427371}
-  Camera3: {fileID: 1259364739}
-  Camera4: {fileID: 499570763}
-  CameraNumber1: {fileID: 1296520492}
-  CameraNumber2: {fileID: 717580622}
-  CameraNumber3: {fileID: 585202450}
-  CameraNumber4: {fileID: 1569392370}
 --- !u!1 &717580620
 GameObject:
   m_ObjectHideFlags: 0
