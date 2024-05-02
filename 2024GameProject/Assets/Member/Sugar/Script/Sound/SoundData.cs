@@ -7,11 +7,26 @@ public class SoundData : MonoBehaviour
     int S_MASTER = 10;
     int S_BGM = 10;
     int S_SE = 10;
- 
+
+    // シーン切り替えても破棄
+    // されないようにする
+    public static SoundData instance;
+
     private void Awake()
     {
-        // シーン切り替え時に破棄されないように
         DontDestroyOnLoad(gameObject);
+        CheckInstance();
+    }
+    void CheckInstance()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     // 値の保存
     // Master
