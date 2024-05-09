@@ -929,6 +929,7 @@ GameObject:
   - component: {fileID: 499570765}
   - component: {fileID: 499570764}
   - component: {fileID: 499570767}
+  - component: {fileID: 499570768}
   m_Layer: 0
   m_Name: Camera4
   m_TagString: Untagged
@@ -1013,8 +1014,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6099678c1a1ac6b48bda940b53e6fce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camMin: 30
-  camMax: 50
+  CamMin: 30
+  CamMax: 50
+  MaxrotPos: 10
+  MinrotPos: -10
+--- !u!114 &499570768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499570763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c725fe963b534280bc779c2e7f23fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _direction: {x: 0, y: 0, z: 1}
+  _origin: {x: 0, y: 0, z: 0}
+  _baseColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
+  _waveColor: {r: 1, g: 0.19999999, b: 0.8860531, a: 0}
+  _waveAmplitude: 2
+  _waveExponent: 22
+  _waveInterval: 20
+  _waveSpeed: 10
+  _addColor: {r: 0, g: 0, b: 0, a: 1}
+  shader: {fileID: 4800000, guid: 6d12e7ab487bf49d18b89038af741a18, type: 3}
 --- !u!1 &507217964
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1150,7 @@ GameObject:
   - component: {fileID: 530427373}
   - component: {fileID: 530427372}
   - component: {fileID: 530427375}
+  - component: {fileID: 530427376}
   m_Layer: 0
   m_Name: Camera2
   m_TagString: Untagged
@@ -1208,8 +1235,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6099678c1a1ac6b48bda940b53e6fce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camMin: 30
-  camMax: 50
+  CamMin: 30
+  CamMax: 50
+  MaxrotPos: 30
+  MinrotPos: -30
+--- !u!114 &530427376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530427371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c725fe963b534280bc779c2e7f23fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _direction: {x: 0, y: 0, z: 1}
+  _origin: {x: 0, y: 0, z: 0}
+  _baseColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
+  _waveColor: {r: 1, g: 0.2, b: 0.2, a: 0}
+  _waveAmplitude: 2
+  _waveExponent: 22
+  _waveInterval: 20
+  _waveSpeed: 10
+  _addColor: {r: 0, g: 0, b: 0, a: 1}
+  shader: {fileID: 4800000, guid: 6d12e7ab487bf49d18b89038af741a18, type: 3}
 --- !u!1 &563432110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,6 +1801,7 @@ GameObject:
   - component: {fileID: 1259364741}
   - component: {fileID: 1259364740}
   - component: {fileID: 1259364743}
+  - component: {fileID: 1259364744}
   m_Layer: 0
   m_Name: Camera3
   m_TagString: Untagged
@@ -1833,8 +1886,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6099678c1a1ac6b48bda940b53e6fce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camMin: 30
-  camMax: 50
+  CamMin: 30
+  CamMax: 50
+  MaxrotPos: 10
+  MinrotPos: -10
+--- !u!114 &1259364744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259364739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c725fe963b534280bc779c2e7f23fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _direction: {x: 0, y: 0, z: 1}
+  _origin: {x: 0, y: 0, z: 0}
+  _baseColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
+  _waveColor: {r: 1, g: 0.90345687, b: 0.19999999, a: 0}
+  _waveAmplitude: 2
+  _waveExponent: 22
+  _waveInterval: 20
+  _waveSpeed: 10
+  _addColor: {r: 0, g: 0, b: 0, a: 1}
+  shader: {fileID: 4800000, guid: 6d12e7ab487bf49d18b89038af741a18, type: 3}
 --- !u!1 &1296520490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,6 +2004,7 @@ GameObject:
   - component: {fileID: 1303375392}
   - component: {fileID: 1303375391}
   - component: {fileID: 1303375394}
+  - component: {fileID: 1303375395}
   m_Layer: 0
   m_Name: Camera1
   m_TagString: MainCamera
@@ -2010,8 +2089,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6099678c1a1ac6b48bda940b53e6fce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camMin: 30
-  camMax: 50
+  CamMin: 30
+  CamMax: 50
+  MaxrotPos: 30
+  MinrotPos: -30
+--- !u!114 &1303375395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303375390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c725fe963b534280bc779c2e7f23fb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _direction: {x: 0, y: 0, z: 1}
+  _origin: {x: 0, y: 0, z: 0}
+  _baseColor: {r: 0.2, g: 0.2, b: 0.2, a: 0}
+  _waveColor: {r: 0.02352941, g: 0.15923828, b: 0.93333334, a: 0}
+  _waveAmplitude: 2
+  _waveExponent: 22
+  _waveInterval: 10
+  _waveSpeed: 10
+  _addColor: {r: 0, g: 0, b: 0, a: 1}
+  shader: {fileID: 4800000, guid: 6d12e7ab487bf49d18b89038af741a18, type: 3}
 --- !u!1 &1500588284
 GameObject:
   m_ObjectHideFlags: 0
