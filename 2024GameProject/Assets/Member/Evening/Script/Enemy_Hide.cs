@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class Enemy_Hide : MonoBehaviour
 {
+
+    Transform tr;
+
+
     SkinnedMeshRenderer skin;
 
-    private bool camScan;
 
+    GameObject duct;
+    Vector3 ductPos;
+
+
+    private bool camScan;
     private float scanTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        skin = GetComponent<SkinnedMeshRenderer>();
+
+        tr = GetComponent<Transform>();
+
+        skin = GetComponentInChildren<SkinnedMeshRenderer>();
+
+        duct = GameObject.FindGameObjectWithTag("duct");
+        ductPos = duct.transform.position;
+
+        tr.position = ductPos;
         skin.enabled = false;
 
-        camScan = false;
 
+        camScan = false;
         scanTime = 0;
     }
 
@@ -29,6 +45,8 @@ public class Enemy_Hide : MonoBehaviour
             camScan = true;
         }
 
+        EnemyMove();
+
 
         if (camScan == true)
         {
@@ -36,6 +54,14 @@ public class Enemy_Hide : MonoBehaviour
             scanTime += 1 / 60f;
         }
     }
+
+    void EnemyMove()
+    {
+        
+    }
+
+
+
 
     void CamScan()
     {
