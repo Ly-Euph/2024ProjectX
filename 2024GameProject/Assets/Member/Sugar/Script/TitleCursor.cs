@@ -5,6 +5,7 @@ using UnityEngine;
 public class TitleCursor : MonoBehaviour
 {
     [SerializeField] RectTransform[] ObjRect;  // 座標参照のtext
+    [SerializeField] GameObject OptionBox;     // オプションを開く
     RectTransform myObjRect;                   // 動かすtext
     int num;
     int Max;
@@ -52,7 +53,7 @@ public class TitleCursor : MonoBehaviour
 
                     break;
                 case 1: // OPTIONボタン
-
+                    OptionBox.SetActive(true);
                     break;
                 case 2: // ENDボタン 
 #if UNITY_EDITOR
