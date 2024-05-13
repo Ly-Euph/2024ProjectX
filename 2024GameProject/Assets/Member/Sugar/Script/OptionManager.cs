@@ -51,11 +51,9 @@ public class OptionManager : MonoBehaviour
     }
     void Start()
     {
+        this.gameObject.GetComponent<Canvas>().enabled = false;
         // 音量の値を保存しているスクリプト
         Sdata = GameObject.Find("OptionData").GetComponent<SoundData>();
-
-        // FPS60を維持するように
-        Application.targetFrameRate = 60;
 
         // 値を受け取る
         M_num = Sdata.Para_Master;
@@ -66,11 +64,14 @@ public class OptionManager : MonoBehaviour
 
         // 毎シーン最初に初期化するため
         // 変更後に一回表示をけす
-       this.gameObject.SetActive(false);
+        this.gameObject.GetComponent<Canvas>().enabled = true;
+        this.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        if(this.gameObject.GetComponent<Canvas>().enabled == false) { return; }
+
         InputKEY();
         RectPos();
     }
@@ -88,7 +89,7 @@ public class OptionManager : MonoBehaviour
     private void InputKEY()
     {
         // 閉じる
-        if (Input.GetKeyDown(KeyCode.Escape)) { this.gameObject.SetActive(false); }
+       // if (Input.GetKeyDown(KeyCode.Escape)) { this.gameObject.SetActive(false); }
 
         // 選択
         if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
