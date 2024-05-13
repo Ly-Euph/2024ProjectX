@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TitleCursor : MonoBehaviour
 {
+    [SerializeField] Fade fade;                // FadeCanvas
     [SerializeField] RectTransform[] ObjRect;  // 座標参照のtext
+    [SerializeField] GameObject OptionBox;     // オプションを開く
     RectTransform myObjRect;                   // 動かすtext
     int num;
     int Max;
@@ -49,10 +52,10 @@ public class TitleCursor : MonoBehaviour
             switch (num)
             {
                 case 0: // STARTボタン
-
+                    fade.FadeIn(0.5f, () => SceneManager.LoadScene("StageSelectScene"));
                     break;
                 case 1: // OPTIONボタン
-
+                    OptionBox.SetActive(true);
                     break;
                 case 2: // ENDボタン 
 #if UNITY_EDITOR
@@ -73,6 +76,7 @@ public class TitleCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (OptionBox.activeSelf == true) { return; }
         InputKey();
         RectPos();
     }
