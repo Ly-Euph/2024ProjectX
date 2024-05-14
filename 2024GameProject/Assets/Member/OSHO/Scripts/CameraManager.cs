@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
+    [Header("Camera関連をここに入れといて")]
+
     [SerializeField] GameObject[] Camera = new GameObject[3];
-    [SerializeField] Text[] CameraNumber = new Text[3];
 
-    SonarFx sf1;
-    SonarFx sf2;
-    SonarFx sf3;
-    SonarFx sf4;
+    [Header("Text関連をここに入れといて")]
 
-    int i = 0;
+    [SerializeField] Text CameraText;
 
+    SonarFx[] sf = new SonarFx[4];
     void Start()
     {
         Camera[0] = GameObject.Find("Camera1");
@@ -27,38 +26,24 @@ public class CameraManager : MonoBehaviour
         Camera[2].SetActive(false);
         Camera[3].SetActive(false);
 
-        //テキスト2,3,4は最初falseに
-        CameraNumber[1].enabled = false;
-        CameraNumber[2].enabled = false;
-        CameraNumber[3].enabled = false;
+        sf[0] = Camera[0].GetComponent<SonarFx>();
+        sf[1] = Camera[1].GetComponent<SonarFx>();
+        sf[2] = Camera[2].GetComponent<SonarFx>();
+        sf[3] = Camera[3].GetComponent<SonarFx>();
 
-        sf1 = Camera[0].GetComponent<SonarFx>();
-        sf2 = Camera[1].GetComponent<SonarFx>();
-        sf3 = Camera[2].GetComponent<SonarFx>();
-        sf4 = Camera[3].GetComponent<SonarFx>();
-
-        //Sonartx2,3,4をfalseに
-        sf1.enabled = false;
-        sf2.enabled = false;
-        sf3.enabled = false;
-        sf4.enabled = false;
+        //Sonartx1,2,3,4をfalseに
+        SonarOff();
     }
 
     void Update()
     { 
         if(Input.GetKey(KeyCode.LeftShift))
         {
-            sf1.enabled = true;
-            sf2.enabled = true;
-            sf3.enabled = true;
-            sf4.enabled = true;
+            SonarOn();
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
-            sf1.enabled = false;
-            sf2.enabled = false;
-            sf3.enabled = false;
-            sf4.enabled = false;
+            SonarOff();
         }
         //番号１
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -94,18 +79,7 @@ public class CameraManager : MonoBehaviour
         Camera[3].SetActive(false);
 
         //Textをenabledで管理
-        CameraNumber[0].enabled = true;
-        CameraNumber[1].enabled = false;
-        CameraNumber[2].enabled = false;
-        CameraNumber[3].enabled = false;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            sf1.enabled = true;
-            sf2.enabled = false;
-            sf3.enabled = false;
-            sf4.enabled = false;
-        }
+        CameraText.text = "カメラ１:";
     }
 
     void SetCamera2()
@@ -115,18 +89,7 @@ public class CameraManager : MonoBehaviour
         Camera[2].SetActive(false);
         Camera[3].SetActive(false);
 
-        CameraNumber[1].enabled = true;
-        CameraNumber[0].enabled = false;
-        CameraNumber[2].enabled = false;
-        CameraNumber[3].enabled = false;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            sf2.enabled = true;
-            sf3.enabled = false;
-            sf4.enabled = false;
-            sf1.enabled = false;
-        }
+        CameraText.text = "カメラ２:";
     }
 
     void SetCamera3()
@@ -136,18 +99,7 @@ public class CameraManager : MonoBehaviour
         Camera[1].SetActive(false);
         Camera[3].SetActive(false);
 
-        CameraNumber[2].enabled = true;
-        CameraNumber[0].enabled = false;
-        CameraNumber[1].enabled = false;
-        CameraNumber[3].enabled = false;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            sf3.enabled = true;
-            sf4.enabled = false;
-            sf1.enabled = false;
-            sf2.enabled = false;
-        }
+        CameraText.text = "カメラ３:";
     }
 
     void SetCamera4()
@@ -157,17 +109,20 @@ public class CameraManager : MonoBehaviour
         Camera[1].SetActive(false);
         Camera[2].SetActive(false);
 
-        CameraNumber[3].enabled = true;
-        CameraNumber[0].enabled = false;
-        CameraNumber[1].enabled = false;
-        CameraNumber[2].enabled = false;
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        CameraText.text = "カメラ４:";
+    }
+    void SonarOff()
+    {
+        for(int i = 0; i < sf.Length; i++)
         {
-            sf4.enabled = true;
-            sf1.enabled = false;
-            sf2.enabled = false;
-            sf3.enabled = false;
+            sf[i].enabled = false;
+        }
+    }
+    void SonarOn()
+    {
+        for(int i = 0; i < sf.Length; i++)
+        {
+            sf[i].enabled = true;
         }
     }
 }

@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    Camera cam;
+    [Header("ここでカメラのズーム機能を設定してほしい")]
 
     public int CamMin = 30;
     public int CamMax = 50;
 
+    float rad = 180 / 3.14f;
+
     //カメラの横振りの制御をシリアライズ化
+
+    [Header("ここでカメラの振り幅を設定してほしい")]
+
     [SerializeField] float MaxrotPos = 50;
     [SerializeField] float MinrotPos = -50;
+
+    Camera cam;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +30,6 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.localRotation.y);
         if(Input.GetKey(KeyCode.W) && cam.fieldOfView > CamMin)
         {
             cam.fieldOfView -= 0.5f;
@@ -32,12 +39,12 @@ public class CameraMove : MonoBehaviour
         {
             cam.fieldOfView += 0.5f;
         }
-        if(Input.GetKey(KeyCode.A) && transform.localRotation.y * 180 / 3.14>= MinrotPos)
+        if(Input.GetKey(KeyCode.A) && transform.localRotation.y * rad>= MinrotPos)
         {
             transform.Rotate(new Vector3(0, -1, 0));
   
         }
-        if(Input.GetKey(KeyCode.D) && transform.localRotation.y * 180 / 3.14 <= MaxrotPos)
+        if(Input.GetKey(KeyCode.D) && transform.localRotation.y * rad <= MaxrotPos)
         {
             transform.Rotate(new Vector3(0, 1, 0));
         }
