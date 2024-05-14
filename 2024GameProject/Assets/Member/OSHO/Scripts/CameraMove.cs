@@ -6,10 +6,8 @@ public class CameraMove : MonoBehaviour
 {
     [Header("ここでカメラのズーム機能を設定してほしい")]
 
-    public int CamMin = 30;
-    public int CamMax = 50;
-
-    float rad = 180 / 3.14f;
+    [SerializeField] int CamMin = 30;
+    [SerializeField] int CamMax = 50;
 
     //カメラの横振りの制御をシリアライズ化
 
@@ -18,6 +16,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] float MaxrotPos = 50;
     [SerializeField] float MinrotPos = -50;
 
+    private float rad = 180 / 3.14f;
     Camera cam;
 
 

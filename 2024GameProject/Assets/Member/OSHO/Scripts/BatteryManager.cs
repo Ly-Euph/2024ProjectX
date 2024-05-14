@@ -8,7 +8,8 @@ public class BatteryManager : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] Image img;
     [SerializeField] Text text;
-    int battery = 100;
+
+    private int battery = 100;
 
     void Start()
     {
