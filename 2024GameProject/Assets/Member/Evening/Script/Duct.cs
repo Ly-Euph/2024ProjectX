@@ -34,7 +34,6 @@ public class Duct : MonoBehaviour
         if(timer>=5f)
         {
             random = Random.Range(1, 5);
-            Debug.Log(random);
 
             switch(random)
             {
