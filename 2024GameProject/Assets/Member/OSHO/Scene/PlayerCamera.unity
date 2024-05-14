@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &16656623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4019805472791657793, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+  m_PrefabInstance: {fileID: 1068880017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &63916005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4981665154453346735, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+  m_PrefabInstance: {fileID: 341354651}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114918940
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +229,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114918940}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &186003522 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3048294394454597736, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+  m_PrefabInstance: {fileID: 1802310382}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &315428650
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 4981665154453346704, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _waveInterval
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4981665154453346735, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
       propertyPath: m_Name
@@ -1158,6 +1177,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _waveInterval
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
 --- !u!1 &1174161935
@@ -1625,6 +1648,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656037831}
   m_CullTransparentMesh: 1
+--- !u!1 &1676399189 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6952115353413192689, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+  m_PrefabInstance: {fileID: 1704745427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1704745427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1632,6 +1660,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _waveInterval
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6952115353413192689, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
       propertyPath: m_Name
       value: Camera2
@@ -1802,6 +1834,10 @@ PrefabInstance:
     - target: {fileID: 3048294394454597741, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _waveInterval
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
@@ -2009,6 +2045,22 @@ PrefabInstance:
       propertyPath: CameraText
       value: 
       objectReference: {fileID: 4934399631925916963}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Camera.Array.data[0]
+      value: 
+      objectReference: {fileID: 63916005}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Camera.Array.data[1]
+      value: 
+      objectReference: {fileID: 1676399189}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Camera.Array.data[2]
+      value: 
+      objectReference: {fileID: 16656623}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Camera.Array.data[3]
+      value: 
+      objectReference: {fileID: 186003522}
     - target: {fileID: 7090738400668403722, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
       propertyPath: m_RootOrder
       value: 5
