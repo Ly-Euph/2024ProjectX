@@ -12,7 +12,7 @@ public class Enemy_Hide : MonoBehaviour
 
 
     GameObject duct;
-    Vector3 ductPos;
+    //Vector3 ductPos;
 
 
     private bool camScan;
@@ -26,10 +26,10 @@ public class Enemy_Hide : MonoBehaviour
 
         skin = GetComponentInChildren<SkinnedMeshRenderer>();
 
-        duct = GameObject.FindGameObjectWithTag("duct");
-        ductPos = duct.transform.position;
+        //duct = GameObject.FindGameObjectWithTag("duct");
+        //ductPos = duct.transform.position;
 
-        tr.position = ductPos;
+        //tr.position = ductPos;
         skin.enabled = false;
 
 
