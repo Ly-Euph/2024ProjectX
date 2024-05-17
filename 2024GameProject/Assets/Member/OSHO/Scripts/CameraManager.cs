@@ -48,7 +48,6 @@ public class CameraManager : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
-            CameraScan();
             Bm.Para_Battery -= 0.05f;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
@@ -133,13 +132,6 @@ public class CameraManager : MonoBehaviour
         for(int i = 0; i < sf.Length; i++)
         {
             sf[i].enabled = true;
-        }
-    }
-    void CameraScan()
-    {
-        for(int i = 0; i < enemy.Length; i++)
-        {
-            enemy[i].GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 }

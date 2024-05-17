@@ -17,13 +17,14 @@ public class CameraMove : MonoBehaviour
     [SerializeField] float MinrotPos = -50;
 
     private float rad = 180 / 3.14f;
-    Camera cam;
 
+    [Header("ƒJƒƒ‰‚Ì”Ô†‚É‰‚¶‚½Prefab‚ğ“ü‚ê‚Ä‚ËB")]
 
+    [SerializeField] Camera cam;
     // Start is called before the first frame update
     void Start()
     {
-        cam = gameObject.GetComponent<Camera>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -37,7 +38,7 @@ public class CameraMove : MonoBehaviour
         {
             cam.fieldOfView += 0.5f;
         }
-        if(Input.GetKey(KeyCode.A) && transform.localRotation.y * rad>= MinrotPos)
+        if(Input.GetKey(KeyCode.A) && transform.localRotation.y * rad >= MinrotPos)
         {
             transform.Rotate(new Vector3(0, -1, 0));
   
