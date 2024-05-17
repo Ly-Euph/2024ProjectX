@@ -31,6 +31,8 @@ public class OptionManager : MonoBehaviour
     int B_num;
     int S_num;
 
+    GameObject obj;
+
     // 毎シーンでオブジェクトを探す
     SoundData Sdata;
 
@@ -53,15 +55,21 @@ public class OptionManager : MonoBehaviour
     {
         this.gameObject.GetComponent<Canvas>().enabled = false;
         // 音量の値を保存しているスクリプト
-        Sdata = GameObject.Find("OptionData").GetComponent<SoundData>();
-
+        if (GameObject.Find("OptionData"))
+        {
+            Sdata = GameObject.Find("OptionData").GetComponent<SoundData>();
+        }
+        else // なければ生成(基本的にタイトルシーンから始めるのでここはデバッグ用)
+        {
+            obj = (GameObject)Resources.Load("OptionData");
+            GameObject instance = (GameObject)Instantiate(obj);
+        }
         // 値を受け取る
         M_num = Sdata.Para_Master;
         B_num = Sdata.Para_Bgm;
         S_num = Sdata.Para_Se;
-
         setVol();
-
+        
         // 毎シーン最初に初期化するため
         // 変更後に一回表示をけす
         this.gameObject.GetComponent<Canvas>().enabled = true;
@@ -119,9 +127,12 @@ public class OptionManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && num== SetPos.Length - 1)
         {
             // 最後に値を保存させる
-            Sdata.Para_Master = M_num;
-            Sdata.Para_Bgm = B_num;
-            Sdata.Para_Se = S_num;
+            if (Sdata)
+            {
+                Sdata.Para_Master = M_num;
+                Sdata.Para_Bgm = B_num;
+                Sdata.Para_Se = S_num;
+            }
 
             this.gameObject.SetActive(false);
         }
