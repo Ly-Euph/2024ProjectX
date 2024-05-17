@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class StageData : ScriptableObject
 {
     public string StageName;  // ステージ名
-    public Image StageImage;  // ステージのサムネS
+    public Sprite StageImage;  // ステージのサムネ
     public string infomation_Level; // 情報(難易度)
     public string infomation_Cam; // 情報(カメラ数)
 
