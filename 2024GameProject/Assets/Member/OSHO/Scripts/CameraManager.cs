@@ -13,9 +13,13 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text CameraText;
 
-    [Header("BatteryManager")]
+    [Header("BatteryManagerを入れてね。")]
 
     [SerializeField] BatteryManager Bm;
+
+    [Header("Enemy関連")]
+
+    [SerializeField] GameObject[] enemy = new GameObject[3]; 
 
     SonarFx[] sf = new SonarFx[4];
     void Start()
@@ -44,6 +48,7 @@ public class CameraManager : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
+            CameraScan();
             Bm.Para_Battery -= 0.05f;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
@@ -128,6 +133,13 @@ public class CameraManager : MonoBehaviour
         for(int i = 0; i < sf.Length; i++)
         {
             sf[i].enabled = true;
+        }
+    }
+    void CameraScan()
+    {
+        for(int i = 0; i < enemy.Length; i++)
+        {
+            enemy[i].GetComponent<Renderer>().material.color = Color.blue;
         }
     }
 }

@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 114918944}
   - component: {fileID: 114918943}
   - component: {fileID: 114918942}
+  - component: {fileID: 114918945}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -229,6 +230,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114918940}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114918945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114918940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c580db5fd384429cdac899152e9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineResources: {fileID: 11400000, guid: d28e70f030b1a634db9a6a6d5478ef19, type: 2}
+  _outlineSettings:
+    _outlineSettings: {fileID: 0}
+    _outlineColor: {r: 1, g: 0, b: 0, a: 1}
+    _outlineWidth: 4
+    _outlineIntensity: 2
+    _outlineAlphaCutoff: 0.9
+    _outlineMode: 0
+  _ignoreLayerMask: 0
+  _cameraEvent: 15
+  _targetCamera: {fileID: 0}
+  _updateRenderers: 0
 --- !u!1 &186003522 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3048294394454597736, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
@@ -246,6 +271,7 @@ GameObject:
   - component: {fileID: 315428654}
   - component: {fileID: 315428653}
   - component: {fileID: 315428652}
+  - component: {fileID: 315428655}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -330,6 +356,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315428650}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &315428655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315428650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c580db5fd384429cdac899152e9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineResources: {fileID: 11400000, guid: d28e70f030b1a634db9a6a6d5478ef19, type: 2}
+  _outlineSettings:
+    _outlineSettings: {fileID: 0}
+    _outlineColor: {r: 1, g: 0, b: 0, a: 1}
+    _outlineWidth: 4
+    _outlineIntensity: 2
+    _outlineAlphaCutoff: 0.9
+    _outlineMode: 0
+  _ignoreLayerMask: 0
+  _cameraEvent: 15
+  _targetCamera: {fileID: 0}
+  _updateRenderers: 0
 --- !u!1 &322352915
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +628,42 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _addColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _addColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _addColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _addColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _baseColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _baseColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _baseColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
+      propertyPath: _baseColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4981665154453346706, guid: 3ae525422f8e4e64e868e0bbb48b8664, type: 3}
       propertyPath: _waveInterval
       value: 100
       objectReference: {fileID: 0}
@@ -644,6 +730,7 @@ GameObject:
   - component: {fileID: 507217968}
   - component: {fileID: 507217967}
   - component: {fileID: 507217966}
+  - component: {fileID: 507217969}
   m_Layer: 3
   m_Name: Capsule
   m_TagString: Untagged
@@ -729,6 +816,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507217964}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &507217969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507217964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c580db5fd384429cdac899152e9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineResources: {fileID: 11400000, guid: d28e70f030b1a634db9a6a6d5478ef19, type: 2}
+  _outlineSettings:
+    _outlineSettings: {fileID: 0}
+    _outlineColor: {r: 1, g: 0, b: 0, a: 1}
+    _outlineWidth: 4
+    _outlineIntensity: 2
+    _outlineAlphaCutoff: 0.9
+    _outlineMode: 0
+  _ignoreLayerMask: 0
+  _cameraEvent: 15
+  _targetCamera: {fileID: 0}
+  _updateRenderers: 0
 --- !u!1 &563432110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1289,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _addColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _addColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _addColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _waveColor.g
+      value: 0.1568358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
+      propertyPath: _waveColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4019805472791657802, guid: b8bdd6bf4aae45947b06f43a12f47038, type: 3}
       propertyPath: _waveInterval
       value: 100
       objectReference: {fileID: 0}
@@ -1195,6 +1330,7 @@ GameObject:
   - component: {fileID: 1174161939}
   - component: {fileID: 1174161938}
   - component: {fileID: 1174161937}
+  - component: {fileID: 1174161940}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1280,6 +1416,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174161935}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1174161940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174161935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 271c580db5fd384429cdac899152e9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineResources: {fileID: 11400000, guid: d28e70f030b1a634db9a6a6d5478ef19, type: 2}
+  _outlineSettings:
+    _outlineSettings: {fileID: 0}
+    _outlineColor: {r: 1, g: 0, b: 0, a: 1}
+    _outlineWidth: 4
+    _outlineIntensity: 2
+    _outlineAlphaCutoff: 0.9
+    _outlineMode: 0
+  _ignoreLayerMask: 0
+  _cameraEvent: 15
+  _targetCamera: {fileID: 0}
+  _updateRenderers: 0
 --- !u!1 &1500588284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,6 +1821,30 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _addColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _addColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _addColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _waveColor.g
+      value: 0.17740631
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
+      propertyPath: _waveColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952115353413192682, guid: 1edce722bceb5b94f8aaa51eec3565d0, type: 3}
       propertyPath: _waveInterval
       value: 100
       objectReference: {fileID: 0}
@@ -1877,6 +2061,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3048294394454597741, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _addColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _addColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _addColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _baseColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _baseColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _baseColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _waveColor.g
+      value: 0.14173675
+      objectReference: {fileID: 0}
+    - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
+      propertyPath: _waveColor.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3048294394454597747, guid: 3ba13c7439ed4ec41815516e7e3388bb, type: 3}
@@ -2097,6 +2321,14 @@ PrefabInstance:
       propertyPath: CameraText
       value: 
       objectReference: {fileID: 4934399631925916963}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: enemy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 315428650}
     - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
       propertyPath: Camera.Array.data[0]
       value: 
