@@ -13,6 +13,10 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text CameraText;
 
+    [Header("BatteryManager")]
+
+    [SerializeField] BatteryManager Bm;
+
     SonarFx[] sf = new SonarFx[4];
     void Start()
     {
@@ -40,6 +44,7 @@ public class CameraManager : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
+            Bm.Para_Battery -= 0.05f;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
