@@ -63,6 +63,7 @@ public class OptionManager : MonoBehaviour
         {
             obj = (GameObject)Resources.Load("OptionData");
             GameObject instance = (GameObject)Instantiate(obj);
+            Sdata = GameObject.Find("OptionData(Clone)").GetComponent<SoundData>();
         }
         // ’l‚ðŽó‚¯Žæ‚é
         M_num = Sdata.Para_Master;
