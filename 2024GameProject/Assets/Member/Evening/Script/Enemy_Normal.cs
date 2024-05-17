@@ -4,37 +4,38 @@ using UnityEngine;
 
 public class Enemy_Normal : MonoBehaviour
 {
-    private Cinemachine.CinemachineDollyCart dolly;
+    private Cinemachine.CinemachineDollyCart dolly;     //Cinemachineのdolly cartを取得
 
-    private Cinemachine.CinemachinePathBase myPath;
-    public Cinemachine.CinemachinePathBase path1;
-    public Cinemachine.CinemachinePathBase path2;
-    public Cinemachine.CinemachinePathBase path3;
-    public Cinemachine.CinemachinePathBase path4;
-    public Cinemachine.CinemachinePathBase path5;
-    public Cinemachine.CinemachinePathBase path6;
+    private Cinemachine.CinemachinePathBase myPath;     //自身のパス
 
-    private Animator anim;
+    public Cinemachine.CinemachinePathBase path1;       //
+    public Cinemachine.CinemachinePathBase path2;       //
+    public Cinemachine.CinemachinePathBase path3;       //
+    public Cinemachine.CinemachinePathBase path4;       //
+    public Cinemachine.CinemachinePathBase path5;       //
+    public Cinemachine.CinemachinePathBase path6;       //上記6つはそれぞれのルート
+
+    private Animator anim;                              //アニメーション
+    private int animNum;                                //アニメーションを管理する数字
+    
+
+    private int stage;                                  
+    private float waitTime;                             //自身の停止時間
 
 
-    private int stage;
-    private float waitTime;
-
-
-    private bool countFlag;
+    private bool countFlag;                             //trueでタイマーが作動
 
 
     // Start is called before the first frame update
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
-        dolly.m_Speed = 0.2f;
+        dolly.m_Speed = 0.2f;           //移動スピード0.2
 
-        anim.SetFloat("EnemyAnim", 2);
+        anim = GetComponent<Animator>();
+        animNum = 0;                    //0のアニメーションを再生(ラン)
 
         myPath = path1;
-
-        anim = gameObject.GetComponent<Animator>();
 
         stage = 0;
 
@@ -51,7 +52,7 @@ public class Enemy_Normal : MonoBehaviour
         this.dolly.m_Path = myPath;
 
         SwitchStage();
-        InputKey();
+        InputKey();         //
         CharactorMove();
 
         if (countFlag == true)
@@ -60,11 +61,12 @@ public class Enemy_Normal : MonoBehaviour
         }
         else if (countFlag == false)
         {
+            animNum = 0;
             dolly.m_Speed = 0.2f;
             Debug.Log("false");
         }
 
-
+        AnimControlle();
     }
 
 
@@ -144,8 +146,7 @@ public class Enemy_Normal : MonoBehaviour
     {
         if (waitTime > 0f && dolly.m_Position >= 2)
         {
-            anim.SetFloat("EnemyAnim", 1);
-
+            animNum = 1;
             Debug.Log("停止");
             countFlag = true;
         }
@@ -162,5 +163,27 @@ public class Enemy_Normal : MonoBehaviour
         countFlag = false;
     }
 
+    void AnimControlle()
+    {
+        switch(animNum)
+        {
+            case 0:
+                anim.ResetTrigger("idle");
+                Debug.Log("Run");
+                anim.SetTrigger("run");
+                break;
+
+            case 1:
+                anim.ResetTrigger("run");
+                Debug.Log("Idle");
+                anim.SetTrigger("idle");
+                break;
+
+            case 2:
+                Debug.Log("Dead");
+                anim.SetTrigger("dead");
+                break;
+        }
+    }
 
 }
