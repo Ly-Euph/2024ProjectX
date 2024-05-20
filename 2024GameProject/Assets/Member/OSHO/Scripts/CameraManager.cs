@@ -37,9 +37,9 @@ public class CameraManager : MonoBehaviour
         sf[0] = Camera[0].GetComponent<SonarFx>();
         sf[1] = Camera[1].GetComponent<SonarFx>();
         sf[2] = Camera[2].GetComponent<SonarFx>();
-        sf[3] = Camera[3].GetComponent<SonarFx>();
-        sf[4] = Camera[3].GetComponent<SonarFx>();
-        sf[5] = Camera[3].GetComponent<SonarFx>();
+        sf[3] = Camera[4].GetComponent<SonarFx>();
+        sf[4] = Camera[5].GetComponent<SonarFx>();
+        sf[5] = Camera[6].GetComponent<SonarFx>();
 
         //Sonartxをfalseに
 
