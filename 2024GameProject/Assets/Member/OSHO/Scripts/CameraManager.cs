@@ -13,23 +13,30 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text CameraText;
 
-    SonarFx[] sf = new SonarFx[4];
+    [Header("BatteryManagerを入れてね。")]
+
+    [SerializeField] BatteryManager Bm;
+
+    [Header("Enemy関連")]
+
+    [SerializeField] GameObject[] enemy = new GameObject[3]; 
+
+    SonarFx[] sf = new SonarFx[5];
+
+
     void Start()
     {
-        Camera[0] = GameObject.Find("Camera1");
-        Camera[1] = GameObject.Find("Camera2");
-        Camera[2] = GameObject.Find("Camera3");
-        Camera[3] = GameObject.Find("Camera4");
-        
         //カメラ2,3,4は最初にfalseに
         Camera[1].SetActive(false);
         Camera[2].SetActive(false);
         Camera[3].SetActive(false);
+        Camera[4].SetActive(false);
+        Camera[5].SetActive(false);
 
-        sf[0] = Camera[0].GetComponent<SonarFx>();
-        sf[1] = Camera[1].GetComponent<SonarFx>();
-        sf[2] = Camera[2].GetComponent<SonarFx>();
-        sf[3] = Camera[3].GetComponent<SonarFx>();
+        for(int i=0;i<sf.Length-1;i++)
+        {
+            sf[i] = Camera[i].GetComponent<SonarFx>();
+        }
 
         //Sonartx1,2,3,4をfalseに
         SonarOff();
@@ -37,9 +44,14 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     { 
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Bm.Para_Battery -= 5f;
+        }
         if(Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
+            Bm.Para_Battery -= 0.05f;
         }
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
@@ -69,47 +81,61 @@ public class CameraManager : MonoBehaviour
             //Camera4の設定
             SetCamera4();
         }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            //Camera4の設定
+            SetCamera5();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            //Camera4の設定
+            SetCamera6();
+        }
+
     }
 
+
+    //以下カメラ機能の制御
     void SetCamera1()
     {
+        CameraScan();
         Camera[0].SetActive(true);
-        Camera[1].SetActive(false);
-        Camera[2].SetActive(false);
-        Camera[3].SetActive(false);
-
-        //Textをenabledで管理
         CameraText.text = "カメラ１:";
     }
 
     void SetCamera2()
     {
+        CameraScan();
         Camera[1].SetActive(true);
-        Camera[0].SetActive(false);
-        Camera[2].SetActive(false);
-        Camera[3].SetActive(false);
 
         CameraText.text = "カメラ２:";
     }
 
     void SetCamera3()
     {
+        CameraScan();
         Camera[2].SetActive(true);
-        Camera[0].SetActive(false);
-        Camera[1].SetActive(false);
-        Camera[3].SetActive(false);
-
         CameraText.text = "カメラ３:";
     }
 
     void SetCamera4()
     {
+        CameraScan();
         Camera[3].SetActive(true);
-        Camera[0].SetActive(false);
-        Camera[1].SetActive(false);
-        Camera[2].SetActive(false);
-
         CameraText.text = "カメラ４:";
+    }
+
+    void SetCamera5()
+    {
+        CameraScan();
+        Camera[4].SetActive(true);
+        CameraText.text = "カメラ５:";
+    }
+    void SetCamera6()
+    {
+        CameraScan();
+        Camera[5].SetActive(true);
+        CameraText.text = "カメラ６:";
     }
     void SonarOff()
     {
@@ -123,6 +149,13 @@ public class CameraManager : MonoBehaviour
         for(int i = 0; i < sf.Length; i++)
         {
             sf[i].enabled = true;
+        }
+    }
+    void CameraScan()
+    {
+        for (int i = 0; i < Camera.Length; i++)
+        {
+            Camera[i].SetActive(false);
         }
     }
 }

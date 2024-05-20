@@ -49,7 +49,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   CameraText: {fileID: 0}
+  Bm: {fileID: 0}
+  enemy:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &6528679148627225651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,3 +73,4 @@ MonoBehaviour:
   CamMax: 50
   MaxrotPos: 50
   MinrotPos: -50
+  cam: {fileID: 0}
