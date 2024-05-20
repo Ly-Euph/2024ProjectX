@@ -9,7 +9,7 @@ public class BatteryManager : MonoBehaviour
     [SerializeField] Image img;
     [SerializeField] Text text;
 
-    private int battery = 100;
+    private float battery = 100f;
 
     void Start()
     {
@@ -20,11 +20,12 @@ public class BatteryManager : MonoBehaviour
     void Update()
     {
         img.GetComponent<Image>().fillAmount = battery / 100;
-        text.text = battery.ToString() + "%";
 
-        
+        //‚±‚Ìê‡‚Ì‚İ(int)‚ğg—pB
+        text.text = (int)battery + "%";
+        Debug.Log((int)battery);
     }
-    public int Para_Battery
+    public float Para_Battery
     {
         set { battery = value; }
         get { return battery; }

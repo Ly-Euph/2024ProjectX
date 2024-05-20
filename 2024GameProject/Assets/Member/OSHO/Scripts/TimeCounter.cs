@@ -45,6 +45,7 @@ public class TimeCounter : MonoBehaviour
             TimeLimit = true;
 
             //シーン移行の処理
+            //現状はクリアしたステージはClearSceneに移行する予定です。
         }
     }
 }
