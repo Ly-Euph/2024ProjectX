@@ -21,15 +21,11 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] enemy = new GameObject[3]; 
 
-    SonarFx[] sf = new SonarFx[4];
+    SonarFx[] sf = new SonarFx[5];
 
 
     void Start()
-<<<<<<< HEAD
-    { 
-=======
     {
->>>>>>> main
         //カメラ2,3,4は最初にfalseに
         Camera[1].SetActive(false);
         Camera[2].SetActive(false);
@@ -37,24 +33,10 @@ public class CameraManager : MonoBehaviour
         Camera[4].SetActive(false);
         Camera[5].SetActive(false);
 
-<<<<<<< HEAD
         for(int i=0;i<sf.Length-1;i++)
         {
             sf[i] = Camera[i].GetComponent<SonarFx>();
         }
-
-        //sf[0] = Camera[0].GetComponent<SonarFx>();
-        //sf[1] = Camera[1].GetComponent<SonarFx>();
-        //sf[2] = Camera[2].GetComponent<SonarFx>();
-        //sf[3] = Camera[3].GetComponent<SonarFx>();
-=======
-        sf[0] = Camera[0].GetComponent<SonarFx>();
-        sf[1] = Camera[1].GetComponent<SonarFx>();
-        sf[2] = Camera[2].GetComponent<SonarFx>();
-        sf[3] = Camera[3].GetComponent<SonarFx>();
-        sf[4] = Camera[3].GetComponent<SonarFx>();
-        sf[5] = Camera[3].GetComponent<SonarFx>();
->>>>>>> main
 
         //Sonartx1,2,3,4をfalseに
         SonarOff();
