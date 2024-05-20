@@ -24,12 +24,15 @@ public class CameraManager : MonoBehaviour
     SonarFx[] sf = new SonarFx[4];
     void Start()
     {
-        //カメラ2,3,4は最初にfalseに
+        //カメラ1以外のカメラは最初にfalseに
+
         Camera[1].SetActive(false);
         Camera[2].SetActive(false);
         Camera[3].SetActive(false);
         Camera[4].SetActive(false);
         Camera[5].SetActive(false);
+
+        //sfの配列にSonarFxをげっとする。
 
         sf[0] = Camera[0].GetComponent<SonarFx>();
         sf[1] = Camera[1].GetComponent<SonarFx>();
@@ -38,54 +41,72 @@ public class CameraManager : MonoBehaviour
         sf[4] = Camera[3].GetComponent<SonarFx>();
         sf[5] = Camera[3].GetComponent<SonarFx>();
 
-        //Sonartx1,2,3,4をfalseに
+        //Sonartxをfalseに
+
         SonarOff();
     }
 
     void Update()
     { 
+        //Shiftキーを押したときにバッテリーを５%減らす。
+
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             Bm.Para_Battery -= 5f;
         }
+
+        //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
+
         if(Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
             Bm.Para_Battery -= 0.05f;
         }
+
+        //Shiftキーを離したときにスキャンを止める。
+
         if(Input.GetKeyUp(KeyCode.LeftShift))
         {
             SonarOff();
         }
         //番号１
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             //Camera1の設定
             SetCamera1();
         }
         //番号２
+
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             //Camera2の設定
             SetCamera2();
         }
+
         //番号３
+
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             //Camera3の設定
             SetCamera3();
         }
         //番号４
+
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             //Camera4の設定
             SetCamera4();
         }
+        //番号５
+
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             //Camera4の設定
             SetCamera5();
         }
+        //番号６
+
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             //Camera4の設定
@@ -96,6 +117,7 @@ public class CameraManager : MonoBehaviour
 
 
     //以下カメラ機能の制御
+
     void SetCamera1()
     {
         CameraScan();
