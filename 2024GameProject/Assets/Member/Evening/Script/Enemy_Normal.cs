@@ -158,7 +158,7 @@ public class Enemy_Normal : MonoBehaviour
 
         if (waitTime > 0f)
         {
-            waitTime -= 1 / 60f;
+            waitTime -= Time.deltaTime;
         }
         countFlag = false;
     }
