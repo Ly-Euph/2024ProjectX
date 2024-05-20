@@ -5,10 +5,7 @@ using UnityEngine;
 public class Duct : MonoBehaviour
 {
 
-    public GameObject Enemy1;
-    public GameObject Enemy2;
-    public GameObject Enemy3;
-    public GameObject Enemy4;
+    [SerializeField] GameObject[] Enemy;
 
 
     GameObject duct;
@@ -29,7 +26,7 @@ public class Duct : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += 1 / 60f;
+        timer += Time.deltaTime;
 
         if(timer>=1f)
         {
@@ -38,19 +35,19 @@ public class Duct : MonoBehaviour
             switch(random)
             {
                 case 1:
-                    Instantiate(Enemy1, ductPos, Quaternion.identity);
+                    Instantiate(Enemy[0], ductPos, Quaternion.identity);
                     break;
 
                 case 2:
-                    Instantiate(Enemy2, ductPos, Quaternion.identity);
+                    Instantiate(Enemy[1], ductPos, Quaternion.identity);
                     break;
 
                 case 3:
-                    Instantiate(Enemy3, ductPos, Quaternion.identity);
+                    Instantiate(Enemy[2], ductPos, Quaternion.identity);
                     break;
 
                 case 4:
-                    Instantiate(Enemy4, ductPos, Quaternion.identity);
+                    Instantiate(Enemy[3], ductPos, Quaternion.identity);
                     break;
 
             }
