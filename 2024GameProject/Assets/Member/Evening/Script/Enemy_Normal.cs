@@ -63,7 +63,7 @@ public class Enemy_Normal : MonoBehaviour
         {
             animNum = 0;
             dolly.m_Speed = 0.2f;
-            Debug.Log("false");
+            //Debug.Log("false");
         }
 
         AnimControlle();
@@ -147,7 +147,7 @@ public class Enemy_Normal : MonoBehaviour
         if (waitTime > 0f && dolly.m_Position >= 2)
         {
             animNum = 1;
-            Debug.Log("í‚é~");
+            //Debug.Log("í‚é~");
             countFlag = true;
         }
     }
@@ -169,7 +169,7 @@ public class Enemy_Normal : MonoBehaviour
         {
             case 0:
                 anim.ResetTrigger("idle");
-                Debug.Log("Run");
+                //Debug.Log("Run");
                 anim.SetTrigger("run");
                 break;
 
