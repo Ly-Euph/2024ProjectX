@@ -52,6 +52,7 @@ public class CameraManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
+            
             Bm.Para_Battery -= 5f;
         }
 
@@ -60,7 +61,10 @@ public class CameraManager : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
-            Bm.Para_Battery -= 0.05f;
+            if (Bm.Para_Battery >= 0)
+            {
+                Bm.Para_Battery -= 0.05f;
+            }
         }
 
         //Shiftキーを離したときにスキャンを止める。
