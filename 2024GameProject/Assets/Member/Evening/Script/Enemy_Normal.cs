@@ -8,12 +8,7 @@ public class Enemy_Normal : MonoBehaviour
 
     private Cinemachine.CinemachinePathBase myPath;     //自身のパス
 
-    public Cinemachine.CinemachinePathBase path1;       //
-    public Cinemachine.CinemachinePathBase path2;       //
-    public Cinemachine.CinemachinePathBase path3;       //
-    public Cinemachine.CinemachinePathBase path4;       //
-    public Cinemachine.CinemachinePathBase path5;       //
-    public Cinemachine.CinemachinePathBase path6;       //上記6つはそれぞれのルート
+    [SerializeField] Cinemachine.CinemachinePathBase[] path;       //ルートのパス
 
     private Animator anim;                              //アニメーション
     private int animNum;                                //アニメーションを管理する数字
@@ -35,7 +30,7 @@ public class Enemy_Normal : MonoBehaviour
         anim = GetComponent<Animator>();
         animNum = 0;                    //0のアニメーションを再生(ラン)
 
-        myPath = path1;
+        myPath = path[0];
 
         stage = 0;
 
@@ -76,38 +71,38 @@ public class Enemy_Normal : MonoBehaviour
         {
             case 0:
                 stage = 100;
-                myPath = path1;
+                myPath = path[0];
                 dolly.m_Position = 0;
                 break;
 
             case 1:
                 stage = 100;
-                myPath = path2;
+                myPath = path[1];
                 dolly.m_Position = 0;
                 break;
 
             case 2:
                 stage = 100;
-                myPath = path3;
+                myPath = path[2];
                 dolly.m_Position = 0;
                 break;
 
             case 3:
                 stage = 100;
-                myPath = path4;
+                myPath = path[3];
                 dolly.m_Position = 0;
                 waitTime = 7.5f;
                 break;
 
             case 4:
                 stage = 100;
-                myPath = path5;
+                myPath = path[4];
                 dolly.m_Position = 0;
                 break;
 
             case 5:
                 stage = 100;
-                myPath = path6;
+                myPath = path[5];
                 dolly.m_Position = 0;
                 break;
 
