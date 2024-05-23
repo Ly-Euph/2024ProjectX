@@ -92,6 +92,7 @@ MonoBehaviour:
   CamMax: 50
   MaxrotPos: 10
   MinrotPos: -10
+  cam: {fileID: 3048294394454597742}
 --- !u!114 &3048294394454597747
 MonoBehaviour:
   m_ObjectHideFlags: 0
