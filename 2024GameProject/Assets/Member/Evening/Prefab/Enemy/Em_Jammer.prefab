@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 5655380118928583884}
   - component: {fileID: 7975449626271070713}
   m_Layer: 0
-  m_Name: jammer
+  m_Name: Em_Jammer
   m_TagString: JammerEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
