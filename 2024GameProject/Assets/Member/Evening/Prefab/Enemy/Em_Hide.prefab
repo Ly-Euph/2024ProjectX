@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2971199452969866863}
   - component: {fileID: 9114800342023136483}
   m_Layer: 0
-  m_Name: Hide
+  m_Name: Em_Hide
   m_TagString: HideEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
