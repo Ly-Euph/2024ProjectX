@@ -11,6 +11,8 @@ public class BatteryManager : MonoBehaviour
 
     private float battery = 100f;
 
+    private float battery_time = 0;
+
     void Start()
     {
 
@@ -19,15 +21,28 @@ public class BatteryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        img.GetComponent<Image>().fillAmount = battery / 100;
+        battery_time += Time.deltaTime;
 
-        //この場合のみ(int)を使用。
-        text.text = (int)battery + "%";
-        Debug.Log((int)battery);
+        if(battery_time >= 20)
+        {
+            if (battery < 100)
+            {
+                battery += 1f;
+                battery_time = 0;
+            }
+        }
+        if (battery >= 0)
+        {
+            img.GetComponent<Image>().fillAmount = battery / 100;
+
+            //この場合のみ(int)を使用。
+            text.text = (int)battery + "%";
+        }
     }
     public float Para_Battery
     {
         set { battery = value; }
         get { return battery; }
     }
+
 }
