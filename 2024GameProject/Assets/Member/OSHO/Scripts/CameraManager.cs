@@ -19,9 +19,27 @@ public class CameraManager : MonoBehaviour
 
     [Header("Enemy関連")]
 
-    [SerializeField] GameObject[] enemy = new GameObject[3]; 
+    [SerializeField] GameObject[] enemy = new GameObject[3];
+
+    [Header("Trapを設置するObject")]
+
+    [SerializeField] GameObject[] Trap_Obj;
+
+    [Header("様々なTrapを入れてね")]
+
+    [SerializeField] GameObject[] Trap_GK;
+
+    [Header("お好きなようにクールタイムを変えてね")]
+
+    [SerializeField] float Cool_Time = 20;
+
 
     SonarFx[] sf = new SonarFx[6];
+
+    private float time;
+
+    private bool TimeFlg = true;
+
     void Start()
     {
         //カメラ1以外のカメラは最初にfalseに
@@ -74,6 +92,28 @@ public class CameraManager : MonoBehaviour
             SonarOff();
         }
         //番号１
+
+        if (Input.GetKeyDown(KeyCode.E) && TimeFlg)
+        {
+            Vector3 ObjPos = Trap_Obj[0].transform.position;
+            Instantiate(Trap_GK[0], ObjPos, Quaternion.identity);
+            TimeFlg = false;
+            time = 0;
+            if (Bm.Para_Battery >= 0)
+            {
+                Bm.Para_Battery -= 1;
+            }
+        }
+        if (!TimeFlg)
+        {
+            time += Time.deltaTime;
+            Debug.Log(time);
+            //Fキーのクールタイム
+            if (time >= Cool_Time)
+            {
+                TimeFlg = true;
+            }
+        }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {

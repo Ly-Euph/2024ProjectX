@@ -1642,11 +1642,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bm: {fileID: 480111901}
-  Trap_Obj:
-  - {fileID: 1873086828}
-  Trap_GK:
-  - {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
-  Cool_Time: 20
+  GmUI:
+  - {fileID: 0}
+  Cool_time:
+  - {fileID: 0}
 --- !u!4 &1706110037
 Transform:
   m_ObjectHideFlags: 0
@@ -1853,7 +1852,7 @@ GameObject:
   - component: {fileID: 1873086830}
   - component: {fileID: 1873086829}
   m_Layer: 0
-  m_Name: Trap_cube
+  m_Name: Trap_Cm1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2111,6 +2110,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Trap_GK.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Trap_Obj.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
       propertyPath: enemy.Array.data[0]
       value: 
       objectReference: {fileID: 315428650}
@@ -2138,6 +2145,14 @@ PrefabInstance:
       propertyPath: Camera.Array.data[5]
       value: 
       objectReference: {fileID: 263426261}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Trap_GK.Array.data[0]
+      value: 
+      objectReference: {fileID: 100000, guid: 77ec3c4e07a36814fb3169ecef41b50a, type: 3}
+    - target: {fileID: 6528679148627225649, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
+      propertyPath: Trap_Obj.Array.data[0]
+      value: 
+      objectReference: {fileID: 1873086828}
     - target: {fileID: 6528679148627225651, guid: ee6fcf66715178746b8d5254d5180083, type: 3}
       propertyPath: cam
       value: 
