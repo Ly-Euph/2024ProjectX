@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour
     [SerializeField] float MaxrotPos = 50;
     [SerializeField] float MinrotPos = -50;
 
-    private float rad = 180 / 3.14f;
+    private float rad = 3.14f / 180;
 
     [Header("ƒJƒƒ‰‚Ì”Ô†‚É‰ž‚¶‚½Prefab‚ð“ü‚ê‚Ä‚ËB")]
 
@@ -24,11 +24,13 @@ public class CameraMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        MaxrotPos = rad * MaxrotPos;
+        MinrotPos = rad * MinrotPos;
     }
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(this.transform.rotation.y);
         if(Input.GetKey(KeyCode.W) && cam.fieldOfView > CamMin)
         {
             cam.fieldOfView -= 0.5f;
@@ -38,14 +40,18 @@ public class CameraMove : MonoBehaviour
         {
             cam.fieldOfView += 0.5f;
         }
-        if(Input.GetKey(KeyCode.A) && transform.localRotation.y * rad >= MinrotPos)
+        if (Input.GetKey(KeyCode.A) && MinrotPos < transform.rotation.y)
         {
-            transform.Rotate(new Vector3(0, -1, 0));
-  
+            //transform.Rotate(new Vector3(0, -1, 0));
+            transform.rotation *= Quaternion.Euler(0, -1, 0);
+            //this.transform.localEulerAngles += new Vector3(0, -1, 0);
+
         }
-        if(Input.GetKey(KeyCode.D) && transform.localRotation.y * rad <= MaxrotPos)
+        if (Input.GetKey(KeyCode.D) && transform.rotation.y < MaxrotPos)
         {
-            transform.Rotate(new Vector3(0, 1, 0));
+            //transform.Rotate(new Vector3(0, 1, 0));
+            transform.rotation *= Quaternion.Euler(0, 1, 0);
+            //this.transform.localEulerAngles += new Vector3(0, 1, 0);
         }
     }
 }
