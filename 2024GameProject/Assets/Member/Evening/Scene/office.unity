@@ -344,8 +344,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy:
   - {fileID: 3446382755227497126, guid: 9cb096ec0e23aa34987dc6396e50958c, type: 3}
-  - {fileID: 3446382755227497126, guid: 9cb096ec0e23aa34987dc6396e50958c, type: 3}
-  - {fileID: 3446382755227497126, guid: 9cb096ec0e23aa34987dc6396e50958c, type: 3}
+  - {fileID: 4985523191624185462, guid: d1e6ea4a5e6d2a2499759313db437c95, type: 3}
+  - {fileID: 3172448046017810157, guid: e8403365018acc54fb33a2731f6c61f7, type: 3}
+  - {fileID: 2971199452969866860, guid: 5d35e2990f0a0014a92f3543793f385c, type: 3}
 --- !u!1 &602359125
 GameObject:
   m_ObjectHideFlags: 0
