@@ -15,6 +15,8 @@ public class OptionUICur : MonoBehaviour
 
     [SerializeField] GameObject UIPre;
 
+    [SerializeField] GameManager gMng;
+
     int num = 0;
     int Max = 1;
     int Min = 0;
@@ -43,6 +45,7 @@ public class OptionUICur : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W)
             || Input.GetKeyDown(KeyCode.UpArrow)) // è„
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
             if (num == Min)
             {
                 num = Max;
@@ -55,6 +58,7 @@ public class OptionUICur : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.S)
             || Input.GetKeyDown(KeyCode.DownArrow)) // â∫
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
             if (num == Max)
             {
                 num = Min;
@@ -66,6 +70,7 @@ public class OptionUICur : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Return)) // åàíË
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
             switch (num)
             {
                 case 0: // Option
