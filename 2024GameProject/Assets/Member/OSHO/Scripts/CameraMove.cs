@@ -30,7 +30,6 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.transform.rotation.y);
         if(Input.GetKey(KeyCode.W) && cam.fieldOfView > CamMin)
         {
             cam.fieldOfView -= 0.5f;
