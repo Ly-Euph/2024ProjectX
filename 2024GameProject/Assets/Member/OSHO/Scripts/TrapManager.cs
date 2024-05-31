@@ -6,15 +6,13 @@ using UnityEngine.UI;
 public class TrapManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    
-    [SerializeField] BatteryManager Bm;
 
     [SerializeField] GameObject[] GmUI;
 
-    [SerializeField] Image[] Cool_time;
+    public Image[] Volt_CTImg;
+    public Image[] Rock_CTImg;
+    public Image[] Echo_CTImg;
 
-
-    
     void Start() 
     {
         
@@ -24,5 +22,9 @@ public class TrapManager : MonoBehaviour
     void Update()
     {
         
+    }
+    public void Cooltime()
+    {
+   
     }
 }
