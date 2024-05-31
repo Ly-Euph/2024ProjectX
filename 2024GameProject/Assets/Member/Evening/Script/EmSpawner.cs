@@ -23,15 +23,19 @@ public class EmSpawner : MonoBehaviour
     private int emNum;
 
     private int totalCost;
+    private int[] maxCost = { 20, 30, 40 };
 
-    private int[,] difficult = new int[3, 5] { { 30, 60, 80, 95, 100 }, { 25, 25, 20, 20, 10 }, { 10, 10, 10, 30, 40 } };
-    private int[] est;
+    private int[,] probability = new int[,] { { 30, 60, 80, 95, 100 }, { 25, 25, 20, 20, 10 }, { 10, 10, 10, 30, 40 } };
 
     private int[] easy;
 
     int random;
 
     float timer;
+
+
+    private string difficulty;
+    private string[] difficult = { "Easy", "Normal", "Hard" };
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,8 @@ public class EmSpawner : MonoBehaviour
 
         totalCost = 0;
         timer = 0;
+
+        difficulty = "Easy";
     }
 
     // Update is called once per frame
@@ -62,13 +68,16 @@ public class EmSpawner : MonoBehaviour
         {
             SearchEnemy();
             spawnFlag = false;
-            ChooseEnemy();
+            
         }
     }
 
 
     void SearchEnemy()
     {
+
+        random = Random.Range(1, 101);
+
         em_Normal = GameObject.FindGameObjectsWithTag("NormalEnemy");
         em_Jammer = GameObject.FindGameObjectsWithTag("JammerEnemy");
         em_Speed = GameObject.FindGameObjectsWithTag("SpeedEnemy");
@@ -77,16 +86,38 @@ public class EmSpawner : MonoBehaviour
         emNum = spawnCost[0] * em_Normal.Length + spawnCost[1] * em_Jammer.Length + 
             spawnCost[2] * em_Speed.Length + spawnCost[3] * em_Hide.Length;
 
+
+
+
+
+        ChooseEnemy();
         //Debug.Log(emNum);
     }
 
     void ChooseEnemy()
     {
-        random = Random.Range(1, 101);
 
-        for(int i=0;i<difficult.Length;i++)
+        for(int i=0;i<difficult.GetLength(0);i++)
         {
-            Debug.Log("dif");
+            if(difficulty==difficult[i])
+            {
+                //設定された難易度の確率
+                for (int j = 0; j < probability.GetLength(1); j++)
+                {
+                    //randomの数値からスポーンさせる敵を選択
+                    //条件：コストオーバーしていない
+                    //randomで出た値の
+                    if (maxCost[i] + spawnCost[j] > totalCost && random > probability[i, j])
+                    {
+
+                    }
+                }
+
+            }
+            else
+            {
+                //Debug.Log("tigau");
+            }
         }
 
 
