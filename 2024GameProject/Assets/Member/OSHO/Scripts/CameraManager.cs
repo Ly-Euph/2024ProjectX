@@ -33,11 +33,13 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] Trap_GK;
 
-    [Header("お好きなようにクールタイムを変えてね")]
+    //[Header("お好きなようにクールタイムを変えてね")]
 
-    [SerializeField] float Cool_Time = 20;
+    //[SerializeField] float Cool_Time = 20;
 
     SonarFx[] sf = new SonarFx[6];
+
+    [Header("Voltのクールタイム設定してね")]
 
     [SerializeField] Text[] CoolTime_Volt;
 
@@ -126,7 +128,7 @@ public class CameraManager : MonoBehaviour
         }
         //トラップEキーを押したときの処理
 
-        if (Input.GetKeyDown(KeyCode.E) && TimeFlg && CamFlg[1] && Volt_timer1 >= 20)
+        if (Input.GetKeyDown(KeyCode.E) && TimeFlg && CamFlg[0] && Volt_timer >= 20)
         {
             Vector3 ObjPos = Trap_Obj[0].transform.position;
             Instantiate(Trap_GK[0], ObjPos, Quaternion.identity);
@@ -141,7 +143,7 @@ public class CameraManager : MonoBehaviour
         {
             time += Time.deltaTime;
             //Fキーのクールタイム
-            if (time >= Volt_timer1)
+            if (time >= Volt_timer)
             {
                 TimeFlg = true;
             }
@@ -201,6 +203,7 @@ public class CameraManager : MonoBehaviour
             CamFlg[5] = true;
         }
         TextChange();
+        Debug.Log(Volt_timer);
     }
 
 
@@ -281,7 +284,6 @@ public class CameraManager : MonoBehaviour
     {
         //以下のプログラムは暇なときに綺麗にする。とりあえずクールタイムとカメラそれぞれのUIの切り替え
 
-        //以下のプログラムは暇なときに綺麗にする。とりあえずクールタイムとカメラそれぞれのUIの切り替え
 
         if (CamFlg[0] && Input.GetKeyDown(KeyCode.E) && Tm.Volt_CTImg[0].GetComponent<Image>().fillAmount == 0)
         {
