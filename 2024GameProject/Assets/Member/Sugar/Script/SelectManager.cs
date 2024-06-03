@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
 {
     [SerializeField] StageDataBase SDB;
     [SerializeField] Text StageNameText;
     [SerializeField] Text Info;
+    [SerializeField] Fade fade;                // FadeCanvas
 
     // 0(Left) 1(Center) 2(Right)
     [SerializeField] Image[] StageImage;
 
-   
+    // Œø‰Ê‰¹Ä¶
+    [SerializeField] GameManager gMng;
+
     // ‘I‘ð”Ô†
     public int Lnum,Cnum,Rnum; 
 
@@ -38,13 +42,20 @@ public class SelectManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
             if (Cnum == 0) { Cnum = Max; }
             else { Cnum -= point; }
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
             if (Cnum == Max) { Cnum = Min; }
             else { Cnum += point; }
+        }
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
+            fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[Cnum].StageSceneName));
         }
     }
     void SDB_Set()
