@@ -25,7 +25,7 @@ public class Enemy_Normal : MonoBehaviour
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
-        dolly.m_Speed = 0.2f;           //移動スピード0.2
+        dolly.m_Speed = 0.5f;           //移動スピード0.2
 
         anim = GetComponent<Animator>();
         animNum = 0;                    //0のアニメーションを再生(ラン)
@@ -57,7 +57,7 @@ public class Enemy_Normal : MonoBehaviour
         else if (countFlag == false)
         {
             animNum = 0;
-            dolly.m_Speed = 0.2f;
+            dolly.m_Speed = 0.5f;
             //Debug.Log("false");
         }
 
@@ -106,35 +106,37 @@ public class Enemy_Normal : MonoBehaviour
                 dolly.m_Position = 0;
                 break;
 
+
         }
     }
 
     void InputKey()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             stage = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             stage = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             stage = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             stage = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             stage = 4;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             stage = 5;
         }
+        
     }
 
     void CharactorMove()
