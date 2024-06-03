@@ -1180,6 +1180,7 @@ MonoBehaviour:
   - {fileID: 5837752664389739314}
   B_Audio: {fileID: 5837752663985792295}
   S_Audio: {fileID: 5837752664263265972}
+  gMng: {fileID: 0}
 --- !u!1 &5837752663340429226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4738,6 +4739,7 @@ MonoBehaviour:
   - {fileID: 5837752664475313365}
   OpBox: {fileID: 5837752663329419149}
   UIPre: {fileID: 5837752664889232783}
+  gMng: {fileID: 0}
 --- !u!1 &5837752664582287146
 GameObject:
   m_ObjectHideFlags: 0
