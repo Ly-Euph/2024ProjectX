@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy_Hide : MonoBehaviour
 {
+    private Cinemachine.CinemachineDollyCart dolly;
+    private Cinemachine.CinemachinePathBase myPath;
+
+    [SerializeField] Cinemachine.CinemachinePathBase[] path;
+
 
     Transform tr;
 
@@ -21,6 +26,11 @@ public class Enemy_Hide : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
+
+        myPath = path[0];
+
 
         tr = GetComponent<Transform>();
 
@@ -40,7 +50,8 @@ public class Enemy_Hide : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        this.dolly.m_Path = myPath;
+        if (Input.GetKeyDown(KeyCode.C))
         {
             camScan = true;
         }

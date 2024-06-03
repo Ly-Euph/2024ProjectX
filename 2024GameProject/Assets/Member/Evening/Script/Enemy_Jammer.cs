@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Speed : MonoBehaviour
+public class Enemy_Jammer : MonoBehaviour
 {
     private Cinemachine.CinemachineDollyCart dolly;
 
