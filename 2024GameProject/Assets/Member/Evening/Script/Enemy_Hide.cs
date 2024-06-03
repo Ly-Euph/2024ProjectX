@@ -16,6 +16,8 @@ public class Enemy_Hide : MonoBehaviour
     SkinnedMeshRenderer skin;
 
 
+    public GameObject cam;
+
     GameObject duct;
     //Vector3 ductPos;
 
