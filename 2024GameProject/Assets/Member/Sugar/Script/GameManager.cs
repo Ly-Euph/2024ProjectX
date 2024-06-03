@@ -57,14 +57,14 @@ public class GameManager : MonoBehaviour
     // UI関連の音はこっち
     public enum UISe
     {
-        textmsg, // テキスト送り音
-        enter,   // 決定音
         wasd,    // UIの移動音
+        enter,   // 決定音
         esc,     // UIウィンドウ
         tab,     // 戻る音（キャンセル音）
         Eff1,    // エフェクト
         Eff2,
         Eff3,
+        textmsg, // テキスト送り音
         num,
     }
 

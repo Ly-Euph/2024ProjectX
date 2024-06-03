@@ -8,6 +8,7 @@ public class TitleCursor : MonoBehaviour
     [SerializeField] Fade fade;                // FadeCanvas
     [SerializeField] RectTransform[] ObjRect;  // 座標参照のtext
     [SerializeField] GameObject OptionBox;     // オプションを開く
+    [SerializeField] GameManager GMng;
     RectTransform myObjRect;                   // 動かすtext
     int num;
     int Max;
@@ -26,6 +27,7 @@ public class TitleCursor : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W)
             ||Input.GetKeyDown(KeyCode.UpArrow)) // 上
         {
+            GMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
             if(num==Min)
             {
                 num = Max;
@@ -38,7 +40,8 @@ public class TitleCursor : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.S) 
             || Input.GetKeyDown(KeyCode.DownArrow)) // 下
         {
-            if(num==Max)
+            GMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+            if (num==Max)
             {
                 num = Min;
             }
@@ -49,6 +52,7 @@ public class TitleCursor : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Return)) // 決定
         {
+            GMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
             switch (num)
             {
                 case 0: // STARTボタン

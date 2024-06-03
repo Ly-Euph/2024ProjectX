@@ -26,6 +26,7 @@ using UnityEngine;
 public class SonarFx : MonoBehaviour
 {
     // Sonar mode (directional or spherical)
+
     public enum SonarMode { Directional, Spherical }
     [SerializeField] SonarMode _mode = SonarMode.Directional;
     public SonarMode mode { get { return _mode; } set { _mode = value; } }
