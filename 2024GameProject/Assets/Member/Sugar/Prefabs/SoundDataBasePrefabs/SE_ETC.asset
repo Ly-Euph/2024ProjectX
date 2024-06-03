@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   infomation: "\u305D\u306E\u4ED6\u306E\u97F3\u58F0\u306F\u3053\u3061\u3089"
-  SE: []
+  SE:
+  - {fileID: 8300000, guid: 5a81f61579561a741b5b28ede6d0dbc2, type: 3}
+  - {fileID: 8300000, guid: 47188dc3e8f284e4690e692f8ccac2a7, type: 3}

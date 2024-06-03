@@ -41,8 +41,8 @@ public class BatteryManager : MonoBehaviour
     }
     public float Para_Battery
     {
-        set { battery = value; }
-        get { return battery; }
+        set { battery = value;}
+        get { return battery;}
     }
 
 }
