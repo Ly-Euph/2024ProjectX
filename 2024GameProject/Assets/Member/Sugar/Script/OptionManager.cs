@@ -20,6 +20,8 @@ public class OptionManager : MonoBehaviour
     [SerializeField] AudioSource B_Audio;
     [SerializeField] AudioSource S_Audio;
 
+    [SerializeField] GameManager gMng;
+
     int MaxVol = 10;
     int MinVol = 0;
 
@@ -103,12 +105,16 @@ public class OptionManager : MonoBehaviour
         // ‘I‘ğ
         if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+
             // ã‚Ì€–Ú‚ª‚È‚¢ê‡‚Éˆê”Ô‰º‚Ì€–Ú‚É‚·‚é
             if (num == 0) { num = SetPos.Length-1; }
             else { num--; }
         }
         else if(Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+
             // ã‚Ì€–Ú‚ª‚È‚¢ê‡‚Éˆê”Ô‰º‚Ì€–Ú‚É‚·‚é
             if (num == SetPos.Length-1) { num = 0; }
             else { num++; }
@@ -117,25 +123,27 @@ public class OptionManager : MonoBehaviour
         // ‰¹—Ê’²®
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+
             Vol(num,"A");
         }
         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+
             Vol(num,"D");
         }
 
         // Œˆ’è
         if (Input.GetKeyDown(KeyCode.Return) && num== SetPos.Length - 1)
         {
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
             // ÅŒã‚É’l‚ğ•Û‘¶‚³‚¹‚é
-            if (Sdata)
-            {
-                Sdata.Para_Master = M_num;
-                Sdata.Para_Bgm = B_num;
-                Sdata.Para_Se = S_num;
-            }
-
-            this.gameObject.SetActive(false);
+            Sdata.Para_Master = M_num;
+            Sdata.Para_Bgm = B_num;
+            Sdata.Para_Se = S_num;
+            setVol();
+            this.gameObject.SetActive(false);       
         }
     }
     
@@ -158,7 +166,6 @@ public class OptionManager : MonoBehaviour
                     if (M_num == MinVol) { return; }
                     else {
                         --M_num;
-                        
                     }
                     break;
                 case 1:

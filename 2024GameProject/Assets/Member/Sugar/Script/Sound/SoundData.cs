@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SoundData : MonoBehaviour
 {
-    int S_MASTER = 10;
-    int S_BGM = 10;
-    int S_SE = 10;
+    int S_MASTER = 6;
+    int S_BGM = 5;
+    int S_SE = 3;
 
     // ÉVÅ[ÉìêÿÇËë÷Ç¶ÇƒÇ‡îjä¸
     // Ç≥ÇÍÇ»Ç¢ÇÊÇ§Ç…Ç∑ÇÈ
@@ -35,8 +35,8 @@ public class SoundData : MonoBehaviour
     {
         set
         {
-            AudioListener.volume = value;
             S_MASTER = value;
+            AudioListener.volume = value;
         }
         get
         {
@@ -49,7 +49,6 @@ public class SoundData : MonoBehaviour
     {
         set
         {
-            //  aud[0].volume = value;
             S_SE = value;
         }
         get
@@ -64,7 +63,6 @@ public class SoundData : MonoBehaviour
     {
         set
         {
-            // aud[1].volume = value;
             S_BGM = value;
         }
         get
