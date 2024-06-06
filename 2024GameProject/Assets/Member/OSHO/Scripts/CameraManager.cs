@@ -128,6 +128,7 @@ public class CameraManager : MonoBehaviour
         }
         //トラップEキーを押したときの処理
 
+        //カメラ１のボルトトラップ
 
         if (Input.GetKeyDown(KeyCode.E) && CamFlg[0] && Volt_timer >= 20)
         {
@@ -149,6 +150,8 @@ public class CameraManager : MonoBehaviour
                 TimeFlg = true;
             }
         }
+
+        //カメラ２のボルトトラップ
         if (Input.GetKeyDown(KeyCode.E) && CamFlg[1] && Volt_timer1 >= 20)
         {
             Vector3 ObjPos = Trap_Obj[1].transform.position;
@@ -169,7 +172,7 @@ public class CameraManager : MonoBehaviour
                 TimeFlg = true;
             }
         }
-        Debug.Log(time);
+
         //番号１
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
