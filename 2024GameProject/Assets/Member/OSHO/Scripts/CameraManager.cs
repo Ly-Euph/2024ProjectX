@@ -46,6 +46,8 @@ public class CameraManager : MonoBehaviour
     private int _time = 1;
 
     private float time;
+    private float time1;
+    private float time2;
 
     private float Volt_timer = 20;
     private float Volt_timer1 = 20;
@@ -126,7 +128,8 @@ public class CameraManager : MonoBehaviour
         }
         //トラップEキーを押したときの処理
 
-        if (Input.GetKeyDown(KeyCode.E) && TimeFlg && CamFlg[1] && Volt_timer1 >= 20)
+
+        if (Input.GetKeyDown(KeyCode.E) && CamFlg[0] && Volt_timer >= 20)
         {
             Vector3 ObjPos = Trap_Obj[0].transform.position;
             Instantiate(Trap_GK[0], ObjPos, Quaternion.identity);
@@ -137,15 +140,36 @@ public class CameraManager : MonoBehaviour
                 Bm.Para_Battery -= 10;
             }
         }
-        if (!TimeFlg)
+        if(!TimeFlg)
         {
             time += Time.deltaTime;
             //Fキーのクールタイム
-            if (time >= Volt_timer1)
+            if (time >= Volt_timer)
             {
                 TimeFlg = true;
             }
         }
+        if (Input.GetKeyDown(KeyCode.E) && CamFlg[1] && Volt_timer1 >= 20)
+        {
+            Vector3 ObjPos = Trap_Obj[1].transform.position;
+            Instantiate(Trap_GK[1], ObjPos, Quaternion.identity);
+            TimeFlg = false;
+            time1 = 0;
+            if (Bm.Para_Battery >= 0)
+            {
+                Bm.Para_Battery -= 10;
+            }
+        }
+        if (!TimeFlg)
+        {
+            time1 += Time.deltaTime;
+            //Fキーのクールタイム
+            if (time1 >= Volt_timer1)
+            {
+                TimeFlg = true;
+            }
+        }
+        Debug.Log(time);
         //番号１
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -279,8 +303,6 @@ public class CameraManager : MonoBehaviour
 
     void TextChange()
     {
-        //以下のプログラムは暇なときに綺麗にする。とりあえずクールタイムとカメラそれぞれのUIの切り替え
-
         //以下のプログラムは暇なときに綺麗にする。とりあえずクールタイムとカメラそれぞれのUIの切り替え
 
         if (CamFlg[0] && Input.GetKeyDown(KeyCode.E) && Tm.Volt_CTImg[0].GetComponent<Image>().fillAmount == 0)
