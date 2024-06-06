@@ -33,7 +33,7 @@ public class EmSpawner : MonoBehaviour
     //2:speed
     //3:hide
     //4:jammer
-    private int[,] emMaxNum = new int[,] { { 10, 5, 5, 2 }, { 8, 6, 6, 4 }, { 4, 5, 5, 7 } };
+    //private int[,] emMaxNum = new int[,] { { 10, 5, 5, 2 }, { 8, 6, 6, 4 }, { 4, 5, 5, 7 } };
 
     //今現在のコストを保存する
     private int totalCost;
@@ -71,7 +71,7 @@ public class EmSpawner : MonoBehaviour
         totalCost = 0;
         timer = 0;
 
-        difficulty = "Normal";
+        difficulty = "Hard";
     }
 
     // Update is called once per frame
@@ -85,25 +85,25 @@ public class EmSpawner : MonoBehaviour
             timer = 0;
             CountCost();
         }
-        else if (firstSpawnFlag == false && timer >= 5.0f)
-        {
-            timer = 0;
+        //else if (firstSpawnFlag == false && timer >= 5.0f)
+        //{
+        //    timer = 0;
 
-            //敵が今何体存在してるかを取得するために実行
-            em_Normal = GameObject.FindGameObjectsWithTag("NormalEnemy");
-            em_Speed = GameObject.FindGameObjectsWithTag("SpeedEnemy");
-            em_Hide = GameObject.FindGameObjectsWithTag("HideEnemy");
-            em_Jammer = GameObject.FindGameObjectsWithTag("JammerEnemy");
+        //    //敵が今何体存在してるかを取得するために実行
+        //    em_Normal = GameObject.FindGameObjectsWithTag("NormalEnemy");
+        //    em_Speed = GameObject.FindGameObjectsWithTag("SpeedEnemy");
+        //    em_Hide = GameObject.FindGameObjectsWithTag("HideEnemy");
+        //    em_Jammer = GameObject.FindGameObjectsWithTag("JammerEnemy");
 
-            totalCost = em_Normal.Length * spawnCost[0] +
-                      em_Speed.Length * spawnCost[2] +
-                      em_Hide.Length * spawnCost[4] +
-                      em_Jammer.Length * spawnCost[6];
+        //    totalCost = em_Normal.Length * spawnCost[0] +
+        //              em_Speed.Length * spawnCost[2] +
+        //              em_Hide.Length * spawnCost[4] +
+        //              em_Jammer.Length * spawnCost[6];
 
-            CountCost();
+        //    CountCost();
 
-            Debug.Log(totalCost);
-        }
+        //    Debug.Log(totalCost);
+        //}
     }
 
 
@@ -112,6 +112,7 @@ public class EmSpawner : MonoBehaviour
         
 
         random = Random.Range(1, 101);
+        Debug.Log(random);
         for (int i = 0; i < difficult.GetLength(0); i++)
         {
             if (difficulty == difficult[i])
@@ -135,10 +136,10 @@ public class EmSpawner : MonoBehaviour
                             totalCost += spawnCost[j];
                             Debug.Log("totalcost = " + totalCost);
                         }
-                        else if(totalCost+spawnCost[j]>maxCost[j])
-                        {
-                            firstSpawnFlag = false;
-                        }
+                        //else if(totalCost+spawnCost[j]>maxCost[j])
+                        //{
+                        //    firstSpawnFlag = false;
+                        //}
                     }
                 }
             }
