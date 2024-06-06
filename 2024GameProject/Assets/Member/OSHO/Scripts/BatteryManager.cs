@@ -21,9 +21,11 @@ public class BatteryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //バッテリー回復処理
+        Debug.Log(battery_time);
         battery_time += Time.deltaTime;
 
-        if(battery_time >= 20)
+        if(battery_time >= 10)
         {
             if (battery < 100)
             {
