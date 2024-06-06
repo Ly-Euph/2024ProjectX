@@ -31,6 +31,11 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] Trap_GK;
 
+    // カメラズームのUI
+    [SerializeField] GameObject[] CamZoom;
+
+    // スキルUI
+    [SerializeField] GameObject[] Gimmick;
     //[Header("お好きなようにクールタイムを変えてね")]
 
     //[SerializeField] float Cool_Time = 20;
@@ -74,7 +79,11 @@ public class CameraManager : MonoBehaviour
             Volt_Img[i].GetComponent<Image>().fillAmount = 0;
         }
         // カメラ1のみ表示
+        //Camera1の設定
         SetCamera1();
+        CamFlag();
+        CamFlg[0] = true;
+        UIActive(0);
         //Sonartxをfalseに
         SonarOff();
     }
@@ -156,6 +165,7 @@ public class CameraManager : MonoBehaviour
             SetCamera1();
             CamFlag();
             CamFlg[0] = true;
+            UIActive(0);
         }
         //番号２
 
@@ -165,6 +175,7 @@ public class CameraManager : MonoBehaviour
             SetCamera2();
             CamFlag();
             CamFlg[1] = true;
+            UIActive(1);
         }
 
         //番号３
@@ -175,6 +186,7 @@ public class CameraManager : MonoBehaviour
             SetCamera3();
             CamFlag();
             CamFlg[2] = true;
+            UIActive(2);
         }
         //番号４
 
@@ -184,6 +196,7 @@ public class CameraManager : MonoBehaviour
             SetCamera4();
             CamFlag();
             CamFlg[3] = true;
+            UIActive(3);
         }
         //番号５
 
@@ -193,6 +206,7 @@ public class CameraManager : MonoBehaviour
             SetCamera5();
             CamFlag();
             CamFlg[4] = true;
+            UIActive(4);
         }
         //番号６
 
@@ -202,10 +216,22 @@ public class CameraManager : MonoBehaviour
             SetCamera6();
             CamFlag();
             CamFlg[5] = true;
+            UIActive(5);
         }
         TextChange();
     }
 
+    private void UIActive(int num)
+    {
+        for(int i=0;i<Gimmick.Length;i++)
+        {
+            // 一旦全てのUI表示を非表示
+            Gimmick[i].SetActive(false);
+            CamZoom[i].SetActive(false);
+        }
+        Gimmick[num].SetActive(true);
+        CamZoom[num].SetActive(true);
+    }
 
     //以下カメラ機能の制御
 
