@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4894513515655304637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4894513515655304638}
+  - component: {fileID: 4894513515655304639}
+  m_Layer: 0
+  m_Name: EmSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4894513515655304638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894513515655304637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23, y: -1.2700002, z: 27.760002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4894513515655304639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4894513515655304637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7496adc7ed604743ac8379488236719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy:
+  - {fileID: 2954344170242869231, guid: 7b39a4feb8ef44e4d9adef112c4043c0, type: 3}
+  - {fileID: 8259229547388047227, guid: e679727e0928091449713e52926c2636, type: 3}
+  - {fileID: 5651007535253629764, guid: ed6cefe0f7282794088aa4c370c8758d, type: 3}
+  - {fileID: 4154802150156615540, guid: a64f3dd13309f5944931563b5c6a54b5, type: 3}
+  - {fileID: 3434518770858273477, guid: 91306db342884d345be07d986490bb12, type: 3}
+  - {fileID: 2894512664257278113, guid: 8debac40d621e6b48a1d3b4ed8401ed0, type: 3}
+  - {fileID: 2117454287709965035, guid: 80a74d2ae4b6c6e4f849bf38a779a504, type: 3}
+  - {fileID: 7658799509698634583, guid: 55caa0148b315784b90816c014b2f425, type: 3}
+  firstSpawnFlag: 0
