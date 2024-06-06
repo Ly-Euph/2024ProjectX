@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +23,7 @@ public class BatteryManager : MonoBehaviour
     {
         battery_time += Time.deltaTime;
 
-        if(battery_time >= 20)
+        if (battery_time >= 20)
         {
             if (battery < 100)
             {
@@ -35,14 +35,14 @@ public class BatteryManager : MonoBehaviour
         {
             img.GetComponent<Image>().fillAmount = battery / 100;
 
-            //‚±‚Ìê‡‚Ì‚İ(int)‚ğg—pB
+            //ï¿½ï¿½ï¿½Ìê‡ï¿½Ì‚ï¿½(int)ï¿½ï¿½ï¿½gï¿½pï¿½B
             text.text = (int)battery + "%";
         }
     }
     public float Para_Battery
     {
-        set { battery = value;}
-        get { return battery;}
+        set { battery = value; }
+        get { return battery; }
     }
 
 }
