@@ -75,6 +75,7 @@ public class CameraManager : MonoBehaviour
         }
         // カメラ1のみ表示
         SetCamera1();
+
         //Sonartxをfalseに
         SonarOff();
     }
