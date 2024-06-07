@@ -21,7 +21,8 @@ public class CameraMove : MonoBehaviour
     [Header("ƒJƒƒ‰‚Ì”Ô†‚É‰‚¶‚½Prefab‚ğ“ü‚ê‚Ä‚ËB")]
 
     [SerializeField] Camera cam;
-    // Start is called before the first frame update
+
+    //Start is called before the first frame update
     void Start()
     {
         MaxrotPos = rad * MaxrotPos;

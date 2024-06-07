@@ -73,7 +73,7 @@ Shader "Hidden/SonarFX"
             w *= _SonarWaveParams.x;
 
             // Apply to the surface.
-            o.Albedo = _SonarBaseColor;
+            //o.Albedo = _SonarBaseColor;
             o.Emission = _SonarWaveColor * w + _SonarAddColor;
         }
 
