@@ -10,6 +10,7 @@ TagManager:
   - JammerEnemy
   - SpeedEnemy
   - HideEnemy
+  - EndPos
   layers:
   - Default
   - TransparentFX

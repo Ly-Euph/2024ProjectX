@@ -256,6 +256,7 @@ MonoBehaviour:
   - {fileID: 5113174165670531692, guid: 48dc6aaef15245e46ba2f2a6621504c9, type: 3}
   - {fileID: 5078798553069665193, guid: b2adf043267adf542803248b113d05dd, type: 3}
   - {fileID: 4639392178635908607, guid: 8ee815f8086f40b40b589a42af0c7df1, type: 3}
+  cam: {fileID: 0}
 --- !u!114 &8713418644431067210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,7 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Path: {fileID: 0}
   m_UpdateMethod: 0
-  m_PositionUnits: 0
+  m_PositionUnits: 2
   m_Speed: 0.2
   m_Position: 0
 --- !u!1 &3638807231153627468
