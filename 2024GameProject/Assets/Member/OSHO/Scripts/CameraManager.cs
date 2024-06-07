@@ -36,9 +36,6 @@ public class CameraManager : MonoBehaviour
 
     // スキルUI
     [SerializeField] GameObject[] Gimmick;
-    //[Header("お好きなようにクールタイムを変えてね")]
-
-    //[SerializeField] float Cool_Time = 20;
 
     // ソナースクリプト取得
     [SerializeField]SonarFx[] sf;
@@ -47,6 +44,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] Image[] Volt_Img;
 
     [SerializeField] Text[] CoolTime_Volt;
+
+    ScanManager sMng;
 
     private int Volt_time = 20;
 
@@ -69,8 +68,11 @@ public class CameraManager : MonoBehaviour
 
     private bool[] CamFlg = new bool[6];
 
+    private bool SponFlg = true;
+
     void Start()
     {
+        sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
         for(int i=0;i<Camera.Length;i++)
         {
             // ボルトトラップ使用可能
@@ -90,6 +92,8 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        //時を止めてる間はreturnする。
+        if (Time.timeScale == 0) return;
         //Shiftキーを押したときにバッテリーを５%減らす。
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -102,6 +106,7 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
+            sMng.ScanBool = true;
             if (Bm.Para_Battery >= 0)
             {
                 Bm.Para_Battery -= 0.05f;
@@ -113,6 +118,7 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             SonarOff();
+            sMng.ScanBool = false;
         }
         //トラップEキーを押したときの処理
 
@@ -235,6 +241,7 @@ public class CameraManager : MonoBehaviour
         Gimmick[num].SetActive(true);
         CamZoom[num].SetActive(true);
     }
+
 
     //以下カメラ機能の制御
 
