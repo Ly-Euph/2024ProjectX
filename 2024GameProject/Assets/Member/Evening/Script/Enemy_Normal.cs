@@ -12,7 +12,9 @@ public class Enemy_Normal : MonoBehaviour
 
     private Animator anim;                              //アニメーション
     private int animNum;                                //アニメーションを管理する数字
-    
+
+
+    public bool teachFlag;                              //ドアに触れているかの識別
 
     private int stage;                                  
     private float waitTime;                             //自身の停止時間
@@ -31,6 +33,8 @@ public class Enemy_Normal : MonoBehaviour
         animNum = 0;                    //0のアニメーションを再生(ラン)
 
         myPath = path[0];
+
+        teachFlag = false;
 
         stage = 0;
 
@@ -182,5 +186,15 @@ public class Enemy_Normal : MonoBehaviour
                 break;
         }
     }
+
+    void OnCollisionStay(Collision other)
+    {
+        if(other.gameObject.tag=="EndPos")
+        {
+            Debug.Log("最終地点");
+            teachFlag = true;   
+        }
+    }
+
 
 }
