@@ -180,6 +180,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3ca538d58affe4ea9ed51ca62a3a7d, type: 3}
+--- !u!1 &376079767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376079769}
+  - component: {fileID: 376079768}
+  m_Layer: 0
+  m_Name: ScanManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &376079768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376079767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f3dcada5f0fbd4f860885c972ec311, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &376079769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376079767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.314049, y: 9.602995, z: -12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &386074758
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,15 +1288,15 @@ PrefabInstance:
     - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
       propertyPath: Trap_GK.Array.data[0]
       value: 
-      objectReference: {fileID: 7976962665681891148, guid: 2e878f31f6d4ed548bed0d847b9093e7, type: 3}
+      objectReference: {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
     - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
       propertyPath: Trap_GK.Array.data[1]
       value: 
-      objectReference: {fileID: 7976962665681891148, guid: 2e878f31f6d4ed548bed0d847b9093e7, type: 3}
+      objectReference: {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
     - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
       propertyPath: Trap_GK.Array.data[2]
       value: 
-      objectReference: {fileID: 7976962665681891148, guid: 2e878f31f6d4ed548bed0d847b9093e7, type: 3}
+      objectReference: {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
     - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
       propertyPath: Trap_Obj.Array.data[0]
       value: 
