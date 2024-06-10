@@ -12,7 +12,9 @@ public class Enemy_Normal : MonoBehaviour
 
     private Animator anim;                              //アニメーション
     private int animNum;                                //アニメーションを管理する数字
-    
+
+
+    public bool teachFlag;                              //ドアに触れているかの識別
 
     private int stage;                                  
     private float waitTime;                             //自身の停止時間
@@ -25,12 +27,14 @@ public class Enemy_Normal : MonoBehaviour
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
-        dolly.m_Speed = 0.2f;           //移動スピード0.2
+        dolly.m_Speed = 0.5f;           //移動スピード0.2
 
         anim = GetComponent<Animator>();
         animNum = 0;                    //0のアニメーションを再生(ラン)
 
         myPath = path[0];
+
+        teachFlag = false;
 
         stage = 0;
 
@@ -57,7 +61,7 @@ public class Enemy_Normal : MonoBehaviour
         else if (countFlag == false)
         {
             animNum = 0;
-            dolly.m_Speed = 0.2f;
+            dolly.m_Speed = 0.5f;
             //Debug.Log("false");
         }
 
@@ -106,35 +110,37 @@ public class Enemy_Normal : MonoBehaviour
                 dolly.m_Position = 0;
                 break;
 
+
         }
     }
 
     void InputKey()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             stage = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             stage = 1;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             stage = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             stage = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             stage = 4;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             stage = 5;
         }
+        
     }
 
     void CharactorMove()
@@ -180,5 +186,15 @@ public class Enemy_Normal : MonoBehaviour
                 break;
         }
     }
+
+    void OnCollisionStay(Collision other)
+    {
+        if(other.gameObject.tag=="EndPos")
+        {
+            Debug.Log("最終地点");
+            teachFlag = true;   
+        }
+    }
+
 
 }
