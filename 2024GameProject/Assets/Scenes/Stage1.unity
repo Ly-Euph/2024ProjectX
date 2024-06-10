@@ -1243,6 +1243,18 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: Trap_GK.Array.data[0]
+      value: 
+      objectReference: {fileID: 7976962665681891148, guid: 2e878f31f6d4ed548bed0d847b9093e7, type: 3}
+    - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: Trap_GK.Array.data[1]
+      value: 
+      objectReference: {fileID: 7976962665681891148, guid: 2e878f31f6d4ed548bed0d847b9093e7, type: 3}
+    - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: Trap_GK.Array.data[2]
+      value: 
+      objectReference: {fileID: 7976962665681891148, guid: 2e878f31f6d4ed548bed0d847b9093e7, type: 3}
+    - target: {fileID: 4661282149241287898, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
       propertyPath: Trap_Obj.Array.data[0]
       value: 
       objectReference: {fileID: 386074758}
