@@ -1302,6 +1302,34 @@ PrefabInstance:
       propertyPath: _waveInterval
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6996715823201275234, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996715823201275234, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996715823262418325, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996715823262418325, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996715824074506202, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996715824074506202, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6996715824074506202, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7990502025996856222, guid: 147a60cf6f9318141b1c402a7fd6acfa, type: 3}
       propertyPath: _addColor.b
       value: 0.103773594
