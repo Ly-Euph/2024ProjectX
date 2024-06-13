@@ -17,8 +17,6 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] BatteryManager Bm;
 
-    [Header("TrapManagerを入れてね")]
-
     [Header("Enemy関連")]
 
     [SerializeField] GameObject[] enemy = new GameObject[3];
@@ -36,8 +34,6 @@ public class CameraManager : MonoBehaviour
     //スキャン中に表示するUI
     [SerializeField] Image ScanUI;
 
-    private float Scan_Num;
-
     // カメラズームのUI
     [SerializeField] GameObject[] CamZoom;
 
@@ -54,12 +50,11 @@ public class CameraManager : MonoBehaviour
 
     ScanManager sMng;
 
+    private float Scan_Num;
+
     private int Volt_time = 20;
 
-    private int _time = 1;
-
     private float time;
-    private float time1;
     private float time2;
 
     private float Volt_timer = 20;
@@ -74,8 +69,6 @@ public class CameraManager : MonoBehaviour
     private bool[] Volt_Flg = new bool[6];
 
     private bool[] CamFlg = new bool[6];
-
-    private bool SponFlg = true;
 
     void Start()
     {
@@ -100,28 +93,24 @@ public class CameraManager : MonoBehaviour
     void Update()
     {
         Debug.Log(Scan_Num);
+
         //時を止めてる間はreturnする。
         if (Time.timeScale == 0) return;
+
         //Shiftキーを押したときにバッテリーを５%減らす。
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-
-            Bm.Para_Battery -= 5f;
-        }
-
-        //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
-
+        if (Input.GetKeyDown(KeyCode.LeftShift)) { Bm.Para_Battery -= 5f; }
+      
+     
         if (Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
-            sMng.ScanBool = true;
-            Scan_Num += 0.01f;
-            if (Scan_Num >= 1) Scan_Num = 0;
-            ScanUI.color = new Color(255, 255, 255, Scan_Num);
-            if (Bm.Para_Battery >= 0)
-            {
-                Bm.Para_Battery -= 0.05f;
-            }
+            //sMng.ScanBool = true;
+            //Scan_Num += 0.01f;
+            //if (Scan_Num >= 1) { Scan_Num = 0; }
+            //ScanUI.color = new Color(255, 255, 255, Scan_Num);
+
+            //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
+            if (Bm.Para_Battery >= 0) { Bm.Para_Battery -= 0.05f; }
         }
 
         //Shiftキーを離したときにスキャンを止める。
@@ -130,6 +119,8 @@ public class CameraManager : MonoBehaviour
         {
             SonarOff();
             sMng.ScanBool = false;
+            Scan_Num = 0;
+            //ScanUI.color = new Color(255, 255, 255, Scan_Num);
         }
         //トラップEキーを押したときの処理
 
@@ -162,7 +153,7 @@ public class CameraManager : MonoBehaviour
             Vector3 ObjPos = Trap_Obj[1].transform.position;
             Instantiate(Trap_GK[1], ObjPos, Quaternion.identity);
             TimeFlg = false;
-            time1 = 0;
+            time2 = 0;
             if (Bm.Para_Battery >= 0)
             {
                 Bm.Para_Battery -= 10;
@@ -170,9 +161,9 @@ public class CameraManager : MonoBehaviour
         }
         if (!TimeFlg)
         {
-            time1 += Time.deltaTime;
+            time2 += Time.deltaTime;
             //Fキーのクールタイム
-            if (time1 >= Volt_timer1)
+            if (time2 >= Volt_timer1)
             {
                 TimeFlg = true;
             }
