@@ -31,6 +31,13 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] Trap_GK;
 
+    [Header("ScanしているときのUI")]
+
+    //スキャン中に表示するUI
+    [SerializeField] Image ScanUI;
+
+    private float Scan_Num;
+
     // カメラズームのUI
     [SerializeField] GameObject[] CamZoom;
 
@@ -92,6 +99,7 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Scan_Num);
         //時を止めてる間はreturnする。
         if (Time.timeScale == 0) return;
         //Shiftキーを押したときにバッテリーを５%減らす。
@@ -107,6 +115,9 @@ public class CameraManager : MonoBehaviour
         {
             SonarOn();
             sMng.ScanBool = true;
+            Scan_Num += 0.01f;
+            if (Scan_Num >= 1) Scan_Num = 0;
+            ScanUI.color = new Color(255, 255, 255, Scan_Num);
             if (Bm.Para_Battery >= 0)
             {
                 Bm.Para_Battery -= 0.05f;
