@@ -12845,6 +12845,13 @@ MonoBehaviour:
   - {fileID: 1715452853247817857}
   - {fileID: 2468877256061066953}
   - {fileID: 8832098057354082342}
+  Echo_Img:
+  - {fileID: 4050993147891579317}
+  - {fileID: 5368934964068250603}
+  - {fileID: 5108350152873484850}
+  - {fileID: 1715452852630100342}
+  - {fileID: 2468877255745027902}
+  - {fileID: 8832098058079001041}
   CoolTime_Volt:
   - {fileID: 1894147545146613689}
   - {fileID: 7562405797784475111}
@@ -12852,6 +12859,20 @@ MonoBehaviour:
   - {fileID: 3873054592921550714}
   - {fileID: 14195994837326130}
   - {fileID: 6404316057121423325}
+  CoolTime_Echo:
+  - {fileID: 5502603921938079871}
+  - {fileID: 4532697333105846817}
+  - {fileID: 3639375469217987576}
+  - {fileID: 7182021588515455164}
+  - {fileID: 6207683334717122292}
+  - {fileID: 1077701377039482907}
+  eMng: {fileID: 1995362634}
+  Echo_timer: 20
+  Echo_timer1: 20
+  Echo_timer2: 20
+  Echo_timer3: 20
+  Echo_timer4: 20
+  Echo_timer5: 20
 --- !u!224 &6536139105514112676
 RectTransform:
   m_ObjectHideFlags: 0

@@ -21,7 +21,7 @@ public class Echo : MonoBehaviour
 
     private float scale_max = 10f;
 
-    private int echo_counter;
+
     // d—l
     // scalex,y‚ğ1`10‚Ü‚ÅŠg‘å‚µ‚Ä‚¢‚­
     // ‚±‚ÌÛ‚Éƒ¿’l‚ğ‚Ç‚ñ‚Ç‚ñ“§–¾‚É‚·‚é
@@ -46,17 +46,16 @@ public class Echo : MonoBehaviour
     {
         if(scaleY <= scale_max && scaleX <= scale_max)
         { 
-            Debug.Log(col_a);
             scaleX += 0.1f;
             scaleY += 0.1f;
             col_a -= 0.01f;
             rct.localScale = new Vector3(scaleX, scaleY, scaleZ);
             echo.color = new Color(col_r, col_g, col_b, col_a);
+
             //echo_counter++;
         }
         if (scaleY >= scale_max) 
         {
-            Debug.Log("Á‚·‚æ");
             this.gameObject.SetActive(false);
         }
     }

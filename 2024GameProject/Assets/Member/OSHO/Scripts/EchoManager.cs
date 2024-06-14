@@ -6,7 +6,11 @@ public class EchoManager : MonoBehaviour
 {
     [SerializeField] GameObject[] EchoUI;
     [SerializeField] RectTransform[] rct;
+
     float sclX, sclY,sclZ;
+
+    bool EchoFlg = true;
+    int Echo_T = 20;
     Vector3 scale;
     void Start()
     {
@@ -19,6 +23,24 @@ public class EchoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (EchoUI[0].activeSelf)
+        {
+            if (rct[0].localScale.x >= scale.x)
+            {
+                EchoUI[1].SetActive(true);
+            }
+        }
+        if (EchoUI[1].activeSelf)
+        {
+            if (rct[1].localScale.y >= scale.y)
+            {
+                EchoUI[2].SetActive(true);
+            }
+        }
+    }
+
+    public void EchoMode()
+    {
         //LeftShift‚ð‰Ÿ‚µ‚½‚ç‚Ìˆ—
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -26,19 +48,5 @@ public class EchoManager : MonoBehaviour
         }
 
         // —¬‚ê
-        if(EchoUI[0].activeSelf)
-        {
-            if(rct[0].localScale.x>=scale.x)
-            {
-                EchoUI[1].SetActive(true);
-            }
-        }
-        if(EchoUI[1].activeSelf)
-        {
-            if (rct[1].localScale.y >= scale.y)
-            {
-                EchoUI[2].SetActive(true);
-            }
-        }
     }
 }
