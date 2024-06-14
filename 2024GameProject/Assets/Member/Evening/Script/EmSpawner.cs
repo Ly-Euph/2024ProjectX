@@ -7,6 +7,9 @@ public class EmSpawner : MonoBehaviour
     //スポーンさせる敵のプレハブを保存するとこ
     [SerializeField] GameObject[] Enemy;
 
+    public string str;
+
+
     //各キャラごとにtagが付けられており、現状況でそのキャラが何体存在しているかの確認に使う
     private GameObject[] em_Normal;
     private GameObject[] em_Jammer;
@@ -15,10 +18,8 @@ public class EmSpawner : MonoBehaviour
 
 
     //最初のスポーン、コストMaxまでtrue、コスト最大まで湧かせたらfalseになる
+    //false時は15秒に1度敵のコスト検知+スポーン
     public bool firstSpawnFlag;
-
-    //trueの時、敵スポーン
-    //private bool spawnFlag;
 
 
     //各キャラのスポーンコスト
@@ -36,6 +37,7 @@ public class EmSpawner : MonoBehaviour
     //private int[,] emMaxNum = new int[,] { { 10, 5, 5, 2 }, { 8, 6, 6, 4 }, { 4, 5, 5, 7 } };
 
     //今現在のコストを保存する
+
     private int totalCost;
 
     //敵がスポーンする。各難易度の最大コスト
@@ -52,8 +54,11 @@ public class EmSpawner : MonoBehaviour
     //ランダムな数の生成で使用
     int random;
 
+    private int saveNum;
+
     //仮で使ってるだけ
     float timer;
+    float setTime;
 
 
     //今現在の難易度を保存
@@ -65,13 +70,13 @@ public class EmSpawner : MonoBehaviour
     void Start()
     {
         firstSpawnFlag = true;
-        //spawnFlag = false;
 
 
         totalCost = 0;
         timer = 0;
+        setTime = 1.0f;
 
-        difficulty = "Hard";
+        difficulty = str;
     }
 
     // Update is called once per frame
@@ -80,30 +85,35 @@ public class EmSpawner : MonoBehaviour
         timer+= Time.deltaTime;
 
 
-        if (firstSpawnFlag == true && timer >= 0.5f)
+        if(timer>=setTime)
         {
-            timer = 0;
-            CountCost();
+            if (firstSpawnFlag == true)
+            {
+                timer = 0;
+                CountCost();
+            }
+            else if (firstSpawnFlag == false)
+            {
+                em_Normal = GameObject.FindGameObjectsWithTag("NormalEnemy");
+                em_Speed = GameObject.FindGameObjectsWithTag("SpeedEnemy");
+                em_Hide = GameObject.FindGameObjectsWithTag("HideEnemy");
+                em_Jammer = GameObject.FindGameObjectsWithTag("JammerEnemy");
+
+            
+                totalCost = em_Normal.Length * spawnCost[0] +
+                          em_Speed.Length * spawnCost[2] +
+                          em_Hide.Length * spawnCost[4] +
+                          em_Jammer.Length * spawnCost[6];
+
+                Debug.Log("totalCost = "+totalCost);
+
+
+                timer = 0;
+                CountCost();
+            }
         }
-        //else if (firstSpawnFlag == false && timer >= 5.0f)
-        //{
-        //    timer = 0;
+        
 
-        //    //敵が今何体存在してるかを取得するために実行
-        //    em_Normal = GameObject.FindGameObjectsWithTag("NormalEnemy");
-        //    em_Speed = GameObject.FindGameObjectsWithTag("SpeedEnemy");
-        //    em_Hide = GameObject.FindGameObjectsWithTag("HideEnemy");
-        //    em_Jammer = GameObject.FindGameObjectsWithTag("JammerEnemy");
-
-        //    totalCost = em_Normal.Length * spawnCost[0] +
-        //              em_Speed.Length * spawnCost[2] +
-        //              em_Hide.Length * spawnCost[4] +
-        //              em_Jammer.Length * spawnCost[6];
-
-        //    CountCost();
-
-        //    Debug.Log(totalCost);
-        //}
     }
 
 
@@ -112,7 +122,6 @@ public class EmSpawner : MonoBehaviour
         
 
         random = Random.Range(1, 101);
-        Debug.Log(random);
         for (int i = 0; i < difficult.GetLength(0); i++)
         {
             if (difficulty == difficult[i])
@@ -123,27 +132,44 @@ public class EmSpawner : MonoBehaviour
                     {
                         if(totalCost+spawnCost[j]<maxCost[i]&&probability[i,j]>=random)
                         {
-                            Instantiate(Enemy[j], new Vector3(0, 0, 0), Quaternion.identity);
+                            saveNum = j;
+                            //Instantiate(Enemy[j], new Vector3(0, 0, 0), Quaternion.identity);
                             totalCost += spawnCost[j];
-                            Debug.Log("totalcost = " + totalCost);
+                            SpawnEnemy();
+                        }
+                        else if (totalCost + spawnCost[j] >= maxCost[i] && firstSpawnFlag == true)
+                        {
+                            Debug.Log("MaxCost");
+                            firstSpawnFlag = false;
+                            setTime = 5.0f;
                         }
                     }
                     else if (j >= 1)
                     {
-                        if (totalCost + spawnCost[j] <= maxCost[i] && probability[i, j] >= random && random > probability[i, j - 1])
+                        if (totalCost + spawnCost[j] < maxCost[i] && probability[i, j] >= random && random > probability[i, j - 1])
                         {
-                            Instantiate(Enemy[j], new Vector3(0, 0, 0), Quaternion.identity);
+                            saveNum = j;
+                            //Instantiate(Enemy[j], new Vector3(0, 0, 0), Quaternion.identity);
                             totalCost += spawnCost[j];
-                            Debug.Log("totalcost = " + totalCost);
+                            SpawnEnemy();
                         }
-                        //else if(totalCost+spawnCost[j]>maxCost[j])
-                        //{
-                        //    firstSpawnFlag = false;
-                        //}
+                        else if (totalCost + spawnCost[j] >= maxCost[i] && firstSpawnFlag == true)
+                        {
+                            Debug.Log("MaxCost");
+                            firstSpawnFlag = false;
+                            setTime = 5.0f;
+                        }
                     }
+                    
                 }
             }
         }
 
     }
+
+    void SpawnEnemy()
+    {
+        Instantiate(Enemy[saveNum], new Vector3(0, 0, 0), Quaternion.identity);
+    }
+
 }

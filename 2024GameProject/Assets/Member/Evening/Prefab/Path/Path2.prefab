@@ -53,15 +53,15 @@ MonoBehaviour:
   - position: {x: 0, y: 0, z: 0}
     tangent: {x: 0, y: 0, z: -1}
     roll: 0
-  - position: {x: 0, y: 0, z: -3}
+  - position: {x: 0, y: 0, z: -4}
     tangent: {x: 0, y: 0, z: -1}
     roll: 0
-  - position: {x: 0, y: 0, z: -7}
+  - position: {x: 0, y: 0, z: -8}
     tangent: {x: 0, y: 0, z: -1}
     roll: 0
   - position: {x: 0, y: 0, z: -12}
     tangent: {x: 0, y: 0, z: -1}
     roll: 0
-  - position: {x: 0, y: 0, z: -17}
+  - position: {x: 0, y: 0, z: -16}
     tangent: {x: 0, y: 0, z: -1}
     roll: 0

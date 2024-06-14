@@ -25,6 +25,14 @@ public class Enemy_Hide : MonoBehaviour
     private bool camScan;
     private float scanTime;
 
+    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
+                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
+                            { 2, 6, 6 } };
+
+    private int rootRand;
+
+    public int stage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,11 +55,19 @@ public class Enemy_Hide : MonoBehaviour
 
         camScan = false;
         scanTime = 0;
+
+        stage = 0;
+
+        rootRand = Random.Range(0, 7);
+
+        myPath = path[root[rootRand, stage]];
+        //Debug.Log(rootRand);
     }
 
     // Update is called once per frame
     void Update()
     {
+        SwitchStage();
         this.dolly.m_Path = myPath;
         if (Input.GetKeyDown(KeyCode.C))
         {
@@ -66,6 +82,13 @@ public class Enemy_Hide : MonoBehaviour
             CamScan();
             scanTime += 1 / 60f;
         }
+
+        if (stage == 2)
+        {
+            Destroy(gameObject);
+            Debug.Log("Hide‚É‚æ‚Á‚Ägame over");
+        }
+
     }
 
     void EnemyMove()
@@ -89,4 +112,17 @@ public class Enemy_Hide : MonoBehaviour
             camScan = false;
         }
     }
+
+
+    void SwitchStage()
+    {
+        if (dolly.m_Position == 4)
+        {
+            stage++;
+            myPath = path[root[rootRand, stage]];
+            dolly.m_Position = 0;
+        }
+    }
+
+
 }

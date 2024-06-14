@@ -10,37 +10,29 @@ public class Enemy_Normal : MonoBehaviour
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;       //ルートのパス
 
-    private Animator anim;                              //アニメーション
-    private int animNum;                                //アニメーションを管理する数字
+
+    public int stage;
 
 
-    public bool teachFlag;                              //ドアに触れているかの識別
+    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 }, 
+                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 }, 
+                            { 2, 6, 6 } };
 
-    private int stage;                                  
-    private float waitTime;                             //自身の停止時間
-
-
-    private bool countFlag;                             //trueでタイマーが作動
+    private int rootRand;
 
 
     // Start is called before the first frame update
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
-        dolly.m_Speed = 0.5f;           //移動スピード0.2
-
-        anim = GetComponent<Animator>();
-        animNum = 0;                    //0のアニメーションを再生(ラン)
-
-        myPath = path[0];
-
-        teachFlag = false;
+        dolly.m_Speed = 0.2f;           //移動スピード0.2
 
         stage = 0;
 
-        waitTime = 0.0f;
 
-        countFlag = false;
+        rootRand = Random.Range(0, 7);
+
+        myPath = path[root[rootRand, stage]];
 
     }
 
@@ -51,150 +43,25 @@ public class Enemy_Normal : MonoBehaviour
         this.dolly.m_Path = myPath;
 
         SwitchStage();
-        InputKey();         //
-        CharactorMove();
 
-        if (countFlag == true)
+
+        if(stage==2)
         {
-            TimerCount();
-        }
-        else if (countFlag == false)
-        {
-            animNum = 0;
-            dolly.m_Speed = 0.5f;
-            //Debug.Log("false");
+            Destroy(gameObject);
+            Debug.Log("Normalによりgame over");
         }
 
-        AnimControlle();
+        //AnimControlle();
     }
 
 
     void SwitchStage()
     {
-        switch(stage)
+        if (dolly.m_Position == 4)
         {
-            case 0:
-                stage = 100;
-                myPath = path[0];
-                dolly.m_Position = 0;
-                break;
-
-            case 1:
-                stage = 100;
-                myPath = path[1];
-                dolly.m_Position = 0;
-                break;
-
-            case 2:
-                stage = 100;
-                myPath = path[2];
-                dolly.m_Position = 0;
-                break;
-
-            case 3:
-                stage = 100;
-                myPath = path[3];
-                dolly.m_Position = 0;
-                waitTime = 7.5f;
-                break;
-
-            case 4:
-                stage = 100;
-                myPath = path[4];
-                dolly.m_Position = 0;
-                break;
-
-            case 5:
-                stage = 100;
-                myPath = path[5];
-                dolly.m_Position = 0;
-                break;
-
-
+            stage++;
+            myPath = path[root[rootRand, stage]];
+            dolly.m_Position = 0;
         }
     }
-
-    void InputKey()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            stage = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            stage = 1;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            stage = 2;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            stage = 3;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            stage = 4;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            stage = 5;
-        }
-        
-    }
-
-    void CharactorMove()
-    {
-        if (waitTime > 0f && dolly.m_Position >= 2)
-        {
-            animNum = 1;
-            //Debug.Log("停止");
-            countFlag = true;
-        }
-    }
-
-    void TimerCount()
-    {
-        dolly.m_Speed = 0f;
-
-        if (waitTime > 0f)
-        {
-            waitTime -= Time.deltaTime;
-        }
-        countFlag = false;
-    }
-
-    void AnimControlle()
-    {
-        switch(animNum)
-        {
-            case 0:
-                anim.ResetTrigger("idle");
-                //Debug.Log("Run");
-                anim.SetTrigger("run");
-                break;
-
-            case 1:
-                anim.ResetTrigger("run");
-                Debug.Log("Idle");
-                anim.SetTrigger("idle");
-                break;
-
-            case 2:
-                Debug.Log("Dead");
-                anim.SetTrigger("dead");
-                break;
-        }
-    }
-
-    void OnCollisionStay(Collision other)
-    {
-        if(other.gameObject.tag=="EndPos")
-        {
-            Debug.Log("最終地点");
-            teachFlag = true;   
-        }
-    }
-
-
 }
