@@ -31,14 +31,18 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] Trap_GK;
 
+    [Header("ScanしているときのUI")]
+
+    //スキャン中に表示するUI
+    [SerializeField] Image ScanUI;
+
+    private float Scan_Num;
+
     // カメラズームのUI
     [SerializeField] GameObject[] CamZoom;
 
     // スキルUI
     [SerializeField] GameObject[] Gimmick;
-    //[Header("お好きなようにクールタイムを変えてね")]
-
-    //[SerializeField] float Cool_Time = 20;
 
     // ソナースクリプト取得
     [SerializeField]SonarFx[] sf;
@@ -47,6 +51,8 @@ public class CameraManager : MonoBehaviour
     [SerializeField] Image[] Volt_Img;
 
     [SerializeField] Text[] CoolTime_Volt;
+
+    ScanManager sMng;
 
     private int Volt_time = 20;
 
@@ -69,8 +75,11 @@ public class CameraManager : MonoBehaviour
 
     private bool[] CamFlg = new bool[6];
 
+    private bool SponFlg = true;
+
     void Start()
     {
+        sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
         for(int i=0;i<Camera.Length;i++)
         {
             // ボルトトラップ使用可能
@@ -90,6 +99,9 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Scan_Num);
+        //時を止めてる間はreturnする。
+        if (Time.timeScale == 0) return;
         //Shiftキーを押したときにバッテリーを５%減らす。
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -102,6 +114,10 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
+            sMng.ScanBool = true;
+            Scan_Num += 0.01f;
+            if (Scan_Num >= 1) Scan_Num = 0;
+            ScanUI.color = new Color(255, 255, 255, Scan_Num);
             if (Bm.Para_Battery >= 0)
             {
                 Bm.Para_Battery -= 0.05f;
@@ -113,9 +129,11 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             SonarOff();
+            sMng.ScanBool = false;
         }
         //トラップEキーを押したときの処理
 
+        //カメラ１のボルトトラップ
 
         if (Input.GetKeyDown(KeyCode.E) && CamFlg[0] && Volt_timer >= 20)
         {
@@ -137,6 +155,8 @@ public class CameraManager : MonoBehaviour
                 TimeFlg = true;
             }
         }
+
+        //カメラ２のボルトトラップ
         if (Input.GetKeyDown(KeyCode.E) && CamFlg[1] && Volt_timer1 >= 20)
         {
             Vector3 ObjPos = Trap_Obj[1].transform.position;
@@ -157,7 +177,7 @@ public class CameraManager : MonoBehaviour
                 TimeFlg = true;
             }
         }
-        Debug.Log(time);
+
         //番号１
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -232,6 +252,7 @@ public class CameraManager : MonoBehaviour
         Gimmick[num].SetActive(true);
         CamZoom[num].SetActive(true);
     }
+
 
     //以下カメラ機能の制御
 
