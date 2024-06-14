@@ -69,7 +69,7 @@ public class Enemy_Hide : MonoBehaviour
     {
         SwitchStage();
         this.dolly.m_Path = myPath;
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             camScan = true;
         }
