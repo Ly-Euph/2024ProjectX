@@ -12807,12 +12807,18 @@ MonoBehaviour:
   - {fileID: 8415331264989879956}
   CameraText: {fileID: 4560288082619688047}
   Bm: {fileID: 248587349}
-  enemy: []
+  Enemy: []
   Trap_Obj:
   - {fileID: 386074758}
   - {fileID: 390567150}
   - {fileID: 1128606588}
+  - {fileID: 1128606588}
+  - {fileID: 1128606588}
+  - {fileID: 1128606588}
   Trap_GK:
+  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
+  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
+  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
@@ -12831,13 +12837,7 @@ MonoBehaviour:
   - {fileID: 1715452852191700544}
   - {fileID: 2468877257118744584}
   - {fileID: 8832098058445842151}
-  sf:
-  - {fileID: 4981665153521621127}
-  - {fileID: 6952115352205619280}
-  - {fileID: 4019805473511278154}
-  - {fileID: 4215740162959498446}
-  - {fileID: 3654690938611995232}
-  - {fileID: 8415331264989879951}
+  Sf: []
   Volt_Img:
   - {fileID: 4050993148177471554}
   - {fileID: 5368934963410424348}
@@ -12867,12 +12867,22 @@ MonoBehaviour:
   - {fileID: 6207683334717122292}
   - {fileID: 1077701377039482907}
   eMng: {fileID: 1995362634}
+  Volt_timers:
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
   Echo_timer: 20
   Echo_timer1: 20
   Echo_timer2: 20
   Echo_timer3: 20
   Echo_timer4: 20
   Echo_timer5: 20
+  Volt_Flg: 000000000000
+  Echo_Flg: 000000000000
+  CamFlg: 000000000000
 --- !u!224 &6536139105514112676
 RectTransform:
   m_ObjectHideFlags: 0
