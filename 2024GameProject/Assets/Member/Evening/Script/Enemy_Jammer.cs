@@ -4,27 +4,90 @@ using UnityEngine;
 
 public class Enemy_Jammer : MonoBehaviour
 {
+
+    private float timer;
+
     private Cinemachine.CinemachineDollyCart dolly;
 
     private Cinemachine.CinemachinePathBase myPath;
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
-    [SerializeField] SkinnedMeshRenderer smr;
-    //[SerializeField] Material material_N; // 基本マテリアル
-    //[SerializeField] Material material_S; // スキャン中マテリアル
-    // Start is called before the first frame update
+
+    Animator anim;
+
+    private int animNum;
+
     void Start()
     {
+        timer = 0f;
+
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
+        dolly.m_Speed = 0.3f;
+
         myPath = path[0];
-        // 初期マテリアルセット
-        //smr.material = material_N;
+
+        anim = GetComponent<Animator>();
+        animNum = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        timer += Time.deltaTime;
+
         this.dolly.m_Path = myPath;
-        //smr.material = material_S;
+
+
+        if (timer <= 2.5f)
+        {
+            Debug.Log("idle");
+            animNum = 0;
+
+        }
+        else if (timer > 1.5f && dolly.m_Position != 1)
+        {
+            Debug.Log("Walk");
+            animNum = 1;
+
+        }
+        else if (dolly.m_Position == 1)
+        {
+            Debug.Log("camHack");
+            animNum = 2;
+        }
+        Anim();
+
     }
+
+    void Anim()
+    {
+        switch(animNum)
+        {
+            case 0:
+                dolly.m_Speed = 0f;
+                anim.SetBool("Idle", true);
+                anim.SetBool("Walk", false);
+                anim.SetBool("Hack", false);
+                break;
+
+            case 1:
+                dolly.m_Speed = 0.3f;
+                anim.SetBool("Idle", false);
+                anim.SetBool("Walk", true);
+                anim.SetBool("Hack", false);
+                break;
+
+            case 2:
+                anim.SetBool("Idle", false);
+                anim.SetBool("Walk", false);
+                anim.SetBool("Hack", true);
+                break;
+
+
+
+        }
+    }
+
+
 }

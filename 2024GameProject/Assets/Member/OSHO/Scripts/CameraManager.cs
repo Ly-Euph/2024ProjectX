@@ -7,23 +7,21 @@ public class CameraManager : MonoBehaviour
 {
     [Header("Camera関連をここに入れといて")]
 
-    [SerializeField] GameObject[] Camera = new GameObject[3];
+    [SerializeField] GameObject[] Camera;
 
     [Header("Text関連をここに入れといて")]
 
-    [SerializeField] Text CameraText;
+    [SerializeField] Text Camera_Text;
 
     [Header("BatteryManagerを入れてね。")]
 
     [SerializeField] BatteryManager Bm;
 
-    [Header("TrapManagerを入れてね")]
-
     [Header("Enemy関連")]
 
-    [SerializeField] GameObject[] enemy = new GameObject[3];
+    [SerializeField] GameObject[] Enemy;
 
-    [Header("Trapを設置するObject")]
+    [Header("Trapを発動する位置用のObject")]
 
     [SerializeField] GameObject[] Trap_Obj;
 
@@ -31,97 +29,123 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] Trap_GK;
 
-    [Header("ScanしているときのUI")]
+    [Header("それぞれのScanUIを入れるとこ")]
 
-    //スキャン中に表示するUI
-    [SerializeField] Image ScanUI;
+    [SerializeField] Image Scan_UI;
 
-    private float Scan_Num;
+    [Header("それぞれのCamZoomUIを入れるとこ")]
+    
+    [SerializeField] GameObject[] Cam_Zoom;
 
-    // カメラズームのUI
-    [SerializeField] GameObject[] CamZoom;
+    [Header("それぞれのGimmicUIを入れるとこ")]
 
-    // スキルUI
     [SerializeField] GameObject[] Gimmick;
 
+    [Header("SonarFxのScriptを入れてね")]
+
     // ソナースクリプト取得
-    [SerializeField]SonarFx[] sf;
+    [SerializeField] SonarFx[] Sf;
+
+    [Header("それぞれのVoltトラップで使うImageを入れてね")]
 
     // ボルトトラップイメージ
     [SerializeField] Image[] Volt_Img;
 
-    [SerializeField] Text[] CoolTime_Volt;
+    [Header("それぞれのEchoトラップで使うImageを入れてね")]
+    
+    //エコートラップイメージ
+    [SerializeField] Image[] Echo_Img;
+
+    [Header("VoltのCooltime用のTextを入れてね。")]
+
+    [SerializeField] Text[] CT_Volt;
+    
+    [Header("EchoのCooltime用のTextを入れてね。")]
+
+    [SerializeField] Text[] CT_Echo;
+
+    [Header("EchoManagerを入れてね")]
+    //Echoマネージャー取得
+    [SerializeField] EchoManager eMng;
 
     ScanManager sMng;
 
-    private int Volt_time = 20;
+    //クールタイムUIに反映させるUI
+    private int V_time = 20;
+    private int E_time = 20;
 
-    private int _time = 1;
+    private float time_C;
+    private float time_C2;
 
-    private float time;
-    private float time1;
-    private float time2;
+    //Voltのtimerの変数
 
-    private float Volt_timer = 20;
-    private float Volt_timer1 = 20;
-    private float Volt_timer2 = 20;
-    private float Volt_timer3 = 20;
-    private float Volt_timer4 = 20;
-    private float Volt_timer5 = 20;
+    private float[] time_Vs;
 
-    private bool TimeFlg = true;
+    public float[] Volt_timers;
 
-    private bool[] Volt_Flg = new bool[6];
+    //Echoのtimerの変数
+    public float Echo_timer = 20; 
+    public float Echo_timer1 = 20;
+    public float Echo_timer2 = 20;
+    public float Echo_timer3 = 20;
+    public float Echo_timer4 = 20;
+    public float Echo_timer5 = 20;
 
-    private bool[] CamFlg = new bool[6];
+    //時間制限Flag
+    private bool Time_Flg = false;
 
-    private bool SponFlg = true;
+    //Volt用のFlag
+    public bool[] Volt_Flg;
+
+    //Echo用のFlag
+    public  bool[] Echo_Flg;
+
+    //Camera用のFlag
+    public  bool[] Cam_Flg;
 
     void Start()
     {
         sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
-        for(int i=0;i<Camera.Length;i++)
+        for (int i = 0; i < Camera.Length; i++)
         {
-            // ボルトトラップ使用可能
-            CoolTime_Volt[i].text = "OK";
-            //sfの配列にSonarFxをげっとする。
+            // ボルトトラップ使用可能のテキスト「OK」を初めに表示
+
+            CT_Volt[i].text = "OK";
+            CT_Echo[i].text = "OK";
+
+            //　Imageを初めは0にしておく。
+
             Volt_Img[i].GetComponent<Image>().fillAmount = 0;
+            Echo_Img[i].GetComponent<Image>().fillAmount = 0; 
         }
-        // カメラ1のみ表示
-        //Camera1の設定
-        SetCamera1();
-        CamFlag();
-        CamFlg[0] = true;
-        UIActive(0);
-        //Sonartxをfalseに
-        SonarOff();
+        　　//初めはCamera1に設定
+        　　SetCamera1();
+        　　//カメラに関するFlagを全てOffに
+       　　 CamFlag();
+        　　Cam_Flg[0] = true;
+        　　//GimmicとCameraZoomのUIを引数の値に応じて表示
+        　　UIActive(0);
+        　　//Sonartxをfalseに
+        　　SonarOff();
+    
+            //time_Vsに配列の値を代入。
+        　　time_Vs = new float[Volt_timers.Length];
     }
 
     void Update()
     {
-        Debug.Log(Scan_Num);
-        //時を止めてる間はreturnする。
+        //時を止めてる間はreturnし続ける。
         if (Time.timeScale == 0) return;
+
         //Shiftキーを押したときにバッテリーを５%減らす。
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
+        if (Input.GetKeyDown(KeyCode.LeftShift)) { Bm.Para_Battery -= 5f; }
 
-            Bm.Para_Battery -= 5f;
-        }
-
-        //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
             SonarOn();
-            sMng.ScanBool = true;
-            Scan_Num += 0.01f;
-            if (Scan_Num >= 1) Scan_Num = 0;
-            ScanUI.color = new Color(255, 255, 255, Scan_Num);
-            if (Bm.Para_Battery >= 0)
-            {
-                Bm.Para_Battery -= 0.05f;
-            }
+            //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
+            if (Bm.Para_Battery >= 0) { Bm.Para_Battery -= 0.05f; }
         }
 
         //Shiftキーを離したときにスキャンを止める。
@@ -129,52 +153,69 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             SonarOff();
-            sMng.ScanBool = false;
         }
-        //トラップEキーを押したときの処理
 
-        //カメラ１のボルトトラップ
+        //ボルトトラップ呼出し
 
-        if (Input.GetKeyDown(KeyCode.E) && CamFlg[0] && Volt_timer >= 20)
+        for (int i = 0; i < Cam_Flg.Length; i++)
         {
-            Vector3 ObjPos = Trap_Obj[0].transform.position;
-            Instantiate(Trap_GK[0], ObjPos, Quaternion.identity);
-            TimeFlg = false;
-            time = 0;
+            if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
+            {
+                Debug.Log("生成");
+                Vector3 ObjPos = Trap_Obj[i].transform.position;
+                Instantiate(Trap_GK[i], ObjPos, Quaternion.identity);
+                time_Vs[i] = 0;
+                if (Bm.Para_Battery >= 0)
+                {
+                    Bm.Para_Battery -= 10;
+                }
+            }
+
+            // クールタイム計測
+            time_Vs[i] += Time.deltaTime;
+            if (time_Vs[i] >= Volt_timers[i])
+            {
+                time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
+            }
+        }
+
+        //エコートラップ呼出し
+        if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[0] && Echo_timer >= 20)
+        {
+            eMng.EchoMode();
+            Time_Flg = false;
+            time_C = 0;
+
+            if(Bm.Para_Battery >= 0)
+            {
+                Bm.Para_Battery -= 10;
+            } 
+        }
+        if(!Time_Flg)
+        {
+            time_C += Time.deltaTime;
+            if (time_C >= Echo_timer)
+            {
+                Time_Flg = true;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[1] && Echo_timer1 >= 20)
+        {
+            eMng.EchoMode();
+            Time_Flg = false;
+            time_C2 = 0;
             if (Bm.Para_Battery >= 0)
             {
                 Bm.Para_Battery -= 10;
             }
         }
-        if(!TimeFlg)
+        if (!Time_Flg)
         {
-            time += Time.deltaTime;
-            //Fキーのクールタイム
-            if (time >= Volt_timer)
+            time_C2 += Time.deltaTime;
+            if (time_C2 >= Echo_timer1)
             {
-                TimeFlg = true;
-            }
-        }
-
-        //カメラ２のボルトトラップ
-        if (Input.GetKeyDown(KeyCode.E) && CamFlg[1] && Volt_timer1 >= 20)
-        {
-            Vector3 ObjPos = Trap_Obj[1].transform.position;
-            Instantiate(Trap_GK[1], ObjPos, Quaternion.identity);
-            TimeFlg = false;
-            time1 = 0;
-            if (Bm.Para_Battery >= 0)
-            {
-                Bm.Para_Battery -= 10;
-            }
-        }
-        if (!TimeFlg)
-        {
-            time1 += Time.deltaTime;
-            //Fキーのクールタイム
-            if (time1 >= Volt_timer1)
-            {
-                TimeFlg = true;
+                Time_Flg = true;
             }
         }
 
@@ -184,7 +225,7 @@ public class CameraManager : MonoBehaviour
             //Camera1の設定
             SetCamera1();
             CamFlag();
-            CamFlg[0] = true;
+            Cam_Flg[0] = true;
             UIActive(0);
         }
         //番号２
@@ -194,7 +235,7 @@ public class CameraManager : MonoBehaviour
             //Camera2の設定
             SetCamera2();
             CamFlag();
-            CamFlg[1] = true;
+            Cam_Flg[1] = true;
             UIActive(1);
         }
 
@@ -205,7 +246,7 @@ public class CameraManager : MonoBehaviour
             //Camera3の設定
             SetCamera3();
             CamFlag();
-            CamFlg[2] = true;
+            Cam_Flg[2] = true;
             UIActive(2);
         }
         //番号４
@@ -215,7 +256,7 @@ public class CameraManager : MonoBehaviour
             //Camera4の設定
             SetCamera4();
             CamFlag();
-            CamFlg[3] = true;
+            Cam_Flg[3] = true;
             UIActive(3);
         }
         //番号５
@@ -225,7 +266,7 @@ public class CameraManager : MonoBehaviour
             //Camera5の設定
             SetCamera5();
             CamFlag();
-            CamFlg[4] = true;
+            Cam_Flg[4] = true;
             UIActive(4);
         }
         //番号６
@@ -235,24 +276,50 @@ public class CameraManager : MonoBehaviour
             //Camera6の設定
             SetCamera6();
             CamFlag();
-            CamFlg[5] = true;
+            Cam_Flg[5] = true;
             UIActive(5);
         }
-        TextChange();
+
+        //VoltトラップとUIを切り替える
+
+        for (int i = 0; i < 6; i++)
+        {
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && Volt_Img[i].fillAmount == 0)
+            {
+                StartVoltTimer(i);
+            }
+            if (Volt_Flg[i])
+            {
+                UpdateVoltTimer(i);
+            }
+        }
+
+        //EchoトラップとUIを切り替える。
+
+        for (int i = 0; i < 6; i++)
+        {
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && Echo_Img[i].fillAmount == 0)
+            {
+                StartEchoTimer(i);
+            }
+            if (Echo_Flg[i])
+            {
+                UpdateEchoTimer(i);
+            }
+        }
     }
 
     private void UIActive(int num)
     {
-        for(int i=0;i<Gimmick.Length;i++)
+        for (int i = 0; i < Gimmick.Length; i++)
         {
             // 一旦全てのUI表示を非表示
             Gimmick[i].SetActive(false);
-            CamZoom[i].SetActive(false);
+            Cam_Zoom[i].SetActive(false);
         }
         Gimmick[num].SetActive(true);
-        CamZoom[num].SetActive(true);
+        Cam_Zoom[num].SetActive(true);
     }
-
 
     //以下カメラ機能の制御
 
@@ -260,7 +327,7 @@ public class CameraManager : MonoBehaviour
     {
         CameraScan();
         Camera[0].SetActive(true);
-        CameraText.text = "カメラ１:";
+        Camera_Text.text = "カメラ１:";
     }
 
     void SetCamera2()
@@ -268,47 +335,47 @@ public class CameraManager : MonoBehaviour
         CameraScan();
         Camera[1].SetActive(true);
 
-        CameraText.text = "カメラ２:";
+        Camera_Text.text = "カメラ２:";
     }
 
     void SetCamera3()
     {
         CameraScan();
         Camera[2].SetActive(true);
-        CameraText.text = "カメラ３:";
+        Camera_Text.text = "カメラ３:";
     }
 
     void SetCamera4()
     {
         CameraScan();
         Camera[3].SetActive(true);
-        CameraText.text = "カメラ４:";
+        Camera_Text.text = "カメラ４:";
     }
 
     void SetCamera5()
     {
         CameraScan();
         Camera[4].SetActive(true);
-        CameraText.text = "カメラ５:";
+        Camera_Text.text = "カメラ５:";
     }
     void SetCamera6()
     {
         CameraScan();
         Camera[5].SetActive(true);
-        CameraText.text = "カメラ６:";
+        Camera_Text.text = "カメラ６:";
     }
     void SonarOff()
     {
-        for (int i = 0; i < sf.Length; i++)
+        for (int i = 0; i < Sf.Length; i++)
         {
-            sf[i].enabled = false;
+            Sf[i].enabled = false;
         }
     }
     void SonarOn()
     {
-        for (int i = 0; i < sf.Length; i++)
+        for (int i = 0; i < Sf.Length; i++)
         {
-            sf[i].enabled = true;
+            Sf[i].enabled = true;
         }
     }
     void CameraScan()
@@ -321,130 +388,60 @@ public class CameraManager : MonoBehaviour
 
     void CamFlag()
     {
-        for (int i = 0; i < CamFlg.Length; i++)
+        for (int i = 0; i < Cam_Flg.Length; i++)
         {
-            CamFlg[i] = false;
+            Cam_Flg[i] = false;
         }
     }
 
-    void TextChange()
+    void StartVoltTimer(int index)
     {
-        //以下のプログラムは暇なときに綺麗にする。とりあえずクールタイムとカメラそれぞれのUIの切り替え
+        CT_Volt[index].text = V_time.ToString();
+        Volt_Img[index].fillAmount = 1;
+        Volt_Flg[index] = true;
+    }
 
-        if (CamFlg[0] && Input.GetKeyDown(KeyCode.E) && Volt_Img[0].fillAmount == 0)
+    void StartEchoTimer(int index)
+    {
+        CT_Echo[index].text = E_time.ToString();
+        Echo_Img[index].fillAmount = 1;
+        Echo_Flg[index] = true;
+
+    }
+    void UpdateVoltTimer(int index)
+    {
+        Volt_timers[index] -= Time.deltaTime;
+        CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
+        Volt_Img[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
+
+        if (Volt_timers[index] <= 0)
         {
-            CoolTime_Volt[0].text = Volt_time.ToString();
-            Volt_Img[0].fillAmount += 1;
-            Volt_Flg[0] = true;
+            Volt_Flg[index] = false;
+            CT_Volt[index].text = "OK";
+            Volt_timers[index] = 20;
         }
+    }
 
-        if (CamFlg[1] && Input.GetKeyDown(KeyCode.E) && Volt_Img[1].fillAmount == 0)
-        {
-            CoolTime_Volt[1].text = Volt_time.ToString();
-            Volt_Img[1].fillAmount += 1;
-            Volt_Flg[1] = true;
-        }
+    void UpdateEchoTimer(int index)
+    {
+        float[] Echo_timers = { Echo_timer, Echo_timer1, Echo_timer2, Echo_timer3, Echo_timer4, Echo_timer5 };
 
-        if (CamFlg[2] && Input.GetKeyDown(KeyCode.E) && Volt_Img[2].fillAmount == 0)
-        {
-            CoolTime_Volt[2].text = Volt_time.ToString();
-            Volt_Img[2].fillAmount += 1;
-            Volt_Flg[2] = true;
-        }
+        Echo_timers[index] -= Time.deltaTime;
+        CT_Echo[index].text = ((int)Echo_timers[index]).ToString();
+        Echo_Img[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
 
-        if (CamFlg[3] && Input.GetKeyDown(KeyCode.E) && Volt_Img[3].fillAmount == 0)
+        if(Echo_timers[index] <= 0)
         {
-            CoolTime_Volt[3].text = Volt_time.ToString();
-            Volt_Img[3].fillAmount += 1;
-            Volt_Flg[3] = true;
-        }
-
-        if (CamFlg[4] && Input.GetKeyDown(KeyCode.E) && Volt_Img[4].fillAmount == 0)
-        {
-            CoolTime_Volt[4].text = Volt_time.ToString();
-            Volt_Img[4].fillAmount += 1;
-            Volt_Flg[4] = true;
-        }
-
-        if (CamFlg[5] && Input.GetKeyDown(KeyCode.E) && Volt_Img[5].fillAmount == 0)
-        {
-            CoolTime_Volt[5].text = Volt_time.ToString();
-            Volt_Img[5].fillAmount += 1;
-            Volt_Flg[5] = true;
+            Echo_Flg[index] = false;
+            CT_Echo[index].text = "OK";
+            Echo_timers[index] = 20;
         }
 
-        if (Volt_Flg[0])
-        {
-            Volt_timer -= Time.deltaTime;
-            CoolTime_Volt[0].text = (int)Volt_timer + "";
-            Volt_Img[0].fillAmount -= 1 / 20.0f * Time.deltaTime;
-            if (Volt_timer <= 0)
-            {
-                Volt_Flg[0] = false;
-                CoolTime_Volt[0].text = "OK";
-                Volt_timer = 20;
-            }
-        }
-
-        if (Volt_Flg[1])
-        {
-            Volt_timer1 -= Time.deltaTime;
-            CoolTime_Volt[1].text = (int)Volt_timer1 + "";
-            Volt_Img[1].fillAmount -= 1 / 20.0f * Time.deltaTime;
-            if (Volt_timer1 <= 0)
-            {
-                Volt_Flg[1] = false;
-                CoolTime_Volt[1].text = "OK";
-                Volt_timer1 = 20;
-            }
-        }
-        if (Volt_Flg[2])
-        {
-            Volt_timer2 -= Time.deltaTime;
-            CoolTime_Volt[2].text = (int)Volt_timer2 + "";
-            Volt_Img[2].fillAmount -= 1 / 20.0f * Time.deltaTime;
-            if (Volt_timer2 <= 0)
-            {
-                Volt_Flg[2] = false;
-                CoolTime_Volt[2].text = "OK";
-                Volt_timer2 = 20;
-            }
-        }
-        if (Volt_Flg[3])
-        {
-            Volt_timer3 -= Time.deltaTime;
-            CoolTime_Volt[3].text = (int)Volt_timer3 + "";
-            Volt_Img[3].fillAmount -= 1 / 20.0f * Time.deltaTime;
-            if (Volt_timer3 <= 0)
-            {
-                Volt_Flg[3] = false;
-                CoolTime_Volt[3].text = "OK";
-                Volt_timer3 = 20;
-            }
-        }
-        if (Volt_Flg[4])
-        {
-            Volt_timer4 -= Time.deltaTime;
-            CoolTime_Volt[4].text = (int)Volt_timer4 + "";
-            Volt_Img[4].fillAmount -= 1 / 20.0f * Time.deltaTime;
-            if (Volt_timer4 <= 0)
-            {
-                Volt_Flg[4] = false;
-                CoolTime_Volt[4].text = "OK";
-                Volt_timer4 = 20;
-            }
-        }
-        if (Volt_Flg[5])
-        {
-            Volt_timer5 -= Time.deltaTime;
-            CoolTime_Volt[5].text = (int)Volt_timer5 + "";
-            Volt_Img[5].fillAmount -= 1 / 20.0f * Time.deltaTime;
-            if (Volt_timer5 <= 0)
-            {
-                Volt_Flg[5] = false;
-                CoolTime_Volt[5].text = "OK";
-                Volt_timer5 = 20;
-            }
-        }
+        Echo_timer = Echo_timers[0];
+        Echo_timer1= Echo_timers[1];
+        Echo_timer2 = Echo_timers[2];
+        Echo_timer3 = Echo_timers[3];
+        Echo_timer4 = Echo_timers[4];
+        Echo_timer5 = Echo_timers[5];
     }
 }
