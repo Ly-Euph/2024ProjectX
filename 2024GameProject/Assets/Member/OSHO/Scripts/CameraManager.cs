@@ -78,9 +78,10 @@ public class CameraManager : MonoBehaviour
     private float time_C2;
 
     //Voltのtimerの変数
-    public float[] Volt_timers;
 
     private float[] time_Vs;
+
+    public float[] Volt_timers;
 
     //Echoのtimerの変数
     public float Echo_timer = 20; 
@@ -153,9 +154,8 @@ public class CameraManager : MonoBehaviour
         {
             SonarOff();
         }
-        //トラップEキーを押したときの処理
 
-        //カメラ１のボルトトラップ
+        //ボルトトラップ呼出し
 
         for (int i = 0; i < Cam_Flg.Length; i++)
         {
@@ -178,7 +178,8 @@ public class CameraManager : MonoBehaviour
                 time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
             }
         }
-        //カメラ1のエコートラップ
+
+        //エコートラップ呼出し
         if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[0] && Echo_timer >= 20)
         {
             eMng.EchoMode();
@@ -319,7 +320,6 @@ public class CameraManager : MonoBehaviour
         Gimmick[num].SetActive(true);
         Cam_Zoom[num].SetActive(true);
     }
-
 
     //以下カメラ機能の制御
 
