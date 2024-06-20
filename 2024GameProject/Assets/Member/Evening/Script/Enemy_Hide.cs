@@ -10,9 +10,6 @@ public class Enemy_Hide : MonoBehaviour
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
 
-    Transform tr;
-
-
     SkinnedMeshRenderer skin;
 
 
@@ -27,11 +24,13 @@ public class Enemy_Hide : MonoBehaviour
 
     private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
                             { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
-                            { 2, 6, 6 } };
+                            { 2, 5, 6 } };
 
     private int rootRand;
 
     public int stage;
+
+    private bool hitFlag;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +39,6 @@ public class Enemy_Hide : MonoBehaviour
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
         myPath = path[0];
-
-
-        tr = GetComponent<Transform>();
 
         skin = GetComponentInChildren<SkinnedMeshRenderer>();
 
@@ -62,6 +58,8 @@ public class Enemy_Hide : MonoBehaviour
 
         myPath = path[root[rootRand, stage]];
         //Debug.Log(rootRand);
+
+        hitFlag = false;
     }
 
     // Update is called once per frame
@@ -69,19 +67,15 @@ public class Enemy_Hide : MonoBehaviour
     {
         SwitchStage();
         this.dolly.m_Path = myPath;
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            camScan = true;
+            skin.enabled = true;
+        }
+        else
+        {
+            skin.enabled = false;
         }
 
-        EnemyMove();
-
-
-        if (camScan == true)
-        {
-            CamScan();
-            scanTime += 1 / 60f;
-        }
 
         if (stage == 2)
         {
@@ -91,36 +85,23 @@ public class Enemy_Hide : MonoBehaviour
 
     }
 
-    void EnemyMove()
-    {
-        
-    }
-
-
-
-
-    void CamScan()
-    {
-        Debug.Log("ƒXƒLƒƒƒ“’†");
-
-        skin.enabled = true;
-
-        if(scanTime>=4)
-        {
-            scanTime = 0;
-            skin.enabled = false;
-            camScan = false;
-        }
-    }
-
 
     void SwitchStage()
     {
-        if (dolly.m_Position == 4)
+        if (dolly.m_Position == 4 && hitFlag == true)
         {
             stage++;
             myPath = path[root[rootRand, stage]];
             dolly.m_Position = 0;
+            hitFlag = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if(collision.gameObject.tag=="Door")
+        {
+            hitFlag = true;
         }
     }
 

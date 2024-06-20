@@ -13,12 +13,20 @@ public class Enemy_Normal : MonoBehaviour
 
     public int stage;
 
-
-    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 }, 
-                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 }, 
-                            { 2, 6, 6 } };
+    //0:room1
+    //1:room2
+    //2:room3
+    //3:room4
+    //4:room5
+    //5:room6
+    //6:plRoom
+    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
+                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
+                            { 2, 5, 6, 6 } };
 
     private int rootRand;
+
+    public bool hitFlag;
 
 
     // Start is called before the first frame update
@@ -33,6 +41,8 @@ public class Enemy_Normal : MonoBehaviour
         rootRand = Random.Range(0, 7);
 
         myPath = path[root[rootRand, stage]];
+
+        hitFlag = false;
 
     }
 
@@ -57,11 +67,22 @@ public class Enemy_Normal : MonoBehaviour
 
     void SwitchStage()
     {
-        if (dolly.m_Position == 4)
+        if (dolly.m_Position == 4 && hitFlag == true)
         {
             stage++;
             myPath = path[root[rootRand, stage]];
             dolly.m_Position = 0;
+            hitFlag = false;
+        }
+    }
+
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.tag == "Door")
+        {
+            //Debug.Log("è’ìÀ");
+            hitFlag = true;
         }
     }
 }

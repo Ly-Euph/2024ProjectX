@@ -7,7 +7,7 @@ public class EmSpawner : MonoBehaviour
     //スポーンさせる敵のプレハブを保存するとこ
     [SerializeField] GameObject[] Enemy;
 
-    public string str;
+    public string str = "Easy";
 
 
     //各キャラごとにtagが付けられており、現状況でそのキャラが何体存在しているかの確認に使う
@@ -49,7 +49,7 @@ public class EmSpawner : MonoBehaviour
         { 25, 50, 65, 80, 87, 95, 98, 100 }, // easy
         { 15, 30, 45, 60, 73, 85, 93, 100 }, // normal
         { 10, 20, 30, 40, 55, 70, 85, 100 }, // hard 
-    };
+        };
 
     //ランダムな数の生成で使用
     int random;
@@ -60,11 +60,13 @@ public class EmSpawner : MonoBehaviour
     float timer;
     float setTime;
 
+    public float spwanLate = 10.0f;
+
 
     //今現在の難易度を保存
     //下のdifficultyと照らし合わせて使用
     private string difficulty;
-    private string[] difficult = { "Easy", "Normal", "Hard" };
+    private string[] difficult = { "Easy", "Normal", "Hard"};
 
     // Start is called before the first frame update
     void Start()
@@ -82,10 +84,10 @@ public class EmSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer+= Time.deltaTime;
+        timer += Time.deltaTime;
 
 
-        if(timer>=setTime)
+        if (timer >= setTime * spwanLate)
         {
             if (firstSpawnFlag == true)
             {
@@ -99,20 +101,19 @@ public class EmSpawner : MonoBehaviour
                 em_Hide = GameObject.FindGameObjectsWithTag("HideEnemy");
                 em_Jammer = GameObject.FindGameObjectsWithTag("JammerEnemy");
 
-            
+
                 totalCost = em_Normal.Length * spawnCost[0] +
                           em_Speed.Length * spawnCost[2] +
                           em_Hide.Length * spawnCost[4] +
                           em_Jammer.Length * spawnCost[6];
 
-                Debug.Log("totalCost = "+totalCost);
 
 
                 timer = 0;
                 CountCost();
             }
         }
-        
+
 
     }
 
@@ -139,9 +140,8 @@ public class EmSpawner : MonoBehaviour
                         }
                         else if (totalCost + spawnCost[j] >= maxCost[i] && firstSpawnFlag == true)
                         {
-                            Debug.Log("MaxCost");
                             firstSpawnFlag = false;
-                            setTime = 5.0f;
+                            setTime = 1.5f;
                         }
                     }
                     else if (j >= 1)
@@ -155,9 +155,8 @@ public class EmSpawner : MonoBehaviour
                         }
                         else if (totalCost + spawnCost[j] >= maxCost[i] && firstSpawnFlag == true)
                         {
-                            Debug.Log("MaxCost");
                             firstSpawnFlag = false;
-                            setTime = 5.0f;
+                            setTime = 1.5f;
                         }
                     }
                     

@@ -14,9 +14,11 @@ public class Enemy_Speed : MonoBehaviour
 
     private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
                             { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
-                            { 2, 6, 6 } };
+                            { 2, 5, 6 } };
 
     private int rootRand;
+
+    private bool hitFlag;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,8 @@ public class Enemy_Speed : MonoBehaviour
 
         myPath = path[root[rootRand, stage]];
         //Debug.Log(rootRand);
+
+        hitFlag = false;
     }
 
     // Update is called once per frame
@@ -51,11 +55,21 @@ public class Enemy_Speed : MonoBehaviour
 
     void SwitchStage()
     {
-        if (dolly.m_Position == 4)
+        if (dolly.m_Position == 4 && hitFlag == true)
         {
             stage++;
             myPath = path[root[rootRand, stage]];
             dolly.m_Position = 0;
+            hitFlag = false;
+        }
+    }
+
+    private void OnTriggerStay(Collider collision)
+    {
+        if (collision.gameObject.tag == "Door")
+        {
+            //Debug.Log("è’ìÀ");
+            hitFlag = true;
         }
     }
 
