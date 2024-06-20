@@ -689,7 +689,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5655380118928583884}
   - component: {fileID: 7975449626271070713}
-  - component: {fileID: 976604438771226939}
   m_Layer: 0
   m_Name: Em_Jammer
   m_TagString: JammerEnemy
@@ -732,21 +731,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &976604438771226939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4985523191624185462}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_EffectColor: {r: 1, g: 0, b: 0, a: 1}
-  m_EffectDistance: {x: 5, y: -5}
-  m_UseGraphicAlpha: 1
 --- !u!1 &4998415882109719290
 GameObject:
   m_ObjectHideFlags: 0
