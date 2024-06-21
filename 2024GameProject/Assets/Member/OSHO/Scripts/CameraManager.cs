@@ -74,25 +74,18 @@ public class CameraManager : MonoBehaviour
     private int V_time = 20;
     private int E_time = 20;
 
-    private float time_C;
-    private float time_C2;
-
     //Voltのtimerの変数
 
     private float[] time_Vs;
 
+    //Echoのtimerの変数
+
+    private float[] time_Es;
+
     public float[] Volt_timers;
 
     //Echoのtimerの変数
-    public float Echo_timer = 20; 
-    public float Echo_timer1 = 20;
-    public float Echo_timer2 = 20;
-    public float Echo_timer3 = 20;
-    public float Echo_timer4 = 20;
-    public float Echo_timer5 = 20;
-
-    //時間制限Flag
-    private bool Time_Flg = false;
+    public float[] Echo_timers;
 
     //Volt用のFlag
     public bool[] Volt_Flg;
@@ -130,6 +123,8 @@ public class CameraManager : MonoBehaviour
     
             //time_Vsに配列の値を代入。
         　　time_Vs = new float[Volt_timers.Length];
+
+            time_Es = new float[Echo_timers.Length];
     }
 
     void Update()
@@ -161,7 +156,7 @@ public class CameraManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
             {
-                Debug.Log("生成");
+                Debug.Log("Volt生成");
                 Vector3 ObjPos = Trap_Obj[i].transform.position;
                 Instantiate(Trap_GK[i], ObjPos, Quaternion.identity);
                 time_Vs[i] = 0;
@@ -169,55 +164,31 @@ public class CameraManager : MonoBehaviour
                 {
                     Bm.Para_Battery -= 10;
                 }
+                // クールタイム計測
+                time_Vs[i] += Time.deltaTime;
+                if (time_Vs[i] >= Volt_timers[i])
+                {
+                    time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
+                }
             }
-
-            // クールタイム計測
-            time_Vs[i] += Time.deltaTime;
-            if (time_Vs[i] >= Volt_timers[i])
+            if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Echo_timers[i] >= 20)
             {
-                time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
-            }
-        }
-
-        //エコートラップ呼出し
-        if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[0] && Echo_timer >= 20)
-        {
-            eMng.EchoMode();
-            Time_Flg = false;
-            time_C = 0;
-
-            if(Bm.Para_Battery >= 0)
-            {
-                Bm.Para_Battery -= 10;
-            } 
-        }
-        if(!Time_Flg)
-        {
-            time_C += Time.deltaTime;
-            if (time_C >= Echo_timer)
-            {
-                Time_Flg = true;
+                Debug.Log("Echo生成");
+                eMng.EchoMode();
+                time_Es[i] = 0;
+                if(Bm.Para_Battery >= 0)
+                {
+                    Bm.Para_Battery -= 10;
+                }
+                time_Es[i] += Time.deltaTime;
+                if (time_Es[i] >= Echo_timers[i])
+                {
+                    time_Es[i] = Echo_timers[i];
+                }
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[1] && Echo_timer1 >= 20)
-        {
-            eMng.EchoMode();
-            Time_Flg = false;
-            time_C2 = 0;
-            if (Bm.Para_Battery >= 0)
-            {
-                Bm.Para_Battery -= 10;
-            }
-        }
-        if (!Time_Flg)
-        {
-            time_C2 += Time.deltaTime;
-            if (time_C2 >= Echo_timer1)
-            {
-                Time_Flg = true;
-            }
-        }
+        //エコートラップ呼出
 
         //番号１
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -424,8 +395,6 @@ public class CameraManager : MonoBehaviour
 
     void UpdateEchoTimer(int index)
     {
-        float[] Echo_timers = { Echo_timer, Echo_timer1, Echo_timer2, Echo_timer3, Echo_timer4, Echo_timer5 };
-
         Echo_timers[index] -= Time.deltaTime;
         CT_Echo[index].text = ((int)Echo_timers[index]).ToString();
         Echo_Img[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
@@ -436,12 +405,5 @@ public class CameraManager : MonoBehaviour
             CT_Echo[index].text = "OK";
             Echo_timers[index] = 20;
         }
-
-        Echo_timer = Echo_timers[0];
-        Echo_timer1= Echo_timers[1];
-        Echo_timer2 = Echo_timers[2];
-        Echo_timer3 = Echo_timers[3];
-        Echo_timer4 = Echo_timers[4];
-        Echo_timer5 = Echo_timers[5];
     }
 }
