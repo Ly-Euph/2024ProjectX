@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Normal : MonoBehaviour
+public class Enemy_Normal : MonoBehaviour,IDamageable
 {
     private Cinemachine.CinemachineDollyCart dolly;     //Cinemachineのdolly cartを取得
 
@@ -11,6 +11,14 @@ public class Enemy_Normal : MonoBehaviour
     [SerializeField] Cinemachine.CinemachinePathBase[] path;       //ルートのパス
 
 
+    private Animator anim;
+
+
+    private float timer = 0f;
+    private int randWait;
+
+    public int animNum;
+    public int hp = 10;
     public int stage;
 
     //0:room1
@@ -35,8 +43,11 @@ public class Enemy_Normal : MonoBehaviour
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
         dolly.m_Speed = 0.2f;           //移動スピード0.2
 
-        stage = 0;
+        anim = GetComponent<Animator>();
 
+        animNum = 0;
+        stage = 0;
+        hp = 10;
 
         rootRand = Random.Range(0, 7);
 
@@ -49,19 +60,36 @@ public class Enemy_Normal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        if(timer>=2f)
+        {
+            timer = 0;
+            randWait = Random.Range(1, 21);
+            if(randWait==1)
+            {
+                animNum = 1;
+                StartCoroutine("IdleWait");
+            }
+        }
+
+
+        EmDie();
+        Animation();
+
 
         this.dolly.m_Path = myPath;
 
+
+        //部屋移動
         SwitchStage();
 
 
+        //Player死亡
         if(stage==2)
         {
             Destroy(gameObject);
             Debug.Log("Normalによりgame over");
         }
-
-        //AnimControlle();
     }
 
 
@@ -85,4 +113,57 @@ public class Enemy_Normal : MonoBehaviour
             hitFlag = true;
         }
     }
+
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+    }
+
+    void EmDie()
+    {
+        if(hp==0)
+        {
+            dolly.m_Speed = 0;
+            animNum = 2;
+            //Debug.Log("死亡");
+        }
+    }
+
+
+    void Animation()
+    {
+        switch(animNum)
+        {
+            case 0:
+                dolly.m_Speed = 0.2f;
+                anim.SetBool("Run", true);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dead", false);
+                break;
+
+            case 1:
+                dolly.m_Speed = 0;
+                anim.SetBool("Run",false);
+                anim.SetBool("Idle", true);
+                anim.SetBool("Dead", false);
+                break;
+
+            case 2:
+                dolly.m_Speed = 0;
+                anim.SetBool("Run", false);
+                anim.SetBool("Idle", false);
+                anim.SetBool("Dead", true);
+                break;
+        }
+    }
+
+    IEnumerator IdleWait()
+    {
+        yield return new WaitForSeconds(5.0f);
+
+        animNum = 0;
+    }
+
+
 }
