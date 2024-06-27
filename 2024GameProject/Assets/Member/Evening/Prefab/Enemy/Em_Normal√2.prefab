@@ -452,10 +452,7 @@ MonoBehaviour:
   - {fileID: 7072047264249755006, guid: 4f287204efc08684993f46b03ba60aa6, type: 3}
   - {fileID: 4639392178635908607, guid: 8ee815f8086f40b40b589a42af0c7df1, type: 3}
   - {fileID: 1007938706616072137, guid: f3412ee1b6469aa4aa482f3a4a5b2349, type: 3}
-  animNum: 0
-  hp: 10
   stage: 0
-  hitFlag: 0
 --- !u!65 &-1243981071948084368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -468,7 +465,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.5}
-  m_Center: {x: 0, y: 1.3, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!54 &7173143381705809842
 Rigidbody:
   m_ObjectHideFlags: 0
