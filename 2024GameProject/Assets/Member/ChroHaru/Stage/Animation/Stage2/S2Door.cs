@@ -15,7 +15,7 @@ public class S2Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.P))
+        if(Input.GetKey(KeyCode.O))
         {
             _S2Door.SetBool("DoorOpCl", true);
         }
