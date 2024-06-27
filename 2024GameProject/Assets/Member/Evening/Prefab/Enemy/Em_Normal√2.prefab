@@ -386,7 +386,7 @@ Transform:
   m_GameObject: {fileID: 8259229547388047227}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -51.46, y: -9, z: 1.12}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children:
   - {fileID: 8259229547527209036}
   - {fileID: 8259229548114649033}
@@ -453,7 +453,6 @@ MonoBehaviour:
   - {fileID: 4639392178635908607, guid: 8ee815f8086f40b40b589a42af0c7df1, type: 3}
   - {fileID: 1007938706616072137, guid: f3412ee1b6469aa4aa482f3a4a5b2349, type: 3}
   stage: 0
-  hitFlag: 0
 --- !u!65 &-1243981071948084368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -466,7 +465,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1.5}
-  m_Center: {x: 0, y: 1.3, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!54 &7173143381705809842
 Rigidbody:
   m_ObjectHideFlags: 0

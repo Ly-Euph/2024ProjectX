@@ -27,7 +27,7 @@ public class EmSpawner : MonoBehaviour
     //2:speed
     //3:hide
     //4:jammer
-    private int[] spawnCost = { 1, 1, 2, 2, 2, 2, 3, 3 };
+    private int[] spawnCost = { 1, 1, 2, 2, 2, 2, 3 };
 
     //難易度ごとの各キャラ最大スポーン数
     //1:normal
@@ -46,9 +46,9 @@ public class EmSpawner : MonoBehaviour
     //難易度毎の敵スポーン確率
     //要素1:normal√1  2:normal√2  3:speed√1  4:speed√2  5:hide√1  6:hide√2  7:jammer√1  8:jammer√2
     private int[,] probability = new int[,] {
-        { 25, 50, 65, 80, 87, 95, 98, 100 }, // easy
-        { 15, 30, 45, 60, 73, 85, 93, 100 }, // normal
-        { 10, 20, 30, 40, 55, 70, 85, 100 }, // hard 
+        { 25, 50, 65, 80, 87, 95, 100 }, // easy
+        { 15, 30, 45, 60, 73, 85, 100 }, // normal
+        { 10, 20, 30, 40, 55, 99/*70*/, 100 }, // hard 
         };
 
     //ランダムな数の生成で使用
@@ -169,6 +169,8 @@ public class EmSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(Enemy[saveNum], new Vector3(0, 0, 0), Quaternion.identity);
+        //Enemy_Normal norm = obj.GetComponent<Enemy_Normal>();
+        //norm.hp = 10;
     }
 
 }
