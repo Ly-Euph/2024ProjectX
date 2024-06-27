@@ -5844,6 +5844,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f929c5f0f497294d98a1141c2ce4755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gf:
+  - {fileID: 4924205384128607929}
+  - {fileID: 4924205383896885233}
+  - {fileID: 4924205385585995303}
+  - {fileID: 4924205384211024257}
+  - {fileID: 4924205384034134663}
+  - {fileID: 4924205384124987223}
   Camera:
   - {fileID: 104748982697019575}
   - {fileID: 2606645893015085126}
@@ -5913,6 +5920,13 @@ MonoBehaviour:
   - {fileID: 1328656101562480377}
   - {fileID: 5378011557215539222}
   eMng: {fileID: 4924205385156034887}
+  time_Gf:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   Volt_timers:
   - 20
   - 20
@@ -5930,6 +5944,7 @@ MonoBehaviour:
   Volt_Flg: 000000000000
   Echo_Flg: 000000000000
   Cam_Flg: 000000000000
+  Gf_Flg: 000000000000
 --- !u!222 &2225291834391441059
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10857,7 +10872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1706284f9bbbb4e199374db583725bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intensity: 0.01
+  _intensity: 0.1
   shader: {fileID: 4800000, guid: de782114409bf409495896cc089fbf82, type: 3}
 --- !u!114 &4924205384211024257
 MonoBehaviour:

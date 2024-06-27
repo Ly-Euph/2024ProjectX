@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
+    public GlitchFx[] gf;
+
     [Header("Camera関連をここに入れといて")]
 
     [SerializeField] GameObject[] Camera;
@@ -74,14 +76,15 @@ public class CameraManager : MonoBehaviour
     private int V_time = 20;
     private int E_time = 20;
 
-    //Voltのtimerの変数
+    public float[] time_Gf;
 
+    //Voltのtimerの変数
     private float[] time_Vs;
 
     //Echoのtimerの変数
-
     private float[] time_Es;
 
+    //Voltのtimerの変数
     public float[] Volt_timers;
 
     //Echoのtimerの変数
@@ -96,6 +99,8 @@ public class CameraManager : MonoBehaviour
     //Camera用のFlag
     public  bool[] Cam_Flg;
 
+    public bool[] Gf_Flg;
+
     void Start()
     {
         sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
@@ -109,7 +114,7 @@ public class CameraManager : MonoBehaviour
             //　Imageを初めは0にしておく。
 
             Volt_Img[i].GetComponent<Image>().fillAmount = 0;
-            Echo_Img[i].GetComponent<Image>().fillAmount = 0; 
+            Echo_Img[i].GetComponent<Image>().fillAmount = 0;
         }
         　　//初めはCamera1に設定
         　　SetCamera1();
@@ -124,6 +129,7 @@ public class CameraManager : MonoBehaviour
             //time_Vsに配列の値を代入。
         　　time_Vs = new float[Volt_timers.Length];
 
+            //time_Esに配列の値を代入
             time_Es = new float[Echo_timers.Length];
     }
 
@@ -150,8 +156,7 @@ public class CameraManager : MonoBehaviour
             SonarOff();
         }
 
-        //ボルトトラップ呼出し
-
+        //Voltトラップ呼出し
         for (int i = 0; i < Cam_Flg.Length; i++)
         {
             if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
@@ -160,10 +165,7 @@ public class CameraManager : MonoBehaviour
                 Vector3 ObjPos = Trap_Obj[i].transform.position;
                 Instantiate(Trap_GK[i], ObjPos, Quaternion.identity);
                 time_Vs[i] = 0;
-                if (Bm.Para_Battery >= 0)
-                {
-                    Bm.Para_Battery -= 10;
-                }
+                Battery_nega();
                 // クールタイム計測
                 time_Vs[i] += Time.deltaTime;
                 if (time_Vs[i] >= Volt_timers[i])
@@ -171,15 +173,14 @@ public class CameraManager : MonoBehaviour
                     time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
                 }
             }
+
+            //Echoトラップ呼出し
             if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Echo_timers[i] >= 20)
             {
                 Debug.Log("Echo生成");
                 eMng.EchoMode();
                 time_Es[i] = 0;
-                if(Bm.Para_Battery >= 0)
-                {
-                    Bm.Para_Battery -= 10;
-                }
+                Battery_nega();
                 time_Es[i] += Time.deltaTime;
                 if (time_Es[i] >= Echo_timers[i])
                 {
@@ -198,6 +199,7 @@ public class CameraManager : MonoBehaviour
             CamFlag();
             Cam_Flg[0] = true;
             UIActive(0);
+         
         }
         //番号２
 
@@ -208,6 +210,8 @@ public class CameraManager : MonoBehaviour
             CamFlag();
             Cam_Flg[1] = true;
             UIActive(1);
+            gf[1].intensity += 1.0f;
+            Gf_Flg[1] = true;
         }
 
         //番号３
@@ -276,6 +280,17 @@ public class CameraManager : MonoBehaviour
             if (Echo_Flg[i])
             {
                 UpdateEchoTimer(i);
+            }
+        }
+        
+        if(Gf_Flg[1])
+        {
+            time_Gf[0] += Time.deltaTime;
+            if(time_Gf[0] >= 1)
+            {
+                gf[1].intensity = 0;
+                time_Gf[0] = 0;
+                Gf_Flg[1] = false;
             }
         }
     }
@@ -404,6 +419,14 @@ public class CameraManager : MonoBehaviour
             Echo_Flg[index] = false;
             CT_Echo[index].text = "OK";
             Echo_timers[index] = 20;
+        }
+    }
+
+    void Battery_nega()
+    {
+        if (Bm.Para_Battery >= 0)
+        {
+            Bm.Para_Battery -= 10;
         }
     }
 }
