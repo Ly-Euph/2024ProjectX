@@ -28,6 +28,9 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
+    private float dieTimer;
+    private bool dieFlag;
+
 
     SkinnedMeshRenderer skin;
     // Start is called before the first frame update
@@ -48,6 +51,9 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
         hp = 10;
 
         hitFlag = false;
+
+        dieTimer = 0f;
+        dieFlag = false;
 
 
         skin = GetComponentInChildren<SkinnedMeshRenderer>();
@@ -82,6 +88,16 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
         }
         EmDie();
         Animation();
+
+        if(dieFlag==true)
+        {
+            dieTimer += Time.deltaTime;
+            if (dieTimer >= 5f)
+            {
+                Destroy(gameObject);
+            }
+        }
+
 
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -151,6 +167,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
                 anim.SetBool("Dead", true);
+                dieFlag = true;
                 break;
         }
     }

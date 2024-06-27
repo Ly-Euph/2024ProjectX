@@ -28,6 +28,9 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
+    private float dieTimer;
+    private bool dieFlag;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,9 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
         hp = 10;
 
         hitFlag = false;
+
+        dieTimer = 0f;
+        dieFlag = false;
     }
 
     // Update is called once per frame
@@ -76,6 +82,15 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
         }
         EmDie();
         Animation();
+
+        if(dieFlag==true)
+        {
+            dieTimer += Time.deltaTime;
+            if(dieTimer>=5.0f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     void SwitchStage()
@@ -136,6 +151,7 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
                 anim.SetBool("Dead", true);
+                dieFlag = true;
                 break;
         }
     }

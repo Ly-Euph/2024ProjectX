@@ -48,7 +48,7 @@ public class EmSpawner : MonoBehaviour
     private int[,] probability = new int[,] {
         { 25, 50, 65, 80, 87, 95, 100 }, // easy
         { 15, 30, 45, 60, 73, 85, 100 }, // normal
-        { 10, 20, 30, 40, 55, 70, 100 }, // hard 
+        { 10, 20, 30, 40, 55, 99/*70*/, 100 }, // hard 
         };
 
     //ƒ‰ƒ“ƒ_ƒ€‚È”‚Ì¶¬‚Åg—p

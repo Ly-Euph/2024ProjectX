@@ -28,6 +28,9 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
+    private float dieTimer;
+    private bool dieFlag;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +50,9 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         hp = 10;
 
         hitFlag = false;
+
+        dieTimer = 0;
+        dieFlag = false;
     }
 
     // Update is called once per frame
@@ -77,6 +83,14 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         }
         EmDie();
         Animation();
+        if(dieFlag==true)
+        {
+            dieTimer += Time.deltaTime;
+            if(dieTimer>=6.0f)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
 
@@ -141,6 +155,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
                 anim.SetBool("Dead", true);
+                dieFlag = true;
                 break;
         }
     }
