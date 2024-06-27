@@ -169,6 +169,8 @@ public class EmSpawner : MonoBehaviour
     void SpawnEnemy()
     {
         Instantiate(Enemy[saveNum], new Vector3(0, 0, 0), Quaternion.identity);
+        //Enemy_Normal norm = obj.GetComponent<Enemy_Normal>();
+        //norm.hp = 10;
     }
 
 }

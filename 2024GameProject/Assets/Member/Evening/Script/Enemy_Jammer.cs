@@ -22,7 +22,7 @@ public class Enemy_Jammer : MonoBehaviour
 
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
-        dolly.m_Speed = 0.3f;
+        dolly.m_Speed = 0.2f;
 
         myPath = path[0];
 
@@ -41,20 +41,20 @@ public class Enemy_Jammer : MonoBehaviour
 
         if (timer <= 2.5f)
         {
-            Debug.Log("idle");
+            //Debug.Log("idle");
             animNum = 0;
 
         }
         else if (timer > 1.5f && dolly.m_Position != 1)
         {
-            Debug.Log("Walk");
+            //Debug.Log("Walk");
             animNum = 1;
 
         }
         else if (dolly.m_Position == 1)
         {
-            Debug.Log("camHack");
-            animNum = 2;
+            //Debug.Log("camHack");
+            animNum = 0;
         }
         Anim();
 
