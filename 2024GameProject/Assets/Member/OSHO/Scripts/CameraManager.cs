@@ -31,10 +31,6 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] Trap_GK;
 
-    [Header("それぞれのScanUIを入れるとこ")]
-
-    [SerializeField] Image Scan_UI;
-
     [Header("それぞれのCamZoomUIを入れるとこ")]
     
     [SerializeField] GameObject[] Cam_Zoom;
