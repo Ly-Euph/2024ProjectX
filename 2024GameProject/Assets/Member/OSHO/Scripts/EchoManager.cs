@@ -9,8 +9,6 @@ public class EchoManager : MonoBehaviour
 
     float sclX, sclY,sclZ;
 
-    bool EchoFlg = true;
-    int Echo_T = 20;
     Vector3 scale;
     void Start()
     {
@@ -46,7 +44,6 @@ public class EchoManager : MonoBehaviour
         {
             EchoUI[0].SetActive(true);
         }
-
         // —¬‚ê
     }
 }
