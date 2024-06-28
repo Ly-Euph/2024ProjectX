@@ -198,6 +198,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+    //GimmickとCamZoomの制御
     private void UIActive(int num)
     {
         for (int i = 0; i < Gimmick.Length; i++)
@@ -210,8 +211,7 @@ public class CameraManager : MonoBehaviour
         Cam_Zoom[num].SetActive(true);
     }
 
-    //以下カメラ機能の制御
-
+    //以下カメラ機能のState
     void SetCamera(int num)
     {
         switch(num)
@@ -236,6 +236,7 @@ public class CameraManager : MonoBehaviour
                 break;
         }
     }
+
 
     void SetCamera1()
     {
