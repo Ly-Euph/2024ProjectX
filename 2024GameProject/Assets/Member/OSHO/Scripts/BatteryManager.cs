@@ -44,5 +44,4 @@ public class BatteryManager : MonoBehaviour
         set { battery = value; }
         get { return battery; }
     }
-
 }

@@ -53,48 +53,29 @@ public class CameraManager : MonoBehaviour
     // ボルトトラップイメージ
     [SerializeField] Image[] Volt_Img;
 
-    [Header("それぞれのEchoトラップで使うImageを入れてね")]
-    
-    //エコートラップイメージ
-    [SerializeField] Image[] Echo_Img;
-
     [Header("VoltのCooltime用のTextを入れてね。")]
 
     [SerializeField] Text[] CT_Volt;
-    
-    [Header("EchoのCooltime用のTextを入れてね。")]
-
-    [SerializeField] Text[] CT_Echo;
 
     [Header("EchoManagerを入れてね")]
-    //Echoマネージャー取得
-    [SerializeField] EchoManager eMng;
 
     ScanManager sMng;
 
-    //クールタイムUIに反映させるUI
+    [Header("ステージ事に合わせたカメラの数を入力してください")]
+
+    [SerializeField] int Camera_Num;
     private int V_time = 20;
-    private int E_time = 20;
 
     public float[] time_Gf;
 
     //Voltのtimerの変数
     private float[] time_Vs;
 
-    //Echoのtimerの変数
-    private float[] time_Es;
-
     //Voltのtimerの変数
     public float[] Volt_timers;
 
-    //Echoのtimerの変数
-    public float[] Echo_timers;
-
     //Volt用のFlag
     public bool[] Volt_Flg;
-
-    //Echo用のFlag
-    public  bool[] Echo_Flg;
 
     //Camera用のFlag
     public  bool[] Cam_Flg;
@@ -109,12 +90,10 @@ public class CameraManager : MonoBehaviour
             // ボルトトラップ使用可能のテキスト「OK」を初めに表示
 
             CT_Volt[i].text = "OK";
-            CT_Echo[i].text = "OK";
 
             //　Imageを初めは0にしておく。
 
             Volt_Img[i].GetComponent<Image>().fillAmount = 0;
-            Echo_Img[i].GetComponent<Image>().fillAmount = 0;
         }
         　　//初めはCamera1に設定
         　　SetCamera1();
@@ -128,9 +107,6 @@ public class CameraManager : MonoBehaviour
     
             //time_Vsに配列の値を代入。
         　　time_Vs = new float[Volt_timers.Length];
-
-            //time_Esに配列の値を代入
-            time_Es = new float[Echo_timers.Length];
     }
 
     void Update()
@@ -139,7 +115,10 @@ public class CameraManager : MonoBehaviour
         if (Time.timeScale == 0) return;
 
         //Shiftキーを押したときにバッテリーを５%減らす。
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { Bm.Para_Battery -= 5f; }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Bm.Para_Battery -= 5f;
+        }
 
 
         if (Input.GetKey(KeyCode.LeftShift))
@@ -173,86 +152,35 @@ public class CameraManager : MonoBehaviour
                     time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
                 }
             }
+        }
 
-            //Echoトラップ呼出し
-            if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Echo_timers[i] >= 20)
+        //カメラ関連の切り替え。
+
+        for (int i = 0; i <= Camera_Num; i++)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
-                Debug.Log("Echo生成");
-                eMng.EchoMode();
-                time_Es[i] = 0;
-                Battery_nega();
-                time_Es[i] += Time.deltaTime;
-                if (time_Es[i] >= Echo_timers[i])
-                {
-                    time_Es[i] = Echo_timers[i];
-                }
+                SetCamera(i);
+                CamFlag();
+                Cam_Flg[i - 1] = true;
+                UIActive(i - 1);
+                gf[i - 1].intensity += 1.0f;
+                Gf_Flg[i - 1] = true;
             }
         }
 
-        //エコートラップ呼出
-
-        //番号１
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        for (int i = 0; i < Gf_Flg.Length; i++)
         {
-            //Camera1の設定
-            SetCamera1();
-            CamFlag();
-            Cam_Flg[0] = true;
-            UIActive(0);
-         
-        }
-        //番号２
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            //Camera2の設定
-            SetCamera2();
-            CamFlag();
-            Cam_Flg[1] = true;
-            UIActive(1);
-            gf[1].intensity += 1.0f;
-            Gf_Flg[1] = true;
-        }
-
-        //番号３
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            //Camera3の設定
-            SetCamera3();
-            CamFlag();
-            Cam_Flg[2] = true;
-            UIActive(2);
-        }
-        //番号４
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            //Camera4の設定
-            SetCamera4();
-            CamFlag();
-            Cam_Flg[3] = true;
-            UIActive(3);
-        }
-        //番号５
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            //Camera5の設定
-            SetCamera5();
-            CamFlag();
-            Cam_Flg[4] = true;
-            UIActive(4);
-        }
-        //番号６
-
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            //Camera6の設定
-            SetCamera6();
-            CamFlag();
-            Cam_Flg[5] = true;
-            UIActive(5);
+            if (Gf_Flg[i])
+            {
+                time_Gf[i] += Time.deltaTime;
+                if (time_Gf[i] >= 1)
+                {
+                    gf[i].intensity = 0.01f;
+                    time_Gf[i] = 0;
+                    Gf_Flg[i] = false;
+                }
+            }
         }
 
         //VoltトラップとUIを切り替える
@@ -266,31 +194,6 @@ public class CameraManager : MonoBehaviour
             if (Volt_Flg[i])
             {
                 UpdateVoltTimer(i);
-            }
-        }
-
-        //EchoトラップとUIを切り替える。
-
-        for (int i = 0; i < 6; i++)
-        {
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && Echo_Img[i].fillAmount == 0)
-            {
-                StartEchoTimer(i);
-            }
-            if (Echo_Flg[i])
-            {
-                UpdateEchoTimer(i);
-            }
-        }
-        
-        if(Gf_Flg[1])
-        {
-            time_Gf[0] += Time.deltaTime;
-            if(time_Gf[0] >= 1)
-            {
-                gf[1].intensity = 0;
-                time_Gf[0] = 0;
-                Gf_Flg[1] = false;
             }
         }
     }
@@ -308,6 +211,31 @@ public class CameraManager : MonoBehaviour
     }
 
     //以下カメラ機能の制御
+
+    void SetCamera(int num)
+    {
+        switch(num)
+        {
+            case 1:
+                SetCamera1();
+                break;
+            case 2:
+                SetCamera2();
+                break;
+            case 3:
+                SetCamera3();
+                break;
+            case 4:
+                SetCamera4();
+                break;
+            case 5:
+                SetCamera5();
+                break;
+            case 6:
+                SetCamera6();
+                break;
+        }
+    }
 
     void SetCamera1()
     {
@@ -386,14 +314,6 @@ public class CameraManager : MonoBehaviour
         Volt_Img[index].fillAmount = 1;
         Volt_Flg[index] = true;
     }
-
-    void StartEchoTimer(int index)
-    {
-        CT_Echo[index].text = E_time.ToString();
-        Echo_Img[index].fillAmount = 1;
-        Echo_Flg[index] = true;
-
-    }
     void UpdateVoltTimer(int index)
     {
         Volt_timers[index] -= Time.deltaTime;
@@ -405,20 +325,6 @@ public class CameraManager : MonoBehaviour
             Volt_Flg[index] = false;
             CT_Volt[index].text = "OK";
             Volt_timers[index] = 20;
-        }
-    }
-
-    void UpdateEchoTimer(int index)
-    {
-        Echo_timers[index] -= Time.deltaTime;
-        CT_Echo[index].text = ((int)Echo_timers[index]).ToString();
-        Echo_Img[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
-
-        if(Echo_timers[index] <= 0)
-        {
-            Echo_Flg[index] = false;
-            CT_Echo[index].text = "OK";
-            Echo_timers[index] = 20;
         }
     }
 
