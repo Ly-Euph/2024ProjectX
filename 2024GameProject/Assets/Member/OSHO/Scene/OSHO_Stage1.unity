@@ -4901,7 +4901,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  Scan_UI: {fileID: 0}
   Cam_Zoom:
   - {fileID: 8586218651618719874}
   - {fileID: 3893160166730095367}
@@ -4931,7 +4930,7 @@ MonoBehaviour:
   - {fileID: 8208250215718514551}
   - {fileID: 4928105242654361919}
   - {fileID: 2069115065653080016}
-  Camera_Num: 0
+  Camera_Num: 6
   time_Gf:
   - 0
   - 0
