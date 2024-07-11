@@ -16,7 +16,7 @@ public class Door3 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.O))
         {
             _Door3L.SetBool("Door3L", true);
             _Door3R.SetBool("Door3R", true);
