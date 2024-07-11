@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ETest : MonoBehaviour
 {
-    public float fadeDuration = 2.0f; // フェードアウトの持続時間
+    public float fadeDuration = 10.0f; // フェードアウトの持続時間
     private Material objectMaterial;
     private float fadeAmount = 0.0f; // 初期状態は中心から透明になる
 
