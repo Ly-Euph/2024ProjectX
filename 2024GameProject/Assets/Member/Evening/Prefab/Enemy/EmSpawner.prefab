@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4894513515655304637
+--- !u!1 &347753785862017475
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4894513515655304638}
-  - component: {fileID: 4894513515655304639}
+  - component: {fileID: 3736977596801783562}
+  - component: {fileID: 3601525503690173416}
   m_Layer: 0
   m_Name: EmSpawner
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4894513515655304638
+--- !u!4 &3736977596801783562
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894513515655304637}
+  m_GameObject: {fileID: 347753785862017475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23, y: -1.2700002, z: 27.760002}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,13 +31,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4894513515655304639
+--- !u!114 &3601525503690173416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4894513515655304637}
+  m_GameObject: {fileID: 347753785862017475}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7496adc7ed604743ac8379488236719, type: 3}
@@ -46,10 +46,11 @@ MonoBehaviour:
   Enemy:
   - {fileID: 8870673748722269709, guid: c63825d5b67246146bb666bea8443995, type: 3}
   - {fileID: 8259229547388047227, guid: e679727e0928091449713e52926c2636, type: 3}
-  - {fileID: 5651007535253629764, guid: ed6cefe0f7282794088aa4c370c8758d, type: 3}
-  - {fileID: 4154802150156615540, guid: a64f3dd13309f5944931563b5c6a54b5, type: 3}
-  - {fileID: 3434518770858273477, guid: 91306db342884d345be07d986490bb12, type: 3}
-  - {fileID: 2894512664257278113, guid: 8debac40d621e6b48a1d3b4ed8401ed0, type: 3}
-  - {fileID: 2117454287709965035, guid: 80a74d2ae4b6c6e4f849bf38a779a504, type: 3}
-  - {fileID: 7658799509698634583, guid: 55caa0148b315784b90816c014b2f425, type: 3}
+  - {fileID: 3179604848984726779, guid: ed6cefe0f7282794088aa4c370c8758d, type: 3}
+  - {fileID: 3179604848984726779, guid: 2fd04e9617f821046af9d46057c303a2, type: 3}
+  - {fileID: 1440275198462512003, guid: 91306db342884d345be07d986490bb12, type: 3}
+  - {fileID: 5471099290439892667, guid: 22791c1b0a9121a4d8c1ccde72bbec43, type: 3}
+  - {fileID: 2668843856587698946, guid: c88ed0dc0aecd894d9f109ce3127b9c0, type: 3}
+  str: Normal
   firstSpawnFlag: 0
+  spwanLate: 2

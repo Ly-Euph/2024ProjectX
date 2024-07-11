@@ -4,91 +4,90 @@ using UnityEngine;
 
 public class Enemy_Normal : MonoBehaviour,IDamageable
 {
-    private Cinemachine.CinemachineDollyCart dolly;     //Cinemachineのdolly cartを取得
+    private Cinemachine.CinemachineDollyCart dolly;
+    private Cinemachine.CinemachinePathBase myPath;
 
-    private Cinemachine.CinemachinePathBase myPath;     //自身のパス
+    [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
-    [SerializeField] Cinemachine.CinemachinePathBase[] path;       //ルートのパス
+    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
+                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
+                            { 2, 5, 6 } };
+    public int stage;
+    private int rootRand;
 
 
     private Animator anim;
 
+    private int animNum;
 
-    private float timer = 0f;
+    private float timer;
+
     private int randWait;
 
-    public int animNum;
-    public int hp = 10;
-    public int stage;
+    private int hp;
 
-    //0:room1
-    //1:room2
-    //2:room3
-    //3:room4
-    //4:room5
-    //5:room6
-    //6:plRoom
-    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
-                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
-                            { 2, 5, 6, 6 } };
+    private bool hitFlag;
 
-    private int rootRand;
+    private float dieTimer;
+    private bool dieFlag;
 
-    public bool hitFlag;
-
-
+    [SerializeField] ETest DEATH;
     // Start is called before the first frame update
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
-        dolly.m_Speed = 0.2f;           //移動スピード0.2
+
+        myPath = path[0];
+        stage = 0;
+        rootRand = Random.Range(0, 7);
+        myPath = path[root[rootRand, stage]];
 
         anim = GetComponent<Animator>();
-
         animNum = 0;
-        stage = 0;
+        timer = 0;
+        randWait = 0;
+
         hp = 10;
-
-        rootRand = Random.Range(0, 7);
-
-        myPath = path[root[rootRand, stage]];
 
         hitFlag = false;
 
+        dieTimer = 0;
+        dieFlag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        this.dolly.m_Path = myPath;
+        SwitchStage();
+        if (stage == 2)
+        {
+            Destroy(gameObject);
+            Debug.Log("Normalによってgame over");
+        }
+
         timer += Time.deltaTime;
-        if(timer>=2f)
+        if (timer >= 2f)
         {
             timer = 0;
             randWait = Random.Range(1, 21);
-            if(randWait==1)
+            if (randWait == 1)
             {
                 animNum = 1;
                 StartCoroutine("IdleWait");
             }
         }
-
-
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            hp -= 10;
+        }
         EmDie();
         Animation();
-
-
-        this.dolly.m_Path = myPath;
-
-
-        //部屋移動
-        SwitchStage();
-
-
-        //Player死亡
-        if(stage==2)
+        if(dieFlag==true)
         {
-            Destroy(gameObject);
-            Debug.Log("Normalによりgame over");
+
+            DEATH.enabled = true;
+            
         }
     }
 
@@ -139,31 +138,27 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
                 dolly.m_Speed = 0.2f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", false);
                 break;
 
             case 1:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run",false);
                 anim.SetBool("Idle", true);
-                anim.SetBool("Dead", false);
                 break;
 
             case 2:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", true);
+                dieFlag = true;
                 break;
         }
     }
 
     IEnumerator IdleWait()
     {
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(7.0f);
 
         animNum = 0;
     }
-
-
 }
