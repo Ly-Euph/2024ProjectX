@@ -32,7 +32,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] GameObject[] Trap_GK;
 
     [Header("それぞれのCamZoomUIを入れるとこ")]
-    
+
     [SerializeField] GameObject[] Cam_Zoom;
 
     [Header("それぞれのGimmicUIを入れるとこ")]
@@ -53,6 +53,8 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text[] CT_Volt;
 
+    [SerializeField] Text[] Sencor_text;
+
     [Header("EchoManagerを入れてね")]
 
     ScanManager sMng;
@@ -60,7 +62,12 @@ public class CameraManager : MonoBehaviour
     [Header("ステージ事に合わせたカメラの数を入力してください")]
 
     [SerializeField] int Camera_Num;
+
     private int V_time = 20;
+
+    private int Sencor_Count = 0;
+
+    public int Sensor_Bt;
 
     public float[] time_Gf;
 
@@ -74,9 +81,11 @@ public class CameraManager : MonoBehaviour
     public bool[] Volt_Flg;
 
     //Camera用のFlag
-    public  bool[] Cam_Flg;
+    public bool[] Cam_Flg;
 
     public bool[] Gf_Flg;
+
+    public bool[] IsSencor;
 
     void Start()
     {
@@ -86,27 +95,29 @@ public class CameraManager : MonoBehaviour
             // ボルトトラップ使用可能のテキスト「OK」を初めに表示
 
             CT_Volt[i].text = "OK";
+            Sencor_text[i].text = "OFF";
 
             //　Imageを初めは0にしておく。
 
             Volt_Img[i].GetComponent<Image>().fillAmount = 0;
         }
-        　　//初めはCamera1に設定
-        　　SetCamera1();
-        　　//カメラに関するFlagを全てOffに
-       　　 CamFlag();
-        　　Cam_Flg[0] = true;
-        　　//GimmicとCameraZoomのUIを引数の値に応じて表示
-        　　UIActive(0);
-        　　//Sonartxをfalseに
-        　　SonarOff();
-    
-            //time_Vsに配列の値を代入。
-        　　time_Vs = new float[Volt_timers.Length];
+        //初めはCamera1に設定
+        SetCamera1();
+        //カメラに関するFlagを全てOffに
+        CamFlag();
+        Cam_Flg[0] = true;
+        //GimmicとCameraZoomのUIを引数の値に応じて表示
+        UIActive(0);
+        //Sonartxをfalseに
+        SonarOff();
+
+        //time_Vsに配列の値を代入。
+        time_Vs = new float[Volt_timers.Length];
     }
 
     void Update()
     {
+        Debug.Log(Sencor_Count);
         //時を止めてる間はreturnし続ける。
         if (Time.timeScale == 0) return;
 
@@ -181,7 +192,7 @@ public class CameraManager : MonoBehaviour
 
         //VoltトラップとUIを切り替える
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < Camera_Num; i++)
         {
             if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && Volt_Img[i].fillAmount == 0)
             {
@@ -191,7 +202,30 @@ public class CameraManager : MonoBehaviour
             {
                 UpdateVoltTimer(i);
             }
+            if (Bm.Para_Battery <= Sensor_Bt)
+            {
+                IsSencor[i] = false;
+                return;
+            }
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
+            {
+                Debug.Log(i);
+                IsSencor[i] = IsSencor[i] == false ? true : false;
+                Sencor_text[i].text = "ON";
+                Sencor_Count++;
+                if(!IsSencor[i])
+                {
+                    Sencor_text[i].text = "OFF";
+                }
+
+            }
+          
         }
+        for (int i = 0; i < IsSencor.Length; i++)
+        {
+            if (IsSencor[i]) Bm.Para_Battery -= 0.05f;
+        }
+       
     }
 
     //GimmickとCamZoomの制御
@@ -210,10 +244,11 @@ public class CameraManager : MonoBehaviour
     //以下カメラ機能のState
     void SetCamera(int num)
     {
-        switch(num)
+        switch (num)
         {
             case 1:
                 SetCamera1();
+
                 break;
             case 2:
                 SetCamera2();
