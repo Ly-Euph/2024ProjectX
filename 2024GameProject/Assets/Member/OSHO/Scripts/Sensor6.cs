@@ -16,7 +16,7 @@ public class Sensor6 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        if (Cam.IsSencor[1]) Sencor_Image6.SetActive(true);
+        if (Cam.IsSencor[5]) Sencor_Image6.SetActive(true);
     }
     private void OnTriggerExit(Collider other)
     {
