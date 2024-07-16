@@ -31,7 +31,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
     private float dieTimer;
     private bool dieFlag;
 
-
+    [SerializeField] ETest DEATH;
     // Start is called before the first frame update
     void Start()
     {
@@ -85,11 +85,9 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         Animation();
         if(dieFlag==true)
         {
-            dieTimer += Time.deltaTime;
-            if(dieTimer>=6.0f)
-            {
-                Destroy(gameObject);
-            }
+
+            DEATH.enabled = true;
+            
         }
     }
 
@@ -140,21 +138,18 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
                 dolly.m_Speed = 0.2f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", false);
                 break;
 
             case 1:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run",false);
                 anim.SetBool("Idle", true);
-                anim.SetBool("Dead", false);
                 break;
 
             case 2:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }

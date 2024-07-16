@@ -136,21 +136,18 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
                 dolly.m_Speed = 0.4f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", false);
                 break;
 
             case 1:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", true);
-                anim.SetBool("Dead", false);
                 break;
 
             case 2:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }
