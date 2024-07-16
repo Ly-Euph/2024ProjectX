@@ -204,8 +204,12 @@ public class CameraManager : MonoBehaviour
             }
             if (Bm.Para_Battery <= Sensor_Bt)
             {
-                IsSencor[i] = false;
-                return;
+                for (int j = 0; j < Sencor_Count; j++)
+                {
+                    Sencor_text[i].text = "OFF";
+                }
+                IsSencor[i] = false;  
+                //return;
             }
             if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
             {
