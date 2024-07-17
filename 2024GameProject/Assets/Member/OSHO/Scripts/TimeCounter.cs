@@ -30,7 +30,7 @@ public class TimeCounter : MonoBehaviour
             //timeScaleでゲーム内時間を弄りました。
 
             TimeSecond -= Time.deltaTime;
-
+            
             //TimeSpanとmm\:ssで時間制限を簡単に制御できるように。
             //変数TimeSecondの値を参照。
 
