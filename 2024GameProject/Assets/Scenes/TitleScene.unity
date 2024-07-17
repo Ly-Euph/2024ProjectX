@@ -1010,7 +1010,7 @@ Transform:
   - {fileID: 728295986}
   - {fileID: 1909148894}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 25, y: 35, z: 0}
 --- !u!1 &272208431
 GameObject:
@@ -1196,7 +1196,7 @@ Transform:
   - {fileID: 1868985268}
   - {fileID: 927296431}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &290062589
 MonoBehaviour:
@@ -1986,7 +1986,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &528846795
 GameObject:
@@ -3902,7 +3902,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 7.693, y: 40, z: 0.212}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -5891,7 +5891,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304173838
 GameObject:
@@ -8548,7 +8548,7 @@ RectTransform:
   - {fileID: 127774369}
   - {fileID: 1492072014}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11846,7 +11846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7415618370993154481, guid: 64cf1ce2084311042922c55fb7b5cae3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7415618370993154481, guid: 64cf1ce2084311042922c55fb7b5cae3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11908,7 +11908,7 @@ Transform:
   - {fileID: 3053085070675314009}
   - {fileID: 1911397787882825376}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -132.293, z: 0}
 --- !u!1 &7583679536575396560
 GameObject:
