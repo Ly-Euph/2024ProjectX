@@ -5,43 +5,44 @@ using UnityEngine.UI;
 
 public class BatteryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] Image img;
-    [SerializeField] Text text;
+    //batteryのImage画像
+    [SerializeField] Image IMAGE_battery;
 
-    private float battery = 100f;
+    //batteryのText
+    [SerializeField] Text TEXT_battery;
 
-    private float battery_time = 0;
+    //Batteryの初期値
+    private int INT_battery;
 
-    void Start()
-    {
+    //Batteryの値
+    private float FLOAT_battery = 100f;
 
-    }
+    //batteryが回復する時に使うタイマー変数
+    private float FLOAT_time = 0;
 
-    // Update is called once per frame
     void Update()
     {
-        if (battery != 100) { battery_time += Time.deltaTime; }
+        
+        if (FLOAT_battery != INT_battery) { FLOAT_time += Time.deltaTime; }
 
-        if (battery_time >= 2)
+        if (FLOAT_time >= 2)
         {
-            if (battery < 100)
+            if (FLOAT_battery < INT_battery)
             {
-                battery += 1f;
-                battery_time = 0;
+                FLOAT_battery += 1f;
+                FLOAT_time = 0;
             }
         }
-        if (battery >= 0)
+        if (FLOAT_battery >= 0)
         {
-            img.GetComponent<Image>().fillAmount = battery / 100;
+            IMAGE_battery.GetComponent<Image>().fillAmount = FLOAT_battery / INT_battery;
 
-            //���̏ꍇ�̂�(int)���g�p�B
-            text.text = (int)battery + "%";
+            TEXT_battery.text = (int)FLOAT_battery + "%";
         }
     }
     public float Para_Battery
     {
-        set { battery = value; }
-        get { return battery; }
+        set { FLOAT_battery = value; }
+        get { return FLOAT_battery; }
     }
 }
