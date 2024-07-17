@@ -12,7 +12,7 @@ public class BatteryManager : MonoBehaviour
     [SerializeField] Text TEXT_battery;
 
     //Batteryの初期値
-    private int INT_battery;
+    private int INT_battery = 100;
 
     //Batteryの値
     private float FLOAT_battery = 100f;
