@@ -26,7 +26,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     private int hp;
 
-    private bool hitFlag;
+    public bool hitFlag;
 
     private float dieTimer;
     private bool dieFlag;
