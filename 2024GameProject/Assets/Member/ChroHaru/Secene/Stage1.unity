@@ -3610,6 +3610,12 @@ MonoBehaviour:
   - position: {x: 0, y: 0, z: -8}
     tangent: {x: 0, y: 0, z: 0}
     roll: 0
+  - position: {x: 0, y: 0, z: -13}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
+  - position: {x: 0, y: 0, z: -18}
+    tangent: {x: 0, y: 0, z: 0}
+    roll: 0
 --- !u!1 &833578559
 GameObject:
   m_ObjectHideFlags: 0
@@ -4421,7 +4427,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969980671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.978762, y: -3.9183455, z: -4.7012243}
+  m_LocalPosition: {x: -135.56, y: -11.28, z: -41.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -22263,6 +22269,7 @@ GameObject:
   - component: {fileID: 1867350926012177223}
   - component: {fileID: 1867350926012177224}
   - component: {fileID: 1867350926012177226}
+  - component: {fileID: 1867350926012177227}
   m_Layer: 0
   m_Name: Door5.2
   m_TagString: Untagged
@@ -22289,6 +22296,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1867350926012177227
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867350926012177225}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1079003, y: 1.6650598, z: 1}
+  m_Center: {x: 0.55395013, y: 0.71465963, z: 0.0000014333054}
 --- !u!33 &1867350926027919860
 MeshFilter:
   m_ObjectHideFlags: 0
