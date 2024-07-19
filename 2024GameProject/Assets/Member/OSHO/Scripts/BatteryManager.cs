@@ -39,6 +39,16 @@ public class BatteryManager : MonoBehaviour
 
             TEXT_battery.text = (int)FLOAT_battery + "%";
         }
+
+
+        if (Para_Battery < 25)
+        {
+            IMAGE_battery.color = Color.red;
+        }
+        else
+        {
+            IMAGE_battery.color = Color.white;
+        }
     }
     public float Para_Battery
     {

@@ -304,36 +304,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
   m_PrefabInstance: {fileID: 557378722}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &201621636
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 201621638}
-  m_Layer: 0
-  m_Name: SensorManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &201621638
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201621636}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.5, y: -6.979252, z: 90}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 23
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241529091
 GameObject:
   m_ObjectHideFlags: 0
@@ -4525,7 +4495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885759940 stripped
 GameObject:
@@ -7505,59 +7475,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f929c5f0f497294d98a1141c2ce4755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gf:
+  GF_gf:
   - {fileID: 4924205384128607929}
   - {fileID: 4924205383896885233}
   - {fileID: 4924205385585995303}
   - {fileID: 4924205384211024257}
   - {fileID: 4924205384034134663}
   - {fileID: 4924205384124987223}
-  Camera:
+  OBJ_camera:
   - {fileID: 104748982697019575}
   - {fileID: 2606645893015085126}
   - {fileID: 8331515768456599116}
   - {fileID: 9139804629052689624}
   - {fileID: 8569884716925895286}
   - {fileID: 3503529513853226649}
-  Camera_Text: {fileID: 8871861935006168162}
-  Bm: {fileID: 4924205384756196440}
-  Enemy: []
-  Trap_Obj:
+  TEXT_camera: {fileID: 8871861935006168162}
+  BM_mng: {fileID: 4924205384756196440}
+  OBJ_trapPos:
   - {fileID: 1478558466}
   - {fileID: 1885759940}
   - {fileID: 1609652124}
   - {fileID: 192665375}
   - {fileID: 1147064699}
   - {fileID: 2131915895}
-  Trap_GK:
+  OBJ_trapObj:
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  Cam_Zoom:
+  OBJ_camZoom:
   - {fileID: 8586218651618719874}
   - {fileID: 3893160166730095367}
   - {fileID: 4631436300694781024}
   - {fileID: 9220566929093581859}
   - {fileID: 9112343045386839279}
   - {fileID: 3768803999536094918}
-  Gimmick:
+  OBJ_gimmicUI:
   - {fileID: 8966190199807252110}
   - {fileID: 1068482663338319056}
   - {fileID: 194441842334485769}
   - {fileID: 6023786545016043085}
   - {fileID: 7355922446337101829}
   - {fileID: 4523761195906283242}
-  Sf:
+  SonarFx_sf:
   - {fileID: 104748982697019530}
   - {fileID: 2606645893015085149}
   - {fileID: 8331515768456599111}
   - {fileID: 9139804629052689603}
   - {fileID: 8569884716925895277}
   - {fileID: 3503529513853226626}
-  Volt_Img:
+  IMAGE_Volt:
   - {fileID: 8966190198749431887}
   - {fileID: 1068482664427979281}
   - {fileID: 194441841243116488}
@@ -7579,7 +7548,7 @@ MonoBehaviour:
   - {fileID: 5684633937689769454}
   - {fileID: 1599126247641617153}
   Camera_Num: 6
-  Sensor_Bt: 4
+  Sensor_Capacity: 4
   time_Gf:
   - 0
   - 0
