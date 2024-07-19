@@ -53,6 +53,8 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text[] CT_Volt;
 
+    [Header("Sencor用のTextを入れてね。")]
+
     [SerializeField] Text[] Sencor_text;
 
     [Header("EchoManagerを入れてね")]
