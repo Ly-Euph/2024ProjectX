@@ -11,6 +11,10 @@ public class BatteryManager : MonoBehaviour
     //batteryのText
     [SerializeField] Text TEXT_battery;
 
+    [SerializeField] int INT_batteryRed;
+
+    [SerializeField] int INT_batteryYellow;
+
     //Batteryの初期値
     private int INT_battery = 100;
 
@@ -40,15 +44,26 @@ public class BatteryManager : MonoBehaviour
             TEXT_battery.text = (int)FLOAT_battery + "%";
         }
 
+        Battery_Color();
+    }
 
-        if (Para_Battery < 25)
+    void Battery_Color()
+    {
+        //バッテリーの色変換
+
+        if (Para_Battery < INT_batteryRed)
         {
             IMAGE_battery.color = Color.red;
+        }
+        else if (Para_Battery < INT_batteryYellow)
+        {
+            IMAGE_battery.color = Color.yellow;
         }
         else
         {
             IMAGE_battery.color = Color.white;
         }
+
     }
     public float Para_Battery
     {
