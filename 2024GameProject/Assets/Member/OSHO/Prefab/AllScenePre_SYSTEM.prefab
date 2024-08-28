@@ -4384,7 +4384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30AB\u30E1\u30E9\uFF11:\n"
+  m_Text: "\u30AB\u30E1\u30E9\uFF11\n"
 --- !u!114 &2096707235683323861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10772,7 +10772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6441135160367043437
 RectTransform:
   m_ObjectHideFlags: 0
