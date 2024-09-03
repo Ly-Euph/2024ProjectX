@@ -793,7 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 64581301}
   m_Layer: 0
-  m_Name: Rouka1-2
+  m_Name: Rouka7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2467,7 +2467,7 @@ GameObject:
   m_Component:
   - component: {fileID: 181734667}
   m_Layer: 0
-  m_Name: Stage4-2
+  m_Name: Stage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3238,7 +3238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 222448302}
   m_Layer: 0
-  m_Name: Rouka5-6
+  m_Name: Rouka9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9375,7 +9375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614838718}
   m_Layer: 0
-  m_Name: Stage4-1
+  m_Name: Stage1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13065,7 +13065,7 @@ GameObject:
   m_Component:
   - component: {fileID: 900990972}
   m_Layer: 0
-  m_Name: Stage4-5
+  m_Name: Stage5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13911,7 +13911,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934806288}
   m_Layer: 0
-  m_Name: Stage4-4
+  m_Name: Stage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14191,7 +14191,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956358471}
   m_Layer: 0
-  m_Name: Stage4-6
+  m_Name: Stage6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19704,7 +19704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296804909}
   m_Layer: 0
-  m_Name: Stage4-3
+  m_Name: Stage3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20738,7 +20738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1370579481}
   m_Layer: 0
-  m_Name: Rouka3-4
+  m_Name: Rouka8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

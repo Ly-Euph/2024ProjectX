@@ -264,7 +264,7 @@ public class CameraManager : MonoBehaviour
     {
         CameraScan();
         OBJ_camera[0].SetActive(true);
-        TEXT_camera.text = "カメラ１:";
+        TEXT_camera.text = "カメラ１";
     }
 
     private void SetCamera2()
@@ -272,34 +272,34 @@ public class CameraManager : MonoBehaviour
         CameraScan();
         OBJ_camera[1].SetActive(true);
 
-        TEXT_camera.text = "カメラ２:";
+        TEXT_camera.text = "カメラ２";
     }
 
     private void SetCamera3()
     {
         CameraScan();
         OBJ_camera[2].SetActive(true);
-        TEXT_camera.text = "カメラ３:";
+        TEXT_camera.text = "カメラ３";
     }
 
     private void SetCamera4()
     {
         CameraScan();
         OBJ_camera[3].SetActive(true);
-        TEXT_camera.text = "カメラ４:";
+        TEXT_camera.text = "カメラ４";
     }
 
     private void SetCamera5()
     {
         CameraScan();
         OBJ_camera[4].SetActive(true);
-        TEXT_camera.text = "カメラ５:";
+        TEXT_camera.text = "カメラ５";
     }
     private void SetCamera6()
     {
         CameraScan();
         OBJ_camera[5].SetActive(true);
-        TEXT_camera.text = "カメラ６:";
+        TEXT_camera.text = "カメラ６";
     }
     private void SonarOff()
     {
