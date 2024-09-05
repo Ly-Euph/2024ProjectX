@@ -14,13 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Member/OSHO/Scene/OSHO_Stage1.unity
     guid: 17d1eb4ce6e3648419a2e1ce4b78fb82
-  - enabled: 1
-    path: Assets/Scenes/Stage2.unity
-    guid: 56aa773b688db9747be4678402f764df
-  - enabled: 1
-    path: Assets/Scenes/Stage3.unity
-    guid: a8ed1a6ed170f9d41a73f2bc1a9144e9
-  - enabled: 1
-    path: Assets/Scenes/Stage4.unity
-    guid: ec663f01253b6ee409d1be70f76f6998
   m_configObjects: {}
