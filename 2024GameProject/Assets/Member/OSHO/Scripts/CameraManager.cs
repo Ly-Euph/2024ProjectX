@@ -67,6 +67,8 @@ public class CameraManager : MonoBehaviour
     //センサーの使えるバッテリー容量
     public int Sensor_Capacity;
 
+    public int Skillcounter;
+
     public float[] time_Gf;
 
     //Voltのtimerの変数
@@ -121,14 +123,17 @@ public class CameraManager : MonoBehaviour
         //時を止めてる間はreturnし続ける。
         if (Time.timeScale == 0) return;
 
-        //Shiftキーを押したときにバッテリーを５%減らす。
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { BM_mng.Para_Battery -= 5f; }
-
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (BM_mng.Para_Battery >= 5)
         {
-            SonarOn();
-            //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
-            if (BM_mng.Para_Battery >= 0) { BM_mng.Para_Battery -= 0.05f; }
+            //Shiftキーを押したときにバッテリーを５%減らす。
+            if (Input.GetKeyDown(KeyCode.LeftShift)) { BM_mng.Para_Battery -= 5f; }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                SonarOn();
+                //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
+                if (BM_mng.Para_Battery >= 0) { BM_mng.Para_Battery -= 0.05f; }
+            }
         }
 
         //Shiftキーを離したときにスキャンを止める。
@@ -136,20 +141,23 @@ public class CameraManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift)) { SonarOff(); }
 
         //Voltトラップ呼出し
-        for (int i = 0; i < Cam_Flg.Length; i++)
+        if (BM_mng.Para_Battery >= 5)
         {
-            if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
+            for (int i = 0; i < Cam_Flg.Length; i++)
             {
-                Debug.Log("Volt生成");
-                Vector3 ObjPos = OBJ_trapPos[i].transform.position;
-                Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
-                time_Vs[i] = 0;
-                Battery_nega();
-                // クールタイム計測
-                time_Vs[i] += Time.deltaTime;
-                if (time_Vs[i] >= Volt_timers[i])
+                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
                 {
-                    time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
+                    Debug.Log("Volt生成");
+                    Vector3 ObjPos = OBJ_trapPos[i].transform.position;
+                    Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
+                    time_Vs[i] = 0;
+                    Battery_nega();
+                    // クールタイム計測
+                    time_Vs[i] += Time.deltaTime;
+                    if (time_Vs[i] >= Volt_timers[i])
+                    {
+                        time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
+                    }
                 }
             }
         }
@@ -201,23 +209,34 @@ public class CameraManager : MonoBehaviour
                 IsSencor[i] = false;  
                 //return;
             }
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
+            if(BM_mng.Para_Battery <= 5)
             {
-                IsSencor[i] = IsSencor[i] == false ? true : false;
-                Sencor_text[i].text = "ON";
-                if(!IsSencor[i])
-                {
-                    Sencor_text[i].text = "OFF";
-                }
-
+                Sencor_text[i].text = "OFF";
+                CT_Volt[i].text = "NO";
             }
-          
+            else
+            {
+                CT_Volt[i].text = "OK";
+            }
+            if (BM_mng.Para_Battery >= 5)
+            {
+                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
+                {
+                    IsSencor[i] = IsSencor[i] == false ? true : false;
+                    Sencor_text[i].text = "ON";
+                    if (!IsSencor[i])
+                    {
+                        Sencor_text[i].text = "OFF";
+                    }
+
+                }
+            }
         }
         for (int i = 0; i < IsSencor.Length; i++)
         {
             if (IsSencor[i]) BM_mng.Para_Battery -= 0.05f;
         }
-       
+        
     }
 
     //GimmickとCamZoomの制御
@@ -339,15 +358,18 @@ public class CameraManager : MonoBehaviour
     }
     private void UpdateVoltTimer(int index)
     {
-        Volt_timers[index] -= Time.deltaTime;
-        CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-        IMAGE_Volt[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
-
-        if (Volt_timers[index] <= 0)
+        if (BM_mng.Para_Battery >= 5)
         {
-            Volt_Flg[index] = false;
-            CT_Volt[index].text = "OK";
-            Volt_timers[index] = 20;
+            Volt_timers[index] -= Time.deltaTime;
+            CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
+            IMAGE_Volt[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
+
+            if (Volt_timers[index] <= 0)
+            {
+                Volt_Flg[index] = false;
+                CT_Volt[index].text = "OK";
+                Volt_timers[index] = 20;
+            }
         }
     }
 

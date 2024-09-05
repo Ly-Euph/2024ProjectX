@@ -44,6 +44,7 @@ public class BatteryManager : MonoBehaviour
             TEXT_battery.text = (int)FLOAT_battery + "%";
         }
 
+
         Battery_Color();
     }
 
