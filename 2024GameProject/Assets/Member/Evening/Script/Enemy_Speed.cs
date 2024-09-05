@@ -76,10 +76,10 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    hp -= 10;
+        //}
         EmDie();
         Animation();
 
