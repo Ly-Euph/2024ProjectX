@@ -8,7 +8,7 @@ public class Collision_system : MonoBehaviour
 
     public int Em_damage = 10;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩÅB");
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();

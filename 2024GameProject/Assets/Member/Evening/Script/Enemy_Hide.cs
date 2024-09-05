@@ -82,20 +82,13 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+      
         EmDie();
         Animation();
 
         if(dieFlag==true)
         {
-            dieTimer += Time.deltaTime;
-            if (dieTimer >= 5f)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);   
         }
 
 
@@ -137,7 +130,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     void EmDie()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
