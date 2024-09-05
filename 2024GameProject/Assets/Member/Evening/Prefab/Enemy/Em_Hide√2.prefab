@@ -254,13 +254,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path:
-  - {fileID: 6315046100411024146, guid: 8d1157c4787b70e408e6f1aef20d611a, type: 3}
-  - {fileID: 6040305029103219391, guid: e330ab2f9ccdee4438a3755ffcb39a99, type: 3}
-  - {fileID: 8711114913910922525, guid: 98e2e2f0429fd544a916bcbe12da8a83, type: 3}
-  - {fileID: 5113174165670531692, guid: 48dc6aaef15245e46ba2f2a6621504c9, type: 3}
-  - {fileID: 7072047264249755006, guid: 4f287204efc08684993f46b03ba60aa6, type: 3}
-  - {fileID: 4639392178635908607, guid: 8ee815f8086f40b40b589a42af0c7df1, type: 3}
-  - {fileID: 1007938706616072137, guid: f3412ee1b6469aa4aa482f3a4a5b2349, type: 3}
+  - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
+  - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
+  - {fileID: 990837207523452790, guid: ebc2a6f989e85544b9dbc3e31306d0ef, type: 3}
+  - {fileID: 3020868688829273263, guid: e94c06fd511e78246a69c0cff95f16f2, type: 3}
+  - {fileID: 5512039565799290483, guid: 23542b1eb36ada94f9ecccab061746bb, type: 3}
+  - {fileID: 4039996603956760632, guid: c62064199149a4444841c6967f3456dd, type: 3}
+  - {fileID: 4170952394851516744, guid: fa8fbdabe5103c64bba55fa196aca135, type: 3}
   stage: 0
 --- !u!114 &5471099290439892668
 MonoBehaviour:
@@ -287,11 +287,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5471099290439892667}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.5}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1, y: 1.6, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &5471099290439892666
 Rigidbody:
   m_ObjectHideFlags: 0

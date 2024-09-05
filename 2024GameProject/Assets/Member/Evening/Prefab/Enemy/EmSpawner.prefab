@@ -50,7 +50,6 @@ MonoBehaviour:
   - {fileID: 3179604848984726779, guid: 2fd04e9617f821046af9d46057c303a2, type: 3}
   - {fileID: 1440275198462512003, guid: 91306db342884d345be07d986490bb12, type: 3}
   - {fileID: 5471099290439892667, guid: 22791c1b0a9121a4d8c1ccde72bbec43, type: 3}
-  - {fileID: 2668843856587698946, guid: c88ed0dc0aecd894d9f109ce3127b9c0, type: 3}
   str: Normal
   firstSpawnFlag: 0
   spwanLate: 2

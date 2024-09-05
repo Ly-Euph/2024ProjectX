@@ -27,9 +27,9 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] OBJ_trapObj;
 
-    [Header("それぞれのCamZoomUIを入れるとこ")]
+    //[Header("それぞれのCamZoomUIを入れるとこ")]
 
-    [SerializeField] GameObject[] OBJ_camZoom;
+    //[SerializeField] GameObject[] OBJ_camZoom;
 
     [Header("それぞれのGimmicUIを入れるとこ")]
 
@@ -227,10 +227,10 @@ public class CameraManager : MonoBehaviour
         {
             // 一旦全てのUI表示を非表示
             OBJ_gimmicUI[i].SetActive(false);
-            OBJ_camZoom[i].SetActive(false);
+           // OBJ_camZoom[i].SetActive(false);
         }
         OBJ_gimmicUI[num].SetActive(true);
-        OBJ_camZoom[num].SetActive(true);
+        //OBJ_camZoom[num].SetActive(true);
     }
 
     //以下カメラ機能のState
