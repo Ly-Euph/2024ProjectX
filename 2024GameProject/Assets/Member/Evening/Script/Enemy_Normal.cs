@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy_Normal : MonoBehaviour,IDamageable
 {
+    #region field
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
@@ -12,8 +13,9 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
     private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
                             { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
                             { 2, 5, 6 } };
-    public int stage;
-    private int rootRand;
+ 
+    public int INT_stage;
+    private int INT_rootRand;
 
 
     private Animator anim;
@@ -28,19 +30,22 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     public bool hitFlag;
 
-    private float dieTimer;
+    //private float dieTimer;
     private bool dieFlag;
 
-    [SerializeField] ETest DEATH;
+    [SerializeField] ETest _DEATH;
+    #endregion
+
+    #region Method
     // Start is called before the first frame update
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
         myPath = path[0];
-        stage = 0;
-        rootRand = Random.Range(0, 7);
-        myPath = path[root[rootRand, stage]];
+        INT_stage = 0;
+        INT_rootRand = Random.Range(0, 7);
+        myPath = path[root[INT_rootRand, INT_stage]];
 
         anim = GetComponent<Animator>();
         animNum = 0;
@@ -51,7 +56,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
         hitFlag = false;
 
-        dieTimer = 0;
+        //dieTimer = 0;
         dieFlag = false;
     }
 
@@ -60,7 +65,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
-        if (stage == 2)
+        if (INT_stage == 2)
         {
             Destroy(gameObject);
             Debug.Log("Normal‚É‚æ‚Á‚Ägame over");
@@ -86,18 +91,17 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         if(dieFlag==true)
         {
 
-            DEATH.enabled = true;
+            _DEATH.enabled = true;
             
         }
     }
-
-
+  
     void SwitchStage()
     {
         if (dolly.m_Position == 4 && hitFlag == true)
         {
-            stage++;
-            myPath = path[root[rootRand, stage]];
+            INT_stage++;
+            myPath = path[root[INT_rootRand, INT_stage]];
             dolly.m_Position = 0;
             hitFlag = false;
         }
@@ -112,7 +116,6 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
             hitFlag = true;
         }
     }
-
 
     public void TakeDamage(int damage)
     {
@@ -161,4 +164,5 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
         animNum = 0;
     }
+    #endregion
 }
