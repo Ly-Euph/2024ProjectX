@@ -85,11 +85,7 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
         if(dieFlag==true)
         {
-            dieTimer += Time.deltaTime;
-            if(dieTimer>=5.0f)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 
@@ -120,7 +116,7 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
     void EmDie()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
