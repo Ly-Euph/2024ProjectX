@@ -89,7 +89,7 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
+        //sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
         for (int i = 0; i < OBJ_camera.Length; i++)
         {
             // ボルトトラップ使用可能のテキスト「OK」を初めに表示
