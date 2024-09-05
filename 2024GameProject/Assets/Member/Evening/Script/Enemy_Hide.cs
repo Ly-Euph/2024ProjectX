@@ -125,6 +125,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     {
         if(collision.gameObject.tag=="Door")
         {
+            Debug.Log("door‚Éhit");
             hitFlag = true;
         }
     }

@@ -1186,6 +1186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3601525503690173416, guid: 6e512af632bc80949a77d8964281979c, type: 3}
+      propertyPath: Enemy.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -1490,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 1201667876}
-  Sencor_Image1: {fileID: 468169523}
+  Sensor_Image1: {fileID: 0}
 --- !u!65 &110648642
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2162,11 +2166,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
---- !u!1 &191320066 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
-  m_PrefabInstance: {fileID: 191320065}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &211279123
 GameObject:
   m_ObjectHideFlags: 0
@@ -9871,11 +9870,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
---- !u!1 &1047631413 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
-  m_PrefabInstance: {fileID: 1047631412}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1059268432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11298,65 +11292,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f929c5f0f497294d98a1141c2ce4755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gf:
-  - {fileID: 1332879956}
-  - {fileID: 1650898928}
-  - {fileID: 936696788}
-  - {fileID: 263962844}
-  - {fileID: 1465003348}
-  - {fileID: 55440261}
-  Camera:
-  - {fileID: 1332879954}
-  - {fileID: 1650898926}
-  - {fileID: 936696786}
-  - {fileID: 263962842}
-  - {fileID: 1465003346}
-  - {fileID: 55440259}
-  Camera_Text: {fileID: 265746347}
-  Bm: {fileID: 1354240834}
-  Enemy: []
-  Trap_Obj:
-  - {fileID: 191320066}
-  - {fileID: 1837999827}
-  - {fileID: 1047631413}
-  - {fileID: 1337108958}
-  - {fileID: 1873600945}
-  - {fileID: 1652190445}
-  Trap_GK:
-  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  Cam_Zoom:
-  - {fileID: 1423319691}
-  - {fileID: 557585871}
-  - {fileID: 1817170528}
-  - {fileID: 970522020}
-  - {fileID: 178283304}
-  - {fileID: 350700340}
-  Gimmick:
-  - {fileID: 244976133}
-  - {fileID: 876353805}
-  - {fileID: 720407006}
-  - {fileID: 346904030}
-  - {fileID: 211279123}
-  - {fileID: 483645893}
-  Sf:
-  - {fileID: 1332879958}
-  - {fileID: 1650898930}
-  - {fileID: 936696790}
-  - {fileID: 263962846}
-  - {fileID: 1465003350}
-  - {fileID: 55440263}
-  Volt_Img:
-  - {fileID: 1229156052}
-  - {fileID: 1896196625}
-  - {fileID: 1937732572}
-  - {fileID: 663732231}
-  - {fileID: 1904751147}
-  - {fileID: 2083766105}
+  GF_gf: []
+  OBJ_camera: []
+  TEXT_camera: {fileID: 0}
+  BM_mng: {fileID: 0}
+  OBJ_trapPos: []
+  OBJ_trapObj: []
+  OBJ_camZoom: []
+  OBJ_gimmicUI: []
+  SonarFx_sf: []
+  IMAGE_Volt: []
   CT_Volt:
   - {fileID: 674068288}
   - {fileID: 4389678}
@@ -11372,7 +11317,7 @@ MonoBehaviour:
   - {fileID: 1240994596}
   - {fileID: 1355576536}
   Camera_Num: 6
-  Sensor_Bt: 4
+  Sensor_Capacity: 0
   time_Gf:
   - 0
   - 0
@@ -12519,11 +12464,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
---- !u!1 &1337108958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
-  m_PrefabInstance: {fileID: 1337108957}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1352696485
 GameObject:
   m_ObjectHideFlags: 0
@@ -12645,6 +12585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IMAGE_battery: {fileID: 1700634122}
   TEXT_battery: {fileID: 660879502}
+  INT_batteryRed: 0
+  INT_batteryYellow: 0
 --- !u!1 &1355576534
 GameObject:
   m_ObjectHideFlags: 0
@@ -15009,11 +14951,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
---- !u!1 &1652190445 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
-  m_PrefabInstance: {fileID: 1652190444}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687944806
 GameObject:
   m_ObjectHideFlags: 0
@@ -15988,11 +15925,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
---- !u!1 &1837999827 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
-  m_PrefabInstance: {fileID: 1837999826}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846010705
 GameObject:
   m_ObjectHideFlags: 0
@@ -16311,11 +16243,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
---- !u!1 &1873600945 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
-  m_PrefabInstance: {fileID: 1873600944}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1876634235
 GameObject:
   m_ObjectHideFlags: 0
