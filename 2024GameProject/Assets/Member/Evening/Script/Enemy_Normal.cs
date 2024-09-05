@@ -90,9 +90,8 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         Animation();
         if(dieFlag==true)
         {
-
-            _DEATH.enabled = true;
-            
+            Destroy(gameObject);
+            //_DEATH.enabled = true;
         }
     }
   
@@ -124,7 +123,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     void EmDie()
     {
-        if(hp==0)
+        if(hp<=0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
