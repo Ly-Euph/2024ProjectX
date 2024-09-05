@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeCounter : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class TimeCounter : MonoBehaviour
     private float TimeSecond;
     private bool TimeLimit = false;
     private Text TimeText;
+
+    
 
     
     // Start is called before the first frame update
@@ -43,6 +46,7 @@ public class TimeCounter : MonoBehaviour
             TimeLimit = true;
 
             //シーン移行の処理
+            FadeManager.Instance.LoadScene("TitleScene",1.0f);
             //現状はクリアしたステージはClearSceneに移行する予定です。
         }
     }
