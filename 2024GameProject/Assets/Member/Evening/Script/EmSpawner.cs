@@ -46,9 +46,9 @@ public class EmSpawner : MonoBehaviour
     //難易度毎の敵スポーン確率
     //要素1:normal√1  2:normal√2  3:speed√1  4:speed√2  5:hide√1  6:hide√2  7:jammer√1  8:jammer√2
     private int[,] probability = new int[,] {
-        { 25, 50, 65, 80, 87, 95, 100 }, // easy
-        { 15, 30, 45, 60, 73, 85, 100 }, // normal
-        { 10, 20, 30, 40, 55, 99/*70*/, 100 }, // hard 
+        { 25, 50, 65, 80, 87, 100 }, // easy
+        { 15, 30, 45, 60, 73, 100 }, // normal
+        { 10, 20, 30, 40, 55, 100 }, // hard 
         };
 
     //ランダムな数の生成で使用
