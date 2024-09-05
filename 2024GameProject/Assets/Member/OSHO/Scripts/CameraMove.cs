@@ -31,15 +31,15 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W) && cam.fieldOfView > CamMin)
-        {
-            cam.fieldOfView -= 0.5f;
-        }
+        //if(Input.GetKey(KeyCode.W) && cam.fieldOfView > CamMin)
+        //{
+        //    cam.fieldOfView -= 0.5f;
+        //}
 
-        if(Input.GetKey(KeyCode.S) && cam.fieldOfView < CamMax)
-        {
-            cam.fieldOfView += 0.5f;
-        }
+        //if(Input.GetKey(KeyCode.S) && cam.fieldOfView < CamMax)
+        //{
+        //    cam.fieldOfView += 0.5f;
+        //}
         if (Input.GetKey(KeyCode.A) && MinrotPos < transform.rotation.y)
         {
             //transform.Rotate(new Vector3(0, -1, 0));
