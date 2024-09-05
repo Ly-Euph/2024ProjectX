@@ -82,10 +82,10 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    hp -= 10;
+        //}
         EmDie();
         Animation();
         if(dieFlag==true)
