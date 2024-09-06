@@ -9,9 +9,9 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
-    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
-                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
-                            { 2, 5, 6 } };
+    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
+                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
+                            { 2, 5, 6, 6 } };
     public int stage;
     private int rootRand;
 
@@ -82,20 +82,13 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+      
         EmDie();
         Animation();
 
         if(dieFlag==true)
         {
-            dieTimer += Time.deltaTime;
-            if (dieTimer >= 5f)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);   
         }
 
 
@@ -137,7 +130,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     void EmDie()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
