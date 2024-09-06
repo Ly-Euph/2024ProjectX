@@ -59,11 +59,11 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
-        if (stage == 2)
-        {
-            Destroy(gameObject);
-            Debug.Log("Speed‚É‚æ‚Á‚Ägame over");
-        }
+        //if (stage == 2)
+        //{
+        //    Destroy(gameObject);
+        //    Debug.Log("Speed‚É‚æ‚Á‚Ägame over");
+        //}
 
         timer += Time.deltaTime;
         if (timer >= 2f)
