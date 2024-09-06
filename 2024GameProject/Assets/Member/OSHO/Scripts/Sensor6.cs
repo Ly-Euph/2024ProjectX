@@ -20,22 +20,21 @@ public class Sensor6 : MonoBehaviour
 
     private void Update()
     {
-        if (!IsSensor6)
-        {
-            Sensortimer6 += Time.deltaTime;
-            if (Sensortimer6 >= 2)
-            {
-                Sensor_Image6.SetActive(false);
-                Sensortimer6 = 0;
-                IsSensor6 = true;
-            }
-        }
-        Debug.Log(Sensortimer6);
+        //if (!IsSensor6)
+        //{
+        //    Sensortimer6 += Time.deltaTime;
+        //    if (Sensortimer6 >= 2)
+        //    {
+        //        Sensor_Image6.SetActive(false);
+        //        Sensortimer6 = 0;
+        //        IsSensor6 = true;
+        //    }
+        //}
     }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        if (Cam.IsSencor[0]) Sensor_Image6.SetActive(true);
+        if (Cam.IsSencor[5]) Sensor_Image6.SetActive(true);
         IsSensor6 = false;
     }
     private void OnTriggerExit(Collider other)
