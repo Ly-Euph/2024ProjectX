@@ -10,10 +10,10 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
-    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
-                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
-                            { 2, 5, 6 } };
- 
+    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
+                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
+                            { 2, 5, 6, 6 } };
+
     public int INT_stage;
     private int INT_rootRand;
 
