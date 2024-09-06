@@ -11247,7 +11247,7 @@ MonoBehaviour:
   TEXT_battery: {fileID: 4568247881076648062}
   INT_batteryRed: 21
   INT_batteryYellow: 51
-  Cool_battery: 0
+  Cool_battery: 1
 --- !u!4 &4924205384756196441
 Transform:
   m_ObjectHideFlags: 0
