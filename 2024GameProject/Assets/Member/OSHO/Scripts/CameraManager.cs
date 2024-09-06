@@ -64,10 +64,14 @@ public class CameraManager : MonoBehaviour
     //Voltトラップのクールタイム
     private int V_time = 20;
 
+    private int Voltcounter = 0;
+
     //センサーの使えるバッテリー容量
     public int Sensor_Capacity;
 
     public int Skillcounter;
+
+    public int Cool_Volt;
 
     public float[] time_Gf;
 
@@ -143,9 +147,11 @@ public class CameraManager : MonoBehaviour
         //Voltトラップ呼出し
         if (BM_mng.Para_Battery >= 5)
         {
+            
             for (int i = 0; i < Cam_Flg.Length; i++)
             {
-                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
+                CT_Volt[i].text = "OK";
+                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     Debug.Log("Volt生成");
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
@@ -196,8 +202,8 @@ public class CameraManager : MonoBehaviour
 
         for (int i = 0; i < Camera_Num; i++)
         {
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0)
-            {
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
+            { 
                 StartVoltTimer(i);
             }
             if (Volt_Flg[i])
@@ -214,12 +220,14 @@ public class CameraManager : MonoBehaviour
                 Sencor_text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
             }
-            else
-            {
-                CT_Volt[i].text = "OK";
-            }
+            
+            //else
+            //{
+            //    CT_Volt[i].text = "OK";
+            //}
             if (BM_mng.Para_Battery >= 5)
             {
+               
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
                     IsSencor[i] = IsSencor[i] == false ? true : false;
@@ -236,7 +244,6 @@ public class CameraManager : MonoBehaviour
         {
             if (IsSencor[i]) BM_mng.Para_Battery -= 0.05f;
         }
-        
     }
 
     //GimmickとCamZoomの制御
@@ -358,26 +365,23 @@ public class CameraManager : MonoBehaviour
     }
     private void UpdateVoltTimer(int index)
     {
-        if (BM_mng.Para_Battery >= 5)
-        {
-            Volt_timers[index] -= Time.deltaTime;
+        Volt_timers[index] -= Time.deltaTime;
             CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-            IMAGE_Volt[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
+            IMAGE_Volt[index].fillAmount -= 1 / Cool_Volt * Time.deltaTime;
 
             if (Volt_timers[index] <= 0)
             {
                 Volt_Flg[index] = false;
                 CT_Volt[index].text = "OK";
-                Volt_timers[index] = 20;
+                Volt_timers[index] = Cool_Volt;
             }
-        }
     }
 
     void Battery_nega()
     {
         if (BM_mng.Para_Battery >= 0)
         {
-            BM_mng.Para_Battery -= 10;
+            BM_mng.Para_Battery -= 5;
         }
     }
 }
