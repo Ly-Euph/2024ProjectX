@@ -71,6 +71,8 @@ public class CameraManager : MonoBehaviour
 
     public int Skillcounter;
 
+    public int Cool_Volt;
+
     public float[] time_Gf;
 
     //Voltのtimerの変数
@@ -149,7 +151,7 @@ public class CameraManager : MonoBehaviour
             for (int i = 0; i < Cam_Flg.Length; i++)
             {
                 CT_Volt[i].text = "OK";
-                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= 20)
+                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     Debug.Log("Volt生成");
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
@@ -242,7 +244,6 @@ public class CameraManager : MonoBehaviour
         {
             if (IsSencor[i]) BM_mng.Para_Battery -= 0.05f;
         }
-        Debug.Log(BM_mng.Para_Battery);
     }
 
     //GimmickとCamZoomの制御
@@ -366,13 +367,13 @@ public class CameraManager : MonoBehaviour
     {
         Volt_timers[index] -= Time.deltaTime;
             CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-            IMAGE_Volt[index].fillAmount -= 1 / 20.0f * Time.deltaTime;
+            IMAGE_Volt[index].fillAmount -= 1 / Cool_Volt * Time.deltaTime;
 
             if (Volt_timers[index] <= 0)
             {
                 Volt_Flg[index] = false;
                 CT_Volt[index].text = "OK";
-                Volt_timers[index] = 20;
+                Volt_timers[index] = Cool_Volt;
             }
     }
 
