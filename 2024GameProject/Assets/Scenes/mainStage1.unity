@@ -141,6 +141,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1079003, y: 1.6650598, z: 1}
   m_Center: {x: 0.55395013, y: 0.71465987, z: 0.000003340654}
+--- !u!114 &129804287 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5837752663668318383, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+  m_PrefabInstance: {fileID: 826473318}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d416d1715bbc06d4789612d1211da8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &354555295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1039,6 +1050,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441135160822908454, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 129804287}
+    - target: {fileID: 6441135160822908454, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: TimeMinute
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6724699707143930362, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
