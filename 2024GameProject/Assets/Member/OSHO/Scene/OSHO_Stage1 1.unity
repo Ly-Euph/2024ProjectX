@@ -6898,6 +6898,8 @@ MonoBehaviour:
   Sensor_Capacity: 4
   Skillcounter: 0
   Cool_Volt: 15
+  shiftbattery: 5
+  voltbattery: 5
   time_Gf:
   - 0
   - 0

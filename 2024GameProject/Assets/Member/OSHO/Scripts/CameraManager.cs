@@ -73,6 +73,10 @@ public class CameraManager : MonoBehaviour
 
     public int Cool_Volt;
 
+    public int shiftbattery;
+
+    public int voltbattery;
+
     public float[] time_Gf;
 
     //Voltのtimerの変数
@@ -130,7 +134,7 @@ public class CameraManager : MonoBehaviour
         if (BM_mng.Para_Battery >= 5)
         {
             //Shiftキーを押したときにバッテリーを５%減らす。
-            if (Input.GetKeyDown(KeyCode.LeftShift)) { BM_mng.Para_Battery -= 5f; }
+            if (Input.GetKeyDown(KeyCode.LeftShift)) { BM_mng.Para_Battery -= shiftbattery; }
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
@@ -153,7 +157,7 @@ public class CameraManager : MonoBehaviour
                 CT_Volt[i].text = "OK";
                 if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
-                    Debug.Log("Volt生成");
+
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
                     Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
                     time_Vs[i] = 0;
@@ -381,7 +385,7 @@ public class CameraManager : MonoBehaviour
     {
         if (BM_mng.Para_Battery >= 0)
         {
-            BM_mng.Para_Battery -= 5;
+            BM_mng.Para_Battery -= voltbattery;
         }
     }
 }

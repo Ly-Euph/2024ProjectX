@@ -20,17 +20,17 @@ public class Sensor1 : MonoBehaviour
 
     private void Update()
     {
-        if (!IsSensor)
-        {
-            Sensortimer += Time.deltaTime;
-            if (Sensortimer >= 2)
-            {
-                Sensor_Image1.SetActive(false);
-                Sensortimer = 0;
-                IsSensor = true;
-            }
-        }
-        Debug.Log(Sensortimer);
+        //if (!IsSensor)
+        //{
+        //    Sensortimer += Time.deltaTime;
+        //    if (Sensortimer >= 2)
+        //    {
+        //        Sensor_Image1.SetActive(false);
+        //        Sensortimer = 0;
+        //        IsSensor = true;
+        //    }
+        //}
+        //Debug.Log(Sensortimer);
     }
     private void OnTriggerEnter(Collider other)
     {

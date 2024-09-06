@@ -20,22 +20,22 @@ public class Sensor4 : MonoBehaviour
 
     private void Update()
     {
-        if (!IsSensor4)
-        {
-            Sensortimer4 += Time.deltaTime;
-            if (Sensortimer4 >= 2)
-            {
-                Sensor_Image4.SetActive(false);
-                Sensortimer4 = 0;
-                IsSensor4 = true;
-            }
-        }
-        Debug.Log(Sensortimer4);
+        //if (!IsSensor4)
+        //{
+        //    Sensortimer4 += Time.deltaTime;
+        //    if (Sensortimer4 >= 2)
+        //    {
+        //        Sensor_Image4.SetActive(false);
+        //        Sensortimer4 = 0;
+        //        IsSensor4 = true;
+        //    }
+        //}
+        
     }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        if (Cam.IsSencor[0]) Sensor_Image4.SetActive(true);
+        if (Cam.IsSencor[3]) Sensor_Image4.SetActive(true);
         IsSensor4 = false;
     }
     private void OnTriggerExit(Collider other)
