@@ -7,20 +7,40 @@ public class Sensor3 : MonoBehaviour
 {
     public CameraManager Cam;
 
-    [SerializeField] GameObject Sencor_Image3;
+    [SerializeField] GameObject Sensor_Image3;
+
+    private bool IsSensor3 = true;
+
+    private float Sensortimer3;
 
     private void Start()
     {
-        Sencor_Image3.SetActive(false);
+        Sensor_Image3.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (!IsSensor3)
+        {
+            Sensortimer3 += Time.deltaTime;
+            if (Sensortimer3 >= 2)
+            {
+                Sensor_Image3.SetActive(false);
+                Sensortimer3 = 0;
+                IsSensor3 = true;
+            }
+        }
+        Debug.Log(Sensortimer3);
     }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        if (Cam.IsSencor[2]) Sencor_Image3.SetActive(true);
+        if (Cam.IsSencor[0]) Sensor_Image3.SetActive(true);
+        IsSensor3 = false;
     }
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("ìGÇ™ó£ÇÍÇ‹ÇµÇΩ");
-        Sencor_Image3.SetActive(false);
+        Sensor_Image3.SetActive(false);
     }
 }
