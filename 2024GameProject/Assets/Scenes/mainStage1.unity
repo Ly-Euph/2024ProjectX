@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 0.7
+  m_AmbientIntensity: 0.32
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubtractiveShadowColor: {r: 0.100302584, g: 0.1279848, b: 0.1981132, a: 1}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 119ec07f1c7ed204db46bd8465fd5a50, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.38496125, g: 0.60092664, b: 0.63618654, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -765,7 +765,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3601525503690173416, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: spwanLate
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4894513515655304637, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: m_Name
@@ -941,9 +941,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1218355422341478879, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218355422341478879, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218355422341478879, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1238014001010328368, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556365312559197685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556365312559197685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556365312559197685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268325081937777, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268325081937777, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268325081937777, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1902877531786578819, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
@@ -979,6 +1015,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3800628697362520783, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767770294877838319, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767770294877838319, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767770294877838319, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6724699707143930362, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
@@ -1128,6 +1188,18 @@ PrefabInstance:
     - target: {fileID: 7351615616656407789, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454033349426950968, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454033349426950968, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454033349426950968, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7553148048458573666, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
