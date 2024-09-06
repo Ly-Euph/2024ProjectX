@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sensor_Image1: {fileID: 0}
+  Sensor_Image1: {fileID: 366703965}
 --- !u!1 &1250893865
 GameObject:
   m_ObjectHideFlags: 0
@@ -6859,13 +6859,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  OBJ_camZoom:
-  - {fileID: 8586218651618719874}
-  - {fileID: 3893160166730095367}
-  - {fileID: 4631436300694781024}
-  - {fileID: 9220566929093581859}
-  - {fileID: 9112343045386839279}
-  - {fileID: 3768803999536094918}
   OBJ_gimmicUI:
   - {fileID: 8966190199807252110}
   - {fileID: 1068482663338319056}
@@ -6903,6 +6896,7 @@ MonoBehaviour:
   - {fileID: 1599126247641617153}
   Camera_Num: 6
   Sensor_Capacity: 4
+  Skillcounter: 0
   time_Gf:
   - 0
   - 0
