@@ -28,7 +28,6 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
-    private float dieTimer;
     private bool dieFlag;
 
 
@@ -52,7 +51,6 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
         hitFlag = false;
 
-        dieTimer = 0f;
         dieFlag = false;
 
 

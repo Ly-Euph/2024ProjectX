@@ -28,7 +28,6 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
-    private float dieTimer;
     private bool dieFlag;
 
     // Start is called before the first frame update
@@ -50,7 +49,6 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
         hitFlag = false;
 
-        dieTimer = 0f;
         dieFlag = false;
     }
 
