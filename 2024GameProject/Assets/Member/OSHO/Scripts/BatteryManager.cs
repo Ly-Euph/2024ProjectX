@@ -21,6 +21,8 @@ public class BatteryManager : MonoBehaviour
     //Batteryの値
     private float FLOAT_battery = 100f;
 
+    public float Cool_battery;
+
     //batteryが回復する時に使うタイマー変数
     private float FLOAT_time = 0;
 
@@ -29,7 +31,7 @@ public class BatteryManager : MonoBehaviour
         
         if (FLOAT_battery != INT_battery) { FLOAT_time += Time.deltaTime; }
 
-        if (FLOAT_time >= 2)
+        if (FLOAT_time >= Cool_battery)
         {
             if (FLOAT_battery < INT_battery)
             {

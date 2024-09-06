@@ -88,13 +88,14 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         //}
         EmDie();
         Animation();
-        if(dieFlag==true)
+        if (dieFlag == true)
         {
             Destroy(gameObject);
             //_DEATH.enabled = true;
         }
+
     }
-  
+
     void SwitchStage()
     {
         if (dolly.m_Position == 4 && hitFlag == true)

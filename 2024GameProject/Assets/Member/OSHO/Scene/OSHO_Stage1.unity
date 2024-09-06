@@ -1400,7 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sencor_Image4: {fileID: 766185564}
+  Sensor_Image4: {fileID: 766185564}
 --- !u!1 &763837184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sencor_Image2: {fileID: 270876350}
+  Sensor_Image2: {fileID: 270876350}
 --- !u!1 &1063784084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2383,7 +2383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sensor_Image1: {fileID: 0}
+  Sensor_Image1: {fileID: 366703965}
 --- !u!1 &1250893865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,7 +2881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sencor_Image5: {fileID: 973465271}
+  Sensor_Image5: {fileID: 973465271}
 --- !u!1 &1478558466 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5960695364207876242, guid: 2266116193d2e3049beac9cbe3e5a765, type: 3}
@@ -3095,7 +3095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sencor_Image6: {fileID: 1767732646}
+  Sensor_Image6: {fileID: 1767732646}
 --- !u!65 &1589188685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3851,7 +3851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 2219374859813654982}
-  Sencor_Image3: {fileID: 1926595886}
+  Sensor_Image3: {fileID: 1926595886}
 --- !u!1 &1830482071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6859,13 +6859,6 @@ MonoBehaviour:
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  OBJ_camZoom:
-  - {fileID: 8586218651618719874}
-  - {fileID: 3893160166730095367}
-  - {fileID: 4631436300694781024}
-  - {fileID: 9220566929093581859}
-  - {fileID: 9112343045386839279}
-  - {fileID: 3768803999536094918}
   OBJ_gimmicUI:
   - {fileID: 8966190199807252110}
   - {fileID: 1068482663338319056}
@@ -6903,6 +6896,8 @@ MonoBehaviour:
   - {fileID: 1599126247641617153}
   Camera_Num: 6
   Sensor_Capacity: 4
+  Skillcounter: 0
+  Cool_Volt: 15
   time_Gf:
   - 0
   - 0
@@ -6911,12 +6906,12 @@ MonoBehaviour:
   - 0
   - 0
   Volt_timers:
-  - 20
-  - 20
-  - 20
-  - 20
-  - 20
-  - 20
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
   Volt_Flg: 000000000000
   Cam_Flg: 000000000000
   Gf_Flg: 000000000000
@@ -10433,7 +10428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de4397e652931c6458145d26d2c42ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeMinute: 15
+  TimeMinute: 7
 --- !u!222 &4568247882521492885
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11250,6 +11245,7 @@ MonoBehaviour:
   TEXT_battery: {fileID: 4568247881076648062}
   INT_batteryRed: 21
   INT_batteryYellow: 51
+  Cool_battery: 0
 --- !u!4 &4924205384756196441
 Transform:
   m_ObjectHideFlags: 0
