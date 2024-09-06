@@ -765,7 +765,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3601525503690173416, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: spwanLate
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4894513515655304637, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: m_Name
@@ -941,9 +941,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1218355422341478879, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218355422341478879, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218355422341478879, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1238014001010328368, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556365312559197685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556365312559197685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556365312559197685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268325081937777, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268325081937777, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788268325081937777, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1902877531786578819, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
@@ -979,6 +1015,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3800628697362520783, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767770294877838319, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767770294877838319, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767770294877838319, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240061589285696816, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6724699707143930362, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
@@ -1128,6 +1188,18 @@ PrefabInstance:
     - target: {fileID: 7351615616656407789, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454033349426950968, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454033349426950968, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7454033349426950968, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: _waveColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7553148048458573666, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
