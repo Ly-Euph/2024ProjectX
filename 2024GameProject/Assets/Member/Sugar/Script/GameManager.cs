@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] bool B_Title=false;
 
     [SerializeField] AudioSource[] aud;
+
     void Start()
     {
         // FPS60‚ğˆÛ‚·‚é‚æ‚¤‚É
