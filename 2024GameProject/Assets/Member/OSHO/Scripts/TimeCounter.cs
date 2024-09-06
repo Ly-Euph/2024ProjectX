@@ -46,7 +46,7 @@ public class TimeCounter : MonoBehaviour
             TimeLimit = true;
 
             //シーン移行の処理
-            FadeManager.Instance.LoadScene("TitleScene",1.0f);
+            FadeManager.Instance.LoadScene("ClearScene",1.0f);
             //現状はクリアしたステージはClearSceneに移行する予定です。
         }
     }
