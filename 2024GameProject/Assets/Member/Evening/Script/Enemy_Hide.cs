@@ -65,11 +65,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
-        //if (stage == 2)
-        //{
-        //    Destroy(gameObject);
-        //    Debug.Log("Hide‚É‚æ‚Á‚Ägame over");
-        //}
+
 
         timer += Time.deltaTime;
         if (timer >= 2f)
@@ -118,7 +114,6 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     {
         if(collision.gameObject.tag=="Door")
         {
-            Debug.Log("door‚Éhit");
             hitFlag = true;
         }
     }

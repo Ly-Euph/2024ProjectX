@@ -14,7 +14,6 @@ public class GameOverObj : MonoBehaviour
     {
         if(detection==true)
         {
-            Debug.Log("GameOver");
             //SceneManager.LoadScene("GameOverScene");        //‰¼
         }
     }
