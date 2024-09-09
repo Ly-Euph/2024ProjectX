@@ -377,8 +377,7 @@ public class CameraManager : MonoBehaviour
     {
         Volt_timers[index] -= Time.deltaTime;
             CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-        IMAGE_Volt[index].fillAmount -= 1 / Cool_Volt* Time.deltaTime;
-
+        IMAGE_Volt[index].fillAmount -= 1.0f / (float)Cool_Volt* Time.deltaTime;
             if (Volt_timers[index] <= 0)
             {
                 Volt_Flg[index] = false;
