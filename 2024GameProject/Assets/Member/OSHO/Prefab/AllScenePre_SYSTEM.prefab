@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 4373009049498379093}
-  SendTex: CAMERA3
+  SendTex: AREA3
 --- !u!1 &592158366127435932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 4373009049498379093}
-  SendTex: CAMERA1
+  SendTex: AREA1
 --- !u!1 &592158366618768501
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 4373009049498379093}
-  SendTex: CAMERA6
+  SendTex: AREA6
 --- !u!1 &592158366938855814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 4373009049498379093}
-  SendTex: CAMERA5
+  SendTex: AREA5
 --- !u!1 &592158367099364073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1804,7 +1804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 4373009049498379093}
-  SendTex: CAMERA4
+  SendTex: AREA4
 --- !u!1 &592158367250974304
 GameObject:
   m_ObjectHideFlags: 0
@@ -2094,7 +2094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 4373009049498379093}
-  SendTex: CAMERA2
+  SendTex: AREA2
 --- !u!1 &592158367589860628
 GameObject:
   m_ObjectHideFlags: 0

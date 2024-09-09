@@ -36,7 +36,7 @@ public class SensorText : MonoBehaviour
     private void UnderSet()
     {
         CenterSet();
-        text[2].text = Mng.GSSencor.ToString();
+        text[2].text = "["+Mng.GSSencor+"]:Enemy".ToString();
     }
     private void CenterSet()
     {
