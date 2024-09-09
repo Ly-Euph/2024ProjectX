@@ -12489,7 +12489,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30AB\u30E1\u30E9\uFF11\n"
+  m_Text: 'Camera1
+
+'
 --- !u!114 &5735588140745027426
 MonoBehaviour:
   m_ObjectHideFlags: 0
