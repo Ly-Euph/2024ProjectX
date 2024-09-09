@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
+public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
 {
+    #region field
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
@@ -12,8 +13,9 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
     private int[,] root = { { 1, 7, 9, 9, 9, 9}, { 2, 6, 9, 9, 9, 9}, { 2, 8, 5, 9, 9, 9},
                             { 2, 8, 3, 9, 9, 9}, { 4, 0, 6, 8, 5, 9}, { 4, 0, 6, 8, 3, 9},
                             { 4, 0, 9, 9, 9, 9}, { 8, 5, 9, 9, 9, 9}, { 8, 3, 9, 9, 9, 9} };
-    public int stage;
-    private int rootRand;
+
+    public int INT_stage;
+    private int INT_rootRand;
 
 
     private Animator anim;
@@ -26,22 +28,24 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
     private int hp;
 
-    private bool hitFlag;
+    public bool hitFlag;
 
-    private float dieTimer;
+    //private float dieTimer;
     private bool dieFlag;
 
+    [SerializeField] ETest _DEATH;
+    #endregion
 
-    SkinnedMeshRenderer skin;
+    #region Method
     // Start is called before the first frame update
     void Start()
     {
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
         myPath = path[0];
-        stage = 0;
-        rootRand = Random.Range(0, 7);
-        myPath = path[root[rootRand, stage]];
+        INT_stage = 0;
+        INT_rootRand = Random.Range(0, 7);
+        myPath = path[root[INT_rootRand, INT_stage]];
 
         anim = GetComponent<Animator>();
         animNum = 0;
@@ -52,12 +56,8 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
         hitFlag = false;
 
-        dieTimer = 0f;
+        //dieTimer = 0;
         dieFlag = false;
-
-
-        skin = GetComponentInChildren<SkinnedMeshRenderer>();
-        skin.enabled = false;
     }
 
     // Update is called once per frame
@@ -65,6 +65,7 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
+
 
         timer += Time.deltaTime;
         if (timer >= 2f)
@@ -77,50 +78,37 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    hp -= 10;
+        //}
         EmDie();
         Animation();
-
         if (dieFlag == true)
         {
-            dieTimer += Time.deltaTime;
-            if (dieTimer >= 5f)
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
+            //_DEATH.enabled = true;
         }
 
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            skin.enabled = true;
-        }
-        else
-        {
-            skin.enabled = false;
-        }
     }
-
 
     void SwitchStage()
     {
         if (dolly.m_Position == 4 && hitFlag == true)
         {
-            stage++;
-            myPath = path[root[rootRand, stage]];
+            INT_stage++;
+            myPath = path[root[INT_rootRand, INT_stage]];
             dolly.m_Position = 0;
             hitFlag = false;
         }
     }
 
+
     private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Door")
         {
-            Debug.Log("doorÇ…hit");
+            //Debug.Log("è’ìÀ");
             hitFlag = true;
         }
     }
@@ -132,13 +120,14 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
     void EmDie()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
             //Debug.Log("éÄñS");
         }
     }
+
 
     void Animation()
     {
@@ -148,29 +137,28 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
                 dolly.m_Speed = 0.2f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", false);
                 break;
 
             case 1:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", true);
-                anim.SetBool("Dead", false);
                 break;
 
             case 2:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }
     }
+
     IEnumerator IdleWait()
     {
         yield return new WaitForSeconds(7.0f);
 
         animNum = 0;
     }
+    #endregion
 }
