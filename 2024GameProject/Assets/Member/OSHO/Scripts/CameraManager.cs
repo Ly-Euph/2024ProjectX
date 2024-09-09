@@ -51,7 +51,7 @@ public class CameraManager : MonoBehaviour
 
     [Header("Sencor用のTextを入れてね。")]
 
-    [SerializeField] Text[] Sencor_text;
+    [SerializeField] Text[] Sensor_Text;
 
     [Header("ScanManagerを入れてね")]
 
@@ -60,6 +60,8 @@ public class CameraManager : MonoBehaviour
     [Header("ステージ事に合わせたカメラの数を入力してください")]
 
     [SerializeField] int Camera_Num;
+
+    [SerializeField] GameObject SensorS;
 
     //Voltトラップのクールタイム
     private int V_time = 20;
@@ -107,7 +109,7 @@ public class CameraManager : MonoBehaviour
             CT_Volt[i].text = "OK";
 
             //Sencorトラップ使用可能のテキスト[OFF]を初めに表示
-            Sencor_text[i].text = "OFF";
+            Sensor_Text[i].text = "OFF";
 
             //　Imageを初めは0にしておく。
             IMAGE_Volt[i].GetComponent<Image>().fillAmount = 0;
@@ -222,7 +224,7 @@ public class CameraManager : MonoBehaviour
             }
             if(BM_mng.Para_Battery <= 5)
             {
-                Sencor_text[i].text = "OFF";
+                Sensor_Text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
             }
             if (BM_mng.Para_Battery >= 5)
@@ -233,17 +235,21 @@ public class CameraManager : MonoBehaviour
                     IsSencor[i] = IsSencor[i] == false ? true : false;
                     if (IsSencor[i])
                     {
-                        for (int j = 0; j < Sencor_text.Length; j++)
+                        for (int j = 0; j < Sensor_Text.Length; j++)
                         {
-                            Sencor_text[j].text = "ON";
+                            Sensor_Text[j].text = "ON";
                         }
+                        SensorS.SetActive(true);
                     }
                     if (!IsSencor[i])
                     {
-                        for (int v = 0; v < Sencor_text.Length; v++)
+                        for (int v = 0; v < Sensor_Text.Length; v++)
                         {
-                            Sencor_text[v].text = "OFF";
+                            Sensor_Text[v].text = "OFF";
+
+
                         }
+                        SensorS.SetActive(false);
                     }
                     BM_mng.Para_Battery -= SencorBattery;
                 }
