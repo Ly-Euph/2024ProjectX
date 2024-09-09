@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Sensor1 : MonoBehaviour
 {
-    [SerializeField] SencorManager SencorMng;
+    [SerializeField] SensorManager SencorMng;
     [SerializeField] string SendTex;
 
     private void OnTriggerEnter(Collider other)
