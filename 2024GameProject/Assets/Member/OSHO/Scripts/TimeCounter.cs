@@ -15,9 +15,11 @@ public class TimeCounter : MonoBehaviour
     private bool TimeLimit = false;
     private Text TimeText;
 
-    
+    // シーン遷移に使う
+    [SerializeField] Fade fade;
 
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,13 +42,13 @@ public class TimeCounter : MonoBehaviour
             var span = new TimeSpan(0, 0, (int)TimeSecond);　
             TimeText.text = span.ToString(@"mm\:ss");
         }
-        if (TimeSecond < 0)
+        if (TimeSecond < 0&&!TimeLimit)
         {
             Debug.Log("クリア！！");
             TimeLimit = true;
 
             //シーン移行の処理
-            FadeManager.Instance.LoadScene("ClearScene",1.0f);
+            fade.FadeIn(0.5f, () => SceneManager.LoadScene("ClearScene"));
             //現状はクリアしたステージはClearSceneに移行する予定です。
         }
     }
