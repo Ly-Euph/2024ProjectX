@@ -9,9 +9,9 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
-    private int[,] root = { { 0, 2, 6 }, { 0, 3, 6 }, { 0, 4, 6 },
-                            { 1, 3, 6 }, { 1, 4, 6 }, { 1, 2, 6 },
-                            { 2, 5, 6 } };
+    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
+                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
+                            { 2, 5, 6, 6 } };
     public int stage;
     private int rootRand;
 
@@ -28,7 +28,6 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
-    private float dieTimer;
     private bool dieFlag;
 
     // Start is called before the first frame update
@@ -50,7 +49,6 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
 
         hitFlag = false;
 
-        dieTimer = 0f;
         dieFlag = false;
     }
 
@@ -59,11 +57,6 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
-        if (stage == 2)
-        {
-            Destroy(gameObject);
-            Debug.Log("Speed‚É‚æ‚Á‚Ägame over");
-        }
 
         timer += Time.deltaTime;
         if (timer >= 2f)

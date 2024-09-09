@@ -7,20 +7,39 @@ public class Sensor6 : MonoBehaviour
 {
     public CameraManager Cam;
 
-    [SerializeField] GameObject Sencor_Image6;
+    [SerializeField] GameObject Sensor_Image6;
+
+    private bool IsSensor6 = true;
+
+    private float Sensortimer6;
 
     private void Start()
     {
-        Sencor_Image6.SetActive(false);
+        Sensor_Image6.SetActive(false);
+    }
+
+    private void Update()
+    {
+        //if (!IsSensor6)
+        //{
+        //    Sensortimer6 += Time.deltaTime;
+        //    if (Sensortimer6 >= 2)
+        //    {
+        //        Sensor_Image6.SetActive(false);
+        //        Sensortimer6 = 0;
+        //        IsSensor6 = true;
+        //    }
+        //}
     }
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        if (Cam.IsSencor[5]) Sencor_Image6.SetActive(true);
+        if (Cam.IsSencor[5]) Sensor_Image6.SetActive(true);
+        IsSensor6 = false;
     }
     private void OnTriggerExit(Collider other)
     {
         Debug.Log("ìGÇ™ó£ÇÍÇ‹ÇµÇΩ");
-        Sencor_Image6.SetActive(false);
+        Sensor_Image6.SetActive(false);
     }
 }
