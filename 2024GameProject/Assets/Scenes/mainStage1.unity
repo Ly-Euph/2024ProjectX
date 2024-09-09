@@ -1008,6 +1008,10 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 129804287}
+    - target: {fileID: 1691464507460916871, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3785214370773236868, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Name
       value: AllScenePre_SYSTEM
@@ -1059,6 +1063,10 @@ PrefabInstance:
     - target: {fileID: 3785214370962562136, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735588140745027431, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_Text
+      value: CAMERA1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
