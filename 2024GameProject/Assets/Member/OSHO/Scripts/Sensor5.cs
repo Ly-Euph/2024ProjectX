@@ -34,7 +34,7 @@ public class Sensor5 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        if (Cam.IsSencor[0]) Sensor_Image5.SetActive(true);
+        if (Cam.IsSencor[4]) Sensor_Image5.SetActive(true);
         IsSensor5 = false;
     }
     private void OnTriggerExit(Collider other)

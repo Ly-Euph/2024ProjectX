@@ -235,7 +235,13 @@ public class CameraManager : MonoBehaviour
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
                     IsSencor[i] = IsSencor[i] == false ? true : false;
-                    Sencor_text[i].text = "ON";
+                    if (IsSencor[i])
+                    {
+                        for (int j = 0; j < Sencor_text.Length; j++)
+                        {
+                            Sencor_text[j].text = "ON";
+                        }
+                    }
                     if (!IsSencor[i])
                     {
                         Sencor_text[i].text = "OFF";
