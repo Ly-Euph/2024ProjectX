@@ -1,53 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SensorManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] Sensors;
+    string SencorNum;
 
-    [SerializeField] Text[] Sensor_text;
-
-    public BatteryManager Bm;
-
-    public int Sensor_Bt;
-
-    public bool IsSencor = false;
-
-    void Start()
+    bool recieve = false;
+    // Start is called before the first frame update
+    public string GSSencor
     {
-        for(int i = 0; i < Sensor_text.Length; i++)
+        set 
         {
-            Sensor_text[i].text = "OFF";
+            SencorNum = value;
+            recieve = true;
         }
-    }
 
-    // Update is called once per frame
-    void Update()
+        get 
+        {
+            recieve = false;
+            return SencorNum;
+        }
+
+    }
+    public bool Recieve
     {
-        //if(Input.GetKeyDown(KeyCode.C))
-        //{
-        //    IsSencor = IsSencor == false ? true : false;
-        //    for (int i = 0; i < Sensor_text.Length; i++)
-        //    {
-        //        Sensor_text[i].text = "ON";
-        //    }
-        //}
-        //if (Bm.Para_Battery <= Sensor_Bt)
-        //{
-        //    IsSencor = false;
-        //}
-        //if (IsSencor)
-        //{
-        //    Bm.Para_Battery -= 0.05f;
-        //}
-        //else
-        //{
-        //    for (int i = 0; i < Sensor_text.Length; i++)
-        //    {
-        //        Sensor_text[i].text = "OFF";
-        //    }
-        //}
+        get
+        {
+            return recieve;
+        }
     }
 }
