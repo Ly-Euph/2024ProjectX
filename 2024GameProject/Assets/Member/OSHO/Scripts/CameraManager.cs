@@ -244,7 +244,10 @@ public class CameraManager : MonoBehaviour
                     }
                     if (!IsSencor[i])
                     {
-                        Sencor_text[i].text = "OFF";
+                        for (int v = 0; v < Sencor_text.Length; v++)
+                        {
+                            Sencor_text[v].text = "OFF";
+                        }
                     }
 
                 }
