@@ -61,6 +61,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] int Camera_Num;
 
+    [Header("SensorPを入れてね。")]
     [SerializeField] GameObject SensorS;
 
     //Voltトラップのクールタイム
@@ -68,36 +69,46 @@ public class CameraManager : MonoBehaviour
 
     private int Voltcounter = 0;
 
-    //センサーの使えるバッテリー容量
+    [Header("センサーの使えるバッテリー容量")]
     public int Sensor_Capacity;
 
+    [Header("Voltのクールタイム")]
     public int Cool_Volt;
 
+    [Header("Shiftを押した時のバッテリーの減算")]
     public int shiftbattery;
 
+    [Header("Eキー（ボルトを押したときの）のバッテリーの減算")]
     public int voltbattery;
 
+    [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
     public int SencorBattery;
 
+    [Header("Glitch Fx用の変数")]
     public float[] time_Gf;
 
     //Voltのtimerの変数
     private float[] time_Vs;
 
     //Voltのtimerの変数
+    [Header("各カメラのVoltのタイマー")]
     public float[] Volt_timers;
 
     //Volt用のFlag
+    [Header("各Volt用のフラグ")]
     public bool[] Volt_Flg;
 
     //Camera用のFlag
+    [Header("各カメラ用のフラグ")]
     public bool[] Cam_Flg;
 
     //GlitchFx用のFlag
+    [Header("各Glitch_Fx用のフラグ")]
     public bool[] Gf_Flg;
 
     //Sensor用のFlag
-    public bool[] IsSencor;
+    [Header("各センサー用のフラグ")]
+    public bool[] Sensor_Flg;
 
     void Start()
     {
@@ -219,7 +230,7 @@ public class CameraManager : MonoBehaviour
             }
             if (BM_mng.Para_Battery <= Sensor_Capacity)
             {
-                IsSencor[i] = false;  
+                Sensor_Flg[i] = false;  
                 //return;
             }
             if(BM_mng.Para_Battery <= 5)
@@ -232,8 +243,8 @@ public class CameraManager : MonoBehaviour
                
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
-                    IsSencor[i] = IsSencor[i] == false ? true : false;
-                    if (IsSencor[i])
+                    Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
+                    if (Sensor_Flg[i])
                     {
                         for (int j = 0; j < Sensor_Text.Length; j++)
                         {
@@ -241,13 +252,11 @@ public class CameraManager : MonoBehaviour
                         }
                         SensorS.SetActive(true);
                     }
-                    if (!IsSencor[i])
+                    if (!Sensor_Flg[i])
                     {
                         for (int v = 0; v < Sensor_Text.Length; v++)
                         {
                             Sensor_Text[v].text = "OFF";
-
-
                         }
                         SensorS.SetActive(false);
                     }
@@ -255,9 +264,9 @@ public class CameraManager : MonoBehaviour
                 }
             }
         }
-        for (int i = 0; i < IsSencor.Length; i++)
+        for (int i = 0; i < Sensor_Flg.Length; i++)
         {
-            if (IsSencor[i]) BM_mng.Para_Battery -= 0.05f;
+            if (Sensor_Flg[i]) BM_mng.Para_Battery -= 0.05f;
         }
         Debug.Log(Cool_Volt);
     }
