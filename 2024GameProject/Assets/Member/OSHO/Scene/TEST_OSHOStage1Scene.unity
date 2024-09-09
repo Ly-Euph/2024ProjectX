@@ -123,49 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &291386590
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 291386592}
-  - component: {fileID: 291386591}
-  m_Layer: 0
-  m_Name: SencorManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &291386591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291386590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593649900d8220340a4fbff74a4ba4b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &291386592
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291386590}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &354555295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1294,84 +1251,100 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &978300731132016986
+--- !u!1001 &5230247988801855001
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1640474211157591420, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: SencorMng
-      value: 
-      objectReference: {fileID: 291386591}
-    - target: {fileID: 2062140221050754873, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: SencorMng
-      value: 
-      objectReference: {fileID: 291386591}
-    - target: {fileID: 4113008286790578685, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: m_Name
-      value: AllScenePre_SYSTEM
+    - target: {fileID: 4054383203131622759, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Cool_battery
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Cool_Volt
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Skillcounter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: SencorBattery
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Volt_timers.Array.data[0]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Volt_timers.Array.data[1]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Volt_timers.Array.data[2]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Volt_timers.Array.data[3]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Volt_timers.Array.data[4]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124297767940120825, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: Volt_timers.Array.data[5]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008286790578686, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+    - target: {fileID: 8940307989311477437, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4113008287419045850, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: SencorMng
-      value: 
-      objectReference: {fileID: 291386591}
-    - target: {fileID: 5004702326308553145, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: SencorMng
-      value: 
-      objectReference: {fileID: 291386591}
-    - target: {fileID: 8218031298004953545, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: SencorMng
-      value: 
-      objectReference: {fileID: 291386591}
-    - target: {fileID: 8507796223675531342, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
-      propertyPath: SencorMng
-      value: 
-      objectReference: {fileID: 291386591}
+    - target: {fileID: 8940307989311477438, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_Name
+      value: AllScenePre_SYSTEM
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}

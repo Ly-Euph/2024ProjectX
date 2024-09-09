@@ -69,13 +69,13 @@ public class CameraManager : MonoBehaviour
     //センサーの使えるバッテリー容量
     public int Sensor_Capacity;
 
-    public int Skillcounter;
-
     public int Cool_Volt;
 
     public int shiftbattery;
 
     public int voltbattery;
+
+    public int SencorBattery;
 
     public float[] time_Gf;
 
@@ -212,6 +212,7 @@ public class CameraManager : MonoBehaviour
             }
             if (Volt_Flg[i])
             {
+                Debug.Log("UPDate起動");
                 UpdateVoltTimer(i);
             }
             if (BM_mng.Para_Battery <= Sensor_Capacity)
@@ -224,11 +225,6 @@ public class CameraManager : MonoBehaviour
                 Sencor_text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
             }
-            
-            //else
-            //{
-            //    CT_Volt[i].text = "OK";
-            //}
             if (BM_mng.Para_Battery >= 5)
             {
                
@@ -249,7 +245,7 @@ public class CameraManager : MonoBehaviour
                             Sencor_text[v].text = "OFF";
                         }
                     }
-
+                    BM_mng.Para_Battery -= SencorBattery;
                 }
             }
         }
@@ -257,6 +253,7 @@ public class CameraManager : MonoBehaviour
         {
             if (IsSencor[i]) BM_mng.Para_Battery -= 0.05f;
         }
+        Debug.Log(Cool_Volt);
     }
 
     //GimmickとCamZoomの制御
@@ -380,7 +377,7 @@ public class CameraManager : MonoBehaviour
     {
         Volt_timers[index] -= Time.deltaTime;
             CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-            IMAGE_Volt[index].fillAmount -= 1 / Cool_Volt * Time.deltaTime;
+        IMAGE_Volt[index].fillAmount -= 1 / Cool_Volt* Time.deltaTime;
 
             if (Volt_timers[index] <= 0)
             {
