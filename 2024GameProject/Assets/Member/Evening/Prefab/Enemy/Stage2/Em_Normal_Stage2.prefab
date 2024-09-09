@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: -2540338241570625973}
   - component: {fileID: 7189188656915644815}
   m_Layer: 0
-  m_Name: "Em_Normal\u221A1_Stage2"
+  m_Name: Em_Normal_Stage2
   m_TagString: NormalEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,13 +383,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path:
-  - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
-  - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
-  - {fileID: 990837207523452790, guid: ebc2a6f989e85544b9dbc3e31306d0ef, type: 3}
-  - {fileID: 3020868688829273263, guid: e94c06fd511e78246a69c0cff95f16f2, type: 3}
-  - {fileID: 8436304762093718842, guid: f6ddfe8e92f039e479f14241f1f4eb73, type: 3}
-  - {fileID: 4039996603956760632, guid: c62064199149a4444841c6967f3456dd, type: 3}
-  - {fileID: 4170952394851516744, guid: fa8fbdabe5103c64bba55fa196aca135, type: 3}
+  - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
+  - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
+  - {fileID: 1043759644880973822, guid: cd75a06a5e27faa4c8af16a43cf45c47, type: 3}
+  - {fileID: 4706656441042842887, guid: 590efe5c5ce7b6a4e906fc8af6dbad79, type: 3}
+  - {fileID: 1904465685914282433, guid: 25d9b18fa764b4a4689f96152c0a8de5, type: 3}
+  - {fileID: 3684516343419280609, guid: c518e52611c14c84a8fdc6bf9fd7946c, type: 3}
+  - {fileID: 1156576900546614649, guid: 15da307fd13426f43a20e3e53e682440, type: 3}
+  - {fileID: 3163211389333649810, guid: f0d28ab83fc05a342bd687cf2bc0b8d3, type: 3}
+  - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
+  - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
   INT_stage: 0
   hitFlag: 0
   _DEATH: {fileID: 0}

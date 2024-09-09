@@ -446,10 +446,10 @@ GameObject:
   - component: {fileID: 5691742524991071172}
   - component: {fileID: 3179604848984726757}
   - component: {fileID: 3179604848984726778}
-  - component: {fileID: 4425106013511591021}
-  - component: {fileID: -8281568671223326012}
+  - component: {fileID: 2854423656485165490}
+  - component: {fileID: 8604824670485995021}
   m_Layer: 0
-  m_Name: "Em_Speed\u221A2_Stage2"
+  m_Name: Em_Speed_Stage2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -520,15 +520,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   path:
-  - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
-  - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
-  - {fileID: 990837207523452790, guid: ebc2a6f989e85544b9dbc3e31306d0ef, type: 3}
-  - {fileID: 3020868688829273263, guid: e94c06fd511e78246a69c0cff95f16f2, type: 3}
-  - {fileID: 5512039565799290483, guid: 23542b1eb36ada94f9ecccab061746bb, type: 3}
-  - {fileID: 4039996603956760632, guid: c62064199149a4444841c6967f3456dd, type: 3}
-  - {fileID: 4170952394851516744, guid: fa8fbdabe5103c64bba55fa196aca135, type: 3}
+  - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
+  - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
+  - {fileID: 1043759644880973822, guid: cd75a06a5e27faa4c8af16a43cf45c47, type: 3}
+  - {fileID: 4706656441042842887, guid: 590efe5c5ce7b6a4e906fc8af6dbad79, type: 3}
+  - {fileID: 1904465685914282433, guid: 25d9b18fa764b4a4689f96152c0a8de5, type: 3}
+  - {fileID: 3684516343419280609, guid: c518e52611c14c84a8fdc6bf9fd7946c, type: 3}
+  - {fileID: 1156576900546614649, guid: 15da307fd13426f43a20e3e53e682440, type: 3}
+  - {fileID: 3163211389333649810, guid: f0d28ab83fc05a342bd687cf2bc0b8d3, type: 3}
+  - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
+  - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
   stage: 0
---- !u!65 &4425106013511591021
+--- !u!65 &2854423656485165490
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -541,7 +544,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.8, z: 2}
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!54 &-8281568671223326012
+--- !u!54 &8604824670485995021
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1152,6 +1155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6152351791001609128}
   - component: {fileID: 4093487396683456930}
+  - component: {fileID: 25286333144195159}
   m_Layer: 0
   m_Name: Ralkemon_body
   m_TagString: Untagged
@@ -1261,6 +1265,20 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.021387577, y: 0.11773938, z: -0.000002413988}
     m_Extent: {x: 1.1367576, y: 0.6414793, z: 0.8995737}
   m_DirtyAABB: 0
+--- !u!114 &25286333144195159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842783267914441202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f82cbd3f1d7c9b498a7371008ab6717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 2
+  obj: {fileID: 3179604848984726779}
 --- !u!1 &5913545397766755641
 GameObject:
   m_ObjectHideFlags: 0
