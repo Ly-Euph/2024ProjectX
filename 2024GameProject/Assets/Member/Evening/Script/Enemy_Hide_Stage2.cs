@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Hide : MonoBehaviour,IDamageable
+public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 {
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
-    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
-                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
-                            { 2, 5, 6, 6 } };
+    private int[,] root = { { 1, 7, 9, 9, 9, 9}, { 2, 6, 9, 9, 9, 9}, { 2, 8, 5, 9, 9, 9},
+                            { 2, 8, 3, 9, 9, 9}, { 4, 0, 6, 8, 5, 9}, { 4, 0, 6, 8, 3, 9},
+                            { 4, 0, 9, 9, 9, 9}, { 8, 5, 9, 9, 9, 9}, { 8, 3, 9, 9, 9, 9} };
     public int stage;
     private int rootRand;
 
@@ -28,6 +28,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     private bool hitFlag;
 
+    private float dieTimer;
     private bool dieFlag;
 
 
@@ -51,6 +52,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
         hitFlag = false;
 
+        dieTimer = 0f;
         dieFlag = false;
 
 
@@ -63,7 +65,11 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
-
+        if (stage == 2)
+        {
+            Destroy(gameObject);
+            Debug.Log("Hide‚É‚æ‚Á‚Ägame over");
+        }
 
         timer += Time.deltaTime;
         if (timer >= 2f)
@@ -76,13 +82,20 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-      
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            hp -= 10;
+        }
         EmDie();
         Animation();
 
-        if(dieFlag==true)
+        if (dieFlag == true)
         {
-            Destroy(gameObject);   
+            dieTimer += Time.deltaTime;
+            if (dieTimer >= 5f)
+            {
+                Destroy(gameObject);
+            }
         }
 
 
@@ -110,8 +123,9 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     private void OnTriggerStay(Collider collision)
     {
-        if(collision.gameObject.tag=="Door")
+        if (collision.gameObject.tag == "Door")
         {
+            Debug.Log("door‚Éhit");
             hitFlag = true;
         }
     }
@@ -123,7 +137,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     void EmDie()
     {
-        if (hp <= 0)
+        if (hp == 0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
@@ -133,7 +147,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     void Animation()
     {
-        switch(animNum)
+        switch (animNum)
         {
             case 0:
                 dolly.m_Speed = 0.2f;
