@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
+public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
 {
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
@@ -28,11 +28,8 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
     private bool hitFlag;
 
-    private float dieTimer;
     private bool dieFlag;
 
-
-    SkinnedMeshRenderer skin;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +49,7 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
         hitFlag = false;
 
-        dieTimer = 0f;
         dieFlag = false;
-
-
-        skin = GetComponentInChildren<SkinnedMeshRenderer>();
-        skin.enabled = false;
     }
 
     // Update is called once per frame
@@ -66,44 +58,18 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
         this.dolly.m_Path = myPath;
         SwitchStage();
 
-        timer += Time.deltaTime;
-        if (timer >= 2f)
-        {
-            timer = 0;
-            randWait = Random.Range(1, 21);
-            if (randWait == 1)
-            {
-                animNum = 1;
-                StartCoroutine("IdleWait");
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.J))
+        //{
+        //    hp -= 10;
+        //}
         EmDie();
         Animation();
 
         if (dieFlag == true)
         {
-            dieTimer += Time.deltaTime;
-            if (dieTimer >= 5f)
-            {
-                Destroy(gameObject);
-            }
-        }
-
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            skin.enabled = true;
-        }
-        else
-        {
-            skin.enabled = false;
+            Destroy(gameObject);
         }
     }
-
 
     void SwitchStage()
     {
@@ -120,7 +86,7 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
     {
         if (collision.gameObject.tag == "Door")
         {
-            Debug.Log("doorÇ…hit");
+            //Debug.Log("è’ìÀ");
             hitFlag = true;
         }
     }
@@ -132,7 +98,7 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
     void EmDie()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
             dolly.m_Speed = 0;
             animNum = 2;
@@ -145,28 +111,26 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
         switch (animNum)
         {
             case 0:
-                dolly.m_Speed = 0.2f;
+                dolly.m_Speed = 0.4f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", false);
                 break;
 
             case 1:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", true);
-                anim.SetBool("Dead", false);
                 break;
 
             case 2:
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
-                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }
     }
+
     IEnumerator IdleWait()
     {
         yield return new WaitForSeconds(7.0f);
