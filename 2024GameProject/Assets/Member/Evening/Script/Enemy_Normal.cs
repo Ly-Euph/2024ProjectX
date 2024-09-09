@@ -65,11 +65,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
     {
         this.dolly.m_Path = myPath;
         SwitchStage();
-        //if (INT_stage == 2)
-        //{
-        //    Destroy(gameObject);
-        //    Debug.Log("Normal‚É‚æ‚Á‚Ägame over");
-        //}
+
 
         timer += Time.deltaTime;
         if (timer >= 2f)
