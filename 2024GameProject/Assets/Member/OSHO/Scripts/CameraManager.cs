@@ -237,6 +237,7 @@ public class CameraManager : MonoBehaviour
             {
                 Sensor_Text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
+                SensorS.SetActive(false);
             }
             if (BM_mng.Para_Battery >= 5)
             {
