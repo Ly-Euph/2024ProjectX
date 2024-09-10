@@ -51,7 +51,7 @@ public class CameraManager : MonoBehaviour
 
     [Header("Sencor用のTextを入れてね。")]
 
-    [SerializeField] Text[] Sencor_text;
+    [SerializeField] Text[] Sensor_Text;
 
     [Header("ScanManagerを入れてね")]
 
@@ -61,41 +61,54 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] int Camera_Num;
 
+    [Header("SensorPを入れてね。")]
+    [SerializeField] GameObject SensorS;
+
     //Voltトラップのクールタイム
     private int V_time = 20;
 
     private int Voltcounter = 0;
 
-    //センサーの使えるバッテリー容量
+    [Header("センサーの使えるバッテリー容量")]
     public int Sensor_Capacity;
 
-    public int Skillcounter;
-
+    [Header("Voltのクールタイム")]
     public int Cool_Volt;
 
+    [Header("Shiftを押した時のバッテリーの減算")]
     public int shiftbattery;
 
+    [Header("Eキー（ボルトを押したときの）のバッテリーの減算")]
     public int voltbattery;
 
+    [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
+    public int SencorBattery;
+
+    [Header("Glitch Fx用の変数")]
     public float[] time_Gf;
 
     //Voltのtimerの変数
     private float[] time_Vs;
 
     //Voltのtimerの変数
+    [Header("各カメラのVoltのタイマー")]
     public float[] Volt_timers;
 
     //Volt用のFlag
+    [Header("各Volt用のフラグ")]
     public bool[] Volt_Flg;
 
     //Camera用のFlag
+    [Header("各カメラ用のフラグ")]
     public bool[] Cam_Flg;
 
     //GlitchFx用のFlag
+    [Header("各Glitch_Fx用のフラグ")]
     public bool[] Gf_Flg;
 
     //Sensor用のFlag
-    public bool[] IsSencor;
+    [Header("各センサー用のフラグ")]
+    public bool[] Sensor_Flg;
 
     void Start()
     {
@@ -107,7 +120,7 @@ public class CameraManager : MonoBehaviour
             CT_Volt[i].text = "OK";
 
             //Sencorトラップ使用可能のテキスト[OFF]を初めに表示
-            Sencor_text[i].text = "OFF";
+            Sensor_Text[i].text = "OFF";
 
             //　Imageを初めは0にしておく。
             IMAGE_Volt[i].GetComponent<Image>().fillAmount = 0;
@@ -212,51 +225,51 @@ public class CameraManager : MonoBehaviour
             }
             if (Volt_Flg[i])
             {
+                Debug.Log("UPDate起動");
                 UpdateVoltTimer(i);
             }
             if (BM_mng.Para_Battery <= Sensor_Capacity)
             {
-                IsSencor[i] = false;  
+                Sensor_Flg[i] = false;  
                 //return;
             }
             if(BM_mng.Para_Battery <= 5)
             {
-                Sencor_text[i].text = "OFF";
+                Sensor_Text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
+                SensorS.SetActive(false);
             }
-            
-            //else
-            //{
-            //    CT_Volt[i].text = "OK";
-            //}
             if (BM_mng.Para_Battery >= 5)
             {
                
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
-                    IsSencor[i] = IsSencor[i] == false ? true : false;
-                    if (IsSencor[i])
+                    Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
+                    if (Sensor_Flg[i])
                     {
-                        for (int j = 0; j < Sencor_text.Length; j++)
+                        for (int j = 0; j < Sensor_Text.Length; j++)
                         {
-                            Sencor_text[j].text = "ON";
+                            Sensor_Text[j].text = "ON";
                         }
+                        SensorS.SetActive(true);
                     }
-                    if (!IsSencor[i])
+                    if (!Sensor_Flg[i])
                     {
-                        for (int v = 0; v < Sencor_text.Length; v++)
+                        for (int v = 0; v < Sensor_Text.Length; v++)
                         {
-                            Sencor_text[v].text = "OFF";
+                            Sensor_Text[v].text = "OFF";
                         }
+                        SensorS.SetActive(false);
                     }
-
+                    BM_mng.Para_Battery -= SencorBattery;
                 }
             }
         }
-        for (int i = 0; i < IsSencor.Length; i++)
+        for (int i = 0; i < Sensor_Flg.Length; i++)
         {
-            if (IsSencor[i]) BM_mng.Para_Battery -= 0.05f;
+            if (Sensor_Flg[i]) BM_mng.Para_Battery -= 0.05f;
         }
+        Debug.Log(Cool_Volt);
     }
 
     //GimmickとCamZoomの制御
@@ -380,8 +393,7 @@ public class CameraManager : MonoBehaviour
     {
         Volt_timers[index] -= Time.deltaTime;
             CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-            IMAGE_Volt[index].fillAmount -= 1 / Cool_Volt * Time.deltaTime;
-
+        IMAGE_Volt[index].fillAmount -= 1.0f / (float)Cool_Volt* Time.deltaTime;
             if (Volt_timers[index] <= 0)
             {
                 Volt_Flg[index] = false;
