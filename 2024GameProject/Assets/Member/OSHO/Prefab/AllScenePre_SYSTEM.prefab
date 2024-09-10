@@ -3386,7 +3386,7 @@ MonoBehaviour:
   Cool_Volt: 15
   shiftbattery: 0
   voltbattery: 5
-  SencorBattery: 5
+  SencorBattery: 3
   time_Gf:
   - 0
   - 0
@@ -3404,7 +3404,7 @@ MonoBehaviour:
   Volt_Flg: 000000000000
   Cam_Flg: 000000000000
   Gf_Flg: 000000000000
-  IsSencor: 000000000000
+  Sensor_Flg: 000000000000
 --- !u!1 &2585746739166473364
 GameObject:
   m_ObjectHideFlags: 0
@@ -11299,6 +11299,7 @@ MonoBehaviour:
   TEXT_battery: {fileID: 2585746740147626819}
   INT_batteryRed: 21
   INT_batteryYellow: 51
+  camMng: {fileID: 2585746739150057418}
   Cool_battery: 2
 --- !u!1 &2585746740273007747
 GameObject:
