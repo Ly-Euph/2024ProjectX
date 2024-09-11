@@ -665,6 +665,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 2585746740226016868, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2cdb9c1b1fcd0dd43a57042655abe328, type: 3}
     - target: {fileID: 2585746740416365615, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Color.b
       value: 1
