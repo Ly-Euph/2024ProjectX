@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SoundData : MonoBehaviour
 {
-    int S_MASTER = 6;
+    int S_MASTER = 10;
     int S_BGM = 5;
-    int S_SE = 3;
+    int S_SE = 5;
 
     // ƒV[ƒ“Ø‚è‘Ö‚¦‚Ä‚à”jŠü
     // ‚³‚ê‚È‚¢‚æ‚¤‚É‚·‚é
