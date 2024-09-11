@@ -182,7 +182,8 @@ public class CameraManager : MonoBehaviour
 
         //Shiftキーを離したときにスキャンを止める。
 
-        if (Input.GetKeyUp(KeyCode.LeftShift)) { 
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            trapFlg = false;
             SonarOff(); 
         }
 
