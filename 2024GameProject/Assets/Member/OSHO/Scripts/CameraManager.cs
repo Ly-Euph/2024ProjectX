@@ -126,7 +126,7 @@ public class CameraManager : MonoBehaviour
             IMAGE_Volt[i].GetComponent<Image>().fillAmount = 0;
         }
         //初めはCamera1に設定
-        SetCamera1();
+        SetCamera(0);
         //カメラに関するFlagを全てOffに
         CamFlag();
         Cam_Flg[0] = true;
@@ -161,7 +161,7 @@ public class CameraManager : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.LeftShift)) { SonarOff(); }
 
-        //Voltトラップ呼出し
+        //バッテリー残量が５％以上の時Voltトラップ呼出し
         if (BM_mng.Para_Battery >= 5)
         {
             
@@ -185,8 +185,7 @@ public class CameraManager : MonoBehaviour
             }
         }
 
-        //カメラ関連の切り替え。
-
+        //CameraNumの数に応じてカメラ関連の切り替え
         for (int i = 0; i <= Camera_Num; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
@@ -284,75 +283,106 @@ public class CameraManager : MonoBehaviour
         OBJ_gimmicUI[num].SetActive(true);
         //OBJ_camZoom[num].SetActive(true);
     }
-
-    //以下カメラ機能のState
+    //カメラ関連の切り替えの処理
     private void SetCamera(int num)
     {
-        switch (num)
+        if (num >= 1 && num <= 8)
         {
-            case 1:
-                SetCamera1();
-                break;
-            case 2:
-                SetCamera2();
-                break;
-            case 3:
-                SetCamera3();
-                break;
-            case 4:
-                SetCamera4();
-                break;
-            case 5:
-                SetCamera5();
-                break;
-            case 6:
-                SetCamera6();
-                break;
+            CameraScan();
+            for (int i = 0; i < OBJ_camera.Length; i++)
+            {
+                OBJ_camera[i].SetActive(i == num - 1);
+            }
+            //numの数字に応じてText（CAMERA○○）を表示
+            TEXT_camera.text = $"CAMERA{num}";
         }
     }
+    //以下カメラ機能のState
+    //private void SetCamera(int num)
+    //{
+    //    switch (num)
+    //    {
+    //        case 1:
+    //            SetCamera1();
+    //            break;
+    //        case 2:
+    //            SetCamera2();
+    //            break;
+    //        case 3:
+    //            SetCamera3();
+    //            break;
+    //        case 4:
+    //            SetCamera4();
+    //            break;
+    //        case 5:
+    //            SetCamera5();
+    //            break;
+    //        case 6:
+    //            SetCamera6();
+    //            break;
+    //        case 7:
+    //            SetCamera7();
+    //            break;
+    //        case 8:
+    //            SetCamera8();
+    //            break;
+    //    }
+    //}
 
 
-    private void SetCamera1()
-    {
-        CameraScan();
-        OBJ_camera[0].SetActive(true);
-        TEXT_camera.text = "CAMERA1";
-    }
+    //private void SetCamera1()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[0].SetActive(true);
+    //    TEXT_camera.text = "CAMERA1";
+    //}
 
-    private void SetCamera2()
-    {
-        CameraScan();
-        OBJ_camera[1].SetActive(true);
+    //private void SetCamera2()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[1].SetActive(true);
 
-        TEXT_camera.text = "CAMERA2";
-    }
+    //    TEXT_camera.text = "CAMERA2";
+    //}
 
-    private void SetCamera3()
-    {
-        CameraScan();
-        OBJ_camera[2].SetActive(true);
-        TEXT_camera.text = "CAMERA3";
-    }
+    //private void SetCamera3()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[2].SetActive(true);
+    //    TEXT_camera.text = "CAMERA3";
+    //}
 
-    private void SetCamera4()
-    {
-        CameraScan();
-        OBJ_camera[3].SetActive(true);
-        TEXT_camera.text = "CAMERA4";
-    }
+    //private void SetCamera4()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[3].SetActive(true);
+    //    TEXT_camera.text = "CAMERA4";
+    //}
 
-    private void SetCamera5()
-    {
-        CameraScan();
-        OBJ_camera[4].SetActive(true);
-        TEXT_camera.text = "CAMERA5";
-    }
-    private void SetCamera6()
-    {
-        CameraScan();
-        OBJ_camera[5].SetActive(true);
-        TEXT_camera.text = "CAMERA6";
-    }
+    //private void SetCamera5()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[4].SetActive(true);
+    //    TEXT_camera.text = "CAMERA5";
+    //}
+    //private void SetCamera6()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[5].SetActive(true);
+    //    TEXT_camera.text = "CAMERA6";
+    //}
+    //private void SetCamera7()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[6].SetActive(true);
+    //    TEXT_camera.text = "CAMERA7";
+    //}
+    //private void SetCamera8()
+    //{
+    //    CameraScan();
+    //    OBJ_camera[7].SetActive(true);
+    //    TEXT_camera.text = "CAMERA8";
+    //}
     private void SonarOff()
     {
         for (int i = 0; i < SonarFx_sf.Length; i++)
