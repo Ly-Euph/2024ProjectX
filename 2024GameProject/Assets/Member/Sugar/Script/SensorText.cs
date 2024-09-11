@@ -22,12 +22,14 @@ public class SensorText : MonoBehaviour
     float colCenter = 1.0f;
     float colUnder = 1.0f;
 
+    float fadeSpd = 0.001f;
+
     float timerTop;
     float timerCenter;
     float timerUnder;
 
     // ƒZƒbƒgŽžŠÔ
-    float timerSet = 5.0f;
+    float timerSet = 3.0f;
     #endregion
     void Start()
     {
@@ -118,7 +120,6 @@ public class SensorText : MonoBehaviour
         if (under)
         {
             timerUnder -= Time.deltaTime;
-            Debug.Log(timerUnder);
         }
     }
 
@@ -128,7 +129,7 @@ public class SensorText : MonoBehaviour
         if (top)
         {
             text[0].color = new Color(1, 1, 1, colTop);
-            colTop -= 0.01f;
+            colTop -= fadeSpd;
 
             if (colTop <= 0)
             {
@@ -141,7 +142,7 @@ public class SensorText : MonoBehaviour
         if(center)
         {
             text[1].color = new Color(1, 1, 1, colCenter);
-            colCenter -= 0.01f;
+            colCenter -= fadeSpd;
 
             if (colCenter <= 0)
             {
@@ -154,7 +155,7 @@ public class SensorText : MonoBehaviour
         if(under)
         {
             text[2].color = new Color(1, 1, 1, colUnder);
-            colUnder -= 0.01f;
+            colUnder -= fadeSpd;
 
             if (colUnder <= 0)
             {

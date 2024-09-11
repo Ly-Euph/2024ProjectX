@@ -78,11 +78,14 @@ public class CameraManager : MonoBehaviour
     [Header("Shiftを押した時のバッテリーの減算")]
     public int shiftbattery;
 
-    [Header("Eキー（ボルトを押したときの）のバッテリーの減算")]
+    [Header("Eキー（ボルトを押したときの）のバッテリー減算")]
     public int voltbattery;
 
     [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
     public int SencorBattery;
+
+    // ソナー中に回復しないように
+    private bool trapFlg = false;
 
     [Header("Glitch Fx用の変数")]
     public float[] time_Gf;
@@ -110,6 +113,16 @@ public class CameraManager : MonoBehaviour
     [Header("各センサー用のフラグ")]
     public bool[] Sensor_Flg;
 
+    /// <summary>
+    /// trapFlgの値やり取り用
+    /// </summary>
+    public bool SendtrapFlg
+    {
+        get
+        {
+            return trapFlg;
+        }
+    }
     void Start()
     {
         //sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
@@ -151,15 +164,28 @@ public class CameraManager : MonoBehaviour
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                SonarOn();
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
-                if (BM_mng.Para_Battery >= 0) { BM_mng.Para_Battery -= 0.05f; }
+                if (BM_mng.Para_Battery >= 3.0f) {
+                    SonarOn();
+                    BM_mng.Para_Battery -= 0.05f; 
+                    trapFlg = true;
+                }
             }
+        }
+        else
+        {
+            Debug.Log("ソナー停止");
+
+            trapFlg = false;
+            SonarOff();
         }
 
         //Shiftキーを離したときにスキャンを止める。
 
-        if (Input.GetKeyUp(KeyCode.LeftShift)) { SonarOff(); }
+        if (Input.GetKeyUp(KeyCode.LeftShift)) {
+            trapFlg = false;
+            SonarOff(); 
+        }
 
         //バッテリー残量が５％以上の時Voltトラップ呼出し
         if (BM_mng.Para_Battery >= 5)
@@ -224,7 +250,6 @@ public class CameraManager : MonoBehaviour
             }
             if (Volt_Flg[i])
             {
-                Debug.Log("UPDate起動");
                 UpdateVoltTimer(i);
             }
             if (BM_mng.Para_Battery <= Sensor_Capacity)
@@ -268,7 +293,7 @@ public class CameraManager : MonoBehaviour
         {
             if (Sensor_Flg[i]) BM_mng.Para_Battery -= 0.05f;
         }
-        Debug.Log(Cool_Volt);
+       
     }
 
     //GimmickとCamZoomの制御

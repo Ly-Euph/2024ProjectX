@@ -15,6 +15,8 @@ public class BatteryManager : MonoBehaviour
 
     [SerializeField] int INT_batteryYellow;
 
+    [SerializeField] CameraManager camMng;
+
     //Batteryの初期値
     private int INT_battery = 100;
 
@@ -33,7 +35,7 @@ public class BatteryManager : MonoBehaviour
 
         if (FLOAT_time >= Cool_battery)
         {
-            if (FLOAT_battery < INT_battery)
+            if (FLOAT_battery < INT_battery&&!camMng.SendtrapFlg)
             {
                 FLOAT_battery += 1f;
                 FLOAT_time = 0;
