@@ -31,6 +31,7 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Time.timeScale == 0) { return; }
         //if(Input.GetKey(KeyCode.W) && cam.fieldOfView > CamMin)
         //{
         //    cam.fieldOfView -= 0.5f;
