@@ -65,11 +65,11 @@ public class GameManager : MonoBehaviour
         wasd,    // UIの移動音
         enter,   // 決定音
         esc,     // UIウィンドウ
+        textmsg, // テキスト送り音
         tab,     // 戻る音（キャンセル音）
         Eff1,    // エフェクト
         Eff2,
         Eff3,
-        textmsg, // テキスト送り音
         num,
     }
 

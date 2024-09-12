@@ -20,6 +20,9 @@ public class UpMessageText : MonoBehaviour
     //DateTimeを使うため変数を設定
     DateTime TodayNow;
 
+    // 音再生につかう
+    [SerializeField] GameManager gMng;
+
     // 時間と分数の取得用
     float hour;
     float minute;
@@ -112,6 +115,7 @@ public class UpMessageText : MonoBehaviour
         foreach (char c in stringAll_Up)
         {
             UpText.text += c;
+            gMng.OneShotSE_U(SEData.Type.ETC,GameManager.UISe.textmsg);
             yield return new WaitForSecondsRealtime(delay); // 指定時間待機
         }
     }
