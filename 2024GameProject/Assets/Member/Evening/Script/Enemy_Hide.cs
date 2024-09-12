@@ -11,9 +11,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
-    private int[,] root = { { 0, 2, 5, 6 }, { 0, 3, 6, 6 }, { 0, 4, 6, 6 },
-                            { 1, 3, 6, 6 }, { 1, 4, 6, 6 }, { 1, 2, 5, 6 },
-                            { 2, 5, 6, 6 } };
+    private int[,] root = { { 0, 2, 4, 6 },{ 0, 3, 5, 6 },{ 1, 2, 4, 6 },{ 1, 3, 5, 6 } };
     public int stage;
     private int rootRand;
 
