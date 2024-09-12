@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 {
+    CameraManager camMng;
+
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
@@ -31,11 +33,14 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
     private float dieTimer;
     private bool dieFlag;
 
+    private bool hydeFlag;
 
     SkinnedMeshRenderer skin;
     // Start is called before the first frame update
     void Start()
     {
+        camMng = GameObject.Find("CameraManager").GetComponent<CameraManager>();
+
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
         myPath = path[0];
@@ -63,6 +68,8 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        hydeFlag = camMng.SendtrapFlg;
+
         this.dolly.m_Path = myPath;
         SwitchStage();
 
@@ -77,10 +84,7 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
                 StartCoroutine("IdleWait");
             }
         }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            hp -= 10;
-        }
+
         EmDie();
         Animation();
 
@@ -94,11 +98,11 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
         }
 
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (hydeFlag==true)
         {
             skin.enabled = true;
         }
-        else
+        else if(hydeFlag==false)
         {
             skin.enabled = false;
         }
