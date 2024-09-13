@@ -42,7 +42,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
         myPath = path[0];
         INT_stage = 0;
-        INT_rootRand = Random.Range(0, 7);
+        INT_rootRand = Random.Range(0, 4);
         myPath = path[root[INT_rootRand, INT_stage]];
 
         anim = GetComponent<Animator>();

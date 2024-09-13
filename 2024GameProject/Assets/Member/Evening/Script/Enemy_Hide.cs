@@ -43,7 +43,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
         myPath = path[0];
         stage = 0;
-        rootRand = Random.Range(0, 7);
+        rootRand = Random.Range(0, 4);
         myPath = path[root[rootRand, stage]];
 
         anim = GetComponent<Animator>();
