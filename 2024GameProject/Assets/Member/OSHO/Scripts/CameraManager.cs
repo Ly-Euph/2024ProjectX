@@ -311,7 +311,7 @@ public class CameraManager : MonoBehaviour
     //カメラ関連の切り替えの処理
     private void SetCamera(int num)
     {
-        if (num >= 1 && num <= 8)
+        if (num >= 1 && num <= 9)
         {
             CameraScan();
             for (int i = 0; i < OBJ_camera.Length; i++)
