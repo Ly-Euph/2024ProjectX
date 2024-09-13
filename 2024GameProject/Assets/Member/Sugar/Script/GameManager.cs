@@ -31,8 +31,12 @@ public class GameManager : MonoBehaviour
     void InputKEY()
     {
         if (B_Title) { return; }
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            if (Target[0].activeSelf == false) { Target[0].SetActive(true); }
+        if (Input.GetKeyDown(KeyCode.Escape)&&!Target[1].activeSelf) {
+            if (Target[0].activeSelf == false) 
+            {
+                Target[0].SetActive(true);
+                OneShotSE_U(SEData.Type.ETC, UISe.esc);
+            }
             else { Target[0].SetActive(false); }
         }
     }
@@ -61,11 +65,11 @@ public class GameManager : MonoBehaviour
         wasd,    // UIの移動音
         enter,   // 決定音
         esc,     // UIウィンドウ
+        textmsg, // テキスト送り音
         tab,     // 戻る音（キャンセル音）
         Eff1,    // エフェクト
         Eff2,
         Eff3,
-        textmsg, // テキスト送り音
         num,
     }
 

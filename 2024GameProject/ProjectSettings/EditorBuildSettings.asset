@@ -11,9 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StageSelectScene.unity
     guid: b4fed0a02dcbab240baee43d14d37489
-  - enabled: 0
-    path: Assets/Member/OSHO/Scene/TEST_OSHOStage1Scene.unity
-    guid: 17d1eb4ce6e3648419a2e1ce4b78fb82
   - enabled: 1
     path: Assets/Scenes/ClearScene.unity
     guid: c673960df2f32f1489f2be4e2b6b83bf
