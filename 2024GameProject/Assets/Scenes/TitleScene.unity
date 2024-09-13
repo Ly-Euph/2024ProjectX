@@ -2160,6 +2160,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Option
       objectReference: {fileID: 0}
+    - target: {fileID: 5837752663329419149, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837752664541452557, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: gMng
+      value: 
+      objectReference: {fileID: 717470887}
+    - target: {fileID: 5837752664889232783, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
 --- !u!1 &1289818998
