@@ -5,14 +5,12 @@ using UnityEngine;
 public class TitleFX : MonoBehaviour
 {
     [SerializeField] GlitchFx Glfx;
-    [SerializeField]GameObject EMObj;
     float timer = 0f;
     float FirstSet = 10f;
     float SecondSet = 20f;
-    float EmsetTime = 2.0f;
 
     float GLSet = 0.01f;
-    float GlEmset = 1.0f;
+    float GlEmset = 0.1f;
     void Start()
     {
         Glfx.intensity = GLSet;
@@ -26,15 +24,13 @@ public class TitleFX : MonoBehaviour
         if(timer>=FirstSet)
         {
             Glfx.intensity = GlEmset;
-            EMObj.SetActive(true);
-            if(timer>=FirstSet+EmsetTime)
+            if(timer>=FirstSet)
             {
                 Glfx.intensity = GLSet;
             }
             if (timer >= SecondSet) {
                 Glfx.intensity = GlEmset;
-                EMObj.SetActive(false);
-                if (timer >= SecondSet + EmsetTime)
+                if (timer >= SecondSet)
                 { 
                     Glfx.intensity = GLSet;
                     timer = 0;// ‰Šú‰»
