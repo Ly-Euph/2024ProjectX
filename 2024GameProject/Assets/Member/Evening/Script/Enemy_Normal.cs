@@ -12,7 +12,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     private int[,] root = { { 0, 2, 4, 6 }, { 0, 3, 5, 6 }, { 1, 2, 4, 6 }, { 1, 3, 5, 6 } };
 
-    public int INT_stage;
+    private int INT_stage;
     private int INT_rootRand;
 
 
@@ -26,12 +26,11 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     private int hp;
 
-    public bool hitFlag;
+    private bool hitFlag;
 
     //private float dieTimer;
     private bool dieFlag;
 
-    [SerializeField] ETest _DEATH;
     #endregion
  
     #region Method
