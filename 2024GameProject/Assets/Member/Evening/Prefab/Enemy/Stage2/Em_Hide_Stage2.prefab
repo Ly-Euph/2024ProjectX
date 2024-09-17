@@ -473,10 +473,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1440275198462512009}
   - component: {fileID: 1440275198462512006}
-  - component: {fileID: 1440275198462512007}
   - component: {fileID: 1440275198462512004}
   - component: {fileID: 1440275198462512005}
   - component: {fileID: 1440275198462512002}
+  - component: {fileID: -2880133688871239294}
   m_Layer: 0
   m_Name: Em_Hide_Stage2
   m_TagString: HideEnemy
@@ -519,30 +519,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1440275198462512007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1440275198462512003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d39bbd74bc1f144909bd3449de2c23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path:
-  - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
-  - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
-  - {fileID: 1043759644880973822, guid: cd75a06a5e27faa4c8af16a43cf45c47, type: 3}
-  - {fileID: 4706656441042842887, guid: 590efe5c5ce7b6a4e906fc8af6dbad79, type: 3}
-  - {fileID: 1904465685914282433, guid: 25d9b18fa764b4a4689f96152c0a8de5, type: 3}
-  - {fileID: 3684516343419280609, guid: c518e52611c14c84a8fdc6bf9fd7946c, type: 3}
-  - {fileID: 1156576900546614649, guid: 15da307fd13426f43a20e3e53e682440, type: 3}
-  - {fileID: 3163211389333649810, guid: f0d28ab83fc05a342bd687cf2bc0b8d3, type: 3}
-  - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
-  - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
-  stage: 0
 --- !u!114 &1440275198462512004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,3 +565,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2880133688871239294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440275198462512003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbaf795cd4a5b9409f90d2fcd587b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path:
+  - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
+  - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
+  - {fileID: 1043759644880973822, guid: cd75a06a5e27faa4c8af16a43cf45c47, type: 3}
+  - {fileID: 4706656441042842887, guid: 590efe5c5ce7b6a4e906fc8af6dbad79, type: 3}
+  - {fileID: 1904465685914282433, guid: 25d9b18fa764b4a4689f96152c0a8de5, type: 3}
+  - {fileID: 3684516343419280609, guid: c518e52611c14c84a8fdc6bf9fd7946c, type: 3}
+  - {fileID: 1156576900546614649, guid: 15da307fd13426f43a20e3e53e682440, type: 3}
+  - {fileID: 3163211389333649810, guid: f0d28ab83fc05a342bd687cf2bc0b8d3, type: 3}
+  - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
+  - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
+  stage: 0

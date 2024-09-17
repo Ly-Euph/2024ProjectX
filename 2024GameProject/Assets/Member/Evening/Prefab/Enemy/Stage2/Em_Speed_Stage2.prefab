@@ -445,12 +445,12 @@ GameObject:
   - component: {fileID: 2840620653330581057}
   - component: {fileID: 5691742524991071172}
   - component: {fileID: 3179604848984726757}
-  - component: {fileID: 3179604848984726778}
   - component: {fileID: 2854423656485165490}
   - component: {fileID: 8604824670485995021}
+  - component: {fileID: 6475398676832174858}
   m_Layer: 0
   m_Name: Em_Speed_Stage2
-  m_TagString: Untagged
+  m_TagString: SpeedEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,30 +507,6 @@ MonoBehaviour:
   m_PositionUnits: 0
   m_Speed: 0
   m_Position: 0
---- !u!114 &3179604848984726778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3179604848984726779}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7301c4b20cc4f04daa310a24514851c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path:
-  - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
-  - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
-  - {fileID: 1043759644880973822, guid: cd75a06a5e27faa4c8af16a43cf45c47, type: 3}
-  - {fileID: 4706656441042842887, guid: 590efe5c5ce7b6a4e906fc8af6dbad79, type: 3}
-  - {fileID: 1904465685914282433, guid: 25d9b18fa764b4a4689f96152c0a8de5, type: 3}
-  - {fileID: 3684516343419280609, guid: c518e52611c14c84a8fdc6bf9fd7946c, type: 3}
-  - {fileID: 1156576900546614649, guid: 15da307fd13426f43a20e3e53e682440, type: 3}
-  - {fileID: 3163211389333649810, guid: f0d28ab83fc05a342bd687cf2bc0b8d3, type: 3}
-  - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
-  - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
-  stage: 0
 --- !u!65 &2854423656485165490
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -560,6 +536,30 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6475398676832174858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179604848984726779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84b450e5ad98f024a8615ff796efd59e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path:
+  - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
+  - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
+  - {fileID: 1043759644880973822, guid: cd75a06a5e27faa4c8af16a43cf45c47, type: 3}
+  - {fileID: 4706656441042842887, guid: 590efe5c5ce7b6a4e906fc8af6dbad79, type: 3}
+  - {fileID: 1904465685914282433, guid: 25d9b18fa764b4a4689f96152c0a8de5, type: 3}
+  - {fileID: 3684516343419280609, guid: c518e52611c14c84a8fdc6bf9fd7946c, type: 3}
+  - {fileID: 1156576900546614649, guid: 15da307fd13426f43a20e3e53e682440, type: 3}
+  - {fileID: 3163211389333649810, guid: f0d28ab83fc05a342bd687cf2bc0b8d3, type: 3}
+  - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
+  - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
+  stage: 0
 --- !u!1 &3192467114840635511
 GameObject:
   m_ObjectHideFlags: 0
