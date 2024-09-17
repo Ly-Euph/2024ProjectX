@@ -14,7 +14,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
                             { 2, 8, 3, 9, 9, 9}, { 4, 0, 6, 8, 5, 9}, { 4, 0, 6, 8, 3, 9},
                             { 4, 0, 9, 9, 9, 9}, { 8, 5, 9, 9, 9, 9}, { 8, 3, 9, 9, 9, 9} };
 
-    public int INT_stage;
+    private int INT_stage;
     private int INT_rootRand;
 
 
@@ -28,12 +28,10 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
 
     private int hp;
 
-    public bool hitFlag;
+    private bool hitFlag;
 
     //private float dieTimer;
     private bool dieFlag;
-
-    [SerializeField] ETest _DEATH;
     #endregion
 
     #region Method

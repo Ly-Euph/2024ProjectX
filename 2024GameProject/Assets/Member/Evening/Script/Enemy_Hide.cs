@@ -67,8 +67,6 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     {
         hydeFlag = camMng.SendtrapFlg;
 
-        Debug.Log(hydeFlag);
-
         this.dolly.m_Path = myPath;
         SwitchStage();
 
