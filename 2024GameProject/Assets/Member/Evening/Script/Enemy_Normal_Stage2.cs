@@ -154,7 +154,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
 
     IEnumerator IdleWait()
     {
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(5.0f);
 
         animNum = 0;
     }
