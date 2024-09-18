@@ -212,7 +212,7 @@ public class CameraManager : MonoBehaviour
         }
 
         //CameraNumの数に応じてカメラ関連の切り替え
-        for (int i = 0; i <= Camera_Num; i++)
+        for (int i = 1; i <= Camera_Num; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
