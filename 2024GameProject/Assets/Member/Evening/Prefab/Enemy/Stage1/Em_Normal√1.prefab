@@ -1848,7 +1848,7 @@ GameObject:
   - component: {fileID: 7529157054559752458}
   - component: {fileID: 2303686159296476348}
   m_Layer: 0
-  m_Name: "Em_Normal\u221A1 1"
+  m_Name: "Em_Normal\u221A1"
   m_TagString: NormalEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1863,7 +1863,7 @@ Transform:
   m_GameObject: {fileID: 6717017613823761654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 37.605503, y: -1.704601, z: 8.736148}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1490141641819144284}
   - {fileID: 2205110406479256630}
