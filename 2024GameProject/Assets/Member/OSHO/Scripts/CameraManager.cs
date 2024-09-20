@@ -7,6 +7,8 @@ public class CameraManager : MonoBehaviour
 {
     public GlitchFx[] GF_gf;
 
+    [SerializeField] GameManager gMng;
+
     [Header("Camera関連をここに入れといて")]
 
     [SerializeField] GameObject[] OBJ_camera;
@@ -216,6 +218,8 @@ public class CameraManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
+                //カメラ切り替え時のSE
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
                 SetCamera(i);
                 CamFlag();
                 Cam_Flg[i - 1] = true;
@@ -245,7 +249,9 @@ public class CameraManager : MonoBehaviour
         for (int i = 0; i < Camera_Num; i++)
         {
             if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
-            { 
+            {
+                //VoltのSE
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                 StartVoltTimer(i);
             }
             if (Volt_Flg[i])
@@ -268,6 +274,7 @@ public class CameraManager : MonoBehaviour
                
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
                     if (Sensor_Flg[i])
                     {
