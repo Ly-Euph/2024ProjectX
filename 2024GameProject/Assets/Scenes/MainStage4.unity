@@ -40739,6 +40739,7 @@ MonoBehaviour:
   - {fileID: 1233641212}
   - {fileID: 615339418}
   - {fileID: 1255493956}
+  gMng: {fileID: 93225977}
   OBJ_camera:
   - {fileID: 2401082913142704849}
   - {fileID: 2401082913188149970}
@@ -43374,8 +43375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CamMin: 10
   CamMax: 50
-  MaxrotPos: 30
-  MinrotPos: -30
+  MaxrotPos: 50
+  MinrotPos: -50
   cam: {fileID: 2401082913648250660}
 --- !u!1 &2401082913146170195
 GameObject:
@@ -50519,8 +50520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CamMin: 10
   CamMax: 50
-  MaxrotPos: 360
-  MinrotPos: -360
+  MaxrotPos: 50
+  MinrotPos: -50
   cam: {fileID: 2401082913768776702}
 --- !u!1 &2401082914191860316
 GameObject:
