@@ -129,10 +129,6 @@ public class UpMessageText : MonoBehaviour
     #endregion
     void Start()
     {
-        // Shader‚Ì’l‚ð0‚É‚·‚é
-        EffObj[0].material.SetFloat("_Progress", 0);
-        EffObj[1].material.SetFloat("_Progress", 0);
-
         // •¶Žšíœ
         UpText.text = "";
 
@@ -176,12 +172,18 @@ public class UpMessageText : MonoBehaviour
                 EffObj[1].material.SetFloat("_Progress", effPoint);
                 if(effPoint>=1.0f)
                 {
-                    num++; 
+                    num++;
                 }
                 break;
             case 4:
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("TitleScene"));
-                num = 999; // ”ÍˆÍŠO‚É‚·‚é
+                EffObj[0].material.SetFloat("_Progress", 1);
+                EffObj[1].material.SetFloat("_Progress", 1);
+                effPoint -= addPoint;
+                if (effPoint <= 0.0f)
+                {
+                    fade.FadeIn(0.5f, () => SceneManager.LoadScene("TitleScene"));
+                    num = 999; // ”ÍˆÍŠO‚É‚·‚é
+                }
                 break;
 
         }
