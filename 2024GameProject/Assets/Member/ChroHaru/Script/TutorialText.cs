@@ -22,15 +22,11 @@ public class TutorialText : MonoBehaviour
     [SerializeField] GameObject TimeText;
     [SerializeField] GameObject CameraText;
 
-    TimeScaleM timescaleM;
-    GameObject obj;
+
     private void Start()
     {
-        obj = GameObject.Find("TimeScale");//タイムスケールを管理するスクリプトの変数を取得
-        timescaleM = obj.GetComponent<TimeScaleM>();
-        timescaleM.timescale = 0;
+        
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -273,7 +269,7 @@ public class TutorialText : MonoBehaviour
                 enterText.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
-                    timescaleM.timescale= 1;//
+                    
                     enterText.SetActive(false);
                     Canvas.SetActive(false);
                 }
