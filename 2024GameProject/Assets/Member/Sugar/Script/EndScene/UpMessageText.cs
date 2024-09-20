@@ -44,6 +44,13 @@ public class UpMessageText : MonoBehaviour
     [SerializeField]string message = "You've survived!";
 
     string stringAll_Up;   // 一行目のテキストまとめ
+
+    // ゲームオーバーシーンのみでつかう
+    [SerializeField] bool IsGameOver = false;
+    [SerializeField] MeshRenderer[] EffObj;
+
+    float addPoint=0.1f;
+    float effPoint = 0;
     #endregion
    
     #region Method
@@ -122,6 +129,10 @@ public class UpMessageText : MonoBehaviour
     #endregion
     void Start()
     {
+        // Shaderの値を0にする
+        EffObj[0].material.SetFloat("_Progress", 0);
+        EffObj[1].material.SetFloat("_Progress", 0);
+
         // 文字削除
         UpText.text = "";
 
@@ -149,9 +160,30 @@ public class UpMessageText : MonoBehaviour
                 }
                 break;
             case 2:
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("TitleScene"));
-                num++;
+                if (!IsGameOver)
+                {
+                    fade.FadeIn(0.5f, () => SceneManager.LoadScene("TitleScene"));
+                    num = 999; // 範囲外にする
+                }
+                else
+                {
+                    num++;
+                }
                 break;
+            case 3:
+                effPoint += addPoint;
+                EffObj[0].material.SetFloat("_Progress", effPoint);
+                EffObj[1].material.SetFloat("_Progress", effPoint);
+                if(effPoint>=1.0f)
+                {
+                    num++; 
+                }
+                break;
+            case 4:
+                fade.FadeIn(0.5f, () => SceneManager.LoadScene("TitleScene"));
+                num = 999; // 範囲外にする
+                break;
+
         }
     }
 
