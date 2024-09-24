@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cd728372b18ca478461cb26fed2da5, type: 3}
   m_Name: Stage3
   m_EditorClassIdentifier: 
-  StageName: "\u7814\u7A76\u6240"
-  StageImage: {fileID: 21300000, guid: 58077e7d7c1f69e448677d19dddcbc9c, type: 3}
-  infomation_Level: "\u96E3\u6613\u5EA6\uFF1A\u30CF\u30FC\u30C9"
-  infomation_Cam: "\u30AB\u30E1\u30E9\u6570\uFF1A\uFF16"
+  StageName: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
+  StageImage: {fileID: 0}
+  infomation_Level: 
+  infomation_Cam: 
   StageSceneName: 
