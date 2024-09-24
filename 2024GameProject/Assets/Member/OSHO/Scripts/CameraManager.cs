@@ -202,7 +202,7 @@ public class CameraManager : MonoBehaviour
                 CT_Volt[i].text = "OK";
                 if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
-
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
                     Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
                     time_Vs[i] = 0;
@@ -223,7 +223,7 @@ public class CameraManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
                 //カメラ切り替え時のSE
-                //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
                 SetCamera(i);
                 CamFlag();
                 Cam_Flg[i - 1] = true;
@@ -278,7 +278,7 @@ public class CameraManager : MonoBehaviour
                
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
-                    //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
                     if (Sensor_Flg[i])
                     {
