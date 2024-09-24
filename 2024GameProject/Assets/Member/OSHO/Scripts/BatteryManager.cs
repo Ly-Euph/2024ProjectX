@@ -37,7 +37,7 @@ public class BatteryManager : MonoBehaviour
         {
             if (FLOAT_battery < INT_battery&&!camMng.SendtrapFlg)
             {
-                FLOAT_battery += 1f;
+                FLOAT_battery += 2f;
                 FLOAT_time = 0;
             }
         }
