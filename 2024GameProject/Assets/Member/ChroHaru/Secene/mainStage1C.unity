@@ -486,8 +486,16 @@ PrefabInstance:
       value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739150057418, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746739150057418, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: Sensor_Flg.Array.size
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746739150057420, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739481184456, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: MaxrotPos
@@ -560,6 +568,10 @@ PrefabInstance:
     - target: {fileID: 2585746739600613973, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Name
       value: AllScenePre_SYSTEM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746739620661696, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739893521934, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalPosition.x
@@ -686,8 +698,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1169917465}
     - target: {fileID: 2585746740482104245, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746740482104245, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: TimeMinute
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746740482104247, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585746740483952435, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Color.b
@@ -1487,6 +1507,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 347753785862017475, guid: 6e512af632bc80949a77d8964281979c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3601525503690173416, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: spwanLate
       value: 8
@@ -1679,6 +1703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302d969bbc59254458319523203fade5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fade: {fileID: 0}
 --- !u!4 &1954060067
 Transform:
   m_ObjectHideFlags: 0
