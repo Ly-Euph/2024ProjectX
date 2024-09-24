@@ -167,7 +167,7 @@ public class CameraManager : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 //ソナーを押してる間の音。
-                //if(Time.frameCount % 20 == 0) { gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4); }
+                if(Time.frameCount % 20 == 0) { gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4); }
              
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
                 if (BM_mng.Para_Battery >= 3.0f) {
