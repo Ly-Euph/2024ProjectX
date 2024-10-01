@@ -7,6 +7,10 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
+    [SerializeField] GameObject deathHitEff;
+    Vector3 ofsPos = new Vector3(0, 4, 0);
+    float lifeT = 1.0f;
+
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
     private int[,] root = { { 0, 2, 4, 6 }, { 0, 3, 5, 6 }, { 1, 2, 4, 6 }, { 1, 3, 5, 6 } };
@@ -111,6 +115,10 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
         {
             dolly.m_Speed = 0;
             animNum = 2;
+            // エフェクト生成
+            var myObj = this.gameObject.transform;
+            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
+            //Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }
