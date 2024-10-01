@@ -521,6 +521,10 @@ PrefabInstance:
       propertyPath: MinrotPos
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 2585746739589871079, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2585746739600613972, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -568,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 2585746739600613973, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Name
       value: AllScenePre_SYSTEM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746739600613973, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739620661696, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Enabled
@@ -681,6 +689,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2cdb9c1b1fcd0dd43a57042655abe328, type: 3}
+    - target: {fileID: 2585746740249740996, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2585746740416365615, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -719,6 +731,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585746740483952435, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746740511195273, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585746740661826531, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
@@ -877,6 +893,10 @@ PrefabInstance:
     - target: {fileID: 4676093454511940964, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: m_Name
       value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676093454511940964, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4676093454511940968, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: m_Pivot.x
@@ -1113,6 +1133,10 @@ PrefabInstance:
     - target: {fileID: 5837752663113760449, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: TextTutorial
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837752663113760455, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5837752663329419146, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: gMng
