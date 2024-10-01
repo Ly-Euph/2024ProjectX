@@ -95,6 +95,9 @@ public class CameraManager : MonoBehaviour
     //Voltのtimerの変数
     private float[] time_Vs;
 
+    // 音の連続再生制御
+    float _timer = 0;
+
     //Voltのtimerの変数
     [Header("各カメラのVoltのタイマー")]
     public float[] Volt_timers;
@@ -162,15 +165,21 @@ public class CameraManager : MonoBehaviour
         if (BM_mng.Para_Battery >= 5)
         {
             //Shiftキーを押したときにバッテリーを５%減らす。
-            if (Input.GetKeyDown(KeyCode.LeftShift)) { BM_mng.Para_Battery -= shiftbattery; }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                BM_mng.Para_Battery -= shiftbattery;
+            }
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                //ソナーを押してる間の音。
-                if(Time.frameCount % 20 == 0) { gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4); }
-             
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
                 if (BM_mng.Para_Battery >= 3.0f) {
+                    _timer += Time.deltaTime;
+                    //ソナーを押してる間の音。
+                    if (_timer>=1) {
+                        _timer = 0;
+                        gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
+                    }
                     SonarOn();
                     BM_mng.Para_Battery -= 0.05f; 
                     trapFlg = true;

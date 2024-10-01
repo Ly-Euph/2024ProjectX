@@ -486,6 +486,10 @@ PrefabInstance:
       value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739150057418, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: gMng
+      value: 
+      objectReference: {fileID: 1600578557}
+    - target: {fileID: 2585746739150057418, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: Sensor_Flg.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -687,7 +691,7 @@ PrefabInstance:
       objectReference: {fileID: 1169917465}
     - target: {fileID: 2585746740482104245, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: TimeMinute
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2585746740483952435, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Color.b

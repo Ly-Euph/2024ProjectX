@@ -110,4 +110,9 @@ public class GameManager : MonoBehaviour
     {
         aud[0].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.ETC].SE[(int)se]);
     }
+
+    public void StopSE()
+    {
+        aud[0].Stop();
+    }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Stgae2
   m_EditorClassIdentifier: 
   StageName: "\u5EC3\u75C5\u9662"
-  StageImage: {fileID: 21300000, guid: e7bfcc48f6bac3d489f5553a4e06b9a0, type: 3}
+  StageImage: {fileID: 21300000, guid: ad2d22dfc7f4fa044a5224a31e4d12e8, type: 3}
   infomation_Level: "\u96E3\u6613\u5EA6\uFF1A\u30CF\u30FC\u30C9"
   infomation_Cam: "\u30AB\u30E1\u30E9\u6570\uFF1A9"
   StageSceneName: MainStage4
