@@ -176,7 +176,9 @@ public class CameraManager : MonoBehaviour
                 if (BM_mng.Para_Battery >= 3.0f) {
                     _timer += Time.deltaTime;
                     //ソナーを押してる間の音。
-                    if (_timer>=1) {
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
+                    if (_timer>=1) 
+                    {
                         _timer = 0;
                         gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
                     }
