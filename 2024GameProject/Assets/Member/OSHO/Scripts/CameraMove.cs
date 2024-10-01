@@ -54,5 +54,13 @@ public class CameraMove : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, 1, 0);
             //this.transform.localEulerAngles += new Vector3(0, 1, 0);
         }
+        if(Input.GetKey(KeyCode.LeftArrow) && MinrotPos < transform.rotation.y)
+        {
+            transform.rotation *= Quaternion.Euler(0, -1, 0);
+        }
+        if(Input.GetKey(KeyCode.RightArrow) && transform.rotation.y < MaxrotPos)
+        {
+            transform.rotation *= Quaternion.Euler(0, 1, 0);
+        }
     }
 }
