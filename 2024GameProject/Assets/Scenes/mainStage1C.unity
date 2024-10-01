@@ -890,6 +890,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4676093453508791159, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676093453728678517, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676093453728678518, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4676093454511940964, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -982,6 +994,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4676093454511940969, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: num
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4676093454511940969, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 1169917465}
     - target: {fileID: 4676093454511940969, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: gMng
       value: 
@@ -1128,7 +1148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5837752663113760449, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: B_Title
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5837752663113760449, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: TextTutorial
