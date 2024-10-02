@@ -1015,6 +1015,10 @@ PrefabInstance:
       propertyPath: gMng
       value: 
       objectReference: {fileID: 1600578557}
+    - target: {fileID: 5837752663985792295, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a7597a2b4c9558e4dbb883c6a5dd8082, type: 3}
     - target: {fileID: 5837752664541452557, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: gMng
       value: 
