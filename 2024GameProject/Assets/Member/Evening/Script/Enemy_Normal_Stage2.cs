@@ -8,6 +8,10 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
+    [SerializeField] GameObject deathHitEff;
+    Vector3 ofsPos = new Vector3(0, 4, 0);
+    float lifeT = 1.0f;
+
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
     private int[,] root = { { 1, 7, 9, 9, 9, 9}, { 2, 6, 9, 9, 9, 9}, { 2, 8, 5, 9, 9, 9},
@@ -122,6 +126,10 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
         {
             dolly.m_Speed = 0;
             animNum = 2;
+            // エフェクト生成
+            var myObj = this.gameObject.transform;
+            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
+            // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }
