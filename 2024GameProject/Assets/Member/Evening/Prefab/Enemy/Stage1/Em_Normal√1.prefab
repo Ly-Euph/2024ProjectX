@@ -1926,6 +1926,7 @@ MonoBehaviour:
   - {fileID: 8436304762093718842, guid: f6ddfe8e92f039e479f14241f1f4eb73, type: 3}
   - {fileID: 4039996603956760632, guid: c62064199149a4444841c6967f3456dd, type: 3}
   - {fileID: 4170952394851516744, guid: fa8fbdabe5103c64bba55fa196aca135, type: 3}
+  deathHitEff: {fileID: 8157968101478334049, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
 --- !u!65 &7529157054559752458
 BoxCollider:
   m_ObjectHideFlags: 0
