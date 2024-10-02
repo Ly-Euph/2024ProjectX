@@ -7,6 +7,8 @@ public class CameraManager : MonoBehaviour
 {
     public GlitchFx[] GF_gf;
 
+    [SerializeField] GameManager gMng;
+
     [Header("Camera関連をここに入れといて")]
 
     [SerializeField] GameObject[] OBJ_camera;
@@ -93,6 +95,9 @@ public class CameraManager : MonoBehaviour
     //Voltのtimerの変数
     private float[] time_Vs;
 
+    // 音の連続再生制御
+    float _timer = 0;
+
     //Voltのtimerの変数
     [Header("各カメラのVoltのタイマー")]
     public float[] Volt_timers;
@@ -160,12 +165,23 @@ public class CameraManager : MonoBehaviour
         if (BM_mng.Para_Battery >= 5)
         {
             //Shiftキーを押したときにバッテリーを５%減らす。
-            if (Input.GetKeyDown(KeyCode.LeftShift)) { BM_mng.Para_Battery -= shiftbattery; }
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                BM_mng.Para_Battery -= shiftbattery;
+            }
 
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
                 if (BM_mng.Para_Battery >= 3.0f) {
+                    _timer += Time.deltaTime;
+                    //ソナーを押してる間の音。
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
+                    if (_timer>=1) 
+                    {
+                        _timer = 0;
+                        gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
+                    }
                     SonarOn();
                     BM_mng.Para_Battery -= 0.05f; 
                     trapFlg = true;
@@ -182,9 +198,10 @@ public class CameraManager : MonoBehaviour
 
         //Shiftキーを離したときにスキャンを止める。
 
-        if (Input.GetKeyUp(KeyCode.LeftShift)) {
-            trapFlg = false;
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        { 
             SonarOff(); 
+            trapFlg = false;   
         }
 
         //バッテリー残量が５％以上の時Voltトラップ呼出し
@@ -196,7 +213,7 @@ public class CameraManager : MonoBehaviour
                 CT_Volt[i].text = "OK";
                 if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
-
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
                     Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
                     time_Vs[i] = 0;
@@ -216,6 +233,8 @@ public class CameraManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
+                //カメラ切り替え時のSE
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
                 SetCamera(i);
                 CamFlag();
                 Cam_Flg[i - 1] = true;
@@ -245,7 +264,9 @@ public class CameraManager : MonoBehaviour
         for (int i = 0; i < Camera_Num; i++)
         {
             if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
-            { 
+            {
+                //VoltのSE
+                //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                 StartVoltTimer(i);
             }
             if (Volt_Flg[i])
@@ -268,6 +289,7 @@ public class CameraManager : MonoBehaviour
                
                 if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
                 {
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
                     if (Sensor_Flg[i])
                     {
@@ -322,92 +344,7 @@ public class CameraManager : MonoBehaviour
             TEXT_camera.text = $"CAMERA{num}";
         }
     }
-    //以下カメラ機能のState
-    //private void SetCamera(int num)
-    //{
-    //    switch (num)
-    //    {
-    //        case 1:
-    //            SetCamera1();
-    //            break;
-    //        case 2:
-    //            SetCamera2();
-    //            break;
-    //        case 3:
-    //            SetCamera3();
-    //            break;
-    //        case 4:
-    //            SetCamera4();
-    //            break;
-    //        case 5:
-    //            SetCamera5();
-    //            break;
-    //        case 6:
-    //            SetCamera6();
-    //            break;
-    //        case 7:
-    //            SetCamera7();
-    //            break;
-    //        case 8:
-    //            SetCamera8();
-    //            break;
-    //    }
-    //}
-
-
-    //private void SetCamera1()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[0].SetActive(true);
-    //    TEXT_camera.text = "CAMERA1";
-    //}
-
-    //private void SetCamera2()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[1].SetActive(true);
-
-    //    TEXT_camera.text = "CAMERA2";
-    //}
-
-    //private void SetCamera3()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[2].SetActive(true);
-    //    TEXT_camera.text = "CAMERA3";
-    //}
-
-    //private void SetCamera4()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[3].SetActive(true);
-    //    TEXT_camera.text = "CAMERA4";
-    //}
-
-    //private void SetCamera5()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[4].SetActive(true);
-    //    TEXT_camera.text = "CAMERA5";
-    //}
-    //private void SetCamera6()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[5].SetActive(true);
-    //    TEXT_camera.text = "CAMERA6";
-    //}
-    //private void SetCamera7()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[6].SetActive(true);
-    //    TEXT_camera.text = "CAMERA7";
-    //}
-    //private void SetCamera8()
-    //{
-    //    CameraScan();
-    //    OBJ_camera[7].SetActive(true);
-    //    TEXT_camera.text = "CAMERA8";
-    //}
+    
     private void SonarOff()
     {
         for (int i = 0; i < SonarFx_sf.Length; i++)

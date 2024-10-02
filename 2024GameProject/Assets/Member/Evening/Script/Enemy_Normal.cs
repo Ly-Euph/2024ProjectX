@@ -10,6 +10,10 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
 
+    [SerializeField] GameObject deathHitEff;
+    Vector3 ofsPos = new Vector3(0, 4, 0);
+    float lifeT = 1.0f;
+
     private int[,] root = { { 0, 2, 4, 6 }, { 0, 3, 5, 6 }, { 1, 2, 4, 6 }, { 1, 3, 5, 6 } };
 
     private int INT_stage;
@@ -121,6 +125,10 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
         {
             dolly.m_Speed = 0;
             animNum = 2;
+            // エフェクト生成
+            var myObj = this.gameObject.transform;
+            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
+            //Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }

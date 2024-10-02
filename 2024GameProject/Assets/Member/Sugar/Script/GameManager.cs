@@ -44,6 +44,21 @@ public class GameManager : MonoBehaviour
     // 仮で必要になりそうなものを準備。
     // 追加で必要ならここに用意　
     // キャラクター関連の音
+    //public enum ClipSe
+    //{
+    //    Move1,
+    //    Move2,
+    //    Jump1,
+    //    Jump2,
+    //    Atk1,
+    //    Atk2,
+    //    Hit1,
+    //    Hit2,
+    //    Skill1,
+    //    Skill2,
+    //    Death,
+    //    num,
+    //}
     public enum ClipSe
     {
         Move1,
@@ -70,6 +85,7 @@ public class GameManager : MonoBehaviour
         Eff1,    // エフェクト
         Eff2,
         Eff3,
+        Eff4,
         num,
     }
 
@@ -93,5 +109,10 @@ public class GameManager : MonoBehaviour
     public void OneShotSE_U(SEData.Type type, UISe se)
     {
         aud[0].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.ETC].SE[(int)se]);
+    }
+
+    public void StopSE()
+    {
+        aud[0].Stop();
     }
 }

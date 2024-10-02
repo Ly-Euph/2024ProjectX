@@ -41,18 +41,19 @@ public class CameraMove : MonoBehaviour
         //{
         //    cam.fieldOfView += 0.5f;
         //}
-        if (Input.GetKey(KeyCode.A) && MinrotPos < transform.rotation.y)
+        if (Input.GetKey(KeyCode.LeftArrow)||Input.GetKey(KeyCode.A) && MinrotPos < transform.rotation.y )
         {
             //transform.Rotate(new Vector3(0, -1, 0));
             transform.rotation *= Quaternion.Euler(0, -1, 0);
             //this.transform.localEulerAngles += new Vector3(0, -1, 0);
 
         }
-        if (Input.GetKey(KeyCode.D) && transform.rotation.y < MaxrotPos)
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) && transform.rotation.y < MaxrotPos )
         {
             //transform.Rotate(new Vector3(0, 1, 0));
             transform.rotation *= Quaternion.Euler(0, 1, 0);
             //this.transform.localEulerAngles += new Vector3(0, 1, 0);
         }
+       
     }
 }

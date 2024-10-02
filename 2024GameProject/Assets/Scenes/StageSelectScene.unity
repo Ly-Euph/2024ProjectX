@@ -440,10 +440,10 @@ RectTransform:
   m_Father: {fileID: 189485904}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 2000, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &192851097
 MonoBehaviour:
@@ -1294,6 +1294,10 @@ PrefabInstance:
       propertyPath: gMng
       value: 
       objectReference: {fileID: 975440918}
+    - target: {fileID: 5837752663985792295, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d762407c927484c4f9c4c16711f1b05f, type: 3}
     - target: {fileID: 5837752664541452557, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: gMng
       value: 
@@ -1336,7 +1340,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 450, y: 310}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1901976440
 MonoBehaviour:
@@ -1360,7 +1364,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0a48042fe2cb54740ab8734d5628c99f, type: 3}
-    m_FontSize: 100
+    m_FontSize: 75
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 1

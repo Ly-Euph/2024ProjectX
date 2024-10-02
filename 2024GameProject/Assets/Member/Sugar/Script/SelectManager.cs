@@ -95,7 +95,7 @@ public class SelectManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)&&UDnum==1)
         {
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
-            fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[Cnum].StageSceneName));
+            fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[LRnum].StageSceneName));
         }
     }
     void SDB_Set()
