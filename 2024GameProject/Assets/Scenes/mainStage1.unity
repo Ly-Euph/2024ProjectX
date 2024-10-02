@@ -735,6 +735,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+--- !u!1 &527617164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2585746739600613973, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+  m_PrefabInstance: {fileID: 527617163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &527617165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527617164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fc0850e19f5a14295f530c3612bd68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gMng: {fileID: 1600578557}
 --- !u!1 &581726185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2585746739973372903, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
@@ -1388,7 +1406,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3601525503690173416, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: spwanLate
-      value: 8
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: m_RootOrder
