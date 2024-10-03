@@ -166,12 +166,12 @@ public class CameraManager : MonoBehaviour
         {
             
             //Shiftキーを押したときにバッテリーを５%減らす。
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 BM_mng.Para_Battery -= shiftbattery;
             }
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.Z))
             {
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
                 if (BM_mng.Para_Battery >= 3.0f) {
@@ -199,7 +199,7 @@ public class CameraManager : MonoBehaviour
 
         //Shiftキーを離したときにスキャンを止める。
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.Z))
         { 
             SonarOff(); 
             trapFlg = false;   
@@ -212,7 +212,7 @@ public class CameraManager : MonoBehaviour
             for (int i = 0; i < Cam_Flg.Length; i++)
             {
                 CT_Volt[i].text = "OK";
-                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
+                if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
@@ -253,7 +253,7 @@ public class CameraManager : MonoBehaviour
                 time_Gf[i] += Time.deltaTime;
                 if (time_Gf[i] >= 1)
                 {
-                    GF_gf[i].intensity = 0.01f;
+                    GF_gf[i].intensity = 0.001f;
                     time_Gf[i] = 0;
                     Gf_Flg[i] = false;
                 }
@@ -264,7 +264,7 @@ public class CameraManager : MonoBehaviour
 
         for (int i = 0; i < Camera_Num; i++)
         {
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
             {
                 //VoltのSE
                 //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
@@ -288,7 +288,7 @@ public class CameraManager : MonoBehaviour
             if (BM_mng.Para_Battery >= 5)
             {
                
-                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
+                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.X))
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
