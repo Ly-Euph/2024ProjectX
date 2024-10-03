@@ -3322,6 +3322,7 @@ MonoBehaviour:
   - {fileID: 2585746739973372901}
   - {fileID: 2585746740110287084}
   - {fileID: 2585746740751408212}
+  gMng: {fileID: 0}
   OBJ_camera:
   - {fileID: 2585746739620661698}
   - {fileID: 2585746739529103809}
