@@ -22,6 +22,9 @@ public class TutorialText : MonoBehaviour
     [SerializeField] GameObject enterText;
     [SerializeField] GameObject TimeText;
     [SerializeField] GameObject CameraText;
+    [SerializeField] GameObject Room1Text;
+    [SerializeField] GameObject Room2Text;
+    
 
     [SerializeField] Fade fade;
 
@@ -105,7 +108,7 @@ public class TutorialText : MonoBehaviour
                     Img1.SetActive(false);
                     text.text = "";
                     message = "そしてこれが施設の残りのバッテリー量だ\n" +
-                        "これは施設の設備を使うと消費されていくが\n" +
+                        "これは施設の設備を使うと消費されていく\n" +
                         "一定時間経過すると残量が回復するぞ。";
                     stringAll_Up = message;
                     Img2.SetActive(true);
@@ -249,8 +252,12 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img5.SetActive(false);
                     text.text = "";
-                    message = "では健闘を祈る。";
+                    message = "この施設のエリア１とエリア２が\n"+
+                        "外に繋がっているから\n"+
+                        "特に注意して監視してくれ\n";
                     stringAll_Up = message;
+                    Room1Text.SetActive(true);
+                    Room2Text.SetActive(true);
                     // コルーチン開始
                     StartCoroutine(RevealText());
                     num++;
@@ -268,12 +275,34 @@ public class TutorialText : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     enterText.SetActive(false);
+                    Room1Text.SetActive(false);
+                    Room2Text.SetActive(false);
+                    text.text = "";
+                    message = "では健闘を祈る。";
+                    stringAll_Up = message;
+                    // コルーチン開始
+                    StartCoroutine(RevealText());
+                    num++;
+                }
+
+                break;
+            case 21:
+                if (text.text == stringAll_Up)
+                {
+                    num++;
+                }
+                break;
+            case 22:
+                enterText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    enterText.SetActive(false);
                     //Canvas.SetActive(false);
                     num++;
                 }
                 break;
-            case 21:
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("StageSelectScene"));
+            case 23:
+                fade.FadeIn(0.5f, () => SceneManager.LoadScene("mainStage1"));
                 num++;
                 break;
         }
