@@ -1729,6 +1729,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Point Light
       objectReference: {fileID: 0}
+    - target: {fileID: 8684901181004095648, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: m_Range
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684901181004095648, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: m_SpotAngle
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 8684901181004095649, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_RootOrder
       value: 0

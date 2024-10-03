@@ -22,6 +22,8 @@ public class TutorialText : MonoBehaviour
     [SerializeField] GameObject enterText;
     [SerializeField] GameObject TimeText;
     [SerializeField] GameObject CameraText;
+    [SerializeField] GameObject Room1Text;
+    [SerializeField] GameObject Room2Text;
 
     [SerializeField] Fade fade;
 
@@ -78,7 +80,7 @@ public class TutorialText : MonoBehaviour
                 {
                     enterText.SetActive(false);
                     text.text = "";
-                    message = "これは施設の地図だ\n" +
+                    message = "これは施設の地図だ。\n" +
                          "これを見れば敵の侵入経路を\n" +
                          "予測しやすくなる。";
                     stringAll_Up = message;
@@ -104,8 +106,8 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img1.SetActive(false);
                     text.text = "";
-                    message = "そしてこれが施設の残りのバッテリー量だ\n" +
-                        "これは施設の設備を使うと消費されていくが\n" +
+                    message = "そしてこれが施設の残りのバッテリー量だ。\n" +
+                        "これは施設の設備を使うたびに消費する\n" +
                         "一定時間経過すると残量が回復するぞ。";
                     stringAll_Up = message;
                     Img2.SetActive(true);
@@ -130,7 +132,7 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img2.SetActive(false);
                     text.text = "";
-                    message = "そしてこれは助けが来るまでの時間だ\n" +
+                    message = "そしてこれは助けが来るまでの時間だ。\n" +
                          "この時間耐えてくれ。";
                     stringAll_Up = message;
 
@@ -155,7 +157,7 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     TimeText.SetActive(false);
                     text.text = "";
-                    message = "これは今見ているカメラの番号だ\n"+
+                    message = "これは今見ているカメラの番号だ。\n"+
                         "数字キーでカメラを切り替えて\n"+
                         "他のカメラを見ることができる。";
                     stringAll_Up = message;
@@ -182,8 +184,8 @@ public class TutorialText : MonoBehaviour
                     CameraText.SetActive(false);
                     text.text = "";
                     message = "次に施設にある設備の説明だ\n" +
-                        "一つ目の設備はソナーだ\n" +
-                        "見えない敵が見えるようになるぞ。";
+                        "一つ目の設備はソナーだ。\n" +
+                        "視認できない敵が見えるようになるぞ。";
                     stringAll_Up = message;
                     Img3.SetActive(true);
                     // コルーチン開始
@@ -204,7 +206,7 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img3.SetActive(false);
                     text.text = "";
-                    message = "二つ目の設備はスキャンだ\n" +
+                    message = "二つ目の設備はスキャンだ。\n" +
                         "監視していないエリアに敵が侵入したか\n" +
                         "知らせてくれる。";
                     stringAll_Up = message;
@@ -227,7 +229,7 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img4.SetActive(false);
                     text.text = "";
-                    message = "三つ目の設備は電気ショックだ\n" +
+                    message = "三つ目の設備は電気ショックだ。\n" +
                         "使用することで敵を排除することができる。";
                     stringAll_Up = message;
                     Img5.SetActive(true);
@@ -249,7 +251,11 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img5.SetActive(false);
                     text.text = "";
-                    message = "では健闘を祈る。";
+                    message = "そしてこの施設はルーム1とルーム2が\n"+
+                        "外に繋がっている\n"+
+                        "特に注意して監視してくれ";
+                    Room1Text.SetActive(true);
+                    Room2Text.SetActive(true);
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -268,11 +274,33 @@ public class TutorialText : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Return))
                 {
                     enterText.SetActive(false);
+                    Room1Text.SetActive(false);
+                    Room2Text.SetActive(false);
+                    text.text = "";
+                    message = "では健闘を祈る。";
+                    stringAll_Up = message;
+                    // コルーチン開始
+                    StartCoroutine(RevealText());
+                    num++;
+                }
+
+                break;
+            case 21:
+                if (text.text == stringAll_Up)
+                {
+                    num++;
+                }
+                break;
+            case 22:
+                enterText.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    enterText.SetActive(false);
                     //Canvas.SetActive(false);
                     num++;
                 }
                 break;
-            case 21:
+            case 23:
                 fade.FadeIn(0.5f, () => SceneManager.LoadScene("StageSelectScene"));
                 num++;
                 break;
