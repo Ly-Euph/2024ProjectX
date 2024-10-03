@@ -165,12 +165,12 @@ public class CameraManager : MonoBehaviour
         if (BM_mng.Para_Battery >= 5)
         {
             //Shiftキーを押したときにバッテリーを５%減らす。
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 BM_mng.Para_Battery -= shiftbattery;
             }
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.Z))
             {
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
                 if (BM_mng.Para_Battery >= 3.0f) {
@@ -211,7 +211,7 @@ public class CameraManager : MonoBehaviour
             for (int i = 0; i < Cam_Flg.Length; i++)
             {
                 CT_Volt[i].text = "OK";
-                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
+                if (Input.GetKeyDown(KeyCode.X) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
@@ -263,7 +263,7 @@ public class CameraManager : MonoBehaviour
 
         for (int i = 0; i < Camera_Num; i++)
         {
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
             {
                 //VoltのSE
                 //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
