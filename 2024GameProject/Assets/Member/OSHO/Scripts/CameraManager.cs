@@ -164,6 +164,7 @@ public class CameraManager : MonoBehaviour
 
         if (BM_mng.Para_Battery >= 5)
         {
+            
             //Shiftキーを押したときにバッテリーを５%減らす。
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
