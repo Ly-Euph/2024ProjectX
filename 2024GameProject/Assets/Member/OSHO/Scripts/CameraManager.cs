@@ -86,6 +86,11 @@ public class CameraManager : MonoBehaviour
     [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
     public int SencorBattery;
 
+    // カメラ切り替え用
+    private int cameraNum;
+
+    private int cnumMin = 1;
+    private int cnumMax ;
     // ソナー中に回復しないように
     private bool trapFlg = false;
 
@@ -130,6 +135,8 @@ public class CameraManager : MonoBehaviour
     }
     void Start()
     {
+        cameraNum = cnumMin;
+        cnumMax = Camera_Num;
         //sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
         for (int i = 0; i < OBJ_camera.Length; i++)
         {
@@ -164,13 +171,14 @@ public class CameraManager : MonoBehaviour
 
         if (BM_mng.Para_Battery >= 5)
         {
+            
             //Shiftキーを押したときにバッテリーを５%減らす。
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.Z))
             {
                 BM_mng.Para_Battery -= shiftbattery;
             }
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetKey(KeyCode.Z))
             {
                 //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
                 if (BM_mng.Para_Battery >= 3.0f) {
@@ -198,7 +206,7 @@ public class CameraManager : MonoBehaviour
 
         //Shiftキーを離したときにスキャンを止める。
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.Z))
         { 
             SonarOff(); 
             trapFlg = false;   
@@ -211,7 +219,7 @@ public class CameraManager : MonoBehaviour
             for (int i = 0; i < Cam_Flg.Length; i++)
             {
                 CT_Volt[i].text = "OK";
-                if (Input.GetKeyDown(KeyCode.E) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
+                if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                     Vector3 ObjPos = OBJ_trapPos[i].transform.position;
@@ -235,15 +243,53 @@ public class CameraManager : MonoBehaviour
             {
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
-                SetCamera(i);
+                cameraNum = i;
+                SetCamera(cameraNum);
                 CamFlag();
-                Cam_Flg[i - 1] = true;
-                UIActive(i - 1);
-                GF_gf[i - 1].intensity += 1.0f;
-                Gf_Flg[i - 1] = true;
+                Cam_Flg[cameraNum - 1] = true;
+                UIActive(cameraNum - 1);
+                GF_gf[cameraNum - 1].intensity += 1.0f;
+                Gf_Flg[cameraNum - 1] = true;
             }
         }
-
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (cameraNum > cnumMin)
+            {
+                cameraNum--;
+            }
+            else
+            {
+                cameraNum = cnumMax;
+            }
+            //カメラ切り替え時のSE
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            SetCamera(cameraNum);
+            CamFlag();
+            Cam_Flg[cameraNum - 1] = true;
+            UIActive(cameraNum - 1);
+            GF_gf[cameraNum - 1].intensity += 1.0f;
+            Gf_Flg[cameraNum - 1] = true;
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            if (cameraNum < cnumMax)
+            {
+                cameraNum++;
+            }
+            else
+            {
+                cameraNum = cnumMin;
+            }
+            //カメラ切り替え時のSE
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            SetCamera(cameraNum);
+            CamFlag();
+            Cam_Flg[cameraNum - 1] = true;
+            UIActive(cameraNum - 1);
+            GF_gf[cameraNum - 1].intensity += 1.0f;
+            Gf_Flg[cameraNum - 1] = true;
+        }
         //GlitchFxの切り替えとノイズ表示
         for (int i = 0; i < Gf_Flg.Length; i++)
         {
@@ -252,7 +298,7 @@ public class CameraManager : MonoBehaviour
                 time_Gf[i] += Time.deltaTime;
                 if (time_Gf[i] >= 1)
                 {
-                    GF_gf[i].intensity = 0.01f;
+                    GF_gf[i].intensity = 0.001f;
                     time_Gf[i] = 0;
                     Gf_Flg[i] = false;
                 }
@@ -263,7 +309,7 @@ public class CameraManager : MonoBehaviour
 
         for (int i = 0; i < Camera_Num; i++)
         {
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.E) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
             {
                 //VoltのSE
                 //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
@@ -287,7 +333,7 @@ public class CameraManager : MonoBehaviour
             if (BM_mng.Para_Battery >= 5)
             {
                
-                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C))
+                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.X))
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
