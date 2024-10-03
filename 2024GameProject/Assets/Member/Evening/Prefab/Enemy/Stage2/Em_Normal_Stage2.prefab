@@ -1377,6 +1377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c623b7c6de9f174b91d21478728595c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathHitEff: {fileID: 8157968101478334049, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   path:
   - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
   - {fileID: 2817995219911463167, guid: 6cb05661143998c42b1e61f18fa47df1, type: 3}
