@@ -10,10 +10,16 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioSource[] aud;
 
+
+    int width = 1920;
+    int height = 1080;
     void Start()
     {
         // FPS60Çà€éùÇ∑ÇÈÇÊÇ§Ç…
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
+
+        Screen.SetResolution(width, height, FullScreenMode.Windowed, 60);
+
     }
 
     // Update is called once per frame
