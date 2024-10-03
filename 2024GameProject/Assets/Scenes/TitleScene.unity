@@ -1170,7 +1170,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CaMErR
+  m_Text: 
 --- !u!222 &1870260493
 CanvasRenderer:
   m_ObjectHideFlags: 0
