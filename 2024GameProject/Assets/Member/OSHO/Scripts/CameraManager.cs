@@ -86,6 +86,11 @@ public class CameraManager : MonoBehaviour
     [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
     public int SencorBattery;
 
+    // カメラ切り替え用
+    private int cameraNum;
+
+    private int cnumMin = 1;
+    private int cnumMax ;
     // ソナー中に回復しないように
     private bool trapFlg = false;
 
@@ -130,6 +135,8 @@ public class CameraManager : MonoBehaviour
     }
     void Start()
     {
+        cameraNum = cnumMin;
+        cnumMax = Camera_Num;
         //sMng = GameObject.Find("ScanManager").GetComponent<ScanManager>();
         for (int i = 0; i < OBJ_camera.Length; i++)
         {
@@ -236,15 +243,53 @@ public class CameraManager : MonoBehaviour
             {
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
-                SetCamera(i);
+                cameraNum = i;
+                SetCamera(cameraNum);
                 CamFlag();
-                Cam_Flg[i - 1] = true;
-                UIActive(i - 1);
-                GF_gf[i - 1].intensity += 1.0f;
-                Gf_Flg[i - 1] = true;
+                Cam_Flg[cameraNum - 1] = true;
+                UIActive(cameraNum - 1);
+                GF_gf[cameraNum - 1].intensity += 1.0f;
+                Gf_Flg[cameraNum - 1] = true;
             }
         }
-
+        if(Input.GetMouseButtonDown(0))
+        {
+            if (cameraNum > cnumMin)
+            {
+                cameraNum--;
+            }
+            else
+            {
+                cameraNum = cnumMax;
+            }
+            //カメラ切り替え時のSE
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            SetCamera(cameraNum);
+            CamFlag();
+            Cam_Flg[cameraNum - 1] = true;
+            UIActive(cameraNum - 1);
+            GF_gf[cameraNum - 1].intensity += 1.0f;
+            Gf_Flg[cameraNum - 1] = true;
+        }
+        else if (Input.GetMouseButtonDown(1))
+        {
+            if (cameraNum < cnumMax)
+            {
+                cameraNum++;
+            }
+            else
+            {
+                cameraNum = cnumMin;
+            }
+            //カメラ切り替え時のSE
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            SetCamera(cameraNum);
+            CamFlag();
+            Cam_Flg[cameraNum - 1] = true;
+            UIActive(cameraNum - 1);
+            GF_gf[cameraNum - 1].intensity += 1.0f;
+            Gf_Flg[cameraNum - 1] = true;
+        }
         //GlitchFxの切り替えとノイズ表示
         for (int i = 0; i < Gf_Flg.Length; i++)
         {
