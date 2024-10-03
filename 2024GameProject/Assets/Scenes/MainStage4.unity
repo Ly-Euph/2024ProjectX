@@ -48973,7 +48973,7 @@ MonoBehaviour:
   INT_batteryRed: 21
   INT_batteryYellow: 51
   camMng: {fileID: 2401082912809069785}
-  Cool_battery: 0.8
+  Cool_battery: 0.7
 --- !u!1 &2401082913906132439
 GameObject:
   m_ObjectHideFlags: 0
