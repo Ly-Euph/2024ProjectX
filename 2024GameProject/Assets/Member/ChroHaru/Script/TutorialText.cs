@@ -252,7 +252,7 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img5.SetActive(false);
                     text.text = "";
-                    message = "‚±‚Ì{İ‚ÌƒGƒŠƒA1‚ÆƒGƒŠƒA2‚ª\n"+
+                    message = "‚±‚Ì{İ‚ÌƒGƒŠƒA‚P‚ÆƒGƒŠƒA‚Q‚ª\n"+
                         "ŠO‚ÉŒq‚ª‚Á‚Ä‚¢‚é‚©‚ç\n"+
                         "“Á‚É’ˆÓ‚µ‚ÄŠÄ‹‚µ‚Ä‚­‚ê\n";
                     stringAll_Up = message;
@@ -302,7 +302,7 @@ public class TutorialText : MonoBehaviour
                 }
                 break;
             case 23:
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("StageSelectScene"));
+                fade.FadeIn(0.5f, () => SceneManager.LoadScene("mainStage1"));
                 num++;
                 break;
         }
