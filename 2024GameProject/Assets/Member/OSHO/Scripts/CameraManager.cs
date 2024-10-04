@@ -86,19 +86,27 @@ public class CameraManager : MonoBehaviour
     [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
     public int SencorBattery;
 
+    [Header("ノイズ処理の調整用")]
+    public float Gf_float;
+
     // カメラ切り替え用
     private int cameraNum;
 
     private int cnumMin = 1;
-    private int cnumMax ;
+    private int cnumMax;
     // ソナー中に回復しないように
     private bool trapFlg = false;
+
+    //Sencor入力時の制御
+    private bool SencorFlg = false;
 
     [Header("Glitch Fx用の変数")]
     public float[] time_Gf;
 
     //Voltのtimerの変数
     private float[] time_Vs;
+
+    private float Sencor_Cooltime;
 
     // 音の連続再生制御
     float _timer = 0;
@@ -169,6 +177,11 @@ public class CameraManager : MonoBehaviour
         //時を止めてる間はreturnし続ける。
         if (Time.timeScale == 0) return;
 
+        //if (SencorFlg)
+        //{
+        //    TimeCounter();
+        //    return;
+        //}
         if (BM_mng.Para_Battery >= 5)
         {
             
@@ -241,6 +254,7 @@ public class CameraManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
+                SencorFlg = true;
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
                 cameraNum = i;
@@ -248,12 +262,13 @@ public class CameraManager : MonoBehaviour
                 CamFlag();
                 Cam_Flg[cameraNum - 1] = true;
                 UIActive(cameraNum - 1);
-                GF_gf[cameraNum - 1].intensity += 1.0f;
+                GF_gf[cameraNum - 1].intensity += Gf_float;
                 Gf_Flg[cameraNum - 1] = true;
             }
         }
         if(Input.GetMouseButtonDown(0))
         {
+            SencorFlg = true;
             if (cameraNum > cnumMin)
             {
                 cameraNum--;
@@ -262,17 +277,19 @@ public class CameraManager : MonoBehaviour
             {
                 cameraNum = cnumMax;
             }
+          
             //カメラ切り替え時のSE
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
             SetCamera(cameraNum);
             CamFlag();
             Cam_Flg[cameraNum - 1] = true;
             UIActive(cameraNum - 1);
-            GF_gf[cameraNum - 1].intensity += 1.0f;
+            GF_gf[cameraNum - 1].intensity += Gf_float;
             Gf_Flg[cameraNum - 1] = true;
         }
         else if (Input.GetMouseButtonDown(1))
         {
+            SencorFlg = true;
             if (cameraNum < cnumMax)
             {
                 cameraNum++;
@@ -281,13 +298,14 @@ public class CameraManager : MonoBehaviour
             {
                 cameraNum = cnumMin;
             }
+          
             //カメラ切り替え時のSE
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
             SetCamera(cameraNum);
             CamFlag();
             Cam_Flg[cameraNum - 1] = true;
             UIActive(cameraNum - 1);
-            GF_gf[cameraNum - 1].intensity += 1.0f;
+            GF_gf[cameraNum - 1].intensity += Gf_float;
             Gf_Flg[cameraNum - 1] = true;
         }
         //GlitchFxの切り替えとノイズ表示
@@ -342,8 +360,10 @@ public class CameraManager : MonoBehaviour
                         for (int j = 0; j < Sensor_Text.Length; j++)
                         {
                             Sensor_Text[j].text = "ON";
+                            SencorFlg = true;
                         }
                         SensorS.SetActive(true);
+                        BM_mng.Para_Battery -= SencorBattery;
                     }
                     if (!Sensor_Flg[i])
                     {
@@ -353,15 +373,17 @@ public class CameraManager : MonoBehaviour
                         }
                         SensorS.SetActive(false);
                     }
-                    BM_mng.Para_Battery -= SencorBattery;
                 }
             }
         }
         for (int i = 0; i < Sensor_Flg.Length; i++)
         {
-            if (Sensor_Flg[i]) BM_mng.Para_Battery -= 0.05f;
+            if (Sensor_Flg[i] && SencorFlg)
+            {
+                BM_mng.Para_Battery -= 0.05f;
+                Debug.Log("バッテリー残量");
+            }
         }
-       
     }
 
     //GimmickとCamZoomの制御
@@ -446,5 +468,14 @@ public class CameraManager : MonoBehaviour
         {
             BM_mng.Para_Battery -= voltbattery;
         }
+    }
+    void TimeCounter()
+    {
+        Sencor_Cooltime += Time.deltaTime;
+        //if (Sencor_Cooltime >= 1)
+        //{
+        //    SencorFlg = false;
+        //    Sencor_Cooltime = 0;
+        //}
     }
 }
