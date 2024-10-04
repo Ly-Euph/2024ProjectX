@@ -18,7 +18,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
                             { 2, 8, 3, 9, 9, 9}, { 4, 0, 6, 8, 5, 9}, { 4, 0, 6, 8, 3, 9},
                             { 4, 0, 9, 9, 9, 9}, { 8, 5, 9, 9, 9, 9}, { 8, 3, 9, 9, 9, 9} };
 
-    private int INT_stage;
+    public int stage;
     private int INT_rootRand;
 
 
@@ -45,9 +45,9 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
         myPath = path[0];
-        INT_stage = 0;
+        stage = 0;
         INT_rootRand = Random.Range(0, 7);
-        myPath = path[root[INT_rootRand, INT_stage]];
+        myPath = path[root[INT_rootRand, stage]];
 
         anim = GetComponent<Animator>();
         animNum = 0;
@@ -98,8 +98,8 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
     {
         if (dolly.m_Position == 4 && hitFlag == true)
         {
-            INT_stage++;
-            myPath = path[root[INT_rootRand, INT_stage]];
+            stage++;
+            myPath = path[root[INT_rootRand, stage]];
             dolly.m_Position = 0;
             hitFlag = false;
         }

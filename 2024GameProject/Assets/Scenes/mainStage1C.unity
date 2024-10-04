@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4676093454092446036, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4676093454242708652, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: m_IsActive
@@ -1014,6 +1014,10 @@ PrefabInstance:
       propertyPath: gMng
       value: 
       objectReference: {fileID: 1600578557}
+    - target: {fileID: 4676093454511940969, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
+      propertyPath: delay
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 4676093454511940969, guid: 24add0da0dfe924498b23c7c985e2885, type: 3}
       propertyPath: Room1Text
       value: 
