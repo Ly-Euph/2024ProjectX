@@ -71,6 +71,8 @@ public class CameraManager : MonoBehaviour
 
     private int Voltcounter = 0;
 
+    private bool SencorFlg = false;
+
     [Header("センサーの使えるバッテリー容量")]
     public int Sensor_Capacity;
 
@@ -97,9 +99,7 @@ public class CameraManager : MonoBehaviour
     // ソナー中に回復しないように
     private bool trapFlg = false;
 
-    //Sencor入力時の制御
-    private bool SencorFlg = false;
-
+    private bool CameraFlg = false;
     [Header("Glitch Fx用の変数")]
     public float[] time_Gf;
 
@@ -254,7 +254,7 @@ public class CameraManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
-                SencorFlg = true;
+                CameraFlg = true;
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
                 cameraNum = i;
@@ -268,7 +268,7 @@ public class CameraManager : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(0))
         {
-            SencorFlg = true;
+            CameraFlg = true;
             if (cameraNum > cnumMin)
             {
                 cameraNum--;
@@ -289,7 +289,7 @@ public class CameraManager : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            SencorFlg = true;
+            CameraFlg = true;
             if (cameraNum < cnumMax)
             {
                 cameraNum++;
@@ -351,7 +351,7 @@ public class CameraManager : MonoBehaviour
             if (BM_mng.Para_Battery >= 5)
             {
                
-                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.X))
+                if (Cam_Flg[i]&&Input.GetKeyDown(KeyCode.X))
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
@@ -360,10 +360,11 @@ public class CameraManager : MonoBehaviour
                         for (int j = 0; j < Sensor_Text.Length; j++)
                         {
                             Sensor_Text[j].text = "ON";
-                            SencorFlg = true;
                         }
                         SensorS.SetActive(true);
                         BM_mng.Para_Battery -= SencorBattery;
+                        SencorFlg = true;
+                       
                     }
                     if (!Sensor_Flg[i])
                     {
@@ -372,17 +373,17 @@ public class CameraManager : MonoBehaviour
                             Sensor_Text[v].text = "OFF";
                         }
                         SensorS.SetActive(false);
+                        SencorFlg = false;
                     }
                 }
             }
         }
-        for (int i = 0; i < Sensor_Flg.Length; i++)
+        //for (int i = 0; i < Sensor_Flg.Length; i++)
+
+        if (SencorFlg)
         {
-            if (Sensor_Flg[i] && SencorFlg)
-            {
-                BM_mng.Para_Battery -= 0.05f;
-                Debug.Log("バッテリー残量");
-            }
+             BM_mng.Para_Battery -= 0.05f;
+             Debug.Log("バッテリー残量");
         }
     }
 
