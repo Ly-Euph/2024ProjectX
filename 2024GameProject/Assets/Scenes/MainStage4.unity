@@ -41477,6 +41477,7 @@ MonoBehaviour:
   shiftbattery: 0
   voltbattery: 5
   SencorBattery: 3
+  Gf_float: 0
   time_Gf:
   - 0
   - 0
