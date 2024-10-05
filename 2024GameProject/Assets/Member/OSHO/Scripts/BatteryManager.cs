@@ -35,7 +35,7 @@ public class BatteryManager : MonoBehaviour
 
         if (FLOAT_time >= Cool_battery)
         {
-            if (FLOAT_battery < INT_battery&&!camMng.SendtrapFlg)
+            if (FLOAT_battery <= INT_battery&&!camMng.SendtrapFlg)
             {
                 FLOAT_battery += 1f;
                 FLOAT_time = 0;
@@ -50,6 +50,7 @@ public class BatteryManager : MonoBehaviour
 
 
         Battery_Color();
+        Debug.Log(FLOAT_battery);
     }
 
     void Battery_Color()
