@@ -65,6 +65,12 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if (dieFlag == true)
+        {
+            Destroy(gameObject,3.0f);
+            //_DEATH.enabled = true;
+            return;
+        }
         this.dolly.m_Path = myPath;
         SwitchStage();
 
@@ -77,7 +83,11 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
             if (randWait == 1)
             {
                 animNum = 1;
-                StartCoroutine("IdleWait");
+                //StartCoroutine("IdleWait");
+            }
+            else
+            {
+                animNum = 0;
             }
         }
         //if (Input.GetKeyDown(KeyCode.J))
@@ -86,12 +96,6 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
         //}
         EmDie();
         Animation();
-        if (dieFlag == true)
-        {
-            Destroy(gameObject);
-            //_DEATH.enabled = true;
-        }
-
     }
 
     void SwitchStage()
@@ -140,7 +144,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
         switch (animNum)
         {
             case 0:
-                dolly.m_Speed = 0.2f;
+                dolly.m_Speed = 0.3f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
                 break;
@@ -155,6 +159,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
+                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }

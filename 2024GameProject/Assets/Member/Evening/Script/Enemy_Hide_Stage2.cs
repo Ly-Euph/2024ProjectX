@@ -72,6 +72,12 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if (dieFlag == true)
+        {
+            Destroy(gameObject, 3.0f);
+            return;
+        }
+
         hydeFlag = camMng.SendtrapFlg;
 
         this.dolly.m_Path = myPath;
@@ -85,22 +91,18 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
             if (randWait == 1)
             {
                 animNum = 1;
-                StartCoroutine("IdleWait");
+               // StartCoroutine("IdleWait");
+            }
+            else
+            {
+                animNum = 0;
             }
         }
 
         EmDie();
         Animation();
 
-        if (dieFlag == true)
-        {
-            dieTimer += Time.deltaTime;
-            if (dieTimer >= 5f)
-            {
-                Destroy(gameObject);
-            }
-        }
-
+       
 
         if (hydeFlag==true)
         {
