@@ -136,6 +136,7 @@ public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
+                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }
