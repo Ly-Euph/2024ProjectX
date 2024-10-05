@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
+    [SerializeField] Fade fade;
+
     public GlitchFx[] GF_gf;
 
     [SerializeField] GameManager gMng;
@@ -257,13 +259,17 @@ public class CameraManager : MonoBehaviour
                 SencorFlg = true;
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+                fade.FadeIn(0.1f, () =>
+                fade.FadeOut(0.2f)
+                );
                 cameraNum = i;
                 SetCamera(cameraNum);
                 CamFlag();
                 Cam_Flg[cameraNum - 1] = true;
                 UIActive(cameraNum - 1);
-                GF_gf[cameraNum - 1].intensity += Gf_float;
+               // GF_gf[cameraNum - 1].intensity += Gf_float;
                 Gf_Flg[cameraNum - 1] = true;
+               
             }
         }
         if(Input.GetMouseButtonDown(0))
@@ -280,11 +286,14 @@ public class CameraManager : MonoBehaviour
           
             //カメラ切り替え時のSE
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            fade.FadeIn(0.1f, () =>
+               fade.FadeOut(0.2f)
+               );
             SetCamera(cameraNum);
             CamFlag();
             Cam_Flg[cameraNum - 1] = true;
             UIActive(cameraNum - 1);
-            GF_gf[cameraNum - 1].intensity += Gf_float;
+            //GF_gf[cameraNum - 1].intensity += Gf_float;
             Gf_Flg[cameraNum - 1] = true;
         }
         else if (Input.GetMouseButtonDown(1))
@@ -301,11 +310,14 @@ public class CameraManager : MonoBehaviour
           
             //カメラ切り替え時のSE
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            fade.FadeIn(0.1f, () =>
+               fade.FadeOut(0.2f)
+               );
             SetCamera(cameraNum);
             CamFlag();
             Cam_Flg[cameraNum - 1] = true;
             UIActive(cameraNum - 1);
-            GF_gf[cameraNum - 1].intensity += Gf_float;
+            //GF_gf[cameraNum - 1].intensity += Gf_float;
             Gf_Flg[cameraNum - 1] = true;
         }
         //GlitchFxの切り替えとノイズ表示
