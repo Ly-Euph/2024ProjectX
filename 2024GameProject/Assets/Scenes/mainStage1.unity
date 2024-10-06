@@ -498,6 +498,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1600578557}
     - target: {fileID: 2585746739150057418, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: SencorBattery
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746739150057418, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: Sensor_Flg.Array.size
       value: 6
       objectReference: {fileID: 0}

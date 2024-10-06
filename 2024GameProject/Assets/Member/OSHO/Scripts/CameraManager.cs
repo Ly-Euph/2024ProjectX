@@ -362,7 +362,6 @@ public class CameraManager : MonoBehaviour
             }
             if (BM_mng.Para_Battery >= 5)
             {
-               
                 if (Cam_Flg[i]&&Input.GetKeyDown(KeyCode.X))
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
@@ -392,11 +391,16 @@ public class CameraManager : MonoBehaviour
         }
         //for (int i = 0; i < Sensor_Flg.Length; i++)
 
-        if (SencorFlg)
-        {
-             BM_mng.Para_Battery -= 0.05f;
-             Debug.Log("バッテリー残量");
-        }
+        
+            if (SencorFlg && BM_mng.Para_Battery >= 1)
+            {
+                BM_mng.Para_Battery -= 0.05f;
+                Debug.Log("バッテリー残量");
+            }
+            else
+            {
+                SencorFlg = false;
+            }
     }
 
     //GimmickとCamZoomの制御
