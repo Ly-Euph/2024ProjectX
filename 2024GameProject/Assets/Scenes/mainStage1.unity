@@ -577,6 +577,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AllScenePre_SYSTEM
       objectReference: {fileID: 0}
+    - target: {fileID: 2585746739673093982, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.02
+      objectReference: {fileID: 0}
     - target: {fileID: 2585746739893521934, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
