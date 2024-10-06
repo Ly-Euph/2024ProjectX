@@ -248,6 +248,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1843523334}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 2557813305402626431}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1247,6 +1251,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 603148125}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 2557813305402626431}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1304,6 +1312,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1742093379}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 2557813305402626431}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1366,6 +1378,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1991976088}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 2557813305402626431}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1615,7 +1631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302d969bbc59254458319523203fade5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fade: {fileID: 1169917465}
 --- !u!4 &1954060067
 Transform:
   m_ObjectHideFlags: 0
@@ -1660,6 +1675,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2099719301}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 2557813305402626431}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1733,6 +1752,82 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1079003, y: 1.6650598, z: 1}
   m_Center: {x: 0.55395013, y: 0.71465987, z: 0.0000014333054}
+--- !u!114 &2557813305402626431 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+  m_PrefabInstance: {fileID: 2848765532487457622}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b02bc80ca17e478785382b63c01e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &2848765532487457622
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 1169917465}
+    - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: gameOverObj
+      value: 
+      objectReference: {fileID: 1954060066}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.7813573
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.9160004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 84.511444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668311405416448798, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_Name
+      value: DirectionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
 --- !u!1001 &7927230309812254769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1837,6 +1932,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302355468}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 2557813305402626431}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
