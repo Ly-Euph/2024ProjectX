@@ -208,7 +208,7 @@ public class TutorialText : MonoBehaviour
                     Img3.SetActive(false);
                     text.text = "";
                     message = "二つ目の設備はスキャンだ\n" +
-                        "監視していないエリアに敵が侵入したか\n" +
+                        "監視していないエリアに敵が侵入したら\n" +
                         "知らせてくれる。";
                     stringAll_Up = message;
                     Img4.SetActive(true);
