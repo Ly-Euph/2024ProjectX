@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // FPS60‚ğˆÛ‚·‚é‚æ‚¤‚É
-        //Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60;
 
         Screen.SetResolution(width, height, FullScreenMode.FullScreenWindow, 60);
 
