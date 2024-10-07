@@ -59,6 +59,11 @@ public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if (dieFlag == true)
+        {
+            Destroy(gameObject,3.0f);
+            return;
+        }
         this.dolly.m_Path = myPath;
         SwitchStage();
 
@@ -69,10 +74,7 @@ public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
         EmDie();
         Animation();
 
-        if (dieFlag == true)
-        {
-            Destroy(gameObject);
-        }
+       
     }
 
     void SwitchStage()
@@ -119,7 +121,7 @@ public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
         switch (animNum)
         {
             case 0:
-                dolly.m_Speed = 0.4f;
+                dolly.m_Speed = 0.6f;
                 anim.SetBool("Run", true);
                 anim.SetBool("Idle", false);
                 break;
@@ -134,6 +136,7 @@ public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
                 dolly.m_Speed = 0;
                 anim.SetBool("Run", false);
                 anim.SetBool("Idle", false);
+                anim.SetBool("Dead", true);
                 dieFlag = true;
                 break;
         }

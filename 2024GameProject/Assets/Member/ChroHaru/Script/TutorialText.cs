@@ -208,7 +208,7 @@ public class TutorialText : MonoBehaviour
                     Img3.SetActive(false);
                     text.text = "";
                     message = "二つ目の設備はスキャンだ\n" +
-                        "監視していないエリアに敵が侵入したか\n" +
+                        "監視していないエリアに敵が侵入したら\n" +
                         "知らせてくれる。";
                     stringAll_Up = message;
                     Img4.SetActive(true);
@@ -252,9 +252,15 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img5.SetActive(false);
                     text.text = "";
+<<<<<<< HEAD
                     //message = "エリア1とエリア2が\n"+
                     //    "外に繋がっているから\n"+
                     //    "注意して監視してくれ\n";
+=======
+                    message = "この施設のエリア１とエリア２が\n"+
+                        "外に繋がっているから\n"+
+                        "特に注意して監視してくれ\n";
+>>>>>>> main
                     stringAll_Up = message;
                     Room1Text.SetActive(true);
                     Room2Text.SetActive(true);
@@ -302,7 +308,7 @@ public class TutorialText : MonoBehaviour
                 }
                 break;
             case 23:
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("StageSelectScene"));
+                fade.FadeIn(0.5f, () => SceneManager.LoadScene("mainStage1"));
                 num++;
                 break;
         }
