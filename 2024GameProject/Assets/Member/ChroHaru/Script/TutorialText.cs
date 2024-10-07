@@ -252,15 +252,11 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img5.SetActive(false);
                     text.text = "";
-<<<<<<< HEAD
-                    //message = "ƒGƒŠƒA1‚ÆƒGƒŠƒA2‚ª\n"+
-                    //    "ŠO‚ÉŒq‚ª‚Á‚Ä‚¢‚é‚©‚ç\n"+
-                    //    "’ˆÓ‚µ‚ÄŠÄŽ‹‚µ‚Ä‚­‚ê\n";
-=======
+
                     message = "‚±‚ÌŽ{Ý‚ÌƒGƒŠƒA‚P‚ÆƒGƒŠƒA‚Q‚ª\n"+
                         "ŠO‚ÉŒq‚ª‚Á‚Ä‚¢‚é‚©‚ç\n"+
                         "“Á‚É’ˆÓ‚µ‚ÄŠÄŽ‹‚µ‚Ä‚­‚ê\n";
->>>>>>> main
+
                     stringAll_Up = message;
                     Room1Text.SetActive(true);
                     Room2Text.SetActive(true);
