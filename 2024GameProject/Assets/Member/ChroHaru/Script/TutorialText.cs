@@ -252,9 +252,11 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img5.SetActive(false);
                     text.text = "";
+
                     message = "この施設のエリア１とエリア２が\n"+
                         "外に繋がっているから\n"+
                         "特に注意して監視してくれ\n";
+
                     stringAll_Up = message;
                     Room1Text.SetActive(true);
                     Room2Text.SetActive(true);

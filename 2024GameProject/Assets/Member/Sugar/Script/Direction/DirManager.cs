@@ -16,7 +16,10 @@ public class DirManager : MonoBehaviour
     // ñæÇÈÇ≥ïœçXä÷åW
     #region Light
     [SerializeField]
-    int maxBright = 70;
+    int fademaxBright = 70;
+    [SerializeField]
+    int fademinBright = 30;
+
     int minBright = 0;
     int setBright;
 
@@ -28,7 +31,7 @@ public class DirManager : MonoBehaviour
 
     void Start()
     {
-        setBright = maxBright;
+        setBright = fademaxBright;
     }
 
     // Update is called once per frame
@@ -57,31 +60,31 @@ public class DirManager : MonoBehaviour
         switch (bNum)
         {
             case 0:
-                setBright = maxBright;
+                setBright = fademaxBright;
                 Bparts(2);
                 break;
             case 1:
-                setBright = 30;
+                setBright = fademinBright;
                 Bparts(0.5f);
                 break;
             case 2:
-                setBright = maxBright;
+                setBright = fademaxBright;
                 Bparts(0.1f);
                 break;
             case 3:
-                setBright = 30;
+                setBright = fademinBright;
                 Bparts(0.5f);
                 break;
             case 4:
-                setBright = maxBright;
+                setBright = fademaxBright;
                 Bparts(0);
                 break;
             case 5:
-                setBright = 30;
+                setBright = fademinBright;
                 Bparts(0.5f);
                 break;
             case 6:
-                setBright = maxBright;
+                setBright = fademaxBright;
                 bNum++;
                 break;
             case 7:
