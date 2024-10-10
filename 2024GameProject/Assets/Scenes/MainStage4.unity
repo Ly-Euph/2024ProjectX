@@ -508,6 +508,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401082913768776699}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1864,6 +1868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401082913648250657}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -1999,6 +2007,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1233641211}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -6402,6 +6414,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 480638082837041977, guid: 5d77a75c98992b840b27e02e065df54f, type: 3}
   m_PrefabInstance: {fileID: 338279671}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &345984582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 1159274771}
+    - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: gameOverObj
+      value: 
+      objectReference: {fileID: 862530039}
+    - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: fademinBright
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.7813573
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.9160004
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 84.511444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5668311405416448798, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_Name
+      value: DirectionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
 --- !u!1001 &354241614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10086,6 +10167,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401082914407964483}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -14493,6 +14578,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401082912871521135}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -16057,6 +16146,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401082914166798578}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -28499,6 +28592,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2401082913952959773}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -31865,6 +31962,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1255493955}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -32233,7 +32334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3601525503690173416, guid: 48ad312242e5a694491d785c1213f500, type: 3}
       propertyPath: spwanLate
-      value: 18
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 48ad312242e5a694491d785c1213f500, type: 3}
       propertyPath: m_RootOrder
@@ -36024,6 +36125,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 999.9
+--- !u!114 &1945706279 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+  m_PrefabInstance: {fileID: 345984582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8b02bc80ca17e478785382b63c01e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1951136149
 GameObject:
   m_ObjectHideFlags: 0
@@ -36980,6 +37092,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 615339417}
     m_Modifications:
+    - target: {fileID: 6967883995144014895, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+      propertyPath: dirMng
+      value: 
+      objectReference: {fileID: 1945706279}
     - target: {fileID: 8684901181004095646, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
       propertyPath: m_Name
       value: Point Light
@@ -54454,7 +54570,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimeMinute: 3
-  fade: {fileID: 0}
+  fade: {fileID: 734390762}
 --- !u!114 &2401082914677201063
 MonoBehaviour:
   m_ObjectHideFlags: 0
