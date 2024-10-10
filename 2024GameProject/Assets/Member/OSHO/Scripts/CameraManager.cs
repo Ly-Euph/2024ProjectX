@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
+    //FadeのPrefab
     [SerializeField] Fade fade;
 
+    [Header("GlitchFxのスクリプトを入れてね")]
     public GlitchFx[] GF_gf;
 
     [SerializeField] GameManager gMng;
@@ -57,9 +59,9 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text[] Sensor_Text;
 
-    [Header("ScanManagerを入れてね")]
+    //[Header("ScanManagerを入れてね")]
 
-    ScanManager sMng;
+    //ScanManager sMng;
 
     [Header("ステージ事に合わせたカメラの数を入力してください")]
 
@@ -69,9 +71,9 @@ public class CameraManager : MonoBehaviour
     [SerializeField] GameObject SensorS;
 
     //Voltトラップのクールタイム
-    private int V_time = 20;
+    [Header("Voltトラップのクールタイム設定")]
 
-    private int Voltcounter = 0;
+    [SerializeField] int V_time = 20;
 
     private bool SencorFlg = false;
 
@@ -98,6 +100,7 @@ public class CameraManager : MonoBehaviour
 
     private int cnumMin = 1;
     private int cnumMax;
+
     // ソナー中に回復しないように
     private bool trapFlg = false;
 
@@ -107,8 +110,6 @@ public class CameraManager : MonoBehaviour
 
     //Voltのtimerの変数
     private float[] time_Vs;
-
-    private float Sencor_Cooltime;
 
     // 音の連続再生制御
     float _timer = 0;
@@ -485,14 +486,5 @@ public class CameraManager : MonoBehaviour
         {
             BM_mng.Para_Battery -= voltbattery;
         }
-    }
-    void TimeCounter()
-    {
-        Sencor_Cooltime += Time.deltaTime;
-        //if (Sencor_Cooltime >= 1)
-        //{
-        //    SencorFlg = false;
-        //    Sencor_Cooltime = 0;
-        //}
     }
 }
