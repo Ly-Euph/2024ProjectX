@@ -13752,17 +13752,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1069786391231607333, guid: fb5ece791d9906b439f4e3ca4cc633ed, type: 3}
   m_PrefabInstance: {fileID: 733101246}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &734390762 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5837752663668318383, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
-  m_PrefabInstance: {fileID: 719593807}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d416d1715bbc06d4789612d1211da8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &734641214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16431,7 +16420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302d969bbc59254458319523203fade5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fade: {fileID: 734390762}
 --- !u!1001 &889103920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41497,17 +41485,8 @@ MonoBehaviour:
   - {fileID: 615339418}
   - {fileID: 1255493956}
   gMng: {fileID: 93225977}
-  OBJ_camera:
-  - {fileID: 2401082913142704849}
-  - {fileID: 2401082913188149970}
-  - {fileID: 2401082912858236176}
-  - {fileID: 2401082913542228953}
-  - {fileID: 2401082914186129648}
-  - {fileID: 2401082914157840805}
-  - {fileID: 540285111}
-  - {fileID: 1822784919}
-  - {fileID: 1276919654}
-  TEXT_camera: {fileID: 2401082913219987246}
+  OBJ_camera: []
+  TEXT_camera: {fileID: 0}
   BM_mng: {fileID: 2401082913906132433}
   OBJ_trapPos:
   - {fileID: 2401082914504558800}
@@ -41529,46 +41508,10 @@ MonoBehaviour:
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
   - {fileID: 100000, guid: ef03ca84fdb21294b956e86fa475d3ee, type: 3}
-  OBJ_gimmicUI:
-  - {fileID: 2401082914706817946}
-  - {fileID: 2401082912793558484}
-  - {fileID: 2401082912776545613}
-  - {fileID: 2401082914538603826}
-  - {fileID: 2401082913574440357}
-  - {fileID: 2401082914595471442}
-  - {fileID: 65377128}
-  - {fileID: 851679801}
-  - {fileID: 901629222}
-  SonarFx_sf:
-  - {fileID: 2401082913648250663}
-  - {fileID: 2401082913952959747}
-  - {fileID: 2401082912871521133}
-  - {fileID: 2401082914166798576}
-  - {fileID: 2401082913768776697}
-  - {fileID: 2401082914407964481}
-  - {fileID: 1233641207}
-  - {fileID: 615339413}
-  - {fileID: 1255493951}
-  IMAGE_Volt:
-  - {fileID: 2401082913754352036}
-  - {fileID: 2401082913168826941}
-  - {fileID: 2401082913186586987}
-  - {fileID: 2401082913815203312}
-  - {fileID: 2401082914303849909}
-  - {fileID: 2401082913422926797}
-  - {fileID: 1846664523}
-  - {fileID: 239830256}
-  - {fileID: 1322542142}
-  CT_Volt:
-  - {fileID: 2401082912716602056}
-  - {fileID: 2401082912573816097}
-  - {fileID: 2401082912840953410}
-  - {fileID: 2401082914428404573}
-  - {fileID: 2401082913402700277}
-  - {fileID: 2401082912696710515}
-  - {fileID: 59773790}
-  - {fileID: 1750650}
-  - {fileID: 1941957130}
+  OBJ_gimmicUI: []
+  SonarFx_sf: []
+  IMAGE_Volt: []
+  CT_Volt: []
   Sensor_Text:
   - {fileID: 2401082912954761083}
   - {fileID: 2401082913101304361}
@@ -41582,7 +41525,7 @@ MonoBehaviour:
   Camera_Num: 9
   SensorS: {fileID: 2401082914216133894}
   Sensor_Capacity: 4
-  Cool_Volt: 15
+  Cool_Volt: 0
   shiftbattery: 0
   voltbattery: 5
   SencorBattery: 3
@@ -41597,18 +41540,9 @@ MonoBehaviour:
   - 0
   - 0
   - 0
-  Volt_timers:
-  - 15
-  - 15
-  - 15
-  - 15
-  - 15
-  - 15
-  - 15
-  - 15
-  - 15
-  Volt_Flg: 000000000000000000
-  Cam_Flg: 000000000000000000
+  Volt_timers: []
+  Volt_Flg: 
+  Cam_Flg: 
   Gf_Flg: 000000000000000000
   Sensor_Flg: 000000000000000000
 --- !u!1 &2401082912809069791
