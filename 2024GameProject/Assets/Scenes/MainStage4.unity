@@ -41697,9 +41697,10 @@ MonoBehaviour:
   Camera_Num: 9
   SensorS: {fileID: 2401082914216133894}
   V_time: 20
+  Under_Battery: 5
   Sensor_Capacity: 4
   Cool_Volt: 15
-  shiftbattery: 8
+  SonarBattery: 8
   voltbattery: 5
   SencorBattery: 3
   Gf_float: 0.7
