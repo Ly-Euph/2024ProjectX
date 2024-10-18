@@ -11,7 +11,11 @@ public class MutantScript : MonoBehaviour
     private int posAmount;                          //スポーンさせる位置の量
     private int rand;                               //ランダム値
 
-    private string inputStr;                        //入力された文字数字
+    private Transform pos;
+    private Quaternion qtr;
+
+
+    //private string inputStr;                        //入力された文字数字
 
     // Start is called before the first frame update
     void Start()
@@ -20,27 +24,29 @@ public class MutantScript : MonoBehaviour
 
         posAmount = position.Length;
 
-        
+        rand = Random.Range(0, posAmount);
     }
 
     void Update()
     {
         Test();
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            camChangeFlag = true;
+        }
     }
 
 
     void Test()
     {
-        if(camChangeFlag==true)             //カメラの切り替えが行われた時
+        if(camChangeFlag==true)
         {
             for (int i = 0; i < posAmount; i++)
             {
                 Debug.Log("a");
             }
+            camChangeFlag = false;
         }
-
-
-        rand = Random.Range(0, 100);
     }
 
 }
