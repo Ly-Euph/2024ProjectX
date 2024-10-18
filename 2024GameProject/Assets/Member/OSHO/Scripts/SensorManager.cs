@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SensorManager : MonoBehaviour
 {
-    string SencorNum;
+    int SencorNum;
 
     bool recieve = false;
     // Start is called before the first frame update
-    public string GSSencor
+    public int GSSencor
     {
         set 
         {

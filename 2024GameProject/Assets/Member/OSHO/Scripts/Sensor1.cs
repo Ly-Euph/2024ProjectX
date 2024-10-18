@@ -6,11 +6,11 @@ using UnityEngine.UI;
 public class Sensor1 : MonoBehaviour
 {
     [SerializeField] SensorManager SencorMng;
-    [SerializeField] string SendTex;
+    [SerializeField] int SendNum;
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("ìGÇ…êGÇÍÇ‹ÇµÇΩ");
-        SencorMng.GSSencor = SendTex.ToString();
+        SencorMng.GSSencor = SendNum.ToString();
     }
 }
