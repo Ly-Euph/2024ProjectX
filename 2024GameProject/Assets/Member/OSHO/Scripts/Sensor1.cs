@@ -11,6 +11,10 @@ public class Sensor1 : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("“G‚ÉG‚ê‚Ü‚µ‚½");
+<<<<<<< HEAD
         SencorMng.GSSencor = SendNum;
+=======
+        SencorMng.GSSensor = SendNum;
+>>>>>>> main
     }
 }

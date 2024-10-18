@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA8
+  SendNum: 0
 --- !u!65 &60172972
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16728,7 +16728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA7
+  SendNum: 0
 --- !u!65 &900733135
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -37841,7 +37841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA9
+  SendNum: 0
 --- !u!65 &2023805884
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -40729,7 +40729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA3
+  SendNum: 0
 --- !u!65 &2401082912710655985
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41837,7 +41837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA5
+  SendNum: 0
 --- !u!65 &2401082912832311009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42345,7 +42345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA6
+  SendNum: 0
 --- !u!65 &2401082912902393025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43830,7 +43830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA2
+  SendNum: 0
 --- !u!65 &2401082913112429006
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43925,7 +43925,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &2401082913114797812
 GameObject:
@@ -44328,11 +44328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea42fb1e51a666489079b68885aa297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text:
-  - {fileID: 2401082912624977751}
-  - {fileID: 2401082914477639484}
-  - {fileID: 2401082914679606304}
-  Mng: {fileID: 2401082913055113558}
+  Obj: []
+  sMng: {fileID: 2401082913055113558}
 --- !u!1 &2401082913161146756
 GameObject:
   m_ObjectHideFlags: 0
@@ -44858,7 +44855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: 450}
+  m_AnchoredPosition: {x: -750, y: 150}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2401082913219987245
@@ -49113,6 +49110,7 @@ GameObject:
   - component: {fileID: 2401082913884767606}
   - component: {fileID: 2401082913884767600}
   - component: {fileID: 2401082913884767607}
+  - component: {fileID: 2401082913884767608}
   m_Layer: 5
   m_Name: Map
   m_TagString: Untagged
@@ -49136,7 +49134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 790, y: 370}
+  m_AnchoredPosition: {x: -750, y: 350}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2401082913884767607
@@ -49169,6 +49167,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2401082913884767608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2401082913884767605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
 --- !u!4 &2401082913906132432
 Transform:
   m_ObjectHideFlags: 0
@@ -50529,7 +50540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA4
+  SendNum: 0
 --- !u!65 &2401082914076013955
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50936,7 +50947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: 300}
+  m_AnchoredPosition: {x: 0, y: -305}
   m_SizeDelta: {x: 300, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2401082914097711701
@@ -54621,7 +54632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -464, y: 450}
+  m_AnchoredPosition: {x: 0, y: 450}
   m_SizeDelta: {x: 300, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2401082914677201062
@@ -54761,7 +54772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SencorMng: {fileID: 2401082913055113558}
-  SendTex: AREA1
+  SendNum: 0
 --- !u!65 &2401082914690403513
 BoxCollider:
   m_ObjectHideFlags: 0
