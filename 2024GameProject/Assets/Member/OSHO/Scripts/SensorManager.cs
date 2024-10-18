@@ -8,7 +8,7 @@ public class SensorManager : MonoBehaviour
 
     bool recieve = false;
     // Start is called before the first frame update
-    public int GSSencor
+    public int GSSensor
     {
         set 
         {
