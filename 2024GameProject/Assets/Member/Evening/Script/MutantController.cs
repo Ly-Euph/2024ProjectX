@@ -12,7 +12,7 @@ public class MutantController : MonoBehaviour
     private int rand;
 
 
-    private Transform pos;
+    private Vector3 pos;
     private Quaternion qrt;
 
 
@@ -42,10 +42,13 @@ public class MutantController : MonoBehaviour
     {
         if(camChangeFlag==true)
         {
-            for(int i=0;i<posAmount;i++)
-            {
-                Debug.Log("a");
-            }
+            pos = spawnPos[rand].transform.position;
+            qrt = spawnPos[rand].transform.rotation;
+
+            transform.position = pos;
+            transform.rotation = qrt;
+
+            rand = Random.Range(0, posAmount);
 
             camChangeFlag = false;
         }
