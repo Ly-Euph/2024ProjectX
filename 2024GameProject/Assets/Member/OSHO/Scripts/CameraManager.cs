@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class CameraManager : MonoBehaviour
 {
+    //FadeのPrefab
     [SerializeField] Fade fade;
 
+    [Header("GlitchFxのスクリプトを入れてね")]
     public GlitchFx[] GF_gf;
 
     [SerializeField] GameManager gMng;
@@ -31,10 +33,6 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] GameObject[] OBJ_trapObj;
 
-    //[Header("それぞれのCamZoomUIを入れるとこ")]
-
-    //[SerializeField] GameObject[] OBJ_camZoom;
-
     [Header("それぞれのGimmicUIを入れるとこ")]
 
     [SerializeField] GameObject[] OBJ_gimmicUI;
@@ -57,10 +55,6 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] Text[] Sensor_Text;
 
-    [Header("ScanManagerを入れてね")]
-
-    ScanManager sMng;
-
     [Header("ステージ事に合わせたカメラの数を入力してください")]
 
     [SerializeField] int Camera_Num;
@@ -69,9 +63,13 @@ public class CameraManager : MonoBehaviour
     [SerializeField] GameObject SensorS;
 
     //Voltトラップのクールタイム
-    private int V_time = 20;
+    [Header("Voltトラップのクールタイム設定")]
 
-    private int Voltcounter = 0;
+    [SerializeField] int V_time = 20;
+
+    [Header("○○以下になったらの数字")]
+
+    [SerializeField] int Under_Battery;
 
     private bool SencorFlg = false;
 
@@ -81,8 +79,8 @@ public class CameraManager : MonoBehaviour
     [Header("Voltのクールタイム")]
     public int Cool_Volt;
 
-    [Header("Shiftを押した時のバッテリーの減算")]
-    public int shiftbattery;
+    [Header("Z(ソナー）を押した時のバッテリーの減算")]
+    public int SonarBattery;
 
     [Header("Eキー（ボルトを押したときの）のバッテリー減算")]
     public int voltbattery;
@@ -94,10 +92,11 @@ public class CameraManager : MonoBehaviour
     public float Gf_float;
 
     // カメラ切り替え用
-    private int cameraNum;
+    public int cameraNum;
 
     private int cnumMin = 1;
     private int cnumMax;
+
     // ソナー中に回復しないように
     private bool trapFlg = false;
 
@@ -107,8 +106,6 @@ public class CameraManager : MonoBehaviour
 
     //Voltのtimerの変数
     private float[] time_Vs;
-
-    private float Sencor_Cooltime;
 
     // 音の連続再生制御
     float _timer = 0;
@@ -184,13 +181,13 @@ public class CameraManager : MonoBehaviour
         //    TimeCounter();
         //    return;
         //}
-        if (BM_mng.Para_Battery >= 5)
+        if (BM_mng.Para_Battery >= Under_Battery)
         {
             
             //Shiftキーを押したときにバッテリーを５%減らす。
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                BM_mng.Para_Battery -= shiftbattery;
+                BM_mng.Para_Battery -= SonarBattery;
             }
 
             if (Input.GetKey(KeyCode.Z))
@@ -228,7 +225,7 @@ public class CameraManager : MonoBehaviour
         }
 
         //バッテリー残量が５％以上の時Voltトラップ呼出し
-        if (BM_mng.Para_Battery >= 5)
+        if (BM_mng.Para_Battery >= Under_Battery)
         {
             
             for (int i = 0; i < Cam_Flg.Length; i++)
@@ -259,6 +256,7 @@ public class CameraManager : MonoBehaviour
                 CameraFlg = true;
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+                //fadeさせる処理
                 fade.FadeIn(0.1f, () =>
                 fade.FadeOut(0.2f)
                 );
@@ -267,7 +265,6 @@ public class CameraManager : MonoBehaviour
                 CamFlag();
                 Cam_Flg[cameraNum - 1] = true;
                 UIActive(cameraNum - 1);
-               // GF_gf[cameraNum - 1].intensity += Gf_float;
                 Gf_Flg[cameraNum - 1] = true;
                
             }
@@ -335,14 +332,13 @@ public class CameraManager : MonoBehaviour
             }
         }
 
-        //VoltトラップとUIを切り替える
-
+        //VoltトラップとUIを切り替え
         for (int i = 0; i < Camera_Num; i++)
         {
             if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
             {
                 //VoltのSE
-                //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
                 StartVoltTimer(i);
             }
             if (Volt_Flg[i])
@@ -351,18 +347,18 @@ public class CameraManager : MonoBehaviour
             }
             if (BM_mng.Para_Battery <= Sensor_Capacity)
             {
-                Sensor_Flg[i] = false;  
+                Sensor_Flg[i] = false;
                 //return;
             }
-            if(BM_mng.Para_Battery <= 5)
+            if (BM_mng.Para_Battery <= Under_Battery)
             {
                 Sensor_Text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
                 SensorS.SetActive(false);
             }
-            if (BM_mng.Para_Battery >= 5)
+            if (BM_mng.Para_Battery >= Under_Battery)
             {
-                if (Cam_Flg[i]&&Input.GetKeyDown(KeyCode.X))
+                if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.X))
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
@@ -375,7 +371,7 @@ public class CameraManager : MonoBehaviour
                         SensorS.SetActive(true);
                         BM_mng.Para_Battery -= SencorBattery;
                         SencorFlg = true;
-                       
+
                     }
                     if (!Sensor_Flg[i])
                     {
@@ -389,18 +385,15 @@ public class CameraManager : MonoBehaviour
                 }
             }
         }
-        //for (int i = 0; i < Sensor_Flg.Length; i++)
-
-        
-            if (SencorFlg && BM_mng.Para_Battery >= 1)
-            {
+        if (SencorFlg && BM_mng.Para_Battery >= 1)
+        {
                 BM_mng.Para_Battery -= 0.05f;
                 Debug.Log("バッテリー残量");
-            }
-            else
-            {
+        }
+        else
+        {
                 SencorFlg = false;
-            }
+        }
     }
 
     //GimmickとCamZoomの制御
@@ -485,14 +478,5 @@ public class CameraManager : MonoBehaviour
         {
             BM_mng.Para_Battery -= voltbattery;
         }
-    }
-    void TimeCounter()
-    {
-        Sencor_Cooltime += Time.deltaTime;
-        //if (Sencor_Cooltime >= 1)
-        //{
-        //    SencorFlg = false;
-        //    Sencor_Cooltime = 0;
-        //}
     }
 }
