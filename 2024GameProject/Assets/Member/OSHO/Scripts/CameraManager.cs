@@ -181,6 +181,8 @@ public class CameraManager : MonoBehaviour
         //    TimeCounter();
         //    return;
         //}
+
+        Debug.Log(cameraNum);
         if (BM_mng.Para_Battery >= Under_Battery)
         {
             

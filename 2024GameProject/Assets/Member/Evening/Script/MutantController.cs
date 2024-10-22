@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MutantController : MonoBehaviour
 {
+    private CameraManager cameraManager;            //CameraManagerスクリプトの取得
+
     [SerializeField] GameObject[] spawnPos;         //Mutantのスポーン場所、向きを取得するために使う
 
     private int posAmount;                          //spawnPosの総量を保存する
@@ -22,10 +24,12 @@ public class MutantController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
+
         posAmount = spawnPos.Length;
         rand = Random.Range(0, posAmount);
 
-        camNum = GetComponent<CameraManager>().cameraNum;
+        camNum = cameraManager.cameraNum;
         compareNum = camNum;
 
         
@@ -35,26 +39,29 @@ public class MutantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camNum = GetComponent<CameraManager>().cameraNum;
+        camNum = cameraManager.cameraNum;
         Test();
 
         //カメラの変更があった時
-        if(camNum!=compareNum)
+        if (camNum != compareNum)
         {
             camChangeFlag = true;
+            Debug.Log("tigauyo");
         }
 
     }
 
     void Test()
     {
-        if(camChangeFlag==true)
+        if (camChangeFlag == true)
         {
             pos = spawnPos[rand].transform.position;        //値を代入
             qrt = spawnPos[rand].transform.rotation;        //値を代入
 
             transform.position = pos;
             transform.rotation = qrt;
+
+            compareNum = camNum;
 
             rand = Random.Range(0, posAmount);
 
