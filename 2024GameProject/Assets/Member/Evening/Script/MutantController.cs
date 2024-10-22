@@ -9,7 +9,6 @@ public class MutantController : MonoBehaviour
     [SerializeField] GameObject[] spawnPos;         //Mutantのスポーン場所、向きを取得するために使う
 
     private int posAmount;                          //spawnPosの総量を保存する
-    private int rand;                               //0～posAmount分のランダム値を出力するためぼ変数
 
 
     private int camNum;             //CameraManagerのcameraNumを継承
@@ -27,7 +26,6 @@ public class MutantController : MonoBehaviour
         cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
 
         posAmount = spawnPos.Length;
-        rand = Random.Range(0, posAmount);
 
         camNum = cameraManager.cameraNum;
         compareNum = camNum;
@@ -55,15 +53,13 @@ public class MutantController : MonoBehaviour
     {
         if (camChangeFlag == true)
         {
-            pos = spawnPos[rand].transform.position;        //値を代入
-            qrt = spawnPos[rand].transform.rotation;        //値を代入
+            pos = spawnPos[camNum-1].transform.position;        //値を代入
+            qrt = spawnPos[camNum-1].transform.rotation;        //値を代入
 
             transform.position = pos;
             transform.rotation = qrt;
 
             compareNum = camNum;
-
-            rand = Random.Range(0, posAmount);
 
             camChangeFlag = false;
         }
