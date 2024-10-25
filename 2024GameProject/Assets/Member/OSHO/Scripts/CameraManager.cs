@@ -92,7 +92,7 @@ public class CameraManager : MonoBehaviour
     public float Gf_float;
 
     // カメラ切り替え用
-    private int cameraNum;
+    public int cameraNum;
 
     private int cnumMin = 1;
     private int cnumMax;
@@ -181,6 +181,8 @@ public class CameraManager : MonoBehaviour
         //    TimeCounter();
         //    return;
         //}
+
+        Debug.Log(cameraNum);
         if (BM_mng.Para_Battery >= Under_Battery)
         {
             
