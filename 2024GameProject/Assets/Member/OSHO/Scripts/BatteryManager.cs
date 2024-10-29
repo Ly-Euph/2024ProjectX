@@ -50,7 +50,6 @@ public class BatteryManager : MonoBehaviour
 
 
         Battery_Color();
-        Debug.Log(FLOAT_battery);
     }
 
     void Battery_Color()
