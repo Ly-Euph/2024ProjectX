@@ -8,11 +8,14 @@ public class MutantController : MonoBehaviour
 
     [SerializeField] GameObject[] spawnPos;         //Mutantのスポーン場所、向きを取得するために使う
 
-    private int posAmount;                          //spawnPosの総量を保存する
 
 
     private int camNum;             //CameraManagerのcameraNumを継承
     private int compareNum;         //上のcamNumとの比較、カメラ変更があったことを検知するために使う
+
+    private int rand;
+    private int changeRand;
+
 
 
     private Vector3 pos;            //spawnPosのpositionを保存する時に使う
@@ -23,12 +26,12 @@ public class MutantController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
-
-        posAmount = spawnPos.Length;
+        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();    
 
         camNum = cameraManager.cameraNum;
         compareNum = camNum;
+
+        rand = Random.Range(0, 60);
 
         
         camChangeFlag = false;
@@ -38,31 +41,40 @@ public class MutantController : MonoBehaviour
     void Update()
     {
         camNum = cameraManager.cameraNum;
-        Test();
 
         //カメラの変更があった時
         if (camNum != compareNum)
         {
             camChangeFlag = true;
-            Debug.Log("tigauyo");
         }
+
+
+
+        if(camChangeFlag==true)
+        {
+            Test();
+        }
+
+
 
     }
 
     void Test()
     {
-        if (camChangeFlag == true)
+        changeRand = Random.Range(0, 60);
+
+        if(rand==changeRand)
         {
-            pos = spawnPos[camNum-1].transform.position;        //値を代入
-            qrt = spawnPos[camNum-1].transform.rotation;        //値を代入
+            pos = spawnPos[camNum - 1].transform.position;        //値を代入
+            qrt = spawnPos[camNum - 1].transform.rotation;        //値を代入
 
             transform.position = pos;
             transform.rotation = qrt;
 
             compareNum = camNum;
-
-            camChangeFlag = false;
         }
+        
+        camChangeFlag = false;
     }
 
 }
