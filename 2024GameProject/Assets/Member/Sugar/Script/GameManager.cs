@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
         Eff2,
         Eff3,
         Eff4,
+        Eff5,
         num,
     }
 

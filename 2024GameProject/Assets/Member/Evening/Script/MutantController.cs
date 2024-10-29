@@ -8,7 +8,9 @@ public class MutantController : MonoBehaviour
 
     [SerializeField] GameObject[] spawnPos;         //Mutantのスポーン場所、向きを取得するために使う
 
+    public GameObject Mutant;
 
+    [SerializeField] GameManager gMng;
 
     private int camNum;             //CameraManagerのcameraNumを継承
     private int compareNum;         //上のcamNumとの比較、カメラ変更があったことを検知するために使う
@@ -16,10 +18,14 @@ public class MutantController : MonoBehaviour
     private int rand;
     private int changeRand;
 
-
+    float timer = 0;
 
     private Vector3 pos;            //spawnPosのpositionを保存する時に使う
     private Quaternion qrt;         //spawnPosのrotationを保存する時に使う
+
+
+    public AudioClip spawnSound;
+    AudioSource audioSourse;
 
 
     private bool camChangeFlag;     //カメラの変更が行われた時true
@@ -31,8 +37,8 @@ public class MutantController : MonoBehaviour
         camNum = cameraManager.cameraNum;
         compareNum = camNum;
 
-        rand = Random.Range(0, 60);
-
+        rand = 1;
+        audioSourse = GetComponent<AudioSource>();
         
         camChangeFlag = false;
     }
@@ -41,6 +47,15 @@ public class MutantController : MonoBehaviour
     void Update()
     {
         camNum = cameraManager.cameraNum;
+
+        timer += Time.deltaTime;
+
+        if(timer>=3.0f)
+        {
+            timer = 0;
+            changeRand = Random.Range(0, 10);
+            Debug.Log(changeRand);
+        }
 
         //カメラの変更があった時
         if (camNum != compareNum)
@@ -61,17 +76,20 @@ public class MutantController : MonoBehaviour
 
     void Test()
     {
-        changeRand = Random.Range(0, 60);
+        compareNum = camNum;
 
-        if(rand==changeRand)
+        if (rand==changeRand)
         {
             pos = spawnPos[camNum - 1].transform.position;        //値を代入
             qrt = spawnPos[camNum - 1].transform.rotation;        //値を代入
+            Instantiate(Mutant, pos, qrt);
+            //audioSourse.PlayOneShot(spawnSound);
 
-            transform.position = pos;
-            transform.rotation = qrt;
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
 
-            compareNum = camNum;
+
+            //  同じタイミングで二度目は出さない
+            changeRand = 0;
         }
         
         camChangeFlag = false;
