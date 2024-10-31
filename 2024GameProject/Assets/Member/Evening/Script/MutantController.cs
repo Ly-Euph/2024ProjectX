@@ -23,11 +23,6 @@ public class MutantController : MonoBehaviour
     private Vector3 pos;            //spawnPosのpositionを保存する時に使う
     private Quaternion qrt;         //spawnPosのrotationを保存する時に使う
 
-
-    public AudioClip spawnSound;
-    AudioSource audioSourse;
-
-
     private bool camChangeFlag;     //カメラの変更が行われた時true
     // Start is called before the first frame update
     void Start()
@@ -38,7 +33,6 @@ public class MutantController : MonoBehaviour
         compareNum = camNum;
 
         rand = 1;
-        audioSourse = GetComponent<AudioSource>();
         
         camChangeFlag = false;
     }
@@ -54,7 +48,6 @@ public class MutantController : MonoBehaviour
         {
             timer = 0;
             changeRand = Random.Range(0, 10);
-            Debug.Log(changeRand);
         }
 
         //カメラの変更があった時
@@ -85,7 +78,7 @@ public class MutantController : MonoBehaviour
             Instantiate(Mutant, pos, qrt);
             //audioSourse.PlayOneShot(spawnSound);
 
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+            //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
 
 
             //  同じタイミングで二度目は出さない

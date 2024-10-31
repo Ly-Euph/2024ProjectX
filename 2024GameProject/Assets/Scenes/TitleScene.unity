@@ -588,9 +588,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Option
       objectReference: {fileID: 0}
+    - target: {fileID: 5837752663113760455, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837752663329419144, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5837752663329419149, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5837752663985792295, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: m_audioClip
