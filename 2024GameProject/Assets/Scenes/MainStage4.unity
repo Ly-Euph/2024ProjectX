@@ -4669,7 +4669,7 @@ Transform:
   - {fileID: 1170214638}
   - {fileID: 2082263001}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &233064251
 GameObject:
@@ -6641,6 +6641,10 @@ PrefabInstance:
       propertyPath: fademinBright
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2848765533893057958, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4853801439237680901, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -7623,6 +7627,14 @@ PrefabInstance:
     - target: {fileID: 7927230309481681823, guid: f26f2b8ba21fdd94fbc3158d845bdaf6, type: 3}
       propertyPath: m_Name
       value: CamFade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927230309491339287, guid: f26f2b8ba21fdd94fbc3158d845bdaf6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927230309491339287, guid: f26f2b8ba21fdd94fbc3158d845bdaf6, type: 3}
+      propertyPath: cutoutRange
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f26f2b8ba21fdd94fbc3158d845bdaf6, type: 3}
@@ -14043,7 +14055,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5837752663113760448, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5837752663113760448, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: m_LocalPosition.x
@@ -26979,7 +26991,7 @@ Transform:
   - {fileID: 1157214317}
   - {fileID: 734641215}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1371347153
 PrefabInstance:
@@ -33251,7 +33263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 48ad312242e5a694491d785c1213f500, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 48ad312242e5a694491d785c1213f500, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56510,7 +56522,6 @@ MonoBehaviour:
   - {fileID: 1672065721}
   Mutant: {fileID: 1332719110146227615, guid: e48068f7f4204a043984d34e044ed4d2, type: 3}
   gMng: {fileID: 93225977}
-  spawnSound: {fileID: 0}
 --- !u!1 &2474985149995052655
 GameObject:
   m_ObjectHideFlags: 0
