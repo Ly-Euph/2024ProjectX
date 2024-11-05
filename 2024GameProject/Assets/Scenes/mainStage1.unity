@@ -269,6 +269,36 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 305065382}
   m_Enabled: 1
+--- !u!1 &318619976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318619977}
+  m_Layer: 0
+  m_Name: MutantPlace3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &318619977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318619976}
+  m_LocalRotation: {x: 0.9384346, y: 0, z: 0.34545702, w: 0}
+  m_LocalPosition: {x: -23.4, y: 0.46, z: -15.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 498848084}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 101.037994, y: 136.036, z: -2.5859985}
 --- !u!1001 &354555295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9043470128113631218, guid: 3f3ca538d58affe4ea9ed51ca62a3a7d, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 9043470128113631218, guid: 3f3ca538d58affe4ea9ed51ca62a3a7d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -470,6 +500,72 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88abd1effa063d54aa5bd3ba1836246c, type: 3}
+--- !u!1 &453079646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 453079647}
+  m_Layer: 0
+  m_Name: MutantPlace2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453079647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453079646}
+  m_LocalRotation: {x: -0.027990498, y: 0.9373051, z: 0.07747476, w: 0.3386347}
+  m_LocalPosition: {x: -24.35, y: -1.9, z: 30.51}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 498848084}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 137.797, z: 20.869}
+--- !u!1 &498848083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498848084}
+  m_Layer: 0
+  m_Name: MutantPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &498848084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498848083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2004170058}
+  - {fileID: 453079647}
+  - {fileID: 318619977}
+  - {fileID: 1116771387}
+  - {fileID: 1277360638}
+  - {fileID: 582844293}
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &514370268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -640,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739600613972, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739600613972, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_LocalPosition.x
@@ -685,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 2585746739600613973, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: m_Name
       value: AllScenePre_SYSTEM
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585746739620661698, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2585746739621341374, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
       propertyPath: Obj
@@ -980,6 +1080,36 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581726185}
   m_Enabled: 1
+--- !u!1 &582844292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582844293}
+  m_Layer: 0
+  m_Name: MutantPlace6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582844293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582844292}
+  m_LocalRotation: {x: 0.16787942, y: 0.96292716, z: 0.09201087, w: 0.19005734}
+  m_LocalPosition: {x: 14.74, y: -1.81, z: -16.91}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 498848084}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: -180, y: 44, z: 0}
 --- !u!1 &603060136 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2585746738809722882, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
@@ -1229,6 +1359,14 @@ PrefabInstance:
       propertyPath: gMng
       value: 
       objectReference: {fileID: 1600578557}
+    - target: {fileID: 5837752663668325809, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837752663668325809, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: cutoutRange
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5837752663985792295, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -1243,6 +1381,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+--- !u!1 &877098733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 877098734}
+  - component: {fileID: 877098735}
+  m_Layer: 0
+  m_Name: MutantController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &877098734
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877098733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &877098735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877098733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aef1aa3c1ea347499b3e91bf166de08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPos:
+  - {fileID: 2004170057}
+  - {fileID: 453079646}
+  - {fileID: 318619976}
+  - {fileID: 1116771386}
+  - {fileID: 1277360637}
+  - {fileID: 582844292}
+  Mutant: {fileID: 1332719110146227615, guid: e48068f7f4204a043984d34e044ed4d2, type: 3}
+  gMng: {fileID: 1600578557}
 --- !u!114 &887182648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7927230309491338505, guid: f26f2b8ba21fdd94fbc3158d845bdaf6, type: 3}
@@ -1345,7 +1535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1090207368 stripped
 GameObject:
@@ -1360,6 +1550,36 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1090207368}
   m_Enabled: 1
+--- !u!1 &1116771386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116771387}
+  m_Layer: 0
+  m_Name: MutantPlace4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1116771387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116771386}
+  m_LocalRotation: {x: -0.033358946, y: 0.94108886, z: 0.097470455, w: 0.32208464}
+  m_LocalPosition: {x: 14.86, y: -1.99, z: 75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 498848084}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -180, y: -36, z: 0}
 --- !u!1001 &1167575840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1661,6 +1881,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db32822e00ca7c14187784e2963b6ac2, type: 3}
+--- !u!1 &1277360637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1277360638}
+  m_Layer: 0
+  m_Name: MutantPlace5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1277360638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1277360637}
+  m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 7.07, y: 0.35, z: 39.44}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 498848084}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
 --- !u!4 &1302355468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2585746740125944882, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
@@ -2216,7 +2466,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962815467 stripped
 GameObject:
@@ -2241,6 +2491,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2585746740110287080, guid: 07a3aa5623ef8374abe1e7f21412c935, type: 3}
   m_PrefabInstance: {fileID: 527617163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2004170057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2004170058}
+  m_Layer: 0
+  m_Name: MutantPlace1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2004170058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004170057}
+  m_LocalRotation: {x: -0.031941786, y: 0.94564825, z: 0.09792853, w: 0.30844635}
+  m_LocalPosition: {x: -24.5, y: -2, z: 74.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 498848084}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 143.87, z: 0}
 --- !u!1001 &2091627471
 PrefabInstance:
   m_ObjectHideFlags: 0

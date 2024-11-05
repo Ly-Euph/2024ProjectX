@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class MutantController : MonoBehaviour
 {
+    private CameraManager cameraManager;            //CameraManagerスクリプトの取得
+
     [SerializeField] GameObject[] spawnPos;         //Mutantのスポーン場所、向きを取得するために使う
 
-    private int posAmount;                          //spawnPosの総量を保存する
-    private int rand;                               //0～posAmount分のランダム値を出力するためぼ変数
+    public GameObject Mutant;
 
+    [SerializeField] GameManager gMng;
 
     private int camNum;             //CameraManagerのcameraNumを継承
     private int compareNum;         //上のcamNumとの比較、カメラ変更があったことを検知するために使う
 
+    private int rand;
+    private int changeRand;
+
+    float timer = 0;
 
     private Vector3 pos;            //spawnPosのpositionを保存する時に使う
     private Quaternion qrt;         //spawnPosのrotationを保存する時に使う
-
 
     private bool camChangeFlag;     //カメラの変更が行われた時true
     // Start is called before the first frame update
     void Start()
     {
-        posAmount = spawnPos.Length;
-        rand = Random.Range(0, posAmount);
+        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();    
 
-        camNum = GetComponent<CameraManager>().cameraNum;
+        camNum = cameraManager.cameraNum;
         compareNum = camNum;
 
+        rand = 1;
         
         camChangeFlag = false;
     }
@@ -35,31 +40,52 @@ public class MutantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camNum = GetComponent<CameraManager>().cameraNum;
-        Test();
+        camNum = cameraManager.cameraNum;
+
+        timer += Time.deltaTime;
+
+        if(timer>=3.0f)
+        {
+            timer = 0;
+            changeRand = Random.Range(0, 10);
+        }
 
         //カメラの変更があった時
-        if(camNum!=compareNum)
+        if (camNum != compareNum)
         {
             camChangeFlag = true;
         }
+
+
+
+        if(camChangeFlag==true)
+        {
+            Test();
+        }
+
+
 
     }
 
     void Test()
     {
-        if(camChangeFlag==true)
+        compareNum = camNum;
+
+        if (rand==changeRand)
         {
-            pos = spawnPos[rand].transform.position;        //値を代入
-            qrt = spawnPos[rand].transform.rotation;        //値を代入
+            pos = spawnPos[camNum - 1].transform.position;        //値を代入
+            qrt = spawnPos[camNum - 1].transform.rotation;        //値を代入
+            Instantiate(Mutant, pos, qrt);
+            //audioSourse.PlayOneShot(spawnSound);
 
-            transform.position = pos;
-            transform.rotation = qrt;
+            //gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
 
-            rand = Random.Range(0, posAmount);
 
-            camChangeFlag = false;
+            //  同じタイミングで二度目は出さない
+            changeRand = 0;
         }
+        
+        camChangeFlag = false;
     }
 
 }
