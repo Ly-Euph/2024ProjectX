@@ -176,12 +176,6 @@ public class CameraManager : MonoBehaviour
         //時を止めてる間はreturnし続ける。
         if (Time.timeScale == 0) return;
 
-        //if (SencorFlg)
-        //{
-        //    TimeCounter();
-        //    return;
-        //}
-
         if (BM_mng.Para_Battery >= Under_Battery)
         {
             
