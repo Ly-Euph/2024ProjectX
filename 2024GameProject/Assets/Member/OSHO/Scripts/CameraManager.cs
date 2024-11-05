@@ -356,6 +356,11 @@ public class CameraManager : MonoBehaviour
                 Sensor_Text[i].text = "OFF";
                 CT_Volt[i].text = "NO";
                 SensorS.SetActive(false);
+                for (int j = 0; j < cameraNum; j++)
+                {
+                    Sensor_Flg[j] = false;
+                }
+                SencorFlg = false;
             }
             if (BM_mng.Para_Battery >= Under_Battery)
             {
@@ -398,6 +403,10 @@ public class CameraManager : MonoBehaviour
                 for (int j = 0; j < cameraNum; j++)
                 {
                     Sensor_Flg[j] = false;
+                }
+                for (int v = 0; v < Sensor_Text.Length; v++)
+                {
+                    Sensor_Text[v].text = "OFF";
                 }
                 SensorS.SetActive(false);
 
