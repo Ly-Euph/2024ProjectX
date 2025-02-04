@@ -27,15 +27,15 @@ public class CameraManager : MonoBehaviour
 
     [Header("Trapを発動する位置用のObject")]
 
-    [SerializeField] GameObject[] OBJ_trapPos;
+    [SerializeField] GameObject Obj_Trap;
 
     [Header("様々なTrapを入れてね")]
 
-    [SerializeField] GameObject[] OBJ_trapObj;
+    [SerializeField] GameObject OBJ_trapObj;
 
     [Header("それぞれのGimmicUIを入れるとこ")]
 
-    [SerializeField] GameObject[] OBJ_gimmicUI;
+    [SerializeField] GameObject OBJ_gimmicUI;
 
     [Header("SonarFxのScriptを入れてね")]
 
@@ -45,15 +45,15 @@ public class CameraManager : MonoBehaviour
     [Header("それぞれのVoltトラップで使うImageを入れてね")]
 
     // ボルトトラップイメージ
-    [SerializeField] Image[] IMAGE_Volt;
+    [SerializeField] Image IMAGE_Volt;
 
     [Header("VoltのCooltime用のTextを入れてね。")]
 
-    [SerializeField] Text[] CT_Volt;
+    [SerializeField] Text CT_Volt;
 
     [Header("Sencor用のTextを入れてね。")]
 
-    [SerializeField] Text[] Sensor_Text;
+    [SerializeField] Text Sensor_Text;
 
     [Header("ステージ事に合わせたカメラの数を入力してください")]
 
@@ -149,13 +149,13 @@ public class CameraManager : MonoBehaviour
         {
             // ボルトトラップ使用可能のテキスト「OK」を初めに表示
 
-            CT_Volt[i].text = "OK";
+            CT_Volt.text = "OK";
 
             //Sencorトラップ使用可能のテキスト[OFF]を初めに表示
-            Sensor_Text[i].text = "OFF";
+            Sensor_Text.text = "OFF";
 
             //　Imageを初めは0にしておく。
-            IMAGE_Volt[i].GetComponent<Image>().fillAmount = 0;
+            IMAGE_Volt.GetComponent<Image>().fillAmount = 0;
         }
         //初めはCamera1に設定
         SetCamera(0);
@@ -168,7 +168,6 @@ public class CameraManager : MonoBehaviour
         SonarOff();
 
         //time_Vsに配列の値を代入。
-        time_Vs = new float[Volt_timers.Length];
     }
 
     void Update()
@@ -225,12 +224,12 @@ public class CameraManager : MonoBehaviour
             
             for (int i = 0; i < Cam_Flg.Length; i++)
             {
-                CT_Volt[i].text = "OK";
+                CT_Volt.text = "OK";
                 if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
-                    Vector3 ObjPos = OBJ_trapPos[i].transform.position;
-                    Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
+                    Vector3 ObjPos = Obj_Trap.transform.position;
+                    Instantiate(OBJ_trapObj, ObjPos, Quaternion.identity);
                     time_Vs[i] = 0;
                     Battery_nega();
                     // クールタイム計測
@@ -330,7 +329,7 @@ public class CameraManager : MonoBehaviour
         //VoltトラップとUIを切り替え
         for (int i = 0; i < Camera_Num; i++)
         {
-            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt[i].fillAmount == 0 && BM_mng.Para_Battery >= 5)
+            if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt.fillAmount == 0 && BM_mng.Para_Battery >= 5)
             {
                 //VoltのSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
@@ -347,8 +346,8 @@ public class CameraManager : MonoBehaviour
             }
             if (BM_mng.Para_Battery <= Under_Battery)
             {
-                Sensor_Text[i].text = "OFF";
-                CT_Volt[i].text = "NO";
+                Sensor_Text.text = "OFF";
+                CT_Volt.text = "NO";
                 SensorS.SetActive(false);
                 for (int j = 0; j < cameraNum; j++)
                 {
@@ -364,10 +363,7 @@ public class CameraManager : MonoBehaviour
                     Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
                     if (Sensor_Flg[i])
                     {
-                        for (int j = 0; j < Sensor_Text.Length; j++)
-                        {
-                            Sensor_Text[j].text = "ON";
-                        }
+                        Sensor_Text.text = "ON";
                         SensorS.SetActive(true);
                         BM_mng.Para_Battery -= SencorBattery;
                         SencorFlg = true;
@@ -375,10 +371,7 @@ public class CameraManager : MonoBehaviour
                     }
                     if (!Sensor_Flg[i])
                     {
-                        for (int v = 0; v < Sensor_Text.Length; v++)
-                        {
-                            Sensor_Text[v].text = "OFF";
-                        }
+                        Sensor_Text.text = "OFF";
                         SensorS.SetActive(false);
                         SencorFlg = false;
                     }
@@ -398,10 +391,7 @@ public class CameraManager : MonoBehaviour
                 {
                     Sensor_Flg[j] = false;
                 }
-                for (int v = 0; v < Sensor_Text.Length; v++)
-                {
-                    Sensor_Text[v].text = "OFF";
-                }
+                Sensor_Text.text = "OFF";
                 SensorS.SetActive(false);
 
                 SencorFlg = false;
@@ -412,13 +402,10 @@ public class CameraManager : MonoBehaviour
     //GimmickとCamZoomの制御
     private void UIActive(int num)
     {
-        for (int i = 0; i < OBJ_gimmicUI.Length; i++)
-        {
             // 一旦全てのUI表示を非表示
-            OBJ_gimmicUI[i].SetActive(false);
+          OBJ_gimmicUI.SetActive(false);
            // OBJ_camZoom[i].SetActive(false);
-        }
-        OBJ_gimmicUI[num].SetActive(true);
+          OBJ_gimmicUI.SetActive(true);
         //OBJ_camZoom[num].SetActive(true);
     }
     //カメラ関連の切り替えの処理
@@ -468,19 +455,19 @@ public class CameraManager : MonoBehaviour
 
     private void StartVoltTimer(int index)
     {
-        CT_Volt[index].text = V_time.ToString();
-        IMAGE_Volt[index].fillAmount = 1;
+        CT_Volt.text = V_time.ToString();
+        IMAGE_Volt.fillAmount = 1;
         Volt_Flg[index] = true;
     }
     private void UpdateVoltTimer(int index)
     {
         Volt_timers[index] -= Time.deltaTime;
-            CT_Volt[index].text = ((int)Volt_timers[index]).ToString();
-        IMAGE_Volt[index].fillAmount -= 1.0f / (float)Cool_Volt* Time.deltaTime;
+        CT_Volt.text = ((int)Volt_timers[index]).ToString();
+        IMAGE_Volt.fillAmount -= 1.0f / (float)Cool_Volt* Time.deltaTime;
             if (Volt_timers[index] <= 0)
             {
                 Volt_Flg[index] = false;
-                CT_Volt[index].text = "OK";
+                CT_Volt.text = "OK";
                 Volt_timers[index] = Cool_Volt;
             }
     }
