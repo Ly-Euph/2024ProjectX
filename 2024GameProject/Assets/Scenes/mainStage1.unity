@@ -1359,6 +1359,14 @@ PrefabInstance:
       propertyPath: gMng
       value: 
       objectReference: {fileID: 1600578557}
+    - target: {fileID: 5837752663668325809, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5837752663668325809, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
+      propertyPath: cutoutRange
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5837752663985792295, guid: 1d26ecbaa07a3d54699c2dd04375f832, type: 3}
       propertyPath: m_audioClip
       value: 
@@ -1425,7 +1433,6 @@ MonoBehaviour:
   - {fileID: 582844292}
   Mutant: {fileID: 1332719110146227615, guid: e48068f7f4204a043984d34e044ed4d2, type: 3}
   gMng: {fileID: 1600578557}
-  spawnSound: {fileID: 0}
 --- !u!114 &887182648 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7927230309491338505, guid: f26f2b8ba21fdd94fbc3158d845bdaf6, type: 3}
