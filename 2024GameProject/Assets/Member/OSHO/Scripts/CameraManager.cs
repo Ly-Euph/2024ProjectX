@@ -27,11 +27,11 @@ public class CameraManager : MonoBehaviour
 
     [Header("Trapを発動する位置用のObject")]
 
-    [SerializeField] GameObject Obj_Trap;
+    [SerializeField] GameObject[] Obj_Trap;
 
     [Header("様々なTrapを入れてね")]
 
-    [SerializeField] GameObject OBJ_trapObj;
+    [SerializeField] GameObject[] OBJ_trapObj;
 
     [Header("それぞれのGimmicUIを入れるとこ")]
 
@@ -228,8 +228,8 @@ public class CameraManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
                 {
                     gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
-                    Vector3 ObjPos = Obj_Trap.transform.position;
-                    Instantiate(OBJ_trapObj, ObjPos, Quaternion.identity);
+                    Vector3 ObjPos = Obj_Trap[i].transform.position;
+                    Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
                     time_Vs[i] = 0;
                     Battery_nega();
                     // クールタイム計測
