@@ -9,7 +9,7 @@ public class Enemy_Mutant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 3.0f;
+        timer = 20.0f;
     }
 
     // Update is called once per frame

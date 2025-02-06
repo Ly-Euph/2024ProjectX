@@ -15,6 +15,7 @@ public class TitleCursor : MonoBehaviour
     int Min;
     void Start()
     {
+        num=0;
         // コンポーネント取得
         myObjRect = GetComponent<RectTransform>();
         // 配列番号のMaxを取得
