@@ -2738,6 +2738,7 @@ GameObject:
   - component: {fileID: 5837752663907153805}
   - component: {fileID: 5837752663907153807}
   - component: {fileID: 5837752663907153806}
+  - component: {fileID: 3943759939029642414}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2802,6 +2803,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3943759939029642414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837752663907153804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642a5f680bb147941bfdbfdf799c162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 5837752663907153806}
 --- !u!1 &5837752663985792293
 GameObject:
   m_ObjectHideFlags: 0
@@ -4657,6 +4671,7 @@ GameObject:
   - component: {fileID: 5837752664541452556}
   - component: {fileID: 5837752664541452563}
   - component: {fileID: 5837752664541452557}
+  - component: {fileID: 5285311732984723752}
   m_Layer: 5
   m_Name: CurLine
   m_TagString: Untagged
@@ -4740,6 +4755,19 @@ MonoBehaviour:
   OpBox: {fileID: 5837752663329419149}
   UIPre: {fileID: 5837752664889232783}
   gMng: {fileID: 0}
+--- !u!114 &5285311732984723752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837752664541452561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642a5f680bb147941bfdbfdf799c162a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 5837752664541452563}
 --- !u!1 &5837752664582287146
 GameObject:
   m_ObjectHideFlags: 0
@@ -5700,7 +5728,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!114 &5837752664889232778
 MonoBehaviour:
