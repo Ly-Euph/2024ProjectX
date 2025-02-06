@@ -42,6 +42,9 @@ public class Scan : MonoBehaviour
         scanImg.fillAmount = 1;
     }
 
+    /// <summary>
+    /// クールタイム計算
+    /// </summary>
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
