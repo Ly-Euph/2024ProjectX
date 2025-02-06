@@ -17,6 +17,11 @@ public class EnemySelector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Em_Spawn();
+    }
+
+    private void Em_Spawn()
+    {
+
     }
 }
