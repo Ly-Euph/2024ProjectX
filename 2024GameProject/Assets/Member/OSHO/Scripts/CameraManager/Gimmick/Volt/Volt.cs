@@ -56,7 +56,7 @@ public class Volt : MonoBehaviour
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
-        if (voltText.text != "CHARGE") { return; }
+        if (voltText.text != "CHARGE"&&voltImg.fillAmount==0) { return; }
         // 時間計算
         voltTimer += Time.deltaTime;
         voltImg.fillAmount -= 1.0f / (float)voltCTTimer*Time.deltaTime;
@@ -66,6 +66,23 @@ public class Volt : MonoBehaviour
             voltText.text = "READY";
             // 一応ここで0にしておく
             voltImg.fillAmount = 0;
+        }
+    }
+
+    /// <summary>
+    /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
+    /// </summary>
+    /// <param name="cost">このギミックの使用コスト</param>
+    /// <param name="battery">バッテリーの残量</param>
+    public void NowCost(int cost,float battery)
+    {
+        if(cost>=battery)
+        {
+            voltText.text = "CHARGE";
+        }
+        else
+        {
+            voltText.text = "READY";
         }
     }
 }
