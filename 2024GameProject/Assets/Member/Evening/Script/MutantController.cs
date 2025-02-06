@@ -29,7 +29,7 @@ public class MutantController : MonoBehaviour
     {
         cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();    
 
-        camNum = cameraManager.cameraNum;
+        camNum = cameraManager.CameraNum;
         compareNum = camNum;
 
         rand = 1;
@@ -40,7 +40,7 @@ public class MutantController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camNum = cameraManager.cameraNum;
+        camNum = cameraManager.CameraNum;
 
         timer += Time.deltaTime;
 
