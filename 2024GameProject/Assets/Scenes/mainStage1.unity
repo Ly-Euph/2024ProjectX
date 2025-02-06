@@ -1754,6 +1754,7 @@ MonoBehaviour:
   - {fileID: 962853547}
   - {fileID: 880066619}
   - {fileID: 1023712009}
+  lightText: {fileID: 2585746738826590967}
 --- !u!1 &1405709511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,12 +2807,12 @@ GameObject:
   - component: {fileID: 2585746738826590960}
   - component: {fileID: 2585746738826590967}
   m_Layer: 5
-  m_Name: CTText_S
+  m_Name: CTText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2585746738826590966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2852,7 +2853,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: efa2c114e545a9242ae4da8602331dd1, type: 3}
+    m_Font: {fileID: 12800000, guid: b2ea3b3f1765e544b9eb5bd1a93a91ce, type: 3}
     m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
@@ -2864,7 +2865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 999.9
+  m_Text: OFF
 --- !u!222 &2585746738847426760
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3432,7 +3433,7 @@ GameObject:
   - component: {fileID: 2585746739024029848}
   - component: {fileID: 2585746739024029855}
   m_Layer: 5
-  m_Name: CTPanel_S
+  m_Name: CTPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3507,7 +3508,7 @@ GameObject:
   - component: {fileID: 2585746739049548196}
   - component: {fileID: 2585746739049548219}
   m_Layer: 5
-  m_Name: Text_S
+  m_Name: KeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9477,7 +9478,7 @@ GameObject:
   - component: {fileID: 2585746740519890375}
   - component: {fileID: 2585746740519890374}
   m_Layer: 5
-  m_Name: Icon_S
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11024,6 +11025,10 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 1169917465}
+    - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 1335892893}
     - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
       propertyPath: gameOverObj
       value: 
