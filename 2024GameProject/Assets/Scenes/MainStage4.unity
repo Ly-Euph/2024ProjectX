@@ -5559,11 +5559,11 @@ PrefabInstance:
       objectReference: {fileID: 862530039}
     - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
       propertyPath: fademaxBright
-      value: 40
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 358023589108124201, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
       propertyPath: fademinBright
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2848765533893057958, guid: c11e9cd9242de7144ab9f74a6e3f7095, type: 3}
       propertyPath: m_IsActive
@@ -28873,7 +28873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3601525503690173416, guid: 48ad312242e5a694491d785c1213f500, type: 3}
       propertyPath: spwanLate
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 48ad312242e5a694491d785c1213f500, type: 3}
       propertyPath: m_RootOrder
