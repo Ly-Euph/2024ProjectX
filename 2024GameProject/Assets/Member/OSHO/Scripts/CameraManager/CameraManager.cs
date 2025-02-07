@@ -111,6 +111,8 @@ public class CameraManager : MonoBehaviour
         {
             scan.NotCost();
         }
+
+        Debug.Log(battery.Para_Battery);
     }
 
     /// <summary>

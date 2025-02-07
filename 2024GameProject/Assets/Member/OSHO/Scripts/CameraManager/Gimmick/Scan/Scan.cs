@@ -50,7 +50,7 @@ public class Scan : MonoBehaviour
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
-        if (scanText.text != "CHARGE") { return; }
+        if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
         // 時間計算
         scanTimer += Time.deltaTime;
         scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
