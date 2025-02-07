@@ -74,17 +74,8 @@ public class Volt : MonoBehaviour
     /// <summary>
     /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
     /// </summary>
-    /// <param name="cost">このギミックの使用コスト</param>
-    /// <param name="battery">バッテリーの残量</param>
-    public void NowCost(int cost,float battery)
+    public void NotCost()
     {
-        if(cost>=battery)
-        {
-            voltText.text = "CHARGE";
-        }
-        else
-        {
-            voltText.text = "READY";
-        }
+        voltText.text = "CHARGE";
     }
 }
