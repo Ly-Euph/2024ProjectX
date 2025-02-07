@@ -57,26 +57,30 @@ public class CameraManager : MonoBehaviour
 
         // ボルト機能
         if (Input.GetKeyDown(KeyCode.C)&&battery.Para_Battery>=cost_volt)
-        {
-            // 音再生
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
-            // バッテリー消費
-            BatteryCost(cost_volt);
+        { 
             // ボルト生成
-            volt.UseVolt(cameraNum);
+            if (volt.UseVolt(cameraNum))
+            {
+                // 音再生
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
+                // バッテリー消費
+                BatteryCost(cost_volt);
+            }
         }
         // ボルトのリチャージ
         volt.Recharge();
 
         // スキャン機能
         if (Input.GetKeyDown(KeyCode.X)&&battery.Para_Battery>=cost_scan)
-        {
-            // 音再生
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
-            // バッテリー消費
-            BatteryCost(cost_scan);
+        {    
             // スキャン開始
-            scan.UseScan();
+            if(scan.UseScan())
+            {
+                // 音再生
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
+                // バッテリー消費
+                BatteryCost(cost_scan);
+            }
         }
         // スキャンのリチャージ
         scan.Recharge();
@@ -98,7 +102,7 @@ public class CameraManager : MonoBehaviour
         // バッテリー残量によってUIにプレイヤーに対し注意効果を付ける
         battery.Battery_Color();
 
-       // volt.NowCost(cost_volt,battery.Para_Battery);
+        volt.NowCost(cost_volt,battery.Para_Battery);
     }
 
     /// <summary>

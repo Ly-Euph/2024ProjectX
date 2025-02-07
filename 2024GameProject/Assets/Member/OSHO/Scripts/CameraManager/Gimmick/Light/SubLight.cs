@@ -18,13 +18,15 @@ public class SubLight : MonoBehaviour
     /// ギミックライトに色変更
     /// </summary>
     /// <param name="camNum">カメラ番号</param>
-    public void UseLight(int camNum)
+    public bool UseLight(int camNum)
     {
         // 使用状態変更
         lightText.text = "ON";
         IsUse = true;
         ColorUtility.TryParseHtmlString(colorSub, out newColor); // 新しくColorを作成
         lights[camNum-1].color = newColor;
+
+        return true;
     }
 
     /// <summary>

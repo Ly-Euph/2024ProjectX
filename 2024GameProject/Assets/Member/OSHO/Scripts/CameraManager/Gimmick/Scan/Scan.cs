@@ -31,15 +31,17 @@ public class Scan : MonoBehaviour
     /// <summary>
     /// スキャン使用の処理
     /// </summary>
-    public void UseScan()
+    public bool UseScan()
     {
         // 準備出来たかチェック
-        if (scanText.text != "READY") { return; }
+        if (scanText.text != "READY") { return false; }
         // オブジェクトを表示する
         scan.SetActive(true);
         // 使用済
         scanText.text = "CHARGE";
         scanImg.fillAmount = 1;
+
+        return true;
     }
 
     /// <summary>
