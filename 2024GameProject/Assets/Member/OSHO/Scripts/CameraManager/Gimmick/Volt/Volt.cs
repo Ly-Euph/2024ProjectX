@@ -17,7 +17,7 @@ public class Volt : MonoBehaviour
     [Header("生成するvoltのオブジェクト"), SerializeField] GameObject voltObj;
 
     // Voltトラップのクールタイム設定
-    const int voltCTTimer = 7;
+    const int voltCTTimer = 5;
     // クールタイムの計算用
     float voltTimer ;
     #endregion
