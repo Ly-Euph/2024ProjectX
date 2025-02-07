@@ -27,8 +27,8 @@ public class CameraManager : MonoBehaviour
     [Header("音再生機能のスクリプト"),SerializeField] GameManager gMng;
 
     // コスト
-    const int cost_volt=7;  // ボルト
-    const int cost_scan=20; // スキャン
+    const int cost_volt = 5;  // ボルト
+    const int cost_scan = 15; // スキャン
 
     // カメラ切り替え用
     private int cameraNum = 1;

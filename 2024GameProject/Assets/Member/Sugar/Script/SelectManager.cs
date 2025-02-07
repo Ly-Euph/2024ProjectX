@@ -92,7 +92,7 @@ public class SelectManager : MonoBehaviour
         //}
 
         // ゲーム開始のボタンとアウトラインが重なってから押したら始められる
-        if (Input.GetKeyDown(KeyCode.Return)&&UDnum==1)
+        if (Input.GetKeyDown(KeyCode.Return)&&UDnum==0)
         {
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
             fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[LRnum].StageSceneName));
