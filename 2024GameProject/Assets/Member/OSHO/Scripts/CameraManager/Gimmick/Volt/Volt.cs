@@ -36,10 +36,10 @@ public class Volt : MonoBehaviour
     /// ボルト使用の処理
     /// </summary>
     /// <param name="num">どのカメラかCameraManagerのcamaeraNumを送って</param>
-    public void UseVolt(int num)
+    public bool UseVolt(int num)
     {
         // 準備出来たかチェック
-        if (voltText.text != "READY") { return; }
+        if (voltText.text != "READY") { return false; }
         // -1にして配列の0番目から使えるように
         // ポジションの設定
         Vector3 ObjPos = objPos[num-1].transform.position;
@@ -48,6 +48,8 @@ public class Volt : MonoBehaviour
         // 使用済
         voltText.text = "CHARGE";
         voltImg.fillAmount = 1;
+
+        return true;
     }
 
     /// <summary>

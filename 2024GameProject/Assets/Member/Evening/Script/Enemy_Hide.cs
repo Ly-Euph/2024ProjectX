@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_Hide : MonoBehaviour,IDamageable
 {
-    CameraManager camMng;
+    SubLight sensorLight;
 
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
@@ -42,7 +42,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        camMng = GameObject.Find("CameraManager").GetComponent<CameraManager>();
+        sensorLight = GameObject.Find("SonarLight").GetComponent<SubLight>();
 
         dolly = GetComponent<Cinemachine.CinemachineDollyCart>();
 
@@ -75,7 +75,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
             Destroy(gameObject,3.0f);
             return;
         }
-        hydeFlag = camMng.SendtrapFlg;
+        hydeFlag = sensorLight.IsLight;
 
         this.dolly.m_Path = myPath;
         SwitchStage();
