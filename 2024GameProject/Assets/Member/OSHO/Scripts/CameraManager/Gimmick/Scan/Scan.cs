@@ -69,4 +69,12 @@ public class Scan : MonoBehaviour
             scanImg.fillAmount = 0;
         }
     }
+
+    /// <summary>
+    /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
+    /// </summary>
+    public void NotCost()
+    {
+        scanText.text = "CHARGE";
+    }
 }
