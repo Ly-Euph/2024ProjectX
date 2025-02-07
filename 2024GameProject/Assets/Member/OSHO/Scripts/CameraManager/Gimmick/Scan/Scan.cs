@@ -77,4 +77,16 @@ public class Scan : MonoBehaviour
     {
         scanText.text = "CHARGE";
     }
+
+    /// <summary>
+    /// コストある状態で呼び出し使えるようにする
+    /// </summary>
+    public void ReadySet()
+    {
+        if (scanImg.fillAmount != 0)
+        {
+            return;
+        }
+        scanText.text = "READY";
+    }
 }

@@ -102,14 +102,23 @@ public class CameraManager : MonoBehaviour
         // バッテリー残量によってUIにプレイヤーに対し注意効果を付ける
         battery.Battery_Color();
 
-        /* コスト以下の電力の時に使えないことを知らせる */
+        /*コスト以下の電力の時に使えないことを知らせる*/
+        /*コストがあり、クールタイム期間でなければREADYにする*/
         if (cost_volt > battery.Para_Battery)
         {
             volt.NotCost();
         }
+        else
+        {
+            volt.ReadySet();
+        }
         if(cost_scan>battery.Para_Battery)
         {
             scan.NotCost();
+        }
+        else
+        {
+            scan.ReadySet();
         }
 
         Debug.Log(battery.Para_Battery);

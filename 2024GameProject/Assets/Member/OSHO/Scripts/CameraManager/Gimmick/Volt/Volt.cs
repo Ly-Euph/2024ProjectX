@@ -78,4 +78,16 @@ public class Volt : MonoBehaviour
     {
         voltText.text = "CHARGE";
     }
+
+    /// <summary>
+    /// コストある状態で呼び出し使えるようにする
+    /// </summary>
+    public void ReadySet()
+    {
+        if(voltImg.fillAmount!=0)
+        {
+            return;
+        }
+        voltText.text = "READY";
+    }
 }
