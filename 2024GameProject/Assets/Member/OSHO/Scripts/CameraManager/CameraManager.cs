@@ -98,7 +98,7 @@ public class CameraManager : MonoBehaviour
         // バッテリー残量によってUIにプレイヤーに対し注意効果を付ける
         battery.Battery_Color();
 
-        volt.NowCost(cost_volt,battery.Para_Battery);
+       // volt.NowCost(cost_volt,battery.Para_Battery);
     }
 
     /// <summary>
