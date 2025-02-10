@@ -2973,7 +2973,7 @@ MonoBehaviour:
   cam: {fileID: 1155632371}
   volt: {fileID: 1306870542}
   scan: {fileID: 1405709513}
-  light: {fileID: 1335892893}
+  sonar: {fileID: 1335892893}
   fade: {fileID: 887182648}
   battery: {fileID: 2585746739864996425}
   gMng: {fileID: 1600578557}
@@ -3019,7 +3019,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 62}
+  m_AnchoredPosition: {x: 0, y: 70}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2585746738826590967
@@ -10808,7 +10808,7 @@ GameObject:
   - component: {fileID: 2585746740767403908}
   - component: {fileID: 2585746740767403931}
   m_Layer: 5
-  m_Name: SonarLight
+  m_Name: SonarLight_
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

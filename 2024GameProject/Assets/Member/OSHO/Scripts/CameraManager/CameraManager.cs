@@ -16,7 +16,7 @@ public class CameraManager : MonoBehaviour
     // Scan機能を実装する
     [Foldout("ギミック"),Header("Scanのギミックスクリプト"), SerializeField] Scan scan;
     // ソナー機能を実装する
-    [Foldout("ギミック"), Header("Sonarのギミックスクリプト"), SerializeField] SubLight light;
+    [Foldout("ギミック"), Header("Sonarのギミックスクリプト"), SerializeField] SubLight sonar;
     #endregion
 
     // フェードの実装
@@ -91,11 +91,11 @@ public class CameraManager : MonoBehaviour
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
             // バッテリー消費
             // ソナーライト
-            light.UseLight(cameraNum);
+            sonar.UseLight(cameraNum);
         }
         else
         {
-            light.NormalLight(cameraNum);
+            sonar.NormalLight(cameraNum);
         }
         // 回復機能
         battery.HealBattery();
