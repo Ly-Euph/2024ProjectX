@@ -17,7 +17,7 @@ public class Volt : MonoBehaviour
     [Header("生成するvoltのオブジェクト"), SerializeField] GameObject voltObj;
 
     // Voltトラップのクールタイム設定
-    const int voltCTTimer = 7;
+    const int voltCTTimer = 5;
     // クールタイムの計算用
     float voltTimer ;
     #endregion
@@ -36,10 +36,10 @@ public class Volt : MonoBehaviour
     /// ボルト使用の処理
     /// </summary>
     /// <param name="num">どのカメラかCameraManagerのcamaeraNumを送って</param>
-    public void UseVolt(int num)
+    public bool UseVolt(int num)
     {
         // 準備出来たかチェック
-        if (voltText.text != "READY") { return; }
+        if (voltText.text != "READY") { return false; }
         // -1にして配列の0番目から使えるように
         // ポジションの設定
         Vector3 ObjPos = objPos[num-1].transform.position;
@@ -48,6 +48,8 @@ public class Volt : MonoBehaviour
         // 使用済
         voltText.text = "CHARGE";
         voltImg.fillAmount = 1;
+
+        return true;
     }
 
     /// <summary>
@@ -56,7 +58,7 @@ public class Volt : MonoBehaviour
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
-        if (voltText.text != "CHARGE") { return; }
+        if (voltText.text != "CHARGE"&&voltImg.fillAmount==0) { return; }
         // 時間計算
         voltTimer += Time.deltaTime;
         voltImg.fillAmount -= 1.0f / (float)voltCTTimer*Time.deltaTime;
@@ -67,5 +69,25 @@ public class Volt : MonoBehaviour
             // 一応ここで0にしておく
             voltImg.fillAmount = 0;
         }
+    }
+
+    /// <summary>
+    /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
+    /// </summary>
+    public void NotCost()
+    {
+        voltText.text = "CHARGE";
+    }
+
+    /// <summary>
+    /// コストある状態で呼び出し使えるようにする
+    /// </summary>
+    public void ReadySet()
+    {
+        if(voltImg.fillAmount!=0)
+        {
+            return;
+        }
+        voltText.text = "READY";
     }
 }
