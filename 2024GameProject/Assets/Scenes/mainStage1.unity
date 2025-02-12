@@ -2926,7 +2926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &953441013
 Light:
   m_ObjectHideFlags: 0
@@ -13589,6 +13589,10 @@ MonoBehaviour:
   volt: {fileID: 1306870542}
   scan: {fileID: 1405709513}
   sonar: {fileID: 1335892893}
+  shake:
+  - {fileID: 2585746740767403932}
+  - {fileID: 2585746740505974984}
+  - {fileID: 2585746739283223028}
   fade: {fileID: 887182648}
   battery: {fileID: 2585746739864996425}
   gMng: {fileID: 1600578557}
@@ -15332,6 +15336,7 @@ GameObject:
   - component: {fileID: 2585746739283223026}
   - component: {fileID: 2585746739283223036}
   - component: {fileID: 2585746739283223027}
+  - component: {fileID: 2585746739283223028}
   m_Layer: 5
   m_Name: Volt
   m_TagString: Untagged
@@ -15393,6 +15398,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2585746739283223028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585746739283223025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7d95e2ca9c7634da4cdb7db56e2c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 10
+  duration: 0.3
+  rectTransform: {fileID: 2585746739283223026}
 --- !u!222 &2585746739283223036
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19918,6 +19938,7 @@ GameObject:
   - component: {fileID: 2585746740505974982}
   - component: {fileID: 2585746740505974976}
   - component: {fileID: 2585746740505974983}
+  - component: {fileID: 2585746740505974984}
   m_Layer: 5
   m_Name: Scan
   m_TagString: Untagged
@@ -19979,6 +20000,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2585746740505974984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585746740505974981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7d95e2ca9c7634da4cdb7db56e2c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 10
+  duration: 0.3
+  rectTransform: {fileID: 2585746740505974982}
 --- !u!1 &2585746740509900648
 GameObject:
   m_ObjectHideFlags: 0
@@ -21422,6 +21458,7 @@ GameObject:
   - component: {fileID: 2585746740767403930}
   - component: {fileID: 2585746740767403908}
   - component: {fileID: 2585746740767403931}
+  - component: {fileID: 2585746740767403932}
   m_Layer: 5
   m_Name: SonarLight_
   m_TagString: Untagged
@@ -21482,6 +21519,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2585746740767403932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2585746740767403929}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7d95e2ca9c7634da4cdb7db56e2c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amplitude: 10
+  duration: 1
+  rectTransform: {fileID: 2585746740767403930}
 --- !u!114 &2585746740771981476
 MonoBehaviour:
   m_ObjectHideFlags: 0

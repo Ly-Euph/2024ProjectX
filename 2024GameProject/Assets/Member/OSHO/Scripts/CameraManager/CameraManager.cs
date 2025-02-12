@@ -19,6 +19,10 @@ public class CameraManager : MonoBehaviour
     [Foldout("ギミック"), Header("Sonarのギミックスクリプト"), SerializeField] SubLight sonar;
     #endregion
 
+    // UIの揺れ実装
+    // 0:センサー 1:スキャン 2:ボルト
+    [Header("UIShakeのスクリプト"), SerializeField] UIShake[] shake;
+
     // フェードの実装
     [Header("Fadeのスクリプト"), SerializeField] Fade fade;
     // 回復,消費、カラーチェンジなどをこのスクリプトで
@@ -33,8 +37,11 @@ public class CameraManager : MonoBehaviour
     // カメラ切り替え用
     private int cameraNum = 1;
 
-    // ソナー中に回復しないように
+    // ソナー使用のフラグ
     private bool trapFlg = false;
+
+    // センサー使用中電力回復を制限する
+    private bool IsSensor = false;
     #endregion
 
     void Start()
@@ -56,30 +63,56 @@ public class CameraManager : MonoBehaviour
         CamChange();
 
         // ボルト機能
-        if (Input.GetKeyDown(KeyCode.C)&&battery.Para_Battery>=cost_volt)
-        { 
-            // ボルト生成
-            if (volt.UseVolt(cameraNum))
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (battery.Para_Battery >= cost_volt)
             {
-                // 音再生
-                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
-                // バッテリー消費
-                BatteryCost(cost_volt);
+                // ボルト生成
+                if (volt.UseVolt(cameraNum))
+                {
+                    // 音再生
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
+                    // バッテリー消費
+                    BatteryCost(cost_volt);
+                }
+                else // 使えないことを知らせるためにUIを動かす
+                {
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+                    shake[2].Shake();
+                }
+            }
+            else
+            {
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+                shake[2].Shake();
             }
         }
         // ボルトのリチャージ
         volt.Recharge();
 
         // スキャン機能
-        if (Input.GetKeyDown(KeyCode.X)&&battery.Para_Battery>=cost_scan)
-        {    
-            // スキャン開始
-            if(scan.UseScan())
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            if (battery.Para_Battery >= cost_scan)
             {
-                // 音再生
-                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
-                // バッテリー消費
-                BatteryCost(cost_scan);
+                // スキャン開始
+                if (scan.UseScan())
+                {
+                    // 音再生
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
+                    // バッテリー消費
+                    BatteryCost(cost_scan);
+                }
+                else
+                {
+                    shake[1].Shake();
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+                }
+            }
+            else
+            {
+                shake[1].Shake();
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
             }
         }
         // スキャンのリチャージ
@@ -87,18 +120,25 @@ public class CameraManager : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Z))
         {
-            // 音再生
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
-            // バッテリー消費
+            // 起動した最初のみで実行する処理
+            if (!IsSensor)
+            {
+                // 音再生
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
+                // バッテリー消費
+                IsSensor = true;
+                //shake[0].Shake();
+            }
             // ソナーライト
             sonar.UseLight(cameraNum);
         }
         else
         {
+            IsSensor = false;
             sonar.NormalLight(cameraNum);
         }
         // 回復機能
-        battery.HealBattery();
+        if (!IsSensor){ battery.HealBattery(); }
         // バッテリー残量によってUIにプレイヤーに対し注意効果を付ける
         battery.Battery_Color();
 
@@ -120,8 +160,6 @@ public class CameraManager : MonoBehaviour
         {
             scan.ReadySet();
         }
-
-        Debug.Log(battery.Para_Battery);
     }
 
     /// <summary>

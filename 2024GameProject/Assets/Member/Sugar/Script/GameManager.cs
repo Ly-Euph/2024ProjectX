@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         if (type == SEData.Type.OBJ)
         {
-            aud[0].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.OBJ].SE[(int)se]);
+            aud[1].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.OBJ].SE[(int)se]);
         }
         else if (type == SEData.Type.HUMAN)
         {
