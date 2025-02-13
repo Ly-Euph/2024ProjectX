@@ -36,6 +36,8 @@ public class CameraManager : MonoBehaviour
 
     // カメラ切り替え用
     private int cameraNum = 1;
+    private int keyNum = 1;
+
 
     // ソナー使用のフラグ
     private bool trapFlg = false;
@@ -197,6 +199,48 @@ public class CameraManager : MonoBehaviour
                 cameraNum = i;
                 cam.SetCamera(cameraNum);
             }
+        }
+        // 前のカメラに
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            // 数字チェック
+            if (cameraNum !=keyNum)
+            {
+                cameraNum--;
+            }
+            else
+            {
+                cameraNum = cam.CameraNum;
+            }
+
+            //カメラ切り替え時のSE
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            //fadeさせる処理
+            fade.FadeIn(0.1f, () =>
+            fade.FadeOut(0.2f)
+            );
+            cam.SetCamera(cameraNum);
+
+        }
+        // 次のカメラに
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            // 数字チェック
+            if (cameraNum != cam.CameraNum)
+            {
+                cameraNum++;
+            }
+            else
+            {
+                cameraNum = keyNum;
+            }
+            //カメラ切り替え時のSE
+            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
+            //fadeさせる処理
+            fade.FadeIn(0.1f, () =>
+            fade.FadeOut(0.2f)
+            );
+            cam.SetCamera(cameraNum);
         }
     }
 
