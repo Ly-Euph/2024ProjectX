@@ -42,6 +42,9 @@ public class CameraManager : MonoBehaviour
 
     // センサー使用中電力回復を制限する
     private bool IsSensor = false;
+
+    // センサーライトフラグオンオフ切替
+    private bool IsSwitch = false;
     #endregion
 
     void Start()
@@ -63,7 +66,7 @@ public class CameraManager : MonoBehaviour
         CamChange();
 
         // ボルト機能
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             if (battery.Para_Battery >= cost_volt)
             {
@@ -91,7 +94,7 @@ public class CameraManager : MonoBehaviour
         volt.Recharge();
 
         // スキャン機能
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             if (battery.Para_Battery >= cost_scan)
             {
@@ -118,8 +121,9 @@ public class CameraManager : MonoBehaviour
         // スキャンのリチャージ
         scan.Recharge();
 
-        if(Input.GetKey(KeyCode.Z))
+        if(Input.GetKeyDown(KeyCode.F))
         {
+            IsSwitch = IsSwitch ? false : true;
             // 起動した最初のみで実行する処理
             if (!IsSensor)
             {
@@ -127,14 +131,18 @@ public class CameraManager : MonoBehaviour
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
                 // バッテリー消費
                 IsSensor = true;
-                //shake[0].Shake();
+                //shake[0].Shake()
             }
+        }
+        if (IsSwitch) // ON状態処理
+        {
             // ソナーライト
             sonar.UseLight(cameraNum);
         }
-        else
+        else // OFF状態処理
         {
             IsSensor = false;
+            // 通常ライト
             sonar.NormalLight(cameraNum);
         }
         // 回復機能
