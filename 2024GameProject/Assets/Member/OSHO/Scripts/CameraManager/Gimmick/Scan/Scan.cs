@@ -31,21 +31,26 @@ public class Scan : MonoBehaviour
     /// <summary>
     /// スキャン使用の処理
     /// </summary>
-    public void UseScan()
+    public bool UseScan()
     {
         // 準備出来たかチェック
-        if (scanText.text != "READY") { return; }
+        if (scanText.text != "READY") { return false; }
         // オブジェクトを表示する
         scan.SetActive(true);
         // 使用済
         scanText.text = "CHARGE";
         scanImg.fillAmount = 1;
+
+        return true;
     }
 
+    /// <summary>
+    /// クールタイム計算
+    /// </summary>
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
-        if (scanText.text != "CHARGE") { return; }
+        if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
         // 時間計算
         scanTimer += Time.deltaTime;
         scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
@@ -63,5 +68,25 @@ public class Scan : MonoBehaviour
             // 一応ここで0にしておく
             scanImg.fillAmount = 0;
         }
+    }
+
+    /// <summary>
+    /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
+    /// </summary>
+    public void NotCost()
+    {
+        scanText.text = "CHARGE";
+    }
+
+    /// <summary>
+    /// コストある状態で呼び出し使えるようにする
+    /// </summary>
+    public void ReadySet()
+    {
+        if (scanImg.fillAmount != 0)
+        {
+            return;
+        }
+        scanText.text = "READY";
     }
 }

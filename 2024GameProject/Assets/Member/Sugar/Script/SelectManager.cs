@@ -48,7 +48,7 @@ public class SelectManager : MonoBehaviour
     {
         if (Time.timeScale == 0) { return; }
         InputKEY();
-        RectPosChange();
+        //RectPosChange();
         SDB_Set();
     }
     void InputKEY()
@@ -78,21 +78,21 @@ public class SelectManager : MonoBehaviour
                 else { LRnum += point; }
             }
         }
-        if(INPUT_W)
-        {
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
-            if (UDnum == Min) { UDnum = UDMax; }
-            else { UDnum -= point; }
-        }
-        if (INPUT_S)
-        {
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
-            if (UDnum == UDMax) { UDnum = Min; }
-            else { UDnum += point; }
-        }
+        //if(INPUT_W)
+        //{
+        //    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+        //    if (UDnum == Min) { UDnum = UDMax; }
+        //    else { UDnum -= point; }
+        //}
+        //if (INPUT_S)
+        //{
+        //    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
+        //    if (UDnum == UDMax) { UDnum = Min; }
+        //    else { UDnum += point; }
+        //}
 
         // ゲーム開始のボタンとアウトラインが重なってから押したら始められる
-        if (Input.GetKeyDown(KeyCode.Return)&&UDnum==1)
+        if (Input.GetKeyDown(KeyCode.Return)&&UDnum==0)
         {
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
             fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[LRnum].StageSceneName));
