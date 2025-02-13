@@ -2,100 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Pixeye.Unity;   // フォルダ機能
 
 public class CameraManager : MonoBehaviour
 {
     #region field
-    // フェードの実装
-    [Header("FadeのPrefab"),SerializeField] Fade fade;
-
-    // 音再生に使う
-    [SerializeField] GameManager gMng;
-
-    // ノイズ実装
-    [Header("GlitchFxのスクリプトを入れてね"),SerializeField] GlitchFx[] GF_gf;
-
-    // 回復,消費、カラーチェンジなどをこのスクリプトで
-    [Header("バッテリー機能"), SerializeField] BatteryManager battery;
-
     /*プレイヤーが実際に操作する機能*/
     #region
     // カメラの切り替え機能を実装
-    [Header("カメラ切り替えのスクリプト"),SerializeField] CameraChange cam;
+    [Foldout("ギミック"),Header("カメラ切り替えのスクリプト"),SerializeField] CameraChange cam;
     // Volt機能を実装する
-    [Header("Voltのギミックスクリプト"), SerializeField] Volt volt;
+    [Foldout("ギミック"),Header("Voltのギミックスクリプト"), SerializeField] Volt volt;
     // Scan機能を実装する
-    [Header("Scanのギミックスクリプト"), SerializeField] Scan scan;
+    [Foldout("ギミック"),Header("Scanのギミックスクリプト"), SerializeField] Scan scan;
+    // ソナー機能を実装する
+    [Foldout("ギミック"), Header("Sonarのギミックスクリプト"), SerializeField] SubLight sonar;
     #endregion
 
-    /*現状は使わない予定*/
-    // ソナースクリプト取得
-    //[Header("SonarFxのスクリプト"),SerializeField] SonarFx[] SonarFx_sf;
+    // UIの揺れ実装
+    // 0:センサー 1:スキャン 2:ボルト
+    [Header("UIShakeのスクリプト"), SerializeField] UIShake[] shake;
 
-    [Header("○○以下になったらの数字")]
+    // フェードの実装
+    [Header("Fadeのスクリプト"), SerializeField] Fade fade;
+    // 回復,消費、カラーチェンジなどをこのスクリプトで
+    [Header("バッテリー機能"), SerializeField] BatteryManager battery;
+    // 音再生に使う
+    [Header("音再生機能のスクリプト"),SerializeField] GameManager gMng;
 
-    [SerializeField] int Under_Battery;
-
-    private bool SencorFlg = false;
-
-    [Header("センサーの使えるバッテリー容量")]
-    public int Sensor_Capacity;
-
-    [Header("Z(ソナー）を押した時のバッテリーの減算")]
-    public int SonarBattery;
-
-    [Header("Eキー（ボルトを押したときの）のバッテリー減算")]
-    public int voltbattery;
-
-    [Header("Cキー（センサーを押したとき）のバッテリーの減算")]
-    public int SencorBattery;
-
-    [Header("ノイズ処理の調整用")]
-    public float Gf_float;
+    // コスト
+    const int cost_volt = 5;  // ボルト
+    const int cost_scan = 15; // スキャン
 
     // カメラ切り替え用
     private int cameraNum = 1;
 
-    // ソナー中に回復しないように
+    // ソナー使用のフラグ
     private bool trapFlg = false;
 
-    [Header("Glitch Fx用の変数")]
-    public float[] time_Gf;
-
-    //Voltのtimerの変数
-    private float[] time_Vs;
-
-    // 音の連続再生制御
-    float _timer = 0;
-
-    //Voltのtimerの変数
-    [Header("各カメラのVoltのタイマー")]
-    public float[] Volt_timers;
-
-    //GlitchFx用のFlag
-    [Header("各Glitch_Fx用のフラグ")]
-    public bool[] Gf_Flg;
-
-    //Sensor用のFlag
-    [Header("各センサー用のフラグ")]
-    public bool[] Sensor_Flg;
+    // センサー使用中電力回復を制限する
+    private bool IsSensor = false;
     #endregion
-
 
     void Start()
     {
-        ////Sencorトラップ使用可能のテキスト[OFF]を初めに表示
-        //Sensor_Text.text = "OFF";
-
-        //Sonartxをfalseに
-        //SonarOff();
-
         // カメラの設定
         cam.CameraStart();
-
         // ボルトの初期設定
         volt.VoltStart();
-
         // スキャンの初期設定
         scan.ScanStart();
     }
@@ -111,10 +65,27 @@ public class CameraManager : MonoBehaviour
         // ボルト機能
         if (Input.GetKeyDown(KeyCode.C))
         {
-            // 音再生
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
-            // ボルト生成
-            volt.UseVolt(cameraNum);
+            if (battery.Para_Battery >= cost_volt)
+            {
+                // ボルト生成
+                if (volt.UseVolt(cameraNum))
+                {
+                    // 音再生
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
+                    // バッテリー消費
+                    BatteryCost(cost_volt);
+                }
+                else // 使えないことを知らせるためにUIを動かす
+                {
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+                    shake[2].Shake();
+                }
+            }
+            else
+            {
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+                shake[2].Shake();
+            }
         }
         // ボルトのリチャージ
         volt.Recharge();
@@ -122,181 +93,82 @@ public class CameraManager : MonoBehaviour
         // スキャン機能
         if (Input.GetKeyDown(KeyCode.X))
         {
-            // 音再生
-            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
-            // スキャン開始
-            scan.UseScan();
+            if (battery.Para_Battery >= cost_scan)
+            {
+                // スキャン開始
+                if (scan.UseScan())
+                {
+                    // 音再生
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
+                    // バッテリー消費
+                    BatteryCost(cost_scan);
+                }
+                else
+                {
+                    shake[1].Shake();
+                    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+                }
+            }
+            else
+            {
+                shake[1].Shake();
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff5);
+            }
         }
         // スキャンのリチャージ
         scan.Recharge();
 
+        if(Input.GetKey(KeyCode.Z))
+        {
+            // 起動した最初のみで実行する処理
+            if (!IsSensor)
+            {
+                // 音再生
+                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff3);
+                // バッテリー消費
+                IsSensor = true;
+                //shake[0].Shake();
+            }
+            // ソナーライト
+            sonar.UseLight(cameraNum);
+        }
+        else
+        {
+            IsSensor = false;
+            sonar.NormalLight(cameraNum);
+        }
         // 回復機能
-        battery.HealBattery();
+        if (!IsSensor){ battery.HealBattery(); }
         // バッテリー残量によってUIにプレイヤーに対し注意効果を付ける
         battery.Battery_Color();
 
-
-        //if (BM_mng.Para_Battery >= Under_Battery)
-        //{
-
-        //    //Shiftキーを押したときにバッテリーを５%減らす。
-        //    if (Input.GetKeyDown(KeyCode.Z))
-        //    {
-        //        BM_mng.Para_Battery -= SonarBattery;
-        //    }
-
-        //    if (Input.GetKey(KeyCode.Z))
-        //    {
-        //        //Shiftキーを押し続けたときにバッテリーを継続的に減らす。
-        //        if (BM_mng.Para_Battery >= 3.0f)
-        //        {
-        //            _timer += Time.deltaTime;
-        //            //ソナーを押してる間の音。
-        //            gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
-        //            if (_timer >= 1)
-        //            {
-        //                _timer = 0;
-        //                gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff4);
-        //            }
-        //            SonarOn();
-        //            BM_mng.Para_Battery -= 0.05f;
-        //            trapFlg = true;
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("ソナー停止");
-
-        //    trapFlg = false;
-        //    SonarOff();
-        //}
-
-        ////Shiftキーを離したときにスキャンを止める。
-
-        //if (Input.GetKeyUp(KeyCode.Z))
-        //{
-        //    SonarOff();
-        //    trapFlg = false;
-        //}
-
-        ////バッテリー残量が５％以上の時Voltトラップ呼出し
-        //if (BM_mng.Para_Battery >= Under_Battery)
-        //{
-
-        //    for (int i = 0; i < Cam_Flg.Length; i++)
-        //    {
-        //        CT_Volt.text = "OK";
-        //        if (Input.GetKeyDown(KeyCode.C) && Cam_Flg[i] && Volt_timers[i] >= Cool_Volt)
-        //        {
-        //            Vector3 ObjPos = Obj_Trap[i].transform.position;
-        //            Instantiate(OBJ_trapObj[i], ObjPos, Quaternion.identity);
-        //            time_Vs[i] = 0;
-        //            Battery_nega();
-        //            // クールタイム計測
-        //            time_Vs[i] += Time.deltaTime;
-        //            if (time_Vs[i] >= Volt_timers[i])
-        //            {
-        //                time_Vs[i] = Volt_timers[i]; // クールタイムがリセットされないようにする
-        //            }
-        //        }
-        //    }
-        //}
-
-
-        ////GlitchFxの切り替えとノイズ表示
-        //for (int i = 0; i < Gf_Flg.Length; i++)
-        //{
-        //    if (Gf_Flg[i])
-        //    {
-        //        time_Gf[i] += Time.deltaTime;
-        //        if (time_Gf[i] >= 1)
-        //        {
-        //            GF_gf[i].intensity = 0.001f;
-        //            time_Gf[i] = 0;
-        //            Gf_Flg[i] = false;
-        //        }
-        //    }
-        //}
-
-        ////VoltトラップとUIを切り替え
-        //for (int i = 0; i < Camera_Num; i++)
-        //{
-        //    if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.C) && IMAGE_Volt.fillAmount == 0 && BM_mng.Para_Battery >= 5)
-        //    {
-        //        //VoltのSE
-        //        gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff2);
-        //        StartVoltTimer(i);
-        //    }
-        //    if (Volt_Flg[i])
-        //    {
-        //        UpdateVoltTimer(i);
-        //    }
-        //    if (BM_mng.Para_Battery <= Sensor_Capacity)
-        //    {
-        //        Sensor_Flg[i] = false;
-        //        //return;
-        //    }
-        //    if (BM_mng.Para_Battery <= Under_Battery)
-        //    {
-        //        Sensor_Text.text = "OFF";
-        //        CT_Volt.text = "NO";
-        //        SensorS.SetActive(false);
-        //        for (int j = 0; j < cameraNum; j++)
-        //        {
-        //            Sensor_Flg[j] = false;
-        //        }
-        //        SencorFlg = false;
-        //    }
-        //    if (BM_mng.Para_Battery >= Under_Battery)
-        //    {
-        //        if (Cam_Flg[i] && Input.GetKeyDown(KeyCode.X))
-        //        {
-        //            Sensor_Flg[i] = Sensor_Flg[i] == false ? true : false;
-        //            if (Sensor_Flg[i])
-        //            {
-        //                Sensor_Text.text = "ON";
-        //                SensorS.SetActive(true);
-        //                BM_mng.Para_Battery -= SencorBattery;
-        //                SencorFlg = true;
-
-        //            }
-        //            if (!Sensor_Flg[i])
-        //            {
-        //                Sensor_Text.text = "OFF";
-        //                SensorS.SetActive(false);
-        //                SencorFlg = false;
-        //            }
-        //        }
-        //    }
-        //}
-        //if (SencorFlg)
-        //{
-        //    if (BM_mng.Para_Battery > 3.0f)
-        //    {
-        //        BM_mng.Para_Battery -= 0.05f;
-        //        Debug.Log("バッテリー残量");
-        //    }
-        //    else
-        //    {
-        //        for (int j = 0; j < cameraNum; j++)
-        //        {
-        //            Sensor_Flg[j] = false;
-        //        }
-        //        Sensor_Text.text = "OFF";
-        //        SensorS.SetActive(false);
-
-        //        SencorFlg = false;
-        //    }
-        //}
+        /*コスト以下の電力の時に使えないことを知らせる*/
+        /*コストがあり、クールタイム期間でなければREADYにする*/
+        if (cost_volt > battery.Para_Battery)
+        {
+            volt.NotCost();
+        }
+        else
+        {
+            volt.ReadySet();
+        }
+        if(cost_scan>battery.Para_Battery)
+        {
+            scan.NotCost();
+        }
+        else
+        {
+            scan.ReadySet();
+        }
     }
 
-    void Battery_nega()
+    /// <summary>
+    /// バッテリー消費の処理
+    /// </summary>
+    /// <param name="cost">消費コスト</param>
+    void BatteryCost(int cost)
     {
-        if (battery.Para_Battery >= 0)
-        {
-            battery.Para_Battery -= voltbattery;
-        }
+        battery.Para_Battery -= cost;
     }
 
     /// <summary>
@@ -316,8 +188,6 @@ public class CameraManager : MonoBehaviour
                 );
                 cameraNum = i;
                 cam.SetCamera(cameraNum);
-                Gf_Flg[cameraNum - 1] = true;
-
             }
         }
     }

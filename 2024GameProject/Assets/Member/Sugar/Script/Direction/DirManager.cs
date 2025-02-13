@@ -11,6 +11,7 @@ public class DirManager : MonoBehaviour
     [SerializeField] GameOverObj gameOverObj;
     [SerializeField] Fade fade;
     [SerializeField] GameObject img;
+    [SerializeField] SubLight light;
     #endregion
 
     // ñæÇÈÇ≥ïœçXä÷åW
@@ -49,6 +50,15 @@ public class DirManager : MonoBehaviour
         }
         else
         {
+            if (light.IsLight)
+            {
+                setBright = 100;
+                return;
+            }
+            else
+            {
+                setBright = fademaxBright;
+            }
             Bright();
         }
     }

@@ -185,7 +185,7 @@ public class TutorialText : MonoBehaviour
                     CameraText.SetActive(false);
                     text.text = "";
                     message = "次に施設にある設備の説明だ\n" +
-                        "一つ目の設備はソナーだ\n" +
+                        "一つ目の設備はセンサーライトだ\n" +
                         "見えない敵が見えるようになるぞ。";
                     stringAll_Up = message;
                     Img3.SetActive(true);
@@ -208,8 +208,7 @@ public class TutorialText : MonoBehaviour
                     Img3.SetActive(false);
                     text.text = "";
                     message = "二つ目の設備はスキャンだ\n" +
-                        "監視していないエリアに敵が侵入したら\n" +
-                        "知らせてくれる。";
+                        "侵入されているエリアを知らせてくれる。";
                     stringAll_Up = message;
                     Img4.SetActive(true);
                     // コルーチン開始
@@ -230,7 +229,7 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     Img4.SetActive(false);
                     text.text = "";
-                    message = "三つ目の設備は電気ショックだ\n" +
+                    message = "三つ目の設備はショックだ\n" +
                         "使用することで敵を排除することができる。";
                     stringAll_Up = message;
                     Img5.SetActive(true);

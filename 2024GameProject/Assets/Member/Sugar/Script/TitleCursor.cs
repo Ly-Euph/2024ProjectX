@@ -57,7 +57,7 @@ public class TitleCursor : MonoBehaviour
             switch (num)
             {
                 case 0: // STARTボタン
-                    fade.FadeIn(0.5f, () => SceneManager.LoadScene("StageSelectScene"));
+                    fade.FadeIn(0.5f, () => SceneManager.LoadScene("SSS"));
                     break;
                 case 1: // OPTIONボタン
                     OptionBox.SetActive(true);

@@ -21,7 +21,7 @@ public class BatteryManager : MonoBehaviour
     private int batteryMax = 100;
 
     //batteryの値
-    private float battery = 10f;
+    private float battery = 15f;
 
     // 回復間隔
     public float batteryCT;
