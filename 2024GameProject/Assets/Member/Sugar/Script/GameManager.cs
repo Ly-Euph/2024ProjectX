@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // カーソル非表示
-        // Cursor.visible = false;
+        Cursor.visible = false;
 
         // 画面解像度固定
         Screen.SetResolution(width, height, FullScreenMode.FullScreenWindow, 60);
