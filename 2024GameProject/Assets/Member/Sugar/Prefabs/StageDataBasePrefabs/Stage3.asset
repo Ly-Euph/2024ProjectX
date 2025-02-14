@@ -16,4 +16,4 @@ MonoBehaviour:
   StageImage: {fileID: 21300000, guid: 58a3d147504cfa64499348bfd2852b92, type: 3}
   infomation_Level: 
   infomation_Cam: 
-  StageSceneName: mainStage1C
+  StageSceneName: Tutorial
