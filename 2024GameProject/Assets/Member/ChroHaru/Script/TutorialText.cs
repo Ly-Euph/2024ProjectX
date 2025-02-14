@@ -58,7 +58,8 @@ public class TutorialText : MonoBehaviour
                 // 文字削除
                 text.text = "";
                 // 文字セット
-                message = "施設に取り残されたようだな、現在敵の侵入が確認されている。";
+                message = "施設に取り残されたようだな\n"+
+                    "施設内に敵の侵入が確認されている。";
                 stringAll_Up = message;
                 // コルーチン開始
                 StartCoroutine(RevealText());
@@ -99,7 +100,7 @@ public class TutorialText : MonoBehaviour
                     Destroy(TimeText);
                     enterText.SetActive(false);
                     text.text = ""; 
-                    message = "施設内の設備は使えるようだな。\n"+"使い方を伝えておくぞ。";
+                    message = "施設内の設備は使えるようだな。\n"+"使い方を説明しておくぞ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -119,7 +120,7 @@ public class TutorialText : MonoBehaviour
                     CameraText.SetActive(true);
                     enterText.SetActive(false);
                     text.text = ""; 
-                    message = "これが現在見ているエリアだ、カメラの番号が\n" + "左上のマップの番号と連動している。";
+                    message = "これが現在見ているカメラだ\n" + "左上のマップの番号と数字が連動している。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -182,7 +183,8 @@ public class TutorialText : MonoBehaviour
                 {
                     _timer -= Time.deltaTime;
                     text.text = "";
-                    message = "次に施設にある設備の説明だ。";
+                    message = "次に侵入者から身を守る為に使う\n"+
+                        "機能を説明する。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -288,7 +290,7 @@ public class TutorialText : MonoBehaviour
                     Destroy(scan);
                     text.text = "";
                     message = "マップをみてくれ、赤く点滅しているエリアが\n"
-                              +"敵のいるエリアだ。";
+                              +"敵の侵入しているエリアだ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -309,7 +311,7 @@ public class TutorialText : MonoBehaviour
                 {
                     enterText.SetActive(false);
                     text.text = "";
-                    message = "カメラを切り替えてくれ。";
+                    message = "カメラを切り替えるぞ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -348,8 +350,8 @@ public class TutorialText : MonoBehaviour
                 if (callAction != null && callAction.Invoke())
                 {
                     text.text = "";
-                    message = "見当たらないな、センサーライトの出番だ。\n"
-                              + "これならステルス状態の敵を見つけられる。";
+                    message = "…見当たらないな\n"
+                              + "センサーライトをつけてみるか。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -370,7 +372,8 @@ public class TutorialText : MonoBehaviour
                 {
                     enterText.SetActive(false);
                     text.text = "";
-                    message = "ただし付けている間はバッテリーが回復しない要注意だ。";
+                    message = "つけている間はバッテリーが\n" +
+                        "回復しないから要注意だ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -392,7 +395,8 @@ public class TutorialText : MonoBehaviour
                     enterText.SetActive(false);
                     light.SetActive(true);
                     text.text = "";
-                    message = "それでは付けてみてくれ";
+                    message = "それではつけてみてくれ。\n"+
+                        "ステルス状態の敵が見つけられるはずだ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -470,7 +474,7 @@ public class TutorialText : MonoBehaviour
                 }
                 break;
             case 40:
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("SSS"));
+                fade.FadeIn(1.0f, () => SceneManager.LoadScene("SSS"));
                 num++;
                 break;
         }
