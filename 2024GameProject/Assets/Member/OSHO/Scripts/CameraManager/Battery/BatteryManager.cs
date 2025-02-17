@@ -21,7 +21,7 @@ public class BatteryManager : MonoBehaviour
     private int batteryMax = 100;
 
     //batteryの値
-    private float battery = 15f;
+    [Header("チュートリアルのみここは20で"),SerializeField] float battery = 15f;
 
     // 回復間隔
     public float batteryCT;
@@ -44,6 +44,14 @@ public class BatteryManager : MonoBehaviour
                 timer = 0;
             }
         }
+        
+    }
+
+    /// <summary>
+    /// バッテリーの反映
+    /// </summary>
+    public void BatteryOut()
+    {
         if (battery >= 0)
         {
             IMAGE_battery.GetComponent<Image>().fillAmount = battery / batteryMax;
