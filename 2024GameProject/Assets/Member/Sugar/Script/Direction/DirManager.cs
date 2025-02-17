@@ -40,13 +40,12 @@ public class DirManager : MonoBehaviour
     {
         if (gameOverObj.SendDetection)
         {
-            setBright -= 10;
-            if (setBright <= 0 && !img.activeSelf)
+            //setBright -= 10;
+            if (!img.activeSelf)
             {
                 img.SetActive(true);
                 fade.FadeIn(0.5f, () => SceneManager.LoadScene("GameOverScene"));
             }
-            return;
         }
         else
         {

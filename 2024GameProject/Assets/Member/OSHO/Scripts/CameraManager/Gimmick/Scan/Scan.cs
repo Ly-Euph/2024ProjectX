@@ -16,6 +16,9 @@ public class Scan : MonoBehaviour
     const int scanCTTimer = 20;
     // クールタイムの計算用
     float scanTimer;
+
+    // スキャンエフェクト
+    [SerializeField] GameObject Eff;
     #endregion
 
     public void ScanStart()
@@ -37,6 +40,7 @@ public class Scan : MonoBehaviour
         if (scanText.text != "READY") { return false; }
         // オブジェクトを表示する
         scan.SetActive(true);
+        Eff.SetActive(true);
         // 使用済
         scanText.text = "CHARGE";
         scanImg.fillAmount = 1;
