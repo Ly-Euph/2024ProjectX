@@ -548,7 +548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d39bbd74bc1f144909bd3449de2c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   dissolveEffect: {fileID: 1633675185684165030}
+=======
+  eTest: {fileID: 0}
+>>>>>>> main
   path:
   - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
   - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
