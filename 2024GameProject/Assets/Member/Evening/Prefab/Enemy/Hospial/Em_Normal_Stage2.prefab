@@ -1306,6 +1306,8 @@ GameObject:
   - component: {fileID: 8671739100775970833}
   - component: {fileID: 787661439919510014}
   - component: {fileID: 9037303608640304200}
+  - component: {fileID: 8598100143673560796}
+  - component: {fileID: 7283867926051044249}
   m_Layer: 8
   m_Name: Em_Normal_Stage2
   m_TagString: NormalEnemy
@@ -1377,6 +1379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c623b7c6de9f174b91d21478728595c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dissolveEffect: {fileID: 8598100143673560796}
   deathHitEff: {fileID: 8157968101478334049, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   path:
   - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}
@@ -1419,6 +1422,143 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8598100143673560796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586078896478493698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
+--- !u!137 &7283867926051044249
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586078896478493698}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -8802142215591055259, guid: 475d05aae8eb3a94882ab417b6df0f25, type: 3}
+  m_Bones:
+  - {fileID: 4416714191521642878}
+  - {fileID: 5977712754208441021}
+  - {fileID: 5283906524251622984}
+  - {fileID: 7889863735801916681}
+  - {fileID: 4737477453173568926}
+  - {fileID: 7639307868595598922}
+  - {fileID: 8458971084788447032}
+  - {fileID: 2594717971028041047}
+  - {fileID: 8670477788273456075}
+  - {fileID: 8147303088866446085}
+  - {fileID: 1474023434128383025}
+  - {fileID: 7141387222088274813}
+  - {fileID: 7206585625747676778}
+  - {fileID: 3245127233939937057}
+  - {fileID: 4038189660722077284}
+  - {fileID: 6063212527346681837}
+  - {fileID: 5409558119835537080}
+  - {fileID: 5591788291491376687}
+  - {fileID: 5534299274900763143}
+  - {fileID: 6540523620883511937}
+  - {fileID: 6252029206064248171}
+  - {fileID: 5428923988895556634}
+  - {fileID: 647137999872925913}
+  - {fileID: 7873324573575928067}
+  - {fileID: 5265020813393454711}
+  - {fileID: 3991880874677352614}
+  - {fileID: 4774973056961297847}
+  - {fileID: 7953909889822722701}
+  - {fileID: 4593385421492281647}
+  - {fileID: 2102653452429576445}
+  - {fileID: 227386586404400896}
+  - {fileID: 5547478844910090642}
+  - {fileID: 2116900497353217832}
+  - {fileID: 6678244525463421447}
+  - {fileID: 201488308072730535}
+  - {fileID: 6771678177077284410}
+  - {fileID: 3523593612800197165}
+  - {fileID: 1592786993309593855}
+  - {fileID: 2322255496981087419}
+  - {fileID: 4625517458602669819}
+  - {fileID: 4576113726355252866}
+  - {fileID: 8581581569985247112}
+  - {fileID: 377815137076845610}
+  - {fileID: 304659268122193679}
+  - {fileID: 7082805722450059594}
+  - {fileID: 6438039478227977657}
+  - {fileID: 7891920242605129443}
+  - {fileID: 565073799209832121}
+  - {fileID: 6349284667423710132}
+  - {fileID: 6402756723151385300}
+  - {fileID: 810745025000103925}
+  - {fileID: 5773333297208484577}
+  - {fileID: 4238788291968865717}
+  - {fileID: 5794696333884713989}
+  - {fileID: 6582468996940230541}
+  - {fileID: 6974238095476664477}
+  - {fileID: 9165192418599748415}
+  - {fileID: 6860296366423140651}
+  - {fileID: 2056220604326925038}
+  - {fileID: 6867882625384945552}
+  - {fileID: 8526347624836066020}
+  - {fileID: 8409963900560811997}
+  - {fileID: 6691850676608066712}
+  - {fileID: 8856559604208401197}
+  - {fileID: 9108983019856700220}
+  - {fileID: 3282132835416358949}
+  - {fileID: 2435483621918388831}
+  - {fileID: 7345898290158789779}
+  - {fileID: 1352215301304570463}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 1474023434128383025}
+  m_AABB:
+    m_Center: {x: 0.07556549, y: 0.6023039, z: 0.017324418}
+    m_Extent: {x: 1.0585786, y: 1.0834639, z: 1.0130053}
+  m_DirtyAABB: 0
 --- !u!1 &4725434361260053952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,6 +2196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8937540384405544130}
   - component: {fileID: 3300929953193533615}
+  - component: {fileID: 8796702670310157798}
   m_Layer: 8
   m_Name: CatFish
   m_TagString: Untagged
@@ -2084,7 +2225,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7516962016782130755}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2199,6 +2340,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.07556549, y: 0.6023039, z: 0.017324418}
     m_Extent: {x: 1.0585786, y: 1.0834639, z: 1.0130053}
   m_DirtyAABB: 0
+--- !u!114 &8796702670310157798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516962016782130755}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &7727019632786632889
 GameObject:
   m_ObjectHideFlags: 0
