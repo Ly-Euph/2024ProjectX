@@ -23,10 +23,10 @@ public class DissolveEffect : MonoBehaviour
             DissolveProcess();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)) // スペースキーで消える
-        {
-            isDissolving = true;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space)) // スペースキーで消える
+        //{
+        //    isDissolving = true;
+        //}
     }
 
     public void DissolveProcess()

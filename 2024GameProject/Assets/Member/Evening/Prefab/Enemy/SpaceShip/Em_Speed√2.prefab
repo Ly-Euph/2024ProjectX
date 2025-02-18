@@ -448,6 +448,7 @@ GameObject:
   - component: {fileID: 3179604848984726778}
   - component: {fileID: 4425106013511591021}
   - component: {fileID: -8281568671223326012}
+  - component: {fileID: 7838789740774247760}
   m_Layer: 8
   m_Name: "Em_Speed\u221A2"
   m_TagString: Untagged
@@ -519,6 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7301c4b20cc4f04daa310a24514851c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dissolveEffect: {fileID: 7838789740774247760}
   deathHitEff: {fileID: 8157968101478334049, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   path:
   - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
@@ -558,6 +560,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7838789740774247760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179604848984726779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: f197720a95d8e964ba5ab5131d185837, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &3192467114840635511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6152351791001609128}
   - component: {fileID: 4093487396683456930}
+  - component: {fileID: 4027495954382340206}
   m_Layer: 8
   m_Name: Ralkemon_body
   m_TagString: Untagged
@@ -1262,6 +1280,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.021387577, y: 0.11773938, z: -0.000002413988}
     m_Extent: {x: 1.1367576, y: 0.6414793, z: 0.8995737}
   m_DirtyAABB: 0
+--- !u!114 &4027495954382340206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842783267914441202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: f197720a95d8e964ba5ab5131d185837, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &5913545397766755641
 GameObject:
   m_ObjectHideFlags: 0

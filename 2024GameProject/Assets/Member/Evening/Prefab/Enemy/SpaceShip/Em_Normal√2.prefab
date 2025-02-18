@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1289533346029130023}
   - component: {fileID: 3977891772702413024}
   - component: {fileID: 4661482168882623830}
+  - component: {fileID: 7997876383255520345}
   m_Layer: 8
   m_Name: "Em_Normal\u221A2"
   m_TagString: NormalEnemy
@@ -116,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9693bd4c41f70bf4c813702df20dd745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dissolveEffect: {fileID: 7997876383255520345}
   path:
   - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
   - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
@@ -155,6 +157,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7997876383255520345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179894260861541660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &522403726856097827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4743028410668801500}
   - component: {fileID: 1158930165795955121}
+  - component: {fileID: 1491643260765220776}
   m_Layer: 8
   m_Name: CatFish
   m_TagString: Untagged
@@ -1913,6 +1931,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.07556549, y: 0.6023039, z: 0.017324418}
     m_Extent: {x: 1.0585786, y: 1.0834639, z: 1.0130053}
   m_DirtyAABB: 0
+--- !u!114 &1491643260765220776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164169728243507037}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &6260559832713785767
 GameObject:
   m_ObjectHideFlags: 0

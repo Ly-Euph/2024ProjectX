@@ -448,6 +448,7 @@ GameObject:
   - component: {fileID: 2854423656485165490}
   - component: {fileID: 8604824670485995021}
   - component: {fileID: 6475398676832174858}
+  - component: {fileID: 4650017606288890635}
   m_Layer: 8
   m_Name: Em_Speed_Stage2
   m_TagString: SpeedEnemy
@@ -561,6 +562,21 @@ MonoBehaviour:
   - {fileID: 6927036997421184361, guid: 9e4efb0c90a48f4428e0cfa49ef8736d, type: 3}
   - {fileID: 1398380603290405193, guid: 143e214a1fbf8b54f8b8fc1356bb73e7, type: 3}
   stage: 0
+--- !u!114 &4650017606288890635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179604848984726779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: f197720a95d8e964ba5ab5131d185837, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &3192467114840635511
 GameObject:
   m_ObjectHideFlags: 0
@@ -1156,6 +1172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6152351791001609128}
   - component: {fileID: 4093487396683456930}
+  - component: {fileID: 7840888861828486968}
   - component: {fileID: 25286333144195159}
   m_Layer: 8
   m_Name: Ralkemon_body
@@ -1266,6 +1283,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.021387577, y: 0.11773938, z: -0.000002413988}
     m_Extent: {x: 1.1367576, y: 0.6414793, z: 0.8995737}
   m_DirtyAABB: 0
+--- !u!114 &7840888861828486968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5842783267914441202}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: f197720a95d8e964ba5ab5131d185837, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!114 &25286333144195159
 MonoBehaviour:
   m_ObjectHideFlags: 0

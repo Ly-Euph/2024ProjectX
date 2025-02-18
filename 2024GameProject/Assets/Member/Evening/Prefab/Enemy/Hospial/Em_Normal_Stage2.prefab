@@ -1306,6 +1306,7 @@ GameObject:
   - component: {fileID: 8671739100775970833}
   - component: {fileID: 787661439919510014}
   - component: {fileID: 9037303608640304200}
+  - component: {fileID: 8598100143673560796}
   m_Layer: 8
   m_Name: Em_Normal_Stage2
   m_TagString: NormalEnemy
@@ -1419,6 +1420,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8598100143673560796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586078896478493698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &4725434361260053952
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,6 +2072,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8937540384405544130}
   - component: {fileID: 3300929953193533615}
+  - component: {fileID: 8796702670310157798}
   m_Layer: 8
   m_Name: CatFish
   m_TagString: Untagged
@@ -2199,6 +2216,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.07556549, y: 0.6023039, z: 0.017324418}
     m_Extent: {x: 1.0585786, y: 1.0834639, z: 1.0130053}
   m_DirtyAABB: 0
+--- !u!114 &8796702670310157798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516962016782130755}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 507daf64fb8d0d14ca8ab2fa628289c6, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &7727019632786632889
 GameObject:
   m_ObjectHideFlags: 0

@@ -143,11 +143,9 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-<<<<<<< HEAD
+            dissolveEffect.isDissolving = true;
 
-=======
             //Instantiate(eTest, myObj.position+ofsPos, myObj.rotation);
->>>>>>> main
             //Destroy(deathHitEff,lifeT);
             //Debug.Log("死亡");
         }
