@@ -471,9 +471,17 @@ public class TutorialText : MonoBehaviour
                 if (text.text == stringAll_Up)
                 {
                     num++;
+                    _timer = setT;
                 }
                 break;
             case 40:
+                _timer -= Time.deltaTime;
+                if(_timer<=0)
+                {
+                    num++;
+                }
+                break;
+            case 41:
                 fade.FadeIn(1.0f, () => SceneManager.LoadScene("SSS"));
                 num++;
                 break;
