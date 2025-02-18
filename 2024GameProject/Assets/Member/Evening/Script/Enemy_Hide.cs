@@ -10,7 +10,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
     private Cinemachine.CinemachinePathBase myPath;
 
 
-    [SerializeField] GameObject deathHitEff;
+    [SerializeField] private ETest eTest;
     Vector3 ofsPos=new Vector3(0,5,0);
     float lifeT = 1.0f;
 
@@ -143,7 +143,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            Instantiate(deathHitEff, myObj.position+ofsPos, myObj.rotation);
+            Instantiate(eTest, myObj.position+ofsPos, myObj.rotation);
             //Destroy(deathHitEff,lifeT);
             //Debug.Log("死亡");
         }
