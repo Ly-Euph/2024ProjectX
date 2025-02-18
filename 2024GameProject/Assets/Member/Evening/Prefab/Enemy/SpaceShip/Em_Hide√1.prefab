@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1440275196801370981}
   - component: {fileID: 1440275196801370980}
+  - component: {fileID: 5365438175448326081}
   m_Layer: 8
   m_Name: Watcher_body
   m_TagString: Untagged
@@ -123,6 +124,21 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.12422541, y: -0.026260585, z: -0.00000035762787}
     m_Extent: {x: 0.40319297, y: 0.5695139, z: 0.3078582}
   m_DirtyAABB: 0
+--- !u!114 &5365438175448326081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440275196801370978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f73ff9d32480843478b465ffe2d39262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dissolveMaterial: {fileID: 2100000, guid: 91f381e8587d5994787a096116d4042a, type: 2}
+  dissolveSpeed: 1
+  isDissolving: 0
 --- !u!1 &1440275196901845014
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d39bbd74bc1f144909bd3449de2c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathHitEff: {fileID: 8157968101478334049, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
+  dissolveEffect: {fileID: 5365438175448326081}
   path:
   - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
   - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
