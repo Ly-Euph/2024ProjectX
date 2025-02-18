@@ -7374,7 +7374,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3601525503690173416, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: spwanLate
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3736977596801783562, guid: 6e512af632bc80949a77d8964281979c, type: 3}
       propertyPath: m_RootOrder
@@ -9061,6 +9061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302d969bbc59254458319523203fade5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fade: {fileID: 1169917465}
 --- !u!4 &1954060067
 Transform:
   m_ObjectHideFlags: 0
