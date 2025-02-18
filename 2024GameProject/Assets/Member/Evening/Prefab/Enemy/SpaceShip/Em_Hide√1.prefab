@@ -70,7 +70,7 @@ SkinnedMeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440275196801370978}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -494,6 +494,7 @@ GameObject:
   - component: {fileID: 1440275198462512005}
   - component: {fileID: 1440275198462512002}
   - component: {fileID: 1633675185684165030}
+  - component: {fileID: 6001075560868439030}
   m_Layer: 8
   m_Name: "Em_Hide\u221A1"
   m_TagString: HideEnemy
@@ -548,11 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d39bbd74bc1f144909bd3449de2c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  dissolveEffect: {fileID: 1633675185684165030}
-=======
-  eTest: {fileID: 0}
->>>>>>> main
+  dissolveEffect: {fileID: 0}
   path:
   - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
   - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
@@ -623,3 +620,64 @@ MonoBehaviour:
   dissolveMaterial: {fileID: 2100000, guid: 91f381e8587d5994787a096116d4042a, type: 2}
   dissolveSpeed: 1
   isDissolving: 0
+--- !u!137 &6001075560868439030
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440275198462512003}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 91f381e8587d5994787a096116d4042a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 2676922954240993113, guid: b91187a9debded54988c89438ac8b3f6, type: 3}
+  m_Bones:
+  - {fileID: 1440275198141335454}
+  - {fileID: 1440275197450479983}
+  - {fileID: 1440275197648874556}
+  - {fileID: 1440275197727473555}
+  - {fileID: 1440275197688677816}
+  - {fileID: 1440275198025846082}
+  - {fileID: 1440275197706812237}
+  - {fileID: 1440275197577664763}
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 1440275198141335454}
+  m_AABB:
+    m_Center: {x: -0.12422541, y: -0.026260585, z: -0.00000035762787}
+    m_Extent: {x: 0.40319297, y: 0.5695139, z: 0.3078582}
+  m_DirtyAABB: 0
