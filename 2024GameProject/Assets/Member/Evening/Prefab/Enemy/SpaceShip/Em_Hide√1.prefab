@@ -547,7 +547,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d39bbd74bc1f144909bd3449de2c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   dissolveEffect: {fileID: 5365438175448326081}
+=======
+  eTest: {fileID: 0}
+>>>>>>> main
   path:
   - {fileID: 101473735292507437, guid: 6b87e3deb909f904e88247bd81fe7022, type: 3}
   - {fileID: 3505635568772881512, guid: 6b1065262cf39a34cb2fcbe08a83ffe8, type: 3}
@@ -582,7 +586,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440275198462512003}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.6, z: 1.5}
