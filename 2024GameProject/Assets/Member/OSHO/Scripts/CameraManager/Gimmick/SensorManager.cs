@@ -7,6 +7,8 @@ public class SensorManager : MonoBehaviour
     int SencorNum;
 
     bool recieve = false;
+    [Header("•\¦êŠ"), SerializeField] GameObject[] Obj;
+
     // Start is called before the first frame update
     public int GSSensor
     {
@@ -14,6 +16,7 @@ public class SensorManager : MonoBehaviour
         {
             SencorNum = value;
             recieve = true;
+            Obj[SencorNum - 1].SetActive(true);
         }
 
         get 

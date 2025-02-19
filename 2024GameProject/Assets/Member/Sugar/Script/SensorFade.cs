@@ -17,6 +17,11 @@ public class SensorFade : MonoBehaviour
         _time = 0;
     }
 
+    private void OnEnable()
+    {
+        _time = 0;
+    }
+
     // Update is called once per frame
     void Update()
     {

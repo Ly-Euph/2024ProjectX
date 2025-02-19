@@ -79,7 +79,7 @@ public class TutorialText : MonoBehaviour
                     TimeText.SetActive(true);
                     // 文字削除
                     text.text = "";
-                    message = "今救助に向かっている、この時間耐えてくれ。";
+                    message = "今救助に向かっている\n"+"この時間耐えてくれ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -289,8 +289,8 @@ public class TutorialText : MonoBehaviour
                     // スキャンのアウトラインオブジェクト削除
                     Destroy(scan);
                     text.text = "";
-                    message = "マップをみてくれ、赤く点滅しているエリアが\n"
-                              +"敵の侵入しているエリアだ。";
+                    message = "マップをみてくれ、赤く点滅している場所が\n"+
+                        "敵の侵入しているエリアだ。";
                     stringAll_Up = message;
                     // コルーチン開始
                     StartCoroutine(RevealText());
@@ -471,9 +471,17 @@ public class TutorialText : MonoBehaviour
                 if (text.text == stringAll_Up)
                 {
                     num++;
+                    _timer = setT;
                 }
                 break;
             case 40:
+                _timer -= Time.deltaTime;
+                if(_timer<=0)
+                {
+                    num++;
+                }
+                break;
+            case 41:
                 fade.FadeIn(1.0f, () => SceneManager.LoadScene("SSS"));
                 num++;
                 break;
