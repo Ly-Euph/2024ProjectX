@@ -5,8 +5,6 @@ using UnityEngine;
 public class Enemy_Normal : MonoBehaviour,IDamageable
 {
     #region field
-    [SerializeField] public DissolveEffect dissolveEffect;
-
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
 
@@ -136,8 +134,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            dissolveEffect.isDissolving = true;
-            //Destroy(deathHitEff, lifeT);
+            Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }
