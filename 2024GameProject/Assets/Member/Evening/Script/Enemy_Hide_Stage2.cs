@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 {
-    [SerializeField] public DissolveEffect dissolveEffect;
-
     SubLight sensorLight;
 
     private Cinemachine.CinemachineDollyCart dolly;
@@ -150,7 +148,6 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            dissolveEffect.isDissolving = true;
            // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
