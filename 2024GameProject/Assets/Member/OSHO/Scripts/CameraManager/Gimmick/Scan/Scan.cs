@@ -79,7 +79,7 @@ public class Scan : MonoBehaviour
     /// </summary>
     public void NotCost()
     {
-        scanText.text = "CHARGE";
+        scanText.text = "USED";
     }
 
     /// <summary>
