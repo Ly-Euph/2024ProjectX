@@ -57,8 +57,8 @@ public class Scan : MonoBehaviour
         if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
 
         // チャージは必要なくなったのでコメント化
-        //scanTimer += Time.deltaTime;
-        //scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
+        scanTimer += Time.deltaTime;
+        scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
 
         // 表示状態なら
         if(scan.activeSelf&&scanTimer>=2.0f)
@@ -80,7 +80,7 @@ public class Scan : MonoBehaviour
     /// </summary>
     public void NotCost()
     {
-        scanText.text = "USED";
+        scanText.text = "CHARGE";
     }
 
     /// <summary>
