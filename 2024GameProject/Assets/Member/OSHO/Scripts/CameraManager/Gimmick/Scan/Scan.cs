@@ -42,7 +42,7 @@ public class Scan : MonoBehaviour
         scan.SetActive(true);
         Eff.SetActive(true);
         // 使用済
-        scanText.text = "CHARGE";
+        scanText.text = "USED";
         scanImg.fillAmount = 1;
 
         return true;
@@ -55,9 +55,10 @@ public class Scan : MonoBehaviour
     {
         // チャージに切り替わったら計算開始
         if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
-        // 時間計算
-        scanTimer += Time.deltaTime;
-        scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
+
+        // チャージは必要なくなったのでコメント化
+        //scanTimer += Time.deltaTime;
+        //scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
 
         // 表示状態なら
         if(scan.activeSelf&&scanTimer>=2.0f)
@@ -79,7 +80,7 @@ public class Scan : MonoBehaviour
     /// </summary>
     public void NotCost()
     {
-        scanText.text = "CHARGE";
+        scanText.text = "USED";
     }
 
     /// <summary>
