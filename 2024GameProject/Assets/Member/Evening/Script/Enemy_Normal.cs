@@ -134,8 +134,7 @@ public class Enemy_Normal : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
-            //Destroy(deathHitEff, lifeT);
+            Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }

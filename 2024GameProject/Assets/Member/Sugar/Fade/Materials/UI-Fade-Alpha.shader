@@ -29,6 +29,7 @@ Shader "UI/Fade Alpha"
 		[PerRendererData] _MaskTex("Mask Texture", 2D) = "white" {}
 		[PerRendererData] _Color ("Tint", Color) = (1,0,1,1)
 		_Range("Range", Range (0, 1)) = 0
+	    _MainTex("Main Texture", 2D) = "white" {}
 	}
 
 	SubShader

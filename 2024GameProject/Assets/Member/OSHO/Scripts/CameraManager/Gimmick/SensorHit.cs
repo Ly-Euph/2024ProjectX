@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class SensorHit : MonoBehaviour
 {
-    [SerializeField] SensorManager SencorMng;
+    // センサー番号をMngに送り管理
+    [SerializeField] SensorManager SensorMng;
+    // このセンサーの番号
     [SerializeField] int SendNum;
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("敵に触れました");
-        SencorMng.GSSensor = SendNum;
+        SensorMng.GSSensor = SendNum;
     }
 }

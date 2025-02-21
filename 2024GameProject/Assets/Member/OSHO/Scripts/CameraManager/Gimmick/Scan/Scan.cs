@@ -16,6 +16,9 @@ public class Scan : MonoBehaviour
     const int scanCTTimer = 20;
     // クールタイムの計算用
     float scanTimer;
+
+    // スキャンエフェクト
+    [SerializeField] GameObject Eff;
     #endregion
 
     public void ScanStart()
@@ -37,6 +40,7 @@ public class Scan : MonoBehaviour
         if (scanText.text != "READY") { return false; }
         // オブジェクトを表示する
         scan.SetActive(true);
+        Eff.SetActive(true);
         // 使用済
         scanText.text = "CHARGE";
         scanImg.fillAmount = 1;
@@ -50,7 +54,7 @@ public class Scan : MonoBehaviour
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
-        if (scanText.text != "CHARGE") { return; }
+        if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
         // 時間計算
         scanTimer += Time.deltaTime;
         scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
@@ -68,5 +72,25 @@ public class Scan : MonoBehaviour
             // 一応ここで0にしておく
             scanImg.fillAmount = 0;
         }
+    }
+
+    /// <summary>
+    /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
+    /// </summary>
+    public void NotCost()
+    {
+        scanText.text = "CHARGE";
+    }
+
+    /// <summary>
+    /// コストある状態で呼び出し使えるようにする
+    /// </summary>
+    public void ReadySet()
+    {
+        if (scanImg.fillAmount != 0)
+        {
+            return;
+        }
+        scanText.text = "READY";
     }
 }
