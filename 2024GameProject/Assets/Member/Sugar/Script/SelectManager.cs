@@ -37,13 +37,6 @@ public class SelectManager : MonoBehaviour
     // height
     const int height= 200;
 
-    //画面切り替えで使う変数
-    public GameObject MainImage;
-    public Camera MainCam;
-    //画面切り替えでカメラがズームした時にテレビの前に表示する画像
-    public GameObject SubImage1;
-    public GameObject SubImage2;
-    public GameObject SubImage3;
 
     //シーン切り替え前のカメラのズームの速度
     float camsp = 40.0f;
@@ -52,7 +45,6 @@ public class SelectManager : MonoBehaviour
         // 要素数ー１の値を求める
         Max = SDB.STAGE_DATA.Count-point; // 要素数を最大値とする
         Cnum = 0;
-        MainCam.fieldOfView = 60;//カメラの垂直画角60が初期値
     }
 
     // Update is called once per frame
@@ -107,8 +99,7 @@ public class SelectManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)&&UDnum==0)
         {
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.enter);
-            ZoomCamera();
-            fade.FadeIn(7.0f, () => SceneManager.LoadScene(SDB.STAGE_DATA[LRnum].StageSceneName));
+            fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[LRnum].StageSceneName));
         }
     }
     void SDB_Set()
@@ -138,23 +129,5 @@ public class SelectManager : MonoBehaviour
         pos = RectPos[UDnum].anchoredPosition;
         Rct.sizeDelta = new Vector2(RectPos[UDnum].sizeDelta.x,height);
         Rct.anchoredPosition =pos;
-    }
-
-    void ZoomCamera()
-    {
-        MainImage.SetActive(false);
-        if(SDB.STAGE_DATA[LRnum].StageSceneName== "Tutorial")
-        {
-            SubImage1.SetActive(true);
-        }
-        else if(SDB.STAGE_DATA[LRnum].StageSceneName == "mainStage1")
-        {
-            SubImage2.SetActive(true);
-        }
-        else if (SDB.STAGE_DATA[LRnum].StageSceneName == "MainStage4")
-        {
-            SubImage3.SetActive(true);
-        }
-        MainCam.fieldOfView -= camsp;
     }
 }
