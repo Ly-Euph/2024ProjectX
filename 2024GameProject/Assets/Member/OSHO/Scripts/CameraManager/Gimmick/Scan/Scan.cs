@@ -38,7 +38,7 @@ public class Scan : MonoBehaviour
         // オブジェクトを表示する
         scan.SetActive(true);
         // 使用済
-        scanText.text = "CHARGE";
+        scanText.text = "USED";
         scanImg.fillAmount = 1;
 
         return true;
