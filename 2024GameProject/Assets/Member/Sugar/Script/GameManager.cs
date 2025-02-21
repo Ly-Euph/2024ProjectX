@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
         // FPS60を維持するように
         Application.targetFrameRate = 60;
 
+        // カーソル非表示
+        Cursor.visible = false;
+
+        // 画面解像度固定
         Screen.SetResolution(width, height, FullScreenMode.FullScreenWindow, 60);
 
     }
@@ -97,7 +101,7 @@ public class GameManager : MonoBehaviour
     {
         if (type == SEData.Type.OBJ)
         {
-            aud[0].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.OBJ].SE[(int)se]);
+            aud[1].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.OBJ].SE[(int)se]);
         }
         else if (type == SEData.Type.HUMAN)
         {

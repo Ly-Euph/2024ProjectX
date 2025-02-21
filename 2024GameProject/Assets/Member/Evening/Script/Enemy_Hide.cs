@@ -8,10 +8,9 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
 
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
-
-
     [SerializeField] GameObject deathHitEff;
-    Vector3 ofsPos=new Vector3(0,5,0);
+
+    Vector3 ofsPos =new Vector3(0,5,0);
     float lifeT = 1.0f;
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
@@ -143,8 +142,8 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            Instantiate(deathHitEff, myObj.position+ofsPos, myObj.rotation);
-            //Destroy(deathHitEff,lifeT);
+            //Instantiate(eTest, myObj.position+ofsPos, myObj.rotation);
+            Destroy(deathHitEff,lifeT);
             //Debug.Log("死亡");
         }
     }

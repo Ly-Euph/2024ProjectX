@@ -74,17 +74,20 @@ public class Volt : MonoBehaviour
     /// <summary>
     /// チャージ出来ていてもバッテリーが足りない時に使えないことを知らせる
     /// </summary>
-    /// <param name="cost">このギミックの使用コスト</param>
-    /// <param name="battery">バッテリーの残量</param>
-    public void NowCost(int cost,float battery)
+    public void NotCost()
     {
-        if(cost>=battery)
+        voltText.text = "CHARGE";
+    }
+
+    /// <summary>
+    /// コストある状態で呼び出し使えるようにする
+    /// </summary>
+    public void ReadySet()
+    {
+        if(voltImg.fillAmount!=0)
         {
-            voltText.text = "CHARGE";
+            return;
         }
-        else
-        {
-            voltText.text = "READY";
-        }
+        voltText.text = "READY";
     }
 }
