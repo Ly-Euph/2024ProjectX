@@ -55,8 +55,7 @@ public class Scan : MonoBehaviour
     {
         // チャージに切り替わったら計算開始
         if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
-
-        // チャージは必要なくなったのでコメント化
+        // 時間計算
         scanTimer += Time.deltaTime;
         scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
 
