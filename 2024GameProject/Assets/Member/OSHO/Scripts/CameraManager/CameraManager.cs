@@ -108,7 +108,7 @@ public class CameraManager : MonoBehaviour
             }
         }
         // ボルトのリチャージ
-        //volt.Recharge();
+        volt.Recharge();
 
         // スキャン機能
         if (Input.GetKeyDown(KeyCode.C))
@@ -136,7 +136,7 @@ public class CameraManager : MonoBehaviour
             }
         }
         // スキャンのリチャージ
-        scan.Recharge();
+        //scan.Recharge();
 
         if(Input.GetKeyDown(KeyCode.F))
         {
