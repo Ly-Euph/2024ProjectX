@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Enemy_Hide : MonoBehaviour,IDamageable
 {
-    [SerializeField] public DissolveEffect dissolveEffect;
-
     SubLight sensorLight;
 
     private Cinemachine.CinemachineDollyCart dolly;
     private Cinemachine.CinemachinePathBase myPath;
+    [SerializeField] GameObject deathHitEff;
 
-    Vector3 ofsPos=new Vector3(0,5,0);
+    Vector3 ofsPos =new Vector3(0,5,0);
     float lifeT = 1.0f;
 
     [SerializeField] Cinemachine.CinemachinePathBase[] path;
@@ -144,7 +143,7 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
             // エフェクト生成
             var myObj = this.gameObject.transform;
             //Instantiate(eTest, myObj.position+ofsPos, myObj.rotation);
-            //Destroy(deathHitEff,lifeT);
+            Destroy(deathHitEff,lifeT);
             //Debug.Log("死亡");
         }
     }

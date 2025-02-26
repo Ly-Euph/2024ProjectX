@@ -36,6 +36,10 @@ public class SelectManager : MonoBehaviour
     const int point = 1;
     // height
     const int height= 200;
+
+
+    //シーン切り替え前のカメラのズームの速度
+    float camsp = 40.0f;
     void Start()
     {
         // 要素数ー１の値を求める

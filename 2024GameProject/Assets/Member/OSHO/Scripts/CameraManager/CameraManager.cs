@@ -38,6 +38,10 @@ public class CameraManager : MonoBehaviour
     private int cameraNum = 1;
     private int keyNum = 1;
 
+    // カメラ切り替えのクールタイム
+    private const float camCT = 0.3f; // セット用
+    private float camTimer = camCT;   // 計算用
+    private bool IsChange = false;
 
     // ソナー使用のフラグ
     private bool trapFlg = false;
@@ -48,6 +52,7 @@ public class CameraManager : MonoBehaviour
     // センサーライトフラグオンオフ切替
     private bool IsSwitch = false;
 
+    // チュートリアル用の変数
     [SerializeField] bool IsTutorial = false;
     #endregion
 
@@ -131,7 +136,7 @@ public class CameraManager : MonoBehaviour
             }
         }
         // スキャンのリチャージ
-        scan.Recharge();
+        //scan.Recharge();
 
         if(Input.GetKeyDown(KeyCode.F))
         {
@@ -198,10 +203,21 @@ public class CameraManager : MonoBehaviour
     /// </summary>
     private void CamChange()
     {
+        // クールタイム
+        if (IsChange) {
+            camTimer -= Time.deltaTime;
+            if(camTimer<=0)
+            {
+                camTimer = camCT;
+                IsChange = false;
+            }
+            return; }
+
         for (int i = 1; i <= cam.CameraNum; i++)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i - 1))
             {
+                IsChange = true;
                 //カメラ切り替え時のSE
                 gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
                 //fadeさせる処理
@@ -225,6 +241,7 @@ public class CameraManager : MonoBehaviour
                 cameraNum = cam.CameraNum;
             }
 
+            IsChange = true;
             //カメラ切り替え時のSE
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
             //fadeさせる処理
@@ -246,6 +263,8 @@ public class CameraManager : MonoBehaviour
             {
                 cameraNum = keyNum;
             }
+
+            IsChange = true;
             //カメラ切り替え時のSE
             gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.Eff1);
             //fadeさせる処理

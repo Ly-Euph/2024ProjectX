@@ -595,7 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbaf795cd4a5b9409f90d2fcd587b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dissolveEffect: {fileID: 2386433917166148570}
   deathHitEff: {fileID: 8157968101478334049, guid: fcb74f28d107e284e80af037bfec14ca, type: 3}
   path:
   - {fileID: 6098102727270166339, guid: 6e4836bbb73f2c845b7722f458b670e2, type: 3}

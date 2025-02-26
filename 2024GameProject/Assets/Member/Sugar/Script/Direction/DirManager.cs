@@ -9,7 +9,6 @@ public class DirManager : MonoBehaviour
     #region All
     // ゲームオーバーが作動したら動かさない
     [SerializeField] GameOverObj gameOverObj;
-    [SerializeField] Fade fade;
     [SerializeField] GameObject img;
     [SerializeField] SubLight light;
     #endregion
@@ -38,28 +37,17 @@ public class DirManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameOverObj.SendDetection)
+        if (light.IsLight)
         {
-            //setBright -= 10;
-            if (!img.activeSelf)
-            {
-                img.SetActive(true);
-                fade.FadeIn(0.5f, () => SceneManager.LoadScene("GameOverScene"));
-            }
+            setBright = 100;
+            return;
         }
         else
         {
-            if (light.IsLight)
-            {
-                setBright = 100;
-                return;
-            }
-            else
-            {
-                setBright = fademaxBright;
-            }
-            Bright();
+            setBright = fademaxBright;
         }
+        Bright();
+
     }
 
     /// <summary>
