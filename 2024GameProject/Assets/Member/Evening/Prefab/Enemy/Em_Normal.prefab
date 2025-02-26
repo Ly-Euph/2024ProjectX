@@ -782,7 +782,6 @@ GameObject:
   - component: {fileID: 3446382755227497125}
   - component: {fileID: 3446382755227497124}
   - component: {fileID: 3446382755227497127}
-  - component: {fileID: 1971235062530187236}
   m_Layer: 0
   m_Name: Em_Normal
   m_TagString: NormalEnemy
@@ -845,28 +844,6 @@ MonoBehaviour:
   m_PositionUnits: 0
   m_Speed: 0.5
   m_Position: 0
---- !u!114 &1971235062530187236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3446382755227497126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9693bd4c41f70bf4c813702df20dd745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  path:
-  - {fileID: 6315046100411024146, guid: 8d1157c4787b70e408e6f1aef20d611a, type: 3}
-  - {fileID: 6040305029103219391, guid: e330ab2f9ccdee4438a3755ffcb39a99, type: 3}
-  - {fileID: 8711114913910922525, guid: 98e2e2f0429fd544a916bcbe12da8a83, type: 3}
-  - {fileID: 5113174165670531692, guid: 48dc6aaef15245e46ba2f2a6621504c9, type: 3}
-  - {fileID: 5078798553069665193, guid: b2adf043267adf542803248b113d05dd, type: 3}
-  - {fileID: 7072047264249755006, guid: 4f287204efc08684993f46b03ba60aa6, type: 3}
-  - {fileID: 4639392178635908607, guid: 8ee815f8086f40b40b589a42af0c7df1, type: 3}
-  stage: 0
-  DEATH: {fileID: 1995643022751970703}
 --- !u!1 &3446382755232539819
 GameObject:
   m_ObjectHideFlags: 0
