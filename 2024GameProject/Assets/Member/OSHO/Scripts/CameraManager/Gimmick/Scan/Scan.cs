@@ -42,7 +42,7 @@ public class Scan : MonoBehaviour
         scan.SetActive(true);
         Eff.SetActive(true);
         // égópçœ
-        scanText.text = "CHARGE";
+        scanText.text = "USED";
         scanImg.fillAmount = 1;
 
         return true;
@@ -79,7 +79,7 @@ public class Scan : MonoBehaviour
     /// </summary>
     public void NotCost()
     {
-        scanText.text = "CHARGE";
+        scanText.text = "USED";
     }
 
     /// <summary>
