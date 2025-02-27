@@ -136,7 +136,7 @@ public class CameraManager : MonoBehaviour
             }
         }
         // スキャンのリチャージ
-        scan.Recharge();
+        //scan.Recharge();
 
         if(Input.GetKeyDown(KeyCode.F))
         {
