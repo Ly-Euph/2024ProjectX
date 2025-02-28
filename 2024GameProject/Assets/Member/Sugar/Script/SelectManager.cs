@@ -121,8 +121,8 @@ public class SelectManager : MonoBehaviour
         // ステージの名前
         StageNameText.text = IxSDB[LRnum].StageName;
         // 難易度とカメラ数
-        Info.text = IxSDB[LRnum].infomation_Level + "\n"
-            + IxSDB[LRnum].infomation_Cam;
+        Info.text = IxSDB[LRnum].information_Level + "\n"
+            + IxSDB[LRnum].information_Cam;
     }
     void RectPosChange()
     {
