@@ -123,7 +123,8 @@ public class Enemy_Speed : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            Destroy(deathHitEff, lifeT);
+            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
+            // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }
