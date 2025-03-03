@@ -28,8 +28,6 @@ public class CameraManager : MonoBehaviour
     [Header("バッテリー機能"), SerializeField] BatteryManager battery;
     // 音再生に使う
     [Header("音再生機能のスクリプト"),SerializeField] GameManager gMng;
-    // シーン始まりのフェードに使う
-    [Header("StartFadeオブジェクトを入れて"), SerializeField] GameObject startFadeObj;
     // コスト
     const int cost_volt = 5;  // ボルト
     const int cost_scan = 15; // スキャン
@@ -58,16 +56,6 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        // ゲーム開始時のフェード処理
-        //fadeさせる処理
-        fade.FadeIn(0.01f, () =>
-        {
-            Destroy(startFadeObj);
-            fade.FadeOut(1.0f);
-        }
-        ) ;
-
-
         // カメラの設定
         cam.CameraStart();
         // ボルトの初期設定
