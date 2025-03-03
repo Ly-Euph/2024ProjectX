@@ -8101,6 +8101,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bdd04d620713742b07d3b27026ddf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy:
+  - {fileID: 4173108282268925229, guid: 541b395292f778a4c9b36f940739d77f, type: 3}
+  - {fileID: 4173108282268925229, guid: 541b395292f778a4c9b36f940739d77f, type: 3}
+  - {fileID: 5838446041508435789, guid: 41d00c66ef55acc41bf73294a2cb221b, type: 3}
+  - {fileID: 5838446041508435789, guid: 41d00c66ef55acc41bf73294a2cb221b, type: 3}
+  - {fileID: 1870769268354174491, guid: 5d3ad278e87ef4f43a8dfa80e3dfab2c, type: 3}
+  - {fileID: 1870769268354174491, guid: 5d3ad278e87ef4f43a8dfa80e3dfab2c, type: 3}
+  stageName: 2
+  spawnLate: 1
 --- !u!4 &2086320580
 Transform:
   m_ObjectHideFlags: 0
