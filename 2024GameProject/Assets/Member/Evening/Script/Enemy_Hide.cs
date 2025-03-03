@@ -142,8 +142,8 @@ public class Enemy_Hide : MonoBehaviour,IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            //Instantiate(eTest, myObj.position+ofsPos, myObj.rotation);
-            Destroy(deathHitEff,lifeT);
+            Instantiate(deathHitEff, myObj.position+ofsPos, myObj.rotation);
+            //Destroy(deathHitEff,lifeT);
             //Debug.Log("死亡");
         }
     }
