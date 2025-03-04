@@ -28146,6 +28146,7 @@ GameObject:
   - component: {fileID: 1582805001}
   - component: {fileID: 1582805003}
   - component: {fileID: 1582805002}
+  - component: {fileID: 1582805004}
   m_Layer: 5
   m_Name: StartFade
   m_TagString: Untagged
@@ -28210,6 +28211,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582805000}
   m_CullTransparentMesh: 1
+--- !u!114 &1582805004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582805000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd0e6495faa3ea46a3f0e57bdb022a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 1582805002}
 --- !u!1001 &1594574278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38247,7 +38261,6 @@ MonoBehaviour:
   fade: {fileID: 1159274771}
   battery: {fileID: 2401082913906132433}
   gMng: {fileID: 93225977}
-  startFadeObj: {fileID: 1582805000}
   IsTutorial: 0
 --- !u!114 &2401082912832311008
 MonoBehaviour:
