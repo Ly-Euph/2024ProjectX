@@ -41,7 +41,7 @@ public class Enemy_Speed_Stage2 : MonoBehaviour, IDamageable
 
         myPath = path[0];
         stage = 0;
-        rootRand = Random.Range(0, 7);
+        rootRand = Random.Range(0, 9);
         myPath = path[root[rootRand, stage]];
 
         anim = GetComponent<Animator>();

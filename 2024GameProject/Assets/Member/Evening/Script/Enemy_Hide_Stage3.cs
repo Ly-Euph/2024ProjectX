@@ -48,7 +48,7 @@ public class Enemy_Hide_Stage3 : MonoBehaviour,IDamageable
 
         myPath = path[0];
         stage = 0;
-        rootRand = Random.Range(0, 7);
+        rootRand = Random.Range(0, 6);
         myPath = path[root[rootRand, stage]];
 
         anim = GetComponent<Animator>();
@@ -141,13 +141,13 @@ public class Enemy_Hide_Stage3 : MonoBehaviour,IDamageable
 
     void EmDie()
     {
-        if (hp == 0)
+        if (hp <= 0)
         {
-            dolly.m_Speed = 0;
-            animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
+            Instantiate(deathHitEff, myObj.position, myObj.rotation);
+            dolly.m_Speed = 0;
+            animNum = 2;
             // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }

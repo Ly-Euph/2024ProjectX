@@ -120,11 +120,11 @@ public class Enemy_Speed_Stage3 : MonoBehaviour,IDamageable
     {
         if (hp <= 0)
         {
-            dolly.m_Speed = 0;
-            animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
+            Instantiate(deathHitEff, myObj.position, myObj.rotation);
+            dolly.m_Speed = 0;
+            animNum = 2;
             // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
