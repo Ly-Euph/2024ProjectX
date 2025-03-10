@@ -46,7 +46,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
 
         myPath = path[0];
         stage = 0;
-        INT_rootRand = Random.Range(0, 7);
+        INT_rootRand = Random.Range(0, 9);
         myPath = path[root[INT_rootRand, stage]];
 
         anim = GetComponent<Animator>();
@@ -132,6 +132,7 @@ public class Enemy_Normal_Stage2 : MonoBehaviour, IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
+            Instantiate(deathHitEff, myObj.position + ofsPos, myObj.rotation);
             // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }

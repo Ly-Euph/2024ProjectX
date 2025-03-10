@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18cd728372b18ca478461cb26fed2da5, type: 3}
-  m_Name: Stage3
+  m_Name: Main2
   m_EditorClassIdentifier: 
-  StageName: "\u30C1\u30E5\u30FC\u30C8\u30EA\u30A2\u30EB"
-  StageImage: {fileID: 21300000, guid: 58a3d147504cfa64499348bfd2852b92, type: 3}
-  infomation_Level: 
-  infomation_Cam: 
-  StageSceneName: Tutorial
+  StageName: "\u7814\u7A76\u6240"
+  StageImage: {fileID: 21300000, guid: 9677486d999950f46a17d026b045f5d8, type: 3}
+  information_Level: "\u5371\u967A\u5EA6B"
+  information_Cam: "\u30A8\u30EA\u30A2:7"
+  StageSceneName: MainStage2

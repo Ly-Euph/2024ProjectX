@@ -22,14 +22,12 @@ public class CameraManager : MonoBehaviour
     // UIの揺れ実装
     // 0:センサー 1:スキャン 2:ボルト
     [Header("UIShakeのスクリプト"), SerializeField] UIShake[] shake;
-
     // フェードの実装
     [Header("Fadeのスクリプト"), SerializeField] Fade fade;
     // 回復,消費、カラーチェンジなどをこのスクリプトで
     [Header("バッテリー機能"), SerializeField] BatteryManager battery;
     // 音再生に使う
     [Header("音再生機能のスクリプト"),SerializeField] GameManager gMng;
-
     // コスト
     const int cost_volt = 5;  // ボルト
     const int cost_scan = 15; // スキャン
@@ -275,6 +273,7 @@ public class CameraManager : MonoBehaviour
         }
     }
 
+
     // 現状ステルスの敵に対して使う
     /// <summary>
     /// trapFlgの値やり取り用
@@ -299,7 +298,7 @@ public class CameraManager : MonoBehaviour
 
     // チュートリアルでの呼び出し関数
     // Updateでの処理を向こうで呼び出すイメージ
-
+    #region Tutorial
     /// <summary>
     /// カメラ切り替え
     /// </summary>
@@ -414,4 +413,5 @@ public class CameraManager : MonoBehaviour
         }
         return false;
     }
+    #endregion
 }

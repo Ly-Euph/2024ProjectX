@@ -49,7 +49,7 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
 
         myPath = path[0];
         stage = 0;
-        rootRand = Random.Range(0, 7);
+        rootRand = Random.Range(0, 9);
         myPath = path[root[rootRand, stage]];
 
         anim = GetComponent<Animator>();
@@ -148,7 +148,8 @@ public class Enemy_Hide_Stage2 : MonoBehaviour, IDamageable
             animNum = 2;
             // エフェクト生成
             var myObj = this.gameObject.transform;
-           // Destroy(deathHitEff, lifeT);
+            Instantiate(deathHitEff, myObj.position, myObj.rotation);
+            // Destroy(deathHitEff, lifeT);
             //Debug.Log("死亡");
         }
     }
