@@ -54,10 +54,10 @@ public class Scan : MonoBehaviour
     public void Recharge()
     {
         // チャージに切り替わったら計算開始
-        if (scanText.text != "CHARGE" && scanImg.fillAmount == 0) { return; }
+        if (scanText.text != "USED" && scanImg.fillAmount == 0) { return; }
         // 時間計算
         scanTimer += Time.deltaTime;
-        scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
+        //scanImg.fillAmount -= 1.0f / (float)scanCTTimer * Time.deltaTime;
 
         // 表示状態なら
         if(scan.activeSelf&&scanTimer>=2.0f)
@@ -65,13 +65,13 @@ public class Scan : MonoBehaviour
             // オブジェクトを非表示に切替
             scan.SetActive(false);
         }
-        if (scanTimer >= scanCTTimer)
-        {
-            scanTimer = 0;
-            scanText.text = "READY";
-            // 一応ここで0にしておく
-            scanImg.fillAmount = 0;
-        }
+        //if (scanTimer >= scanCTTimer)
+        //{
+        //    scanTimer = 0;
+        //    scanText.text = "READY";
+        //    // 一応ここで0にしておく
+        //    scanImg.fillAmount = 0;
+        //}
     }
 
     /// <summary>
