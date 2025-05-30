@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -82,18 +80,6 @@ public class SelectManager : MonoBehaviour
                 else { LRnum += point; }
             }
         }
-        //if(INPUT_W)
-        //{
-        //    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
-        //    if (UDnum == Min) { UDnum = UDMax; }
-        //    else { UDnum -= point; }
-        //}
-        //if (INPUT_S)
-        //{
-        //    gMng.OneShotSE_U(SEData.Type.ETC, GameManager.UISe.wasd);
-        //    if (UDnum == UDMax) { UDnum = Min; }
-        //    else { UDnum += point; }
-        //}
 
         // ゲーム開始のボタンとアウトラインが重なってから押したら始められる
         if (Input.GetKeyDown(KeyCode.Return)&&UDnum==0)
@@ -102,6 +88,7 @@ public class SelectManager : MonoBehaviour
             fade.FadeIn(0.5f, () => SceneManager.LoadScene(SDB.STAGE_DATA[LRnum].StageSceneName));
         }
     }
+    // ステージデータベースをもとにUI反映
     void SDB_Set()
     {
         // 省略用
@@ -124,10 +111,13 @@ public class SelectManager : MonoBehaviour
         Info.text = IxSDB[LRnum].information_Level + "\n"
             + IxSDB[LRnum].information_Cam;
     }
+
+    #region Test
     void RectPosChange()
     {
         pos = RectPos[UDnum].anchoredPosition;
         Rct.sizeDelta = new Vector2(RectPos[UDnum].sizeDelta.x,height);
         Rct.anchoredPosition =pos;
     }
+    #endregion
 }

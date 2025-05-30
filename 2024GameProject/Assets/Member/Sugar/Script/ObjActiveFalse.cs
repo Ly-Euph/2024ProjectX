@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+// スキャン時のエフェクトの処理
 public class ObjActiveFalse : MonoBehaviour
 {
     float _timer = 0;

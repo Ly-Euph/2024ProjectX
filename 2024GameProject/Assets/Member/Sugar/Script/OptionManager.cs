@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class OptionManager : MonoBehaviour
@@ -154,7 +152,11 @@ public class OptionManager : MonoBehaviour
         ImageOutLine.sizeDelta = SetPos[num].sizeDelta;
     }
 
-    // 音量調整の値の変更
+    /// <summary>
+    /// 音量調整の値の変更
+    /// </summary>
+    /// <param name="List_num"></param>
+    /// <param name="mark">どのキーか</param>
     void Vol(int List_num,string mark)
     {
         // mark変数はAorDで値を増加するのか減少させるかの判別
@@ -204,6 +206,7 @@ public class OptionManager : MonoBehaviour
         setVol();
     }
 
+    // テキスト表示
     private void Vol_Text()
     {
         Text_VolNum[0].text = M_num.ToString();
@@ -249,6 +252,7 @@ public class OptionManager : MonoBehaviour
         }
     }
 
+    // 
     private void Vol_Audio()
     {
         // マスターボリューム

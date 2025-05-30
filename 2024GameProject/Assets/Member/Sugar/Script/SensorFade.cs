@@ -1,7 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+// センサーが反応した時の処理
 public class SensorFade : MonoBehaviour
 {
     [SerializeField] Image img;
@@ -22,7 +22,7 @@ public class SensorFade : MonoBehaviour
         _time = 0;
     }
 
-    // Update is called once per frame
+    // フェード
     void Update()
     {
         switch (num)

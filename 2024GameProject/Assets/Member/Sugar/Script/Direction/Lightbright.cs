@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Lightbright : MonoBehaviour
@@ -10,6 +8,7 @@ public class Lightbright : MonoBehaviour
     // –¾‚é‚³•ÏX’l‚ğ–á‚¤
     [SerializeField] DirManager dirMng;
 
+    // ‰Šú’l
     int range = 70;
 
     void Update()

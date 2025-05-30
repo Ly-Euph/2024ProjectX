@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SensorManager : MonoBehaviour
@@ -9,7 +7,7 @@ public class SensorManager : MonoBehaviour
     bool recieve = false;
     [Header("表示場所"), SerializeField] GameObject[] Obj;
 
-    // Start is called before the first frame update
+
     public int GSSensor
     {
         set 
@@ -26,6 +24,7 @@ public class SensorManager : MonoBehaviour
         }
 
     }
+    // センサーに敵が触れたかどうかを返す
     public bool Recieve
     {
         get

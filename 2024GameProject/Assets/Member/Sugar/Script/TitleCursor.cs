@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -78,7 +76,6 @@ public class TitleCursor : MonoBehaviour
         this.gameObject.GetComponent<RectTransform>().anchoredPosition =
           ObjRect[num].anchoredPosition ;
     }
-    // Update is called once per frame
     void Update()
     {
         if (OptionBox.activeSelf == true) { return; }

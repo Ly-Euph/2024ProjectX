@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class OptionUICur : MonoBehaviour
@@ -15,6 +13,7 @@ public class OptionUICur : MonoBehaviour
 
     [SerializeField] GameObject UIPre;
 
+    // ‰¹Ä¶‚Ég‚¤
     [SerializeField] GameManager gMng;
 
     int num = 0;
@@ -25,11 +24,12 @@ public class OptionUICur : MonoBehaviour
     {
         num = 0;
     }
+
+    // ‰Šú‰»’l
     private void OnEnable()
     {
         num = 0;
     }
-    // Update is called once per frame
     void Update()
     {
         InputKey();
@@ -40,6 +40,8 @@ public class OptionUICur : MonoBehaviour
         this.gameObject.GetComponent<RectTransform>().anchoredPosition =
           List[num].anchoredPosition;
     }
+
+    // “ü—Íˆ—
     void InputKey()
     {
         if (Input.GetKeyDown(KeyCode.W)

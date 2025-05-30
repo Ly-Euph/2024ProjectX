@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] AudioSource[] aud;
 
-
+    // 画面サイズ指定
     int width = 1920;
     int height = 1080;
     void Start()
@@ -31,12 +29,16 @@ public class GameManager : MonoBehaviour
         timeManager();
         InputKEY();
     }
+
+    // メニュー画面を開いた時時間を止める
     void timeManager()
     {
         if (Target[0].activeSelf == true || Target[1].activeSelf == true) { Time.timeScale = 0; }
         else if (Target[0].activeSelf == false || Target[1].activeSelf == false) { Time.timeScale = 1; }
 
     }
+
+    // 入力
     void InputKEY()
     {
         if (B_Title) { return; }
@@ -98,16 +100,16 @@ public class GameManager : MonoBehaviour
     /// <param name="clipse"></param>
     public void OneShotSE_C(SEData.Type type, ClipSe se)
     {
-        if (type == SEData.Type.OBJ)
+        if (type == SEData.Type.OBJ) // BGM
         {
             aud[1].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.OBJ].SE[(int)se]);
         }
-        else if (type == SEData.Type.HUMAN)
+        else if (type == SEData.Type.HUMAN) // 敵とかキャラクター
         {
             aud[0].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.HUMAN].SE[(int)se]);
         }
     }
-    public void OneShotSE_U(SEData.Type type, UISe se)
+    public void OneShotSE_U(SEData.Type type, UISe se) // UI
     {
         aud[0].PlayOneShot(dataBase.SEDATA[(int)SEData.Type.ETC].SE[(int)se]);
     }

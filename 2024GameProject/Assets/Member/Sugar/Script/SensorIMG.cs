@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 public class SensorIMG : MonoBehaviour
 {
     #region field
@@ -16,6 +13,7 @@ public class SensorIMG : MonoBehaviour
             Spawn();
         }
     }
+    // “G‚Ì‚¢‚éƒGƒŠƒA”Ô†‚ÌImage‚ğ•\¦‚·‚é
     void Spawn()
     {
         Obj[sMng.GSSensor - 1].SetActive(true);

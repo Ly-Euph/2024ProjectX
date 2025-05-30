@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// 見えない敵を映すライトの実装
 public class SubLight : MonoBehaviour
 {
     string colorMain = "#D0FF8D"; // 初期ライトのカラーコード

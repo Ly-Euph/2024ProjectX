@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Pixeye.Unity;   // フォルダ機能
 
 public class CameraManager : MonoBehaviour

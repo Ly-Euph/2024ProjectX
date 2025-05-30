@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DirManager : MonoBehaviour
 {
@@ -110,6 +107,8 @@ public class DirManager : MonoBehaviour
             bNum++;
         }
     }
+
+    // ’l‚ð‘—‚é‚æ‚¤
     public int SendBright
     {
         get { return setBright; }

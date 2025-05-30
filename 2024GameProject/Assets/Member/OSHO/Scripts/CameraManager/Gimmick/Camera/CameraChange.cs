@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// ƒJƒƒ‰‚ğØ‚è‘Ö‚¦‚Ü‚·
 public class CameraChange : MonoBehaviour
 {
     #region field

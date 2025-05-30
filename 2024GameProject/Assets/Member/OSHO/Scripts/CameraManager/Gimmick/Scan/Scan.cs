@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class Scan : MonoBehaviour
@@ -65,13 +63,6 @@ public class Scan : MonoBehaviour
             // オブジェクトを非表示に切替
             scan.SetActive(false);
         }
-        //if (scanTimer >= scanCTTimer)
-        //{
-        //    scanTimer = 0;
-        //    scanText.text = "READY";
-        //    // 一応ここで0にしておく
-        //    scanImg.fillAmount = 0;
-        //}
     }
 
     /// <summary>

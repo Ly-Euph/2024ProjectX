@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EchoManager : MonoBehaviour
@@ -44,6 +42,5 @@ public class EchoManager : MonoBehaviour
         {
             EchoUI[0].SetActive(true);
         }
-        // —¬‚ê
     }
 }
